@@ -1,0 +1,14 @@
+Temas de Compilacion
+ - https://github.com/rollup/rollup-plugin-multi-entry
+ - https://rollupjs.org/#peer-dependencies
+ - https://github.com/rollup/rollup-plugin-replace
+
+ Habria que poder generar una compilación. por cada libreria de mapas
+ Estaria bien poder crear una libreria con RxJs y otra sin. Tampoco estaria mal poder añadir las librearias de mapas
+
+ Estaria bien poder utilizar el replace para utilizar un solo import sin poner la libreria ni la version
+
+
+Distribucion, para publicar la libreria en un CDN
+
+ https://unpkg.com/#/
