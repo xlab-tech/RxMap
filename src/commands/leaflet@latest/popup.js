@@ -1,6 +1,6 @@
 // Create a marker and set its position.
 
-import Map from './../../core/Map.js';
+import Map from './../../core/RxMap';
 
 const popup = function (contentString) {
     const map = this.getMap();

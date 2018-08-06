@@ -2,11 +2,11 @@ import { applyMiddlewares } from './middlewares.js';
 import { registerOperator } from './registerOperator.js';
 import CommandBus from './CommandBus.js';
 import AsyncCommandBus from './AsyncCommandBus.js';
-import isPromise from './../utils/isPromise.js';
+import isPromise from '../utils/isPromise.js';
 
 const registerCommands = {};
 
-const isAsyncCommandBus = function(value) {
+const isAsyncCommandBus = function (value) {
     return value && typeof value.subscribe === 'function' && typeof value.execute === 'function';
 };
 
@@ -28,6 +28,9 @@ export const registerCommand = (commandName, command) => {
         Object.keys(registerCommands).map(key => registerCommand(key));
         return;
     }
+    // if (CommandBus.prototype[commandName]) {
+    //    throw `Command ${commandName} yet registered`
+    // }
     if (command) {
         registerCommands[commandName] = command;
     } else {

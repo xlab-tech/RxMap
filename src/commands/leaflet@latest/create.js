@@ -1,6 +1,5 @@
-import Map from './../../core/Map.js';
-
-const L = window.L;
+import Map from './../../core/RxMap';
+import L from 'leaflet'
 
 const create = function (id, lat, lng, zoom) {
     const map = L.map(id).setView([lat, lng], zoom);
@@ -8,7 +7,9 @@ const create = function (id, lat, lng, zoom) {
         attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
     this.setMap(map);
+
     return map;
+
 };
 
 Map.register('create', create);

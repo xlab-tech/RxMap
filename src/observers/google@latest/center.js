@@ -1,15 +1,17 @@
-import Map from './../../core/Map.js';
+import Map from './../../core/RxMap';
 import { Observable } from 'rxjs/Observable.js';
 import 'rxjs/add/observable/fromEventPattern';
 import 'rxjs/add/operator/map';
+import getGoogleMap from './../../utils/google';
 
 const event = function () {
+    const googleMaps = getGoogleMap();
     const map = this.getMap();
     const addClickHandler = function (handler) {
         return map.addListener('center_changed', handler);
     };
     const removeClickHandler = function (handler, listener) {
-        google.maps.event.removeListener(listener);
+        googleMaps.event.removeListener(listener);
     };
 
     return Observable.fromEventPattern(

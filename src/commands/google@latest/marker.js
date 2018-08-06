@@ -1,17 +1,17 @@
 // Create a marker and set its position.
 
-import Map from './../../core/Map.js';
+import Map from './../../core/RxMap';
+import getGoogleMap from './../../utils/google';
 
-const googleMaps = google.maps;
-
-const marker = function (lat, lng) {
+const marker = function (options) {
+    const googleMaps = getGoogleMap();
     const map = this.getMap();
-    const myLatLng = {lat: lat, lng: lng};
+    const { lat, lng } = options;
+    const myLatLng = { lat, lng };
     const marker = new googleMaps.Marker({
         map: map,
         position: myLatLng,
-        //title: 'Hello World!'
-      });
+    });
     return marker;
 };
 

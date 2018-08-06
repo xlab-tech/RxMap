@@ -14,7 +14,6 @@ const getCommandBus = (source) => {
     }
 };
 
-
 Observable.prototype.setCommandBus = function (commandBus) {
     this._commandBus = commandBus;
     return this;

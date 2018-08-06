@@ -1,5 +1,5 @@
 import CommandBus from './CommandBus.js';
-import isPromise from './../utils/isPromise.js';
+import isPromise from '../utils/isPromise.js';
 
 class AsyncCommandBus extends CommandBus {
     constructor() {
@@ -18,7 +18,7 @@ class AsyncCommandBus extends CommandBus {
         }
     }
     execute(commandName, command, args) {
-        console.log("ASYNC",this.async);
+        // console.log("ASYNC",this.async);
         if (this.async) {
             this.queue.push({
                 commandName: commandName,
@@ -29,10 +29,10 @@ class AsyncCommandBus extends CommandBus {
         }
         const ret = this._execute(commandName, command, args);
         if (isPromise(ret)) {
-            console.log("Set ASYNC");
+            // console.log("Set ASYNC");
             this.async = true;
             ret.then(data => {
-                console.log("DESPUES");
+                // console.log("DESPUES");
                 return this._next()
             })
         }

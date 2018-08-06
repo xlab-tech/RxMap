@@ -1,10 +1,10 @@
 // Create a marker and set its position.
 
-import Map from './../../core/Map.js';
-
-const googleMaps = google.maps;
+import Map from './../../core/RxMap';
+import getGoogleMap from './../../utils/google';
 
 const popup = function (contentString) {
+    const googleMaps = getGoogleMap();
     const map = this.getMap();
     const lastValue = this.value();
     const { value, name } = lastValue;

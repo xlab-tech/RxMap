@@ -1,4 +1,4 @@
-import Map from './../../core/Map.js';
+import Map from './../../core/RxMap';
 import { Observable } from 'rxjs/Observable.js';
 import 'rxjs/add/observable/fromEventPattern';
 import 'rxjs/add/operator/map';
