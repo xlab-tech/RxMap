@@ -3,8 +3,7 @@ import CommandBus from './CommandBus.js';
 import { registerCommand } from './registerCommand.js';
 import { setObserver } from './registerObserver.js';
 import './Observable.js';
-import Map from 'core-js/es6/map';   
-
+ 
 let _Map;
 
 const createMap = () => {
@@ -17,7 +16,7 @@ const createMap = () => {
 export class RxMap extends CommandBus {
     constructor() {
         super();
-        this._types = new Map();
+        this._types = {};
         // TODO: buscar otra manaera de detectar los modulos comunes
         console.log('Create Map instance');
     }
@@ -38,12 +37,12 @@ export class RxMap extends CommandBus {
     init() {
         return new RxMap();
     }
-    
+
     setType(id, geomType, style) {
-        this._types.set(id, { geomType, style });
+        this._types[id] = { geomType, style };
     }
     getType(id) {
-        return this._types.get(id);
+        return this._types[id];
     }
 }
 
