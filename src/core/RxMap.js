@@ -3,14 +3,15 @@ import CommandBus from './CommandBus.js';
 import { registerCommand } from './registerCommand.js';
 import { setObserver } from './registerObserver.js';
 import './Observable.js';
+import Map from 'core-js/es6/map'; 
 
-let Map;
+let _Map;
 
 const createMap = () => {
-    if (!Map) {
-        Map = new RxMap();
+    if (!_Map) {
+        _Map = new RxMap();
     }
-    return Map;
+    return _Map;
 };
 
 export class RxMap extends CommandBus {
