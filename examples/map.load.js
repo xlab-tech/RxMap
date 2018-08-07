@@ -1,10 +1,9 @@
 
 import Map from './../src/core/RxDynamicMap';
+import { map } from 'rxjs/internal/operators/map';
+import { take } from 'rxjs/internal/operators/take';
+import { delay } from 'rxjs/internal/operators/delay';
 
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/delay';
-import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/observable/fromPromise';
 
 import { LoggerMiddleware, TimerMiddleware } from './../src/middleware/logger.js';
 
@@ -35,11 +34,11 @@ const p = async () => {
         .popup('adios Mundo');
 
     Map.observer('center')
-        .take(5)
+        .pipe(take(5))
         .subscribe(data => console.log('subscribe Center', data))
 
     Map.observer('gps')
-        .take(3)
+        .pipe(take(3))
         .setCenter(res => ({ lat: res.latitude, lng: res.longitude }))
         .subscribe((data) => console.log('GPS', data));
     /*Map.observer('click')
@@ -53,11 +52,13 @@ const p = async () => {
     ];
 
     Map.observer(positions)
-        .delay(1000)
-        .map(d => {
-            console.log('PRE 2 MAP', d);
-            return d;
-        })
+        .pipe(
+            delay(1000),
+            map(d => {
+                console.log('PRE 2 MAP', d);
+                return d;
+            })
+        )
         .marker(res => res)
         .popup('click')
         .subscribe();

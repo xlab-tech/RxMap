@@ -2,10 +2,7 @@
 import Map from './../src/core/RxMap';
 import './leaflet';
 
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/delay';
-import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/observable/fromPromise';
+import { take, delay, map } from 'rxjs/operators';
 
 import { LoggerMiddleware, TimerMiddleware } from './../src/middleware/logger.js';
 
@@ -17,7 +14,7 @@ Map.create('map', 51.505, -0.09, 13)
   .popup('adios Mundo');
 
 Map.observer('center')
-  .take(5)
+  .pipe(take(5))
   .subscribe(data => console.log('subscribe Center', data))
 
 Map.observer('click')
@@ -31,22 +28,26 @@ const positions = [
 ];
 
 Map.observer(positions)
-  .delay(1000)
-  .map(d => {
-    console.log("PRE 2 MAP", d);
-    return d;
-  })
+  .pipe(
+    delay(1000),
+    map(d => {
+      console.log("PRE 2 MAP", d);
+      return d;
+    })
+  )
   .marker((res => ({ lat: res.lat, lng: res.lng })))
   .popup('click')
   .subscribe();
 
 
 Map.observer(positions)
-  .delay(1000)
-  .map(d => {
-    console.log("PRE 2 MAP", d);
-    return d;
-  })
+  .pipe(
+    delay(1000),
+    map(d => {
+      console.log("PRE 2 MAP", d);
+      return d;
+    })
+  )
   .marker((res => ({ lat: res.lat, lng: res.lng })))
   .observer('click')
   .subscribe(data => console.log('Subscribe positions', data));

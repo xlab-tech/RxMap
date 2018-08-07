@@ -1,9 +1,9 @@
 
 import isPromise from '../utils/isPromise.js';
-import { Observable } from 'rxjs/Observable.js';
-import 'rxjs/add/observable/from';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/mergeMap';
+import { Observable } from 'rxjs/internal/Observable';
+import { from } from 'rxjs/internal/observable/from';
+import { of } from 'rxjs/internal/observable/of';
+import { mergeMap } from 'rxjs/internal/operators/mergeMap';
 
 const getCommandBus = (source) => {
     const commandBus = source.getCommandBus();
@@ -31,14 +31,14 @@ export const registerOperator = (commandName, command) => {
     Observable.prototype[commandName] = function (someCallback) {
         const commandBus = getCommandBus(this);
 
-        return this.mergeMap((value) => {
+        return this.pipe(mergeMap((value) => {
             let args = getArgs(someCallback, value);
             const result = commandBus.execute(commandName, command, args);
 
             if (!isPromise(result)) {
-                return Observable.of(result);
+                return of(result);
             }
-            return Observable.from(result);
-        });
+            return from(result);
+        }));
     };
 };

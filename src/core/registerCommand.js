@@ -2,7 +2,6 @@ import { applyMiddlewares } from './middlewares.js';
 import { registerOperator } from './registerOperator.js';
 import CommandBus from './CommandBus.js';
 import AsyncCommandBus from './AsyncCommandBus.js';
-import isPromise from '../utils/isPromise.js';
 
 const registerCommands = {};
 

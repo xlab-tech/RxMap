@@ -1,5 +1,4 @@
 import { RxMap } from './RxMap';
-import { resolve } from 'path';
 
 let Map;
 

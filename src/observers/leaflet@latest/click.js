@@ -1,18 +1,17 @@
 import Map from './../../core/RxMap';
-import { Observable } from 'rxjs/Observable.js';
-import 'rxjs/add/observable/fromEventPattern';
-import 'rxjs/add/operator/map';
+import { fromEventPattern } from 'rxjs/internal/observable/fromEventPattern';
+import { map } from 'rxjs/internal/operators/map';
 
 const event = function () {
-    const map = this.getMap();
-    let object = map;
+    const map_ = this.getMap();
+    let object = map_;
     const lastValue = this.value();
     const { value, name } = lastValue;
     let mapFunction = (evt) => evt.latlng;
     if (name === 'marker') {
         object = value;
         mapFunction = (evt) => {
-            console.log("MARKER",evt);
+            console.log("MARKER", evt);
             return value;
         };
     }
@@ -23,10 +22,10 @@ const event = function () {
         object.off('click', handler);
     };
 
-    return Observable.fromEventPattern(
+    return fromEventPattern(
         addClickHandler,
         removeClickHandler
-    ).map(mapFunction);
+    ).pipe(map(mapFunction));
 
 };
 

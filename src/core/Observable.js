@@ -1,8 +1,6 @@
-import { getObserver } from './registerObserver.js';
-import { Observable } from 'rxjs/Observable.js';
-import AsyncCommandBus from './AsyncCommandBus.js';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/mergeMap';
+
+import { Observable } from 'rxjs/internal/Observable';
+import { mergeMap } from 'rxjs/internal/operators/mergeMap';
 
 const getCommandBus = (source) => {
     const commandBus = source.getCommandBus();
@@ -25,7 +23,7 @@ Observable.prototype.getCommandBus = function (commandBus) {
 
 Observable.prototype.observer = function (observerName, ...args) {
     const commandBus = getCommandBus(this);
-    return this.mergeMap((value) => {
-        return commandBus.observer(observerName,...args);        
-    });
+    return this.pipe(mergeMap((value) => {
+        return commandBus.observer(observerName, ...args);
+    }));
 };

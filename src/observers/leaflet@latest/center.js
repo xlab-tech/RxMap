@@ -1,24 +1,23 @@
 import Map from './../../core/RxMap';
-import { Observable } from 'rxjs/Observable.js';
-import 'rxjs/add/observable/fromEventPattern';
-import 'rxjs/add/operator/map';
+import { fromEventPattern } from 'rxjs/internal/observable/fromEventPattern';
+import { map } from 'rxjs/internal/operators/map';
 
 const event = function () {
-    const map = this.getMap();
+    const map_ = this.getMap();
     const addClickHandler = function (handler) {
-        return map.on('move', handler);
+        return map_.on('move', handler);
     };
     const removeClickHandler = function (handler) {
-        map.off('move',handler);
+        map_.off('move', handler);
     };
 
-    return Observable.fromEventPattern(
+    return fromEventPattern(
         addClickHandler,
         removeClickHandler
-    ).map((evt) => {
-        const center = map.getCenter();
+    ).pipe(map((evt) => {
+        const center = map_.getCenter();
         return center;
-    });
+    }));
 
 };
 

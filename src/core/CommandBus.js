@@ -1,8 +1,7 @@
 
 import isPromise from '../utils/isPromise.js';
 import { getObserver } from './registerObserver.js';
-import { Observable } from 'rxjs/Observable.js';
-import 'rxjs/add/observable/from';
+import { from } from 'rxjs/internal/observable/from';
 
 class CommandBus {
     constructor() {
@@ -52,7 +51,7 @@ class CommandBus {
     }
     observer(observerName, ...args) {
         if (typeof observerName !== 'string') {
-            return Observable.from(observerName).setCommandBus(this);
+            return from(observerName).setCommandBus(this);
         }
         const observer = getObserver(observerName);
         if (!observer) {
