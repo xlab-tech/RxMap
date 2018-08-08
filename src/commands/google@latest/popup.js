@@ -15,6 +15,15 @@ const popup = function (contentString) {
         value.addListener('click', function () {
             infowindow.open(map, value);
         });
+    } else if (name === 'addData') {
+        value.forEach(element => {
+            const infowindow = new googleMaps.InfoWindow({
+                content: contentString
+            });
+            element.addListener('click', function () {
+                infowindow.open(map, element);
+            });
+        });
     }
     return lastValue;
 };

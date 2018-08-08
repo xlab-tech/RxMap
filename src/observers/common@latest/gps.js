@@ -2,8 +2,8 @@ import Map from './../../core/RxMap';
 import { fromEventPattern } from 'rxjs/internal/observable/fromEventPattern';
 import { map } from 'rxjs/internal/operators/map';
 
-const event = () => {
 
+const event = () => {
     const watchPosition = (handler) => {
         if (navigator.geolocation) {
             return navigator.geolocation.watchPosition(handler);

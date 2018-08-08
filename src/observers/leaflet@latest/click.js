@@ -1,25 +1,34 @@
 import Map from './../../core/RxMap';
 import { fromEventPattern } from 'rxjs/internal/observable/fromEventPattern';
 import { map } from 'rxjs/internal/operators/map';
+import L from 'leaflet'
 
 const event = function () {
     const map_ = this.getMap();
-    let object = map_;
+    let object = [map_];
     const lastValue = this.value();
     const { value, name } = lastValue;
     let mapFunction = (evt) => evt.latlng;
     if (name === 'marker') {
+        object = [value];
+        mapFunction = (evt) => {
+            L.DomEvent.stopPropagation(evt);
+            return evt.target.properties || evt.target;
+        };
+
+    } else if (name === 'addData') {
         object = value;
         mapFunction = (evt) => {
-            console.log("MARKER", evt);
-            return value;
+            L.DomEvent.stopPropagation(evt);
+            return evt.target.properties || evt.target;
         };
     }
+
     const addClickHandler = function (handler) {
-        return object.on('click', handler);
+        return object.map(element => element.on('click', handler));
     };
     const removeClickHandler = function (handler) {
-        object.off('click', handler);
+        object.forEach(element => element.off('click', handler));
     };
 
     return fromEventPattern(

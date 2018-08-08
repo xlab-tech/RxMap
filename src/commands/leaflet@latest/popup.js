@@ -9,6 +9,8 @@ const popup = function (contentString) {
     const { value, name } = lastValue;
     if (name === 'marker') {
         value.bindPopup(contentString);
+    } else if (name === 'addData') {
+        value.forEach(element => element.bindPopup(contentString));
     }
     return lastValue;
 };
