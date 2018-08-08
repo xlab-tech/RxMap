@@ -19,8 +19,8 @@ const event = function () {
   const addClickHandler = function (handler) {
     return object.map(element => element.addListener('click', evt => handler(evt, element)));
   };
-  const removeClickHandler = function () {
-    object.forEach(element => element.remove());
+  const removeClickHandler = function (handler, listener) {
+    listener.forEach(element => element.remove());
   };
 
   return fromEventPattern(
