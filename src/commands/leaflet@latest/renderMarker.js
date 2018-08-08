@@ -3,6 +3,7 @@ import L from 'leaflet';
 import Map from '../../core/RxMap';
 
 const renderMarker = function (point, style, properties) {
+  const center = [point.lat, point.lng];
   const _map = this.getMap();
   const myIcon = L.icon({
     iconUrl: style.icon || 'https://unpkg.com/leaflet@1.2.0/dist/images/marker-icon.png',
@@ -11,7 +12,7 @@ const renderMarker = function (point, style, properties) {
   const options = {
     icon: myIcon,
   };
-  const marker = L.marker(point, options);
+  const marker = L.marker(center, options);
   marker.properties = properties;
   marker.addTo(_map);
   return marker;

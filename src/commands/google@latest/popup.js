@@ -17,11 +17,12 @@ const popup = function (contentString) {
     });
   } else if (name === 'addData') {
     value.forEach((element) => {
-      const infowindow = new googleMaps.InfoWindow({
+      const infoWindow = new googleMaps.InfoWindow({
         content: contentString,
       });
       element.addListener('click', () => {
-        infowindow.open(map, element);
+        infoWindow.setPosition(element.getCenter());
+        infoWindow.open(map);
       });
     });
   }

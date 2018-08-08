@@ -8,9 +8,9 @@ const addData = function (typeId, data) {
   }
   switch (type.geomType) {
     case 'point':
-      return data.map(element => this.renderPoint([element.position.lat, element.position.lng], type.style, element).value().value);
+      return data.map(element => this.renderPoint(element.position, type.style, element).value().value);
     case 'marker':
-      return data.map(element => this.renderMarker([element.position.lat, element.position.lng], type.style, element).value().value);
+      return data.map(element => this.renderMarker(element.position, type.style, element).value().value);
     default:
       return null;
   }
