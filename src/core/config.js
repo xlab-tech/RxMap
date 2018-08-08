@@ -1,11 +1,13 @@
-import RxDynamicMap from './RxDynamicMap';
 import { take } from 'rxjs/internal/operators/take';
+import RxDynamicMap from './RxDynamicMap';
 
 const mandatoryCommands = ['create'];
 const mandatoryObservers = [];
 
-export const RxMapFromConfig = async (id, config) => {
-  const { type, commands, observers, map, options, dataTypes } = config;
+const RxMapFromConfig = async (id, config) => {
+  const {
+    type, commands, observers, map, options, dataTypes,
+  } = config;
   const { center, zoom, autoCenter } = map;
   const mapCenter = center || { lat: 0, lng: 0 };
 
@@ -30,3 +32,5 @@ export const RxMapFromConfig = async (id, config) => {
 
   return RxDynamicMap;
 };
+
+export default RxMapFromConfig;

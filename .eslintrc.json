@@ -1,0 +1,23 @@
+{
+  "extends": "airbnb-base",
+  "env": {
+    "browser": true
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "max-len": [
+      "error",
+      160
+    ],
+    "no-underscore-dangle": 0,
+    "class-methods-use-this": 0,
+    "func-names": "off",
+    "babel/semi": 1
+  },
+  "plugins": [
+    "babel"
+  ],
+  "globals": {
+    "import": true
+  }
+}

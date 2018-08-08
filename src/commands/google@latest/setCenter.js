@@ -1,5 +1,5 @@
 
-import Map from './../../core/RxMap';
+import Map from '../../core/RxMap';
 
 const setCenter = function (options) {
   const { lat, lng, zoom } = options;

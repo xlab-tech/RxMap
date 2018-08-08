@@ -1,6 +1,6 @@
 
-import Map from './../../core/RxMap';
-import L from 'leaflet'
+import L from 'leaflet';
+import Map from '../../core/RxMap';
 
 const renderPoint = function (point, style, properties) {
   // TODO: fixed default styles
