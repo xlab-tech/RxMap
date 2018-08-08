@@ -1,18 +1,17 @@
+
 {
     "type": "leaflet|google|mapbox",
     "key": "",
     "commands": [],
     "observers": [],
-    "config": {
+    "map": {
+        "auto":true,
         "center": [
             12,
             23
-        ], /* | "auto"*/
+        ], 
         "zoom": 15,
-        "baseMap": {
-            "type": "osm|satelit|roadmap|vectorTile",
-            "key": ""
-        },
-        "layers": {}
-    }
+    },
+    "layers": [],
+    "types": []
 }
