@@ -1,32 +1,112 @@
 
-import Map from './../src/core/RxDynamicMap';
+import { RxMapFromConfig } from './../src/core/config';
 import { map } from 'rxjs/internal/operators/map';
 import { take } from 'rxjs/internal/operators/take';
 import { delay } from 'rxjs/internal/operators/delay';
-
 
 import { LoggerMiddleware, TimerMiddleware } from './../src/middleware/logger.js';
 
 const config = {
     'type': 'leaflet',
-    'key': '',
-    'commands': ['create', 'marker', 'popup', 'setCenter'],
-    'observers': ['center', 'gps'],
-    'config': {
+    'options': {
+        'key': 'AIzaSyCjj-I0sYedbWCAmAoW2LgAr4T2bkPa09Y',
+    },
+    'commands': ['create', 'marker', 'popup', 'setCenter', 'addData', 'renderPoint', 'renderMarker'],
+    'observers': ['center', 'click'],
+    'map': {
+        'autoCenter': true,
         'center': {
             'lat': 51.505,
             'lng': -0.09
         },
         'zoom': 13,
-        'baseMap': {
-            'type': 'osm',
+    },
+    'dataTypes': [
+        {
+            'id': 'test',
+            'geomType': 'point',
+            'style': {
+                'color': '#F00',
+                'fillColor': '#F00',
+                'radius': 10,
+                'opacity': 1,
+                'fillOpacity': 0.5,
+                'weight': 1
+            }
         },
-        'layers': {}
-    }
-}
-const p = async () => {
+        {
+            'id': 'pre',
+            'geomType': 'point',
+            'style': {
+                'color': '#0000ff ',
+                'fillColor': '#0000ff ',
+                'radius': 5,
+                'opacity': 1,
+                'fillOpacity': 0.5,
+                'weight': 1
+            }
+        },
+        {
+            'id': 'mar',
+            'geomType': 'marker',
+            'style': {
+                'icon': 'https://www.freeiconspng.com/uploads/red-location-map-pin-icon-5.png',
+                'size': { 'width': 24, 'height':34 }
+            }
+        },
+    ],
+    'layers': []
+};
 
-    await Map.load('map', config);
+const data = [
+    {
+        position: {
+            lat: 42,
+            lng: 2.4
+        },
+        test: 'asf',
+        otro: 'oooo'
+    },
+    {
+        position: {
+            lat: 42.1,
+            lng: 2.4
+        },
+        test: 'asf',
+        otro: 'oooo'
+    }
+];
+const dataPre = [
+    {
+        position: {
+            lat: 42.05,
+            lng: 2.4
+        },
+        test: 'asf',
+        otro: 'oooo'
+    },
+    {
+        position: {
+            lat: 42.1,
+            lng: 2.42
+        },
+        test: 'asf',
+        otro: 'oooo'
+    }
+];
+const dataMar = [
+    {
+        position: {
+            lat: 41.95,
+            lng: 2.4
+        },
+        test: 'asf',
+        otro: 'oooo'
+    }
+];
+
+const p = async () => {
+    const Map = await RxMapFromConfig('map', config);
 
     Map.applyMiddlewares(LoggerMiddleware);
 
@@ -37,13 +117,16 @@ const p = async () => {
         .pipe(take(5))
         .subscribe(data => console.log('subscribe Center', data))
 
-    Map.observer('gps')
-        .pipe(take(3))
-        .setCenter(res => ({ lat: res.latitude, lng: res.longitude }))
-        .subscribe((data) => console.log('GPS', data));
-    /*Map.observer('click')
-        .marker((data => [data.lat, data.lng]))
-        .subscribe(data => console.log('subscribe CLICK', data));*/
+    /* Map.observer('gps')
+         .pipe(take(3))
+         //.setCenter(res => ({ lat: res.latitude, lng: res.longitude }))
+         .subscribe((data) => console.log('GPS', data));
+ 
+         */
+
+    Map.observer('click')
+        .marker((data => data))
+        .subscribe(data => console.log('subscribe CLICK', data));
 
     const positions = [
         { lat: 51.50270552998373, lng: -0.08368492126464844 },
@@ -62,5 +145,12 @@ const p = async () => {
         .marker(res => res)
         .popup('click')
         .subscribe();
+
+    Map.addData('test', data).popup('feature');
+    Map.addData('mar', dataMar);
+
+    Map.addData('pre', dataPre)
+        .observer('click')
+        .subscribe(data => console.log('subscribe CLICK DATA PRE', data));
 };
 p();
