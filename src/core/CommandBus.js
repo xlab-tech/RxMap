@@ -11,12 +11,14 @@ class CommandBus {
         }
     }
     setMap(map) {
-        this._rMap = map;
+        this._sourceMap = map;
     }
     getMap() {
-        return this._rMap;
+        return this._sourceMap;
     }
-
+    getRxMap() {
+        return this._source;
+    }
     value(callback) {
         if (callback) {
             callback(this._lastCommand);
