@@ -9,6 +9,7 @@ let _Map;
 export class RxMap extends CommandBus {
   constructor() {
     super();
+    this.createAsync = false;
     this._dataTypes = {};
   }
 

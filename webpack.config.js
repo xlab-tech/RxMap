@@ -6,7 +6,7 @@ module.exports = {
   mode: 'development',
   entry: {
     load: './examples/map.load.js',
-    // index: './examples/map.js'
+    // index: './examples/map.js',
   },
   output: {
     filename: '[name].bundle.js',

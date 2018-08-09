@@ -37,19 +37,6 @@ Map.observer(positions)
   .popup('click')
   .subscribe();
 
-
-Map.observer(positions)
-  .pipe(
-    delay(1000),
-    map((d) => {
-      console.log('PRE 2 MAP', d);
-      return d;
-    }),
-  )
-  .marker((res => ({ lat: res.lat, lng: res.lng })))
-  .observer('click')
-  .subscribe(data => console.log('Subscribe positions', data));
-
 Map.marker({ lat: 51.523, lng: -0.08368492126466844 })
   .observer('click')
   .subscribe(data => console.log('log click marker', data));

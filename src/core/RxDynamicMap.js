@@ -12,6 +12,11 @@ const loadLib = (lib, type, name, version = 'latest') => {
 };
 
 export class RxDynamicMapClass extends RxMap {
+  constructor() {
+    super();
+    this.createAsync = true;
+  }
+
   async load(lib, commands, observers, options = {}) {
     // First Load Map Lib
     if (lib === 'leaflet') {

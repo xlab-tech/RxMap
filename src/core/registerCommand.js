@@ -13,7 +13,8 @@ const _registerCommand = (commandName, command) => {
   const commandExecute = applyMiddlewares(commandName, command);
   CommandBus.prototype[commandName] = function (...args) {
     let _this = this;
-    if (!(isAsyncCommandBus(_this))) {
+    if (!(isAsyncCommandBus(_this))
+      && (commandName !== 'create' || (commandName === 'create' && this.createAsync))) {
       _this = AsyncCommandBus.lift(this.getMap(), this);
     }
     _this.execute(commandName, commandExecute, args);

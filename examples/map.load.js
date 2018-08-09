@@ -8,11 +8,12 @@ const config = {
   type: 'leaflet',
   options: {
     key: 'AIzaSyCjj-I0sYedbWCAmAoW2LgAr4T2bkPa09Y',
+    defer: true,
   },
   commands: ['create', 'marker', 'popup', 'setCenter', 'addData', 'renderPoint', 'renderMarker'],
   observers: ['center', 'click'],
   map: {
-    autoCenter: true,
+    autoCenter: false,
     center: {
       lat: 51.505,
       lng: -0.09,
@@ -102,35 +103,17 @@ const dataMar = [
     otro: 'oooo',
   },
 ];
+const positions = [
+  { lat: 51.50270552998373, lng: -0.08368492126464844 },
+  { lat: 51.53270552998373, lng: -0.08368492126464844 },
+  { lat: 1, lng: 2 },
+];
 
 const p = async () => {
   const Map = await RxMapFromConfig('map', config);
-
   Map.applyMiddlewares(LoggerMiddleware);
-
-  Map.marker({ lat: 52.1, lng: -0.09 })
+  Map.marker({ lat: 51.5, lng: -0.09 })
     .popup('adios Mundo');
-
-  Map.observer('center')
-    .pipe(take(5))
-    .subscribe(data => console.log('subscribe Center', data));
-
-  /* Map.observer('gps')
-       .pipe(take(3))
-       //.setCenter(res => ({ lat: res.latitude, lng: res.longitude }))
-       .subscribe((data) => console.log('GPS', data));
-
-       */
-
-  Map.observer('click')
-    .marker((data => data))
-    .subscribe(data => console.log('subscribe CLICK', data));
-
-  const positions = [
-    { lat: 51.50270552998373, lng: -0.08368492126464844 },
-    { lat: 51.53270552998373, lng: -0.08368492126464844 },
-    { lat: 1, lng: 2 },
-  ];
 
   Map.observer(positions)
     .pipe(
@@ -139,10 +122,18 @@ const p = async () => {
         console.log('PRE 2 MAP', d);
         return d;
       }),
-    )
+  )
     .marker(res => res)
     .popup('click')
     .subscribe();
+
+  Map.observer('click')
+    .marker((data => data))
+    .subscribe(data => console.log('subscribe CLICK', data));
+
+  Map.observer('center')
+    .pipe(take(5))
+    .subscribe(data => console.log('subscribe Center', data));
 
   Map.addData('test', dataTest).popup('feature');
   Map.addData('mar', dataMar);
@@ -150,5 +141,23 @@ const p = async () => {
   Map.addData('pre', dataPre)
     .observer('click')
     .subscribe(data => console.log('subscribe CLICK DATA PRE', data));
+
+  /* 
+
+   */
+
+  /* Map.observer('gps')
+       .pipe(take(3))
+       //.setCenter(res => ({ lat: res.latitude, lng: res.longitude }))
+       .subscribe((data) => console.log('GPS', data));
+
+       */
+
+  /*
+ 
+
+
+ 
+ */
 };
 p();
