@@ -2,7 +2,7 @@
 import { Observable } from 'rxjs/internal/Observable';
 import { from } from 'rxjs/internal/observable/from';
 import { of } from 'rxjs/internal/observable/of';
-import { mergeMap } from 'rxjs/internal/operators/mergeMap';
+import { concatMap } from 'rxjs/internal/operators/concatMap';
 import isPromise from '../utils/isPromise';
 
 const getCommandBus = (source) => {
@@ -31,10 +31,9 @@ const registerOperator = (commandName, command) => {
   Observable.prototype[commandName] = function (someCallback) {
     const commandBus = getCommandBus(this);
 
-    return this.pipe(mergeMap((value) => {
+    return this.pipe(concatMap((value) => {
       const args = getArgs(someCallback, value);
       const result = commandBus.execute(commandName, command, args);
-
       if (!isPromise(result)) {
         return of(result);
       }

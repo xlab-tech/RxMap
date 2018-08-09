@@ -19,7 +19,8 @@ const RxMapFromConfig = async (id, config) => {
 
   await RxDynamicMap.load(type, allComands, allObservers, options);
 
-  RxDynamicMap.create(id, mapCenter.lat, mapCenter.lng, zoom);
+  await new Promise(resolve => RxDynamicMap.create(id, mapCenter.lat, mapCenter.lng, zoom).subscribe(data => resolve(data)));
+
   if (autoCenter) {
     RxDynamicMap.observer('gps')
       .pipe(take(1))

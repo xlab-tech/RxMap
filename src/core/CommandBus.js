@@ -40,6 +40,7 @@ class CommandBus {
       value: result,
       name: commandName,
     };
+    this._executingCommand = false;
     return result;
   }
 
@@ -48,9 +49,13 @@ class CommandBus {
     const ret = command(this, args);
     const value = ret;
     if (isPromise(ret)) {
-      ret.then(data => this._saveExecution(commandName, data));
+      return ret.then(data => this._saveExecution(commandName, data));
     }
     return this._saveExecution(commandName, value);
+  }
+
+  isExecuting() {
+    return !!this._executingCommand;
   }
 
   getCommandName() {

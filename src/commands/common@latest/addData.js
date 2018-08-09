@@ -2,18 +2,28 @@
 import Map from '../../core/RxMap';
 
 const addData = function (typeId, data) {
-  const type = this.getRxMap().getDataType(typeId);
+  const rxMap = this.getRxMap();
+  const type = rxMap.getDataType(typeId);
   if (!type) {
     throw new Error(`Not type ${typeId} register`);
   }
   switch (type.geomType) {
     case 'point':
-      return data.map(element => this.renderPoint(element.position, type.style, element).value().value);
+      return new Promise((resolve) => {
+        data.reduce((async, element) => async.renderPoint(element.position, type.style, element), rxMap)
+          .subscribe((last, all) => resolve(all));
+      });
     case 'marker':
-      return data.map(element => this.renderMarker(element.position, type.style, element).value().value);
+      return new Promise((resolve) => {
+        data.reduce((async, element) => async.renderMarker(element.position, type.style, element), rxMap)
+          .subscribe((last, all) => resolve(all));
+      });
+
     default:
       return null;
   }
 };
 
 Map.register('addData', addData);
+
+export default addData;

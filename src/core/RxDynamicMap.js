@@ -1,3 +1,5 @@
+import { from } from 'rxjs/internal/observable/from';
+import { switchMap } from 'rxjs/internal/operators/switchMap';
 import { RxMap } from './RxMap';
 
 let _RxMap;
@@ -19,10 +21,28 @@ export class RxDynamicMapClass extends RxMap {
       await loadGoogle(options.key);
     }
     // After Load all Componentes
-    const _commands = commands.map(key => loadLib(lib, 'commands', key, options.version));
-    const _observers = observers.map(key => loadLib(lib, 'observers', key, options.version));
-    return Promise.all(_commands.concat(_observers))
-      .then(() => this);
+    if (!options.defer) {
+      // After Load all Componentes
+      const _commands = commands.map(key => loadLib(lib, 'commands', key, options.version));
+      const _observers = observers.map(key => loadLib(lib, 'observers', key, options.version));
+      return Promise.all(_commands.concat(_observers))
+        .then(() => this);
+    }
+    commands.forEach((key) => {
+      this.register(key, function (...args) {
+        const _async = this;
+        const res = loadLib(lib, 'commands', key, options.version);
+        return res.then(command => command.default.bind(_async))
+          .then(func => func(...args));
+      });
+    });
+    observers.forEach((key) => {
+      this.registerObservable(key, function () {
+        return from(loadLib(lib, 'observers', key, options.version))
+          .pipe(switchMap(() => this.observer(key)));
+      });
+    });
+    return Promise.resolve(this);
   }
 
   init() {

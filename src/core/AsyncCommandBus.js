@@ -1,3 +1,5 @@
+import { from } from 'rxjs/internal/observable/from';
+import { switchMap } from 'rxjs/internal/operators/switchMap';
 import CommandBus from './CommandBus';
 import isPromise from '../utils/isPromise';
 
@@ -6,7 +8,7 @@ class AsyncCommandBus extends CommandBus {
     super();
     this.queue = [];
     this.subscribers = [];
-    this.async = false;
+    this.allResults = [];
   }
 
   setSource(source) {
@@ -23,34 +25,31 @@ class AsyncCommandBus extends CommandBus {
   }
 
   execute(commandName, command, args) {
-    // console.log("ASYNC",this.async);
-    if (this.async) {
-      this.queue.push({
-        commandName,
-        command,
-        args,
-      });
-      return null;
+    this.queue.push({
+      commandName,
+      command,
+      args,
+    });
+    if (this.queue.length === 1) {
+      this._executingCommand = commandName;
+      setTimeout(() => this._next(), 1);
     }
-    const ret = this._execute(commandName, command, args);
-    if (isPromise(ret)) {
-      // console.log("Set ASYNC");
-      this.async = true;
-      ret.then(() => this._next());
-    }
-    return ret;
+  }
+
+  _saveExecution(commandName, result) {
+    const res = super._saveExecution(commandName, result);
+    this.allResults.push(res);
+    return res;
   }
 
   _next() {
     if (this.queue.length === 0) {
-      this.async = false;
       this._complete();
       return;
     }
     const params = this.queue.shift();
     const ret = this._execute(params.commandName, params.command, params.args);
     if (isPromise(ret)) {
-      this.async = true;
       ret.then(() => this._next());
       return;
     }
@@ -58,11 +57,19 @@ class AsyncCommandBus extends CommandBus {
   }
 
   _complete() {
-    this.subscribers.map(f => f(this._lastCommand));
+    this.subscribers.map(f => f(this._lastCommand, this.allResults));
   }
 
   subscribe(func) {
     this.subscribers.push(func);
+  }
+
+  observer(observerName, ...args) {
+    if (this.isExecuting()) {
+      return from(new Promise(resolve => this.subscribe(resolve)))
+        .pipe(switchMap(() => super.observer(observerName, ...args)));
+    }
+    return super.observer(observerName, ...args);
   }
 }
 
