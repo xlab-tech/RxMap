@@ -12,3 +12,5 @@ const create = function (id, lat, lng, zoom) {
 };
 
 Map.register('create', create);
+
+export default create;

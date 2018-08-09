@@ -37,3 +37,5 @@ const event = function () {
 };
 
 Map.registerObservable('click', event);
+
+export default event;

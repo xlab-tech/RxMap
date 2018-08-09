@@ -19,3 +19,5 @@ const renderMarker = function (point, style, properties) {
 };
 
 Map.register('renderMarker', renderMarker);
+
+export default renderMarker;

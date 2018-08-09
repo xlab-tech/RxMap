@@ -21,3 +21,5 @@ const event = function () {
 };
 
 Map.registerObservable('center', event);
+
+export default event;

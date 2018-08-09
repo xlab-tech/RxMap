@@ -13,3 +13,5 @@ const renderPoint = function (point, style, properties) {
 };
 
 Map.register('renderPoint', renderPoint);
+
+export default renderPoint;

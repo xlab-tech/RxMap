@@ -14,3 +14,5 @@ const event = () => {
 };
 
 Map.registerObservable('gps', event);
+
+export default event;

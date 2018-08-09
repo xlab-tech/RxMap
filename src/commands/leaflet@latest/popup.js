@@ -14,3 +14,5 @@ const popup = function (contentString) {
 };
 
 Map.register('popup', popup);
+
+export default popup;

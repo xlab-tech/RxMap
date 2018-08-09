@@ -16,3 +16,5 @@ const marker = function (options) {
 };
 
 Map.register('marker', marker);
+
+export default marker;

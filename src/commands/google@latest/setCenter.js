@@ -13,3 +13,5 @@ const setCenter = function (options) {
 };
 
 Map.register('setCenter', setCenter);
+
+export default setCenter;
