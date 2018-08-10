@@ -1,14 +1,22 @@
-// Create a marker and set its position.
 
 import Map from '../../core/RxMap';
 
-const popup = function (contentString) {
+const addPopup = (marker, content) => {
+  const { properties } = marker;
+  let contentString = content;
+  if (typeof content === 'function') {
+    contentString = content(properties);
+  }
+  marker.bindPopup(contentString);
+};
+
+const popup = function (content) {
   const lastValue = this.value();
   const { value, name } = lastValue;
   if (name === 'marker') {
-    value.bindPopup(contentString);
+    addPopup(value, content);
   } else if (name === 'addData') {
-    value.forEach(element => element.bindPopup(contentString));
+    value.forEach(marker => addPopup(marker, content));
   }
   return lastValue;
 };

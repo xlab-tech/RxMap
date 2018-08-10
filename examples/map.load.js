@@ -63,7 +63,7 @@ const dataTest = [
       lat: 42,
       lng: 2.4,
     },
-    test: 'asf',
+    test: '11111',
     otro: 'oooo',
   },
   {
@@ -71,7 +71,7 @@ const dataTest = [
       lat: 42.1,
       lng: 2.4,
     },
-    test: 'asf',
+    test: '222222',
     otro: 'oooo',
   },
 ];
@@ -135,16 +135,12 @@ const p = async () => {
     .pipe(take(5))
     .subscribe(data => console.log('subscribe Center', data));
 
-  Map.addData('test', dataTest).popup('feature');
+  Map.addData('test', dataTest).popup(props => `<br> Esto es un ejemplo <b>${props.test}</b>`);
   Map.addData('mar', dataMar);
 
   Map.addData('pre', dataPre)
     .observer('click')
     .subscribe(data => console.log('subscribe CLICK DATA PRE', data));
-
-  /* 
-
-   */
 
   /* Map.observer('gps')
        .pipe(take(3))
@@ -154,10 +150,7 @@ const p = async () => {
        */
 
   /*
- 
 
-
- 
  */
 };
 p();

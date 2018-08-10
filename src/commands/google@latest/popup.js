@@ -3,25 +3,32 @@
 import Map from '../../core/RxMap';
 import getGoogleMap from '../../utils/google';
 
-const popup = function (contentString) {
+const addPopup = (marker, content) => {
   const googleMaps = getGoogleMap();
+  const { properties } = marker;
+  let contentString = content;
+  if (typeof content === 'function') {
+    contentString = content(properties);
+  }
+  return new googleMaps.InfoWindow({
+    content: contentString,
+  });
+};
+
+const popup = function (content) {
   const map = this.getMap();
   const lastValue = this.value();
   const { value, name } = lastValue;
   if (name === 'marker') {
-    const infowindow = new googleMaps.InfoWindow({
-      content: contentString,
-    });
+    const infowindow = addPopup(value, content);
     value.addListener('click', () => {
       infowindow.open(map, value);
     });
   } else if (name === 'addData') {
-    value.forEach((element) => {
-      const infoWindow = new googleMaps.InfoWindow({
-        content: contentString,
-      });
-      element.addListener('click', () => {
-        infoWindow.setPosition(element.getCenter());
+    value.forEach((marker) => {
+      const infoWindow = addPopup(marker, content);
+      marker.addListener('click', () => {
+        infoWindow.setPosition(marker.getCenter());
         infoWindow.open(map);
       });
     });
