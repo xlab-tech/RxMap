@@ -11,12 +11,8 @@ class CommandBus {
     };
   }
 
-  setMap(map) {
-    this._sourceMap = map;
-  }
-
-  getMap() {
-    return this._sourceMap;
+  setSource(source) {
+    this._source = source;
   }
 
   getRxMap() {
@@ -74,7 +70,11 @@ class CommandBus {
     if (!observer) {
       throw new Error(`Observer ${observerName} not register`);
     }
-    return observer.bind(this)(...args).setCommandBus(this);
+    const context = {
+      RxMap: this.getRxMap(),
+      lastExecution: this.value(),
+    };
+    return observer(context, ...args).setCommandBus(this);
   }
 }
 

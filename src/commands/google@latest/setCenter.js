@@ -1,15 +1,15 @@
 
 import Map from '../../core/RxMap';
+import { googlePoint } from '../../utils/transformPoint';
 
-const setCenter = function (options) {
-  const { lat, lng, zoom } = options;
-  const map = this.getMap();
-  const lastValue = this.value();
+const setCenter = (context, options) => {
+  const { zoom } = options;
+  const map = context.RxMap.getMap();
   const oldCenter = map.getCenter();
-  const center = { lat: lat || oldCenter.lat, lng: lng || oldCenter.lng };
+  const center = googlePoint(options, true) || { lat: oldCenter.lat, lng: oldCenter.lng };
   map.setCenter(center);
   map.setZoom(zoom || map.getZoom());
-  return lastValue;
+  return context.lastExecution;
 };
 
 Map.register('setCenter', setCenter);

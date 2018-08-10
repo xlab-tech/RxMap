@@ -3,14 +3,14 @@ import { map } from 'rxjs/internal/operators/map';
 import L from 'leaflet';
 import Map from '../../core/RxMap';
 
-const event = function () {
-  const map_ = this.getMap();
-  let object = [map_];
-  const lastValue = this.value();
-  const { value, name } = lastValue;
+const event = (context) => {
+  const map_ = context.RxMap.getMap();
+  const { value, name } = context.lastExecution;
+  let object = map_;
   let mapFunction = evt => evt.latlng;
+
   if (name === 'marker') {
-    object = [value];
+    object = value;
     mapFunction = (evt) => {
       L.DomEvent.stopPropagation(evt);
       return evt.target.properties || evt.target;
@@ -23,12 +23,12 @@ const event = function () {
     };
   }
 
-  const addClickHandler = function (handler) {
-    return object.map(element => element.on('click', handler));
-  };
-  const removeClickHandler = function (handler) {
-    object.forEach(element => element.off('click', handler));
-  };
+  if (!Array.isArray(object)) {
+    object = [object];
+  }
+
+  const addClickHandler = handler => object.map(element => element.on('click', handler));
+  const removeClickHandler = handler => object.forEach(element => element.off('click', handler));
 
   return fromEventPattern(
     addClickHandler,

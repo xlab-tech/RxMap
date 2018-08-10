@@ -5,9 +5,9 @@ import getGoogleMap from '../../utils/google';
 import { googlePoint } from '../../utils/transformPoint';
 import extractProperties from '../../utils/extractProperties';
 
-const drawMarker = function (point, options = {}, properties = {}) {
+const drawMarker = (context, point, options = {}, properties = {}) => {
   const googleMaps = getGoogleMap();
-  const map = this.getMap();
+  const map = context.RxMap.getMap();
   const markerOptions = {
     position: googlePoint(point),
     map,

@@ -1,6 +1,7 @@
 import { from } from 'rxjs/internal/observable/from';
 import { switchMap } from 'rxjs/internal/operators/switchMap';
 import { RxMap } from './RxMap';
+import { async } from '../../node_modules/rxjs/internal/scheduler/async';
 
 let _RxMap;
 
@@ -34,18 +35,15 @@ export class RxDynamicMapClass extends RxMap {
         .then(() => this);
     }
     commands.forEach((key) => {
-      this.register(key, function (...args) {
-        const _async = this;
+      this.register(key, (...args) => {
         const res = loadLib(lib, 'commands', key, options.version);
-        return res.then(command => command.default.bind(_async))
+        return res.then(command => command.default)
           .then(func => func(...args));
       });
     });
     observers.forEach((key) => {
-      this.registerObservable(key, function () {
-        return from(loadLib(lib, 'observers', key, options.version))
-          .pipe(switchMap(() => this.observer(key)));
-      });
+      this.registerObservable(key, (...args) => from(loadLib(lib, 'observers', key, options.version))
+        .pipe(switchMap(observer => observer.default(...args))));
     });
     return Promise.resolve(this);
   }

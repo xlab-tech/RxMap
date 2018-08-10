@@ -4,10 +4,10 @@ import getGoogleMap from '../../utils/google';
 import { googlePoint } from '../../utils/transformPoint';
 import extractProperties from '../../utils/extractProperties';
 
-const drawPoint = function (point, style, properties) {
+const drawPoint = (context, point, style, properties) => {
   // TODO: calcular el radio desde pixels a metros
   const googleMaps = getGoogleMap();
-  const _map = this.getMap();
+  const _map = context.RxMap.getMap();
   const circle = new googleMaps.Circle({
     strokeColor: style.color || '#FF0000',
     strokeOpacity: style.opacity || 1,

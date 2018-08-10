@@ -1,13 +1,13 @@
 
 import Map from '../../core/RxMap';
+import { leafletPoint } from '../../utils/transformPoint';
 
-const setCenter = function (options) {
-  const { lat, lng, zoom } = options;
-  const map = this.getMap();
-  const lastValue = this.value();
-  const center = { lat: lat || map.center.lat, lng: lng || map.center.lng };
+const setCenter = (context, options) => {
+  const { zoom } = options;
+  const map = context.RxMap.getMap();
+  const center = leafletPoint(options, true) || { lat: map.center.lat, lng: map.center.lng };
   map.setView(center, zoom || map.zoom);
-  return lastValue;
+  return context.lastExecution;
 };
 
 Map.register('setCenter', setCenter);

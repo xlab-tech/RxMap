@@ -4,9 +4,9 @@ import Map from '../../core/RxMap';
 import { leafletPoint } from '../../utils/transformPoint';
 import extractProperties from '../../utils/extractProperties';
 
-const drawMarker = function (point, options = {}, properties = {}) {
+const drawMarker = (context, point, options = {}, properties = {}) => {
   const center = leafletPoint(point);
-  const _map = this.getMap();
+  const _map = context.RxMap.getMap();
   let markerOptions = {};
   if (options && options.icon) {
     const myIcon = L.icon({

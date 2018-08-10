@@ -11,6 +11,15 @@ export class RxMap extends CommandBus {
     super();
     this.createAsync = false;
     this._dataTypes = {};
+    super.setSource(this);
+  }
+
+  setMap(map) {
+    this._sourceMap = map;
+  }
+
+  getMap() {
+    return this._sourceMap;
   }
 
   register(commandName, command) {

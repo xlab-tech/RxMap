@@ -13,13 +13,16 @@ const compose = (command, ...funcs) => {
   return funcs.reduce((a, b) => a(b(command)));
 };
 
-const executeCommand = (commandName, Command) => (_this, args) => {
+const executeCommand = (commandName, Command) => (commandBus, args) => {
+  const context = {
+    RxMap: commandBus.getRxMap(),
+    lastExecution: commandBus.value(),
+  };
   if (Command.prototype && Command.prototype.execute) {
     const commandInstace = new Command(...args);
-    commandInstace.setMap(_this._map);
-    return commandInstace.execute();
+    return commandInstace.execute(context);
   }
-  return Command.apply(_this, args);
+  return Command(context, ...args);
 };
 
 export const applyMiddlewares = (commandName, command) => {

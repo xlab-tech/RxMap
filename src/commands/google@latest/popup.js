@@ -15,10 +15,9 @@ const addPopup = (marker, content) => {
   });
 };
 
-const popup = function (content) {
-  const map = this.getMap();
-  const lastValue = this.value();
-  const { value, name } = lastValue;
+const popup = (context, content) => {
+  const map = context.RxMap.getMap();
+  const { value, name } = context.lastExecution;
   if (name === 'marker') {
     const infowindow = addPopup(value, content);
     value.addListener('click', () => {
@@ -33,7 +32,7 @@ const popup = function (content) {
       });
     });
   }
-  return lastValue;
+  return context.lastExecution;
 };
 
 Map.register('popup', popup);

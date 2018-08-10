@@ -5,13 +5,13 @@ import RxMapFromConfig from '../src/core/config';
 import { LoggerMiddleware, TimerMiddleware } from '../src/middleware/logger';
 
 const config = {
-  type: 'google',
+  type: 'leaflet',
   options: {
     key: 'AIzaSyCjj-I0sYedbWCAmAoW2LgAr4T2bkPa09Y',
     defer: true,
   },
   commands: ['create', 'marker', 'popup', 'setCenter', 'addData', 'point'],
-  observers: ['center', 'click'],
+  observers: ['center', 'click', 'gps'],
   map: {
     autoCenter: false,
     center: {
@@ -142,12 +142,10 @@ const p = async () => {
     .observer('click')
     .subscribe(data => console.log('subscribe CLICK DATA PRE', data));
 
-  /* Map.observer('gps')
-       .pipe(take(3))
-       //.setCenter(res => ({ lat: res.latitude, lng: res.longitude }))
-       .subscribe((data) => console.log('GPS', data));
-
-       */
+  Map.observer('gps')
+    .pipe(take(1))
+    .setCenter(res => ({ lat: res.latitude, lng: res.longitude }))
+    .subscribe(data => console.log('GPS', data));
 
   /*
 

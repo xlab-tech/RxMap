@@ -15,7 +15,7 @@ const _registerCommand = (commandName, command) => {
     let _this = this;
     if (!(isAsyncCommandBus(_this))
       && (commandName !== 'create' || (commandName === 'create' && this.createAsync))) {
-      _this = AsyncCommandBus.lift(this.getMap(), this);
+      _this = AsyncCommandBus.lift(this);
     }
     _this.execute(commandName, commandExecute, args);
     return _this;

@@ -10,15 +10,14 @@ const addPopup = (marker, content) => {
   marker.bindPopup(contentString);
 };
 
-const popup = function (content) {
-  const lastValue = this.value();
-  const { value, name } = lastValue;
+const popup = (context, content) => {
+  const { value, name } = context.lastExecution;
   if (name === 'marker') {
     addPopup(value, content);
   } else if (name === 'addData') {
     value.forEach(marker => addPopup(marker, content));
   }
-  return lastValue;
+  return context.lastExecution;
 };
 
 Map.register('popup', popup);

@@ -1,6 +1,6 @@
-export const googlePoint = (item) => {
+export const googlePoint = (item, noMandatory) => {
   if (!item) {
-    throw new Error('Geometry is mandatory');
+    throw new Error('Geometry Param is mandatory');
   }
   if (Array.isArray(item)) {
     return { lat: item[0], lng: item[1] };
@@ -26,12 +26,15 @@ export const googlePoint = (item) => {
   if (item.center) {
     return googlePoint(item.center);
   }
+  if (noMandatory) {
+    return null;
+  }
   throw new Error('Geometry is mandatory');
 };
 
-export const leafletPoint = (item) => {
+export const leafletPoint = (item, noMandatory) => {
   if (!item) {
-    throw new Error('Geometry is mandatory');
+    throw new Error('Geometry Param is mandatory');
   }
   if (Array.isArray(item)) {
     return item;
@@ -56,6 +59,9 @@ export const leafletPoint = (item) => {
   }
   if (item.center) {
     return leafletPoint(item.center);
+  }
+  if (noMandatory) {
+    return null;
   }
   throw new Error('Geometry is mandatory');
 };

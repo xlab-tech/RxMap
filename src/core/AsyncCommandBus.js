@@ -11,19 +11,6 @@ class AsyncCommandBus extends CommandBus {
     this.allResults = [];
   }
 
-  setSource(source) {
-    this._source = source;
-  }
-
-  setMap(map) {
-    if (map) {
-      if (this._source) {
-        this._source.setMap(map);
-      }
-      super.setMap(map);
-    }
-  }
-
   execute(commandName, command, args) {
     this.queue.push({
       commandName,
@@ -73,9 +60,8 @@ class AsyncCommandBus extends CommandBus {
   }
 }
 
-AsyncCommandBus.lift = function (map, source) {
+AsyncCommandBus.lift = function (source) {
   const bus = new AsyncCommandBus();
-  bus.setMap(map);
   bus.setSource(source);
   return bus;
 };
