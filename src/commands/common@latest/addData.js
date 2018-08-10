@@ -10,12 +10,12 @@ const addData = function (typeId, data) {
   switch (type.geomType) {
     case 'point':
       return new Promise((resolve) => {
-        data.reduce((async, element) => async.renderPoint(element.position, type.style, element), rxMap)
+        data.reduce((async, element) => async.point(element, type.style, element), rxMap)
           .subscribe((last, all) => resolve(all));
       });
     case 'marker':
       return new Promise((resolve) => {
-        data.reduce((async, element) => async.renderMarker(element.position, type.style, element), rxMap)
+        data.reduce((async, element) => async.marker(element, type.style, element), rxMap)
           .subscribe((last, all) => resolve(all));
       });
 

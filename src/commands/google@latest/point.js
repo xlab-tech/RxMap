@@ -1,8 +1,10 @@
 
 import Map from '../../core/RxMap';
 import getGoogleMap from '../../utils/google';
+import { googlePoint } from '../../utils/transformPoint';
+import extractProperties from '../../utils/extractProperties';
 
-const renderPoint = function (point, style, properties) {
+const drawPoint = function (point, style, properties) {
   // TODO: calcular el radio desde pixels a metros
   const googleMaps = getGoogleMap();
   const _map = this.getMap();
@@ -13,14 +15,14 @@ const renderPoint = function (point, style, properties) {
     fillColor: style.fillColor || '#FF0000',
     fillOpacity: style.fillOpacity || 0.35,
     map: _map,
-    center: point,
+    center: googlePoint(point),
     radius: style.radius * 100 || 500,
   });
 
-  circle.properties = properties;
+  circle.properties = extractProperties(properties);
   return circle;
 };
 
-Map.register('renderPoint', renderPoint);
+Map.register('point', drawPoint);
 
-export default renderPoint;
+export default drawPoint;

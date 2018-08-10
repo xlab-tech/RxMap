@@ -5,12 +5,12 @@ import RxMapFromConfig from '../src/core/config';
 import { LoggerMiddleware, TimerMiddleware } from '../src/middleware/logger';
 
 const config = {
-  type: 'leaflet',
+  type: 'google',
   options: {
     key: 'AIzaSyCjj-I0sYedbWCAmAoW2LgAr4T2bkPa09Y',
     defer: true,
   },
-  commands: ['create', 'marker', 'popup', 'setCenter', 'addData', 'renderPoint', 'renderMarker'],
+  commands: ['create', 'marker', 'popup', 'setCenter', 'addData', 'point'],
   observers: ['center', 'click'],
   map: {
     autoCenter: false,

@@ -1,15 +1,29 @@
 
 import L from 'leaflet';
 import Map from '../../core/RxMap';
+import { leafletPoint } from '../../utils/transformPoint';
+import extractProperties from '../../utils/extractProperties';
 
-const marker = function (options) {
-  const { lat, lng, properties } = options;
-  const map = this.getMap();
-  const markerMap = L.marker([lat, lng]).addTo(map);
-  markerMap.properties = properties;
-  return markerMap;
+const drawMarker = function (point, options = {}, properties = {}) {
+  const center = leafletPoint(point);
+  const _map = this.getMap();
+  let markerOptions = {};
+  if (options && options.icon) {
+    const myIcon = L.icon({
+      iconUrl: options.icon,
+      iconSize: options.size ? [options.size.width, options.size.height] : null,
+    });
+    markerOptions = {
+      icon: myIcon,
+    };
+  }
+
+  const marker = L.marker(center, markerOptions);
+  marker.properties = extractProperties(properties);
+  marker.addTo(_map);
+  return marker;
 };
 
-Map.register('marker', marker);
+Map.register('marker', drawMarker);
 
-export default marker;
+export default drawMarker;
