@@ -71,16 +71,16 @@ const dataTest = [
       lat: 42.1,
       lng: 2.4,
     },
-    test: '222222',
-    otro: 'oooo',
+    properties: {
+      test: '222222',
+      otro: 'oooo',
+    },
   },
 ];
 const dataPre = [
   {
-    position: {
-      lat: 42.05,
-      lng: 2.4,
-    },
+    lat: 42.05,
+    lng: 2.4,
     test: 'asf',
     otro: 'oooo',
   },
@@ -93,16 +93,11 @@ const dataPre = [
     otro: 'oooo',
   },
 ];
+
 const dataMar = [
-  {
-    position: {
-      lat: 41.95,
-      lng: 2.4,
-    },
-    test: 'asf',
-    otro: 'oooo',
-  },
+  [41.95, 2.4],
 ];
+
 const positions = [
   { lat: 51.50270552998373, lng: -0.08368492126464844 },
   { lat: 51.53270552998373, lng: -0.08368492126464844 },
@@ -135,12 +130,14 @@ const p = async () => {
     .pipe(take(5))
     .subscribe(data => console.log('subscribe Center', data));
 
-  Map.addData('test', dataTest).popup(props => `<br> Esto es un ejemplo <b>${props.test}</b>`);
-  Map.addData('mar', dataMar);
+  document.getElementById('addData').addEventListener('click', () => {
+    Map.addData('test', dataTest).popup(props => `<br> Esto es un ejemplo <b>${props.test}</b>`);
+    Map.addData('mar', dataMar);
 
-  Map.addData('pre', dataPre)
-    .observer('click')
-    .subscribe(data => console.log('subscribe CLICK DATA PRE', data));
+    Map.addData('pre', dataPre)
+      .observer('click')
+      .subscribe(data => console.log('subscribe CLICK DATA PRE', data));
+  });
 
   Map.observer('gps')
     .pipe(take(1))
