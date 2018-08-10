@@ -1,6 +1,6 @@
 
 import L from 'leaflet';
-import Map from '../../core/RxMap';
+import registerCommand from '../../core/registerCommand';
 import { leafletPoint } from '../../utils/transformPoint';
 import extractProperties from '../../utils/extractProperties';
 
@@ -24,6 +24,6 @@ const drawMarker = (context, point, options = {}, properties = {}) => {
   return marker;
 };
 
-Map.register('marker', drawMarker);
+registerCommand('marker', drawMarker);
 
 export default drawMarker;

@@ -1,5 +1,6 @@
 import L from 'leaflet';
-import Map from '../../core/RxMap';
+import registerCommand from '../../core/registerCommand';
+
 
 const create = (context, id, lat, lng, zoom) => {
   const map = L.map(id).setView([lat, lng], zoom);
@@ -10,6 +11,6 @@ const create = (context, id, lat, lng, zoom) => {
   return map;
 };
 
-Map.register('create', create);
+registerCommand('create', create);
 
 export default create;

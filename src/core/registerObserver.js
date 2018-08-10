@@ -1,7 +1,7 @@
 
 const registerObservers = {};
 
-export const setObserver = (name, observer) => {
+export const registerObserver = (name, observer) => {
   registerObservers[name] = observer;
 };
 

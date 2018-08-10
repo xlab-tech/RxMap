@@ -1,6 +1,6 @@
 import { fromEventPattern } from 'rxjs/internal/observable/fromEventPattern';
 import { map } from 'rxjs/internal/operators/map';
-import Map from '../../core/RxMap';
+import { registerObserver } from '../../core/registerObserver';
 import getGoogleMap from '../../utils/google';
 
 const event = (context) => {
@@ -20,6 +20,6 @@ const event = (context) => {
   }));
 };
 
-Map.registerObservable('center', event);
+registerObserver('center', event);
 
 export default event;

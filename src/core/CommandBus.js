@@ -2,6 +2,8 @@
 import { from } from 'rxjs/internal/observable/from';
 import isPromise from '../utils/isPromise';
 import { getObserver } from './registerObserver';
+import { registerMiddlewares } from './middlewares';
+import './Observable';
 
 class CommandBus {
   constructor() {
@@ -56,6 +58,15 @@ class CommandBus {
 
   getCommandName() {
     return this._executingCommand;
+  }
+
+  applyMiddlewares(commandName, ...middlewares) {
+    registerMiddlewares(commandName, middlewares);
+    /* if (typeof commandName === 'string') {
+      registerCommand(CommandBus, commandName);
+    } else {
+      registerCommand(CommandBus);
+    } */
   }
 
   fromObserver(observer) {

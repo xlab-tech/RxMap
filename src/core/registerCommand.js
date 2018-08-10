@@ -1,7 +1,7 @@
 import { applyMiddlewares } from './middlewares';
 import registerOperator from './registerOperator';
-import CommandBus from './CommandBus';
 import AsyncCommandBus from './AsyncCommandBus';
+import CommandBus from './CommandBus';
 
 const registerCommands = {};
 

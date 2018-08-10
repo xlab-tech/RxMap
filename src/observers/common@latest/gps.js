@@ -1,6 +1,6 @@
 import { fromEventPattern } from 'rxjs/internal/observable/fromEventPattern';
 import { map } from 'rxjs/internal/operators/map';
-import Map from '../../core/RxMap';
+import { registerObserver } from '../../core/registerObserver';
 
 
 const event = () => {
@@ -13,6 +13,6 @@ const event = () => {
   ).pipe(map(position => position.coords));
 };
 
-Map.registerObservable('gps', event);
+registerObserver('gps', event);
 
 export default event;

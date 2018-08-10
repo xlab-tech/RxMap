@@ -1,4 +1,4 @@
-import Map from '../../core/RxMap';
+import registerCommand from '../../core/registerCommand';
 import getGoogleMap from '../../utils/google';
 
 const create = (context, id, lat, lng, zoom) => {
@@ -11,6 +11,6 @@ const create = (context, id, lat, lng, zoom) => {
   return _map;
 };
 
-Map.register('create', create);
+registerCommand('create', create);
 
 export default create;

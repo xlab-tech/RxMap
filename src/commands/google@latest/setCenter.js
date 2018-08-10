@@ -1,5 +1,5 @@
 
-import Map from '../../core/RxMap';
+import registerCommand from '../../core/registerCommand';
 import { googlePoint } from '../../utils/transformPoint';
 
 const setCenter = (context, options) => {
@@ -12,6 +12,6 @@ const setCenter = (context, options) => {
   return context.lastExecution;
 };
 
-Map.register('setCenter', setCenter);
+registerCommand('setCenter', setCenter);
 
 export default setCenter;

@@ -1,5 +1,5 @@
 
-import Map from '../../core/RxMap';
+import registerCommand from '../../core/registerCommand';
 import getGoogleMap from '../../utils/google';
 import { googlePoint } from '../../utils/transformPoint';
 import extractProperties from '../../utils/extractProperties';
@@ -23,6 +23,6 @@ const drawPoint = (context, point, style, properties) => {
   return circle;
 };
 
-Map.register('point', drawPoint);
+registerCommand('point', drawPoint);
 
 export default drawPoint;

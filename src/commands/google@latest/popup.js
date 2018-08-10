@@ -1,6 +1,6 @@
 // Create a marker and set its position.
 
-import Map from '../../core/RxMap';
+import registerCommand from '../../core/registerCommand';
 import getGoogleMap from '../../utils/google';
 
 const addPopup = (marker, content) => {
@@ -35,6 +35,6 @@ const popup = (context, content) => {
   return context.lastExecution;
 };
 
-Map.register('popup', popup);
+registerCommand('popup', popup);
 
 export default popup;

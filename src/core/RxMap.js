@@ -1,8 +1,5 @@
-import { registerMiddlewares } from './middlewares';
+
 import CommandBus from './CommandBus';
-import registerCommand from './registerCommand';
-import { setObserver } from './registerObserver';
-import './Observable';
 
 let _Map;
 
@@ -20,23 +17,6 @@ export class RxMap extends CommandBus {
 
   getMap() {
     return this._sourceMap;
-  }
-
-  register(commandName, command) {
-    registerCommand(commandName, command);
-  }
-
-  registerObservable(observerName, observer) {
-    setObserver(observerName, observer);
-  }
-
-  applyMiddlewares(commandName, ...middlewares) {
-    registerMiddlewares(commandName, middlewares);
-    if (typeof commandName === 'string') {
-      registerCommand(commandName);
-    } else {
-      registerCommand();
-    }
   }
 
   init() {

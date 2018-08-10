@@ -13,15 +13,11 @@ const compose = (command, ...funcs) => {
   return funcs.reduce((a, b) => a(b(command)));
 };
 
-const executeCommand = (commandName, Command) => (commandBus, args) => {
+const executeCommand = Command => (commandBus, args) => {
   const context = {
     RxMap: commandBus.getRxMap(),
     lastExecution: commandBus.value(),
   };
-  if (Command.prototype && Command.prototype.execute) {
-    const commandInstace = new Command(...args);
-    return commandInstace.execute(context);
-  }
   return Command(context, ...args);
 };
 
@@ -30,7 +26,7 @@ export const applyMiddlewares = (commandName, command) => {
   if (_middlewares[commandName]) {
     middlewares = _middlewares._global.concat(_middlewares[commandName]);
   }
-  return compose(executeCommand(commandName, command), ...middlewares);
+  return compose(executeCommand(command), ...middlewares);
 };
 
 export const registerMiddlewares = (commandName, middlewares) => {

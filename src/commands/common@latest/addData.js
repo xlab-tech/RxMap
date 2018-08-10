@@ -1,7 +1,7 @@
 
-import Map from '../../core/RxMap';
+import registerCommand from '../../core/registerCommand';
 
-const addData = function (context, typeId, data) {
+const addData = (context, typeId, data) => {
   const { RxMap } = context;
   const type = RxMap.getDataType(typeId);
   if (!type) {
@@ -24,6 +24,6 @@ const addData = function (context, typeId, data) {
   }
 };
 
-Map.register('addData', addData);
+registerCommand('addData', addData);
 
 export default addData;

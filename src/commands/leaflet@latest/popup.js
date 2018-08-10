@@ -1,5 +1,5 @@
 
-import Map from '../../core/RxMap';
+import registerCommand from '../../core/registerCommand';
 
 const addPopup = (marker, content) => {
   const { properties } = marker;
@@ -20,6 +20,6 @@ const popup = (context, content) => {
   return context.lastExecution;
 };
 
-Map.register('popup', popup);
+registerCommand('popup', popup);
 
 export default popup;

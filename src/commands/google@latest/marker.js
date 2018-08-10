@@ -1,6 +1,6 @@
 
 
-import Map from '../../core/RxMap';
+import registerCommand from '../../core/registerCommand';
 import getGoogleMap from '../../utils/google';
 import { googlePoint } from '../../utils/transformPoint';
 import extractProperties from '../../utils/extractProperties';
@@ -30,6 +30,6 @@ const drawMarker = (context, point, options = {}, properties = {}) => {
   return markerMap;
 };
 
-Map.register('marker', drawMarker);
+registerCommand('marker', drawMarker);
 
 export default drawMarker;

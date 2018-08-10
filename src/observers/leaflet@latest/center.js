@@ -1,6 +1,6 @@
 import { fromEventPattern } from 'rxjs/internal/observable/fromEventPattern';
 import { map } from 'rxjs/internal/operators/map';
-import Map from '../../core/RxMap';
+import { registerObserver } from '../../core/registerObserver';
 
 const event = (context) => {
   const map_ = context.RxMap.getMap();
@@ -13,6 +13,6 @@ const event = (context) => {
   ).pipe(map(() => map_.getCenter()));
 };
 
-Map.registerObservable('center', event);
+registerObserver('center', event);
 
 export default event;
