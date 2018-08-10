@@ -14,7 +14,7 @@ const compose = (command, ...funcs) => {
 };
 
 const executeCommand = (commandName, Command) => (_this, args) => {
-  if (Command.prototype.execute) {
+  if (Command.prototype && Command.prototype.execute) {
     const commandInstace = new Command(...args);
     commandInstace.setMap(_this._map);
     return commandInstace.execute();
