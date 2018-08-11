@@ -2,7 +2,7 @@ import { from } from 'rxjs/internal/observable/from';
 import { switchMap } from 'rxjs/internal/operators/switchMap';
 import { RxMap } from './RxMap';
 import { registerObserver } from './registerObserver';
-import registerCommand from './registerCommand';
+import { registerCommand } from './registerCommand';
 
 let _RxMap;
 
@@ -19,22 +19,32 @@ export class RxDynamicMapClass extends RxMap {
     this.createAsync = true;
   }
 
+  async loadMapLibrary(lib, options) {
+    if (lib === 'leaflet') {
+      return import(/* webpackChunkName: "leaflet" */'leaflet');
+    }
+
+    if (lib === 'google') {
+      const { loadGoogle } = await import(/* webpackChunkName: "google" */'./../utils/google');
+      return loadGoogle(options.key);
+    }
+    throw new Error(`Library ${lib} not supported`);
+  }
+
   async load(lib, commands, observers, options = {}) {
     // First Load Map Lib
-    if (lib === 'leaflet') {
-      await import(/* webpackChunkName: "leaflet" */'leaflet');
-    } else if (lib === 'google') {
-      const { loadGoogle } = await import(/* webpackChunkName: "google" */'./../utils/google');
-      await loadGoogle(options.key);
-    }
-    // After Load all Componentes
+    await this.loadMapLibrary(lib, options);
+
+
     if (!options.defer) {
-      // After Load all Componentes
+      // After Load all Commands and observers if not defer the loader.
       const _commands = commands.map(key => loadLib(lib, 'commands', key, options.version));
       const _observers = observers.map(key => loadLib(lib, 'observers', key, options.version));
       return Promise.all(_commands.concat(_observers))
         .then(() => this);
     }
+
+    // create commands and observers for loader funcions when use it.
     commands.forEach((key) => {
       registerCommand(key, (...args) => {
         const res = loadLib(lib, 'commands', key, options.version);
