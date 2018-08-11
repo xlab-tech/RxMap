@@ -1,5 +1,5 @@
 
-import registerCommand from '../../core/registerCommand';
+import { registerCommand } from '../../core/registerCommand';
 import { leafletPoint } from '../../utils/transformPoint';
 
 const setCenter = (context, options) => {

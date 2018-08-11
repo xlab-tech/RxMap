@@ -13,12 +13,12 @@ const compose = (command, ...funcs) => {
   return funcs.reduce((a, b) => a(b(command)));
 };
 
-const executeCommand = Command => (commandBus, args) => {
+const executeCommand = command => (commandBus, args) => {
   const context = {
     RxMap: commandBus.getRxMap(),
     lastExecution: commandBus.value(),
   };
-  return Command(context, ...args);
+  return command(context, ...args);
 };
 
 export const applyMiddlewares = (commandName, command) => {
@@ -36,5 +36,3 @@ export const registerMiddlewares = (commandName, middlewares) => {
   }
   _middlewares._global = [commandName, ...middlewares];
 };
-
-export default applyMiddlewares;

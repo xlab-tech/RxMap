@@ -1,5 +1,5 @@
 
-import registerCommand from '../../core/registerCommand';
+import { registerCommand } from '../../core/registerCommand';
 import { googlePoint } from '../../utils/transformPoint';
 
 const setCenter = (context, options) => {

@@ -1,5 +1,5 @@
 import L from 'leaflet';
-import registerCommand from '../../core/registerCommand';
+import { registerCommand } from '../../core/registerCommand';
 
 
 const create = (context, id, lat, lng, zoom) => {

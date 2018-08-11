@@ -1,6 +1,6 @@
 
 import L from 'leaflet';
-import registerCommand from '../../core/registerCommand';
+import { registerCommand } from '../../core/registerCommand';
 import { leafletPoint } from '../../utils/transformPoint';
 import extractProperties from '../../utils/extractProperties';
 

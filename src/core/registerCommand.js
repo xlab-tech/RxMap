@@ -1,4 +1,4 @@
-import { applyMiddlewares } from './middlewares';
+import { applyMiddlewares as applyMiddlewaresAtCommand, registerMiddlewares } from './middlewares';
 import registerOperator from './registerOperator';
 import AsyncCommandBus from './AsyncCommandBus';
 import CommandBus from './CommandBus';
@@ -10,7 +10,7 @@ const isAsyncCommandBus = function (value) {
 };
 
 const _registerCommand = (commandName, command) => {
-  const commandExecute = applyMiddlewares(commandName, command);
+  const commandExecute = applyMiddlewaresAtCommand(commandName, command);
   CommandBus.prototype[commandName] = function (...args) {
     let _this = this;
     if (!(isAsyncCommandBus(_this))
@@ -23,24 +23,33 @@ const _registerCommand = (commandName, command) => {
   registerOperator(commandName, commandExecute);
 };
 
-const registerCommand = (commandName, command) => {
-  if (!commandName) {
-    Object.keys(registerCommands).map(key => registerCommand(key));
-    return;
+const registerWithMiddleware = (commandName) => {
+  const commandValue = registerCommands[commandName].command;
+  if (!commandValue) {
+    throw new Error(`Command ${commandName} not registered`);
   }
-  let commandValue = command;
+  _registerCommand(commandName, commandValue);
+};
+
+export const registerCommand = (commandName, command, options = {}) => {
   // if (CommandBus.prototype[commandName]) {
   //    throw `Command ${commandName} yet registered`
   // }
-  if (commandValue) {
-    registerCommands[commandName] = commandValue;
+
+  registerCommands[commandName] = { command, options };
+
+  _registerCommand(commandName, command);
+};
+
+export const getCommandInfo = commandName => registerCommands[commandName].options;
+
+export const applyMiddlewares = (commandName, ...middlewares) => {
+  registerMiddlewares(commandName, middlewares);
+  if (typeof commandName === 'string') {
+    registerWithMiddleware(commandName);
   } else {
-    commandValue = registerCommands[commandName];
-    if (!commandValue) {
-      throw new Error(`Command ${commandName} not registered`);
-    }
+    Object.keys(registerCommands).forEach(key => registerWithMiddleware(key));
   }
-  _registerCommand(commandName, commandValue);
 };
 
 export default registerCommand;

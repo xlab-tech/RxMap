@@ -2,6 +2,7 @@ import { map } from 'rxjs/internal/operators/map';
 import { take } from 'rxjs/internal/operators/take';
 import { delay } from 'rxjs/internal/operators/delay';
 import RxMapFromConfig from '../src/core/config';
+import { applyMiddlewares } from '../src/core/registerCommand';
 import { LoggerMiddleware, TimerMiddleware } from '../src/middleware/logger';
 
 const config = {
@@ -106,7 +107,9 @@ const positions = [
 
 const p = async () => {
   const Map = await RxMapFromConfig('map', config);
-  Map.applyMiddlewares(LoggerMiddleware);
+  applyMiddlewares(LoggerMiddleware);
+  applyMiddlewares('addData', TimerMiddleware);
+
   Map.marker({ lat: 51.5, lng: -0.09 })
     .popup('adios Mundo');
 

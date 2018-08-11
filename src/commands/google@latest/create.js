@@ -1,4 +1,4 @@
-import registerCommand from '../../core/registerCommand';
+import { registerCommand } from '../../core/registerCommand';
 import getGoogleMap from '../../utils/google';
 
 const create = (context, id, lat, lng, zoom) => {

@@ -1,5 +1,5 @@
 
-import registerCommand from '../../core/registerCommand';
+import { registerCommand } from '../../core/registerCommand';
 
 const addPopup = (marker, content) => {
   const { properties } = marker;

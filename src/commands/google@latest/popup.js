@@ -1,6 +1,6 @@
 // Create a marker and set its position.
 
-import registerCommand from '../../core/registerCommand';
+import { registerCommand } from '../../core/registerCommand';
 import getGoogleMap from '../../utils/google';
 
 const addPopup = (marker, content) => {

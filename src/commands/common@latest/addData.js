@@ -1,5 +1,5 @@
 
-import registerCommand from '../../core/registerCommand';
+import { registerCommand } from '../../core/registerCommand';
 
 const addData = (context, typeId, data) => {
   const { RxMap } = context;

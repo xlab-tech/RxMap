@@ -63,9 +63,9 @@ class CommandBus {
   applyMiddlewares(commandName, ...middlewares) {
     registerMiddlewares(commandName, middlewares);
     /* if (typeof commandName === 'string') {
-      registerCommand(CommandBus, commandName);
+      registerCommand( commandName);
     } else {
-      registerCommand(CommandBus);
+      registerCommand();
     } */
   }
 

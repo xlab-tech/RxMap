@@ -1,6 +1,6 @@
 
 
-import registerCommand from '../../core/registerCommand';
+import { registerCommand } from '../../core/registerCommand';
 import getGoogleMap from '../../utils/google';
 import { googlePoint } from '../../utils/transformPoint';
 import extractProperties from '../../utils/extractProperties';
