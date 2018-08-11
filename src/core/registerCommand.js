@@ -9,8 +9,7 @@ const isAsyncCommandBus = function (value) {
   return value && typeof value.subscribe === 'function' && typeof value.execute === 'function';
 };
 
-const _registerCommand = (commandName, command) => {
-  const commandExecute = applyMiddlewaresAtCommand(commandName, command);
+const createFunctionInCommandBus = (commandName, commandExecute) => {
   CommandBus.prototype[commandName] = function (...args) {
     let _this = this;
     if (!(isAsyncCommandBus(_this))
@@ -20,24 +19,23 @@ const _registerCommand = (commandName, command) => {
     _this.execute(commandName, commandExecute, args);
     return _this;
   };
+};
+
+const _registerCommand = (commandName, command) => {
+  const commandExecute = applyMiddlewaresAtCommand(commandName, command);
+  createFunctionInCommandBus(commandName, commandExecute);
   registerOperator(commandName, commandExecute);
 };
 
 const registerWithMiddleware = (commandName) => {
-  const commandValue = registerCommands[commandName].command;
-  if (!commandValue) {
-    throw new Error(`Command ${commandName} not registered`);
+  const commandValue = registerCommands[commandName];
+  if (commandValue) {
+    _registerCommand(commandName, commandValue.command);
   }
-  _registerCommand(commandName, commandValue);
 };
 
 export const registerCommand = (commandName, command, options = {}) => {
-  // if (CommandBus.prototype[commandName]) {
-  //    throw `Command ${commandName} yet registered`
-  // }
-
   registerCommands[commandName] = { command, options };
-
   _registerCommand(commandName, command);
 };
 
