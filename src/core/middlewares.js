@@ -13,13 +13,7 @@ const compose = (command, ...funcs) => {
   return funcs.reduce((a, b) => a(b(command)));
 };
 
-const executeCommand = command => (commandBus, args) => {
-  const context = {
-    RxMap: commandBus.getRxMap(),
-    lastExecution: commandBus.value(),
-  };
-  return command(context, ...args);
-};
+const executeCommand = command => (commandBus, args) => command(commandBus.getContext(), ...args);
 
 export const applyMiddlewares = (commandName, command) => {
   let middlewares = _middlewares._global;

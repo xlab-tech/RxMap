@@ -1,5 +1,5 @@
 
-import CommandBus from './CommandBus';
+import CommandBus from './core/CommandBus';
 
 let _Map;
 
@@ -17,6 +17,10 @@ export class RxMap extends CommandBus {
 
   getMap() {
     return this._sourceMap;
+  }
+
+  getMapLibrary() {
+    return window.L || window.google.maps;
   }
 
   init() {

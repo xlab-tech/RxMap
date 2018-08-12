@@ -81,11 +81,16 @@ class CommandBus {
     if (!observer) {
       throw new Error(`Observer ${observerName} not register`);
     }
-    const context = {
+
+    return observer(this.getContext(), ...args).setCommandBus(this);
+  }
+
+  getContext() {
+    return {
       RxMap: this.getRxMap(),
       lastExecution: this.value(),
+      library: this.getRxMap().getMapLibrary(),
     };
-    return observer(context, ...args).setCommandBus(this);
   }
 }
 

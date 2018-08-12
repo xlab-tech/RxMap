@@ -6,9 +6,8 @@
   "scripts": {
     "test": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha -- test/unit/**/*.spec.js  --recursive --require babel-register",
     "test:tdd": "mocha -c test/unit/**/*.spec.js --require babel-register --watch --watch-extensions js",
-    "test:debug": "mocha -c test/unit/**/*.* --require babel-register --debug-brk",
-    "check:style": "eslint \"./src/**/*.js\" --fix",
-    "eslint": "eslint init ",
+    "test:debug": "mocha -c test/unit/**/*.* --require babel-register --debug-brk ",
+    "check:style": "eslint \"./src/**/*.js\" \"./lib/**/*.js\" --fix",
     "start": "webpack-dev-server --open",
     "build": "webpack --config webpack.config.js"
   },
