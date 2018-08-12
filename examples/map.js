@@ -2,10 +2,11 @@
 import { take, delay, map } from 'rxjs/operators';
 import Map from '../src/RxMap';
 import './leaflet';
+import { applyMiddlewares } from '../src/core/registerCommand';
 import { LoggerMiddleware, TimerMiddleware } from '../lib/middlewares/logger';
 
-Map.applyMiddlewares(LoggerMiddleware);
-Map.applyMiddlewares('create', TimerMiddleware);
+applyMiddlewares(LoggerMiddleware);
+applyMiddlewares('create', TimerMiddleware);
 
 Map.create('map', 51.505, -0.09, 13)
   .marker({ lat: 52.1, lng: -0.09 })
@@ -32,7 +33,7 @@ Map.observer(positions)
       console.log('PRE 2 MAP', d);
       return d;
     }),
-  )
+)
   .marker((res => ({ lat: res.lat, lng: res.lng })))
   .popup('click')
   .subscribe();
