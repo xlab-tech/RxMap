@@ -1,6 +1,7 @@
-import '../src/commands/leaflet@latest/create';
-import '../src/commands/leaflet@latest/marker';
-import '../src/commands/leaflet@latest/popup';
-import '../src/commands/leaflet@latest/setCenter';
-import '../src/observers/leaflet@latest/center';
-import '../src/observers/leaflet@latest/click';
+import 'leaflet';
+import '../lib/commands/leaflet@latest/create';
+import '../lib/commands/leaflet@latest/marker';
+import '../lib/commands/leaflet@latest/popup';
+import '../lib/commands/leaflet@latest/setCenter';
+import '../lib/observers/leaflet@latest/center';
+import '../lib/observers/leaflet@latest/click';

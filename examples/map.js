@@ -1,8 +1,8 @@
 
 import { take, delay, map } from 'rxjs/operators';
-import Map from '../src/core/RxMap';
+import Map from '../src/RxMap';
 import './leaflet';
-import { LoggerMiddleware, TimerMiddleware } from '../src/middleware/logger';
+import { LoggerMiddleware, TimerMiddleware } from '../lib/middlewares/logger';
 
 Map.applyMiddlewares(LoggerMiddleware);
 Map.applyMiddlewares('create', TimerMiddleware);
