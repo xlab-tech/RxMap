@@ -10,7 +10,8 @@ const _commons = ['gps', 'addData'];
 
 const loadLib = (lib, type, name, version = 'latest') => {
   const _lib = _commons.includes(name) ? 'common' : lib;
-  return import(`../lib/${type}/${_lib}@${version}/${name}.js`);
+  // COMMANDS_PATH: inject from webpack environment variable
+  return import(`${COMMANDS_PATH}/${type}/${_lib}@${version}/${name}.js`);
 };
 
 export class RxDynamicMapClass extends RxMap {

@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
@@ -23,6 +24,9 @@ module.exports = {
       title: 'Output Management',
       template: './examples/map.1.html',
       chunksSortMode: 'none',
+    }),
+    new webpack.DefinePlugin({
+      COMMANDS_PATH: JSON.stringify('../lib'),
     }),
   ],
   optimization: {

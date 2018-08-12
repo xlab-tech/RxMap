@@ -18,6 +18,7 @@
     "babel"
   ],
   "globals": {
-    "import": true
+    "import": true,
+    "COMMANDS_PATH": true
   }
 }
