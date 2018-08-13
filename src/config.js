@@ -1,5 +1,6 @@
 import { take } from 'rxjs/internal/operators/take';
-import RxDynamicMap from './RxDynamicMap';
+import RxMap from './RxMap';
+import isPromise from './utils/isPromise';
 
 const mandatoryCommands = ['create'];
 const mandatoryObservers = [];
@@ -16,22 +17,28 @@ const RxMapFromConfig = async (id, config) => {
 
   let allObservers = observers.concat(mandatoryObservers, autoCenter ? 'gps' : []);
   allObservers = allObservers.filter((item, pos) => allObservers.indexOf(item) === pos);
+  options.commands = allComands;
+  options.observers = allObservers;
 
-  await RxDynamicMap.load(type, allComands, allObservers, options);
+  await RxMap.load(type, options);
 
-  await new Promise(resolve => RxDynamicMap.create(id, mapCenter.lat, mapCenter.lng, zoom).subscribe(data => resolve(data)));
+  const create = RxMap.create(id, mapCenter.lat, mapCenter.lng, zoom);
+
+  if (isPromise(create)) {
+    await new Promise(resolve => create.subscribe(data => resolve(data)));
+  }
 
   if (autoCenter) {
-    RxDynamicMap.observer('gps')
+    RxMap.observer('gps')
       .pipe(take(1))
       .setCenter(res => ({ lat: res.latitude, lng: res.longitude }))
       .subscribe();
   }
   if (dataTypes) {
-    dataTypes.forEach(element => RxDynamicMap.setDataType(element.id, element.geomType, element.style));
+    dataTypes.forEach(element => RxMap.setDataType(element.id, element.geomType, element.style));
   }
 
-  return RxDynamicMap;
+  return RxMap;
 };
 
 export default RxMapFromConfig;

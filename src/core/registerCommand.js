@@ -40,6 +40,7 @@ export const registerCommand = (commandName, command, options = {}) => {
 };
 
 export const getCommandInfo = commandName => registerCommands[commandName].options;
+export const getCommand = commandName => registerCommands[commandName].command;
 
 export const applyMiddlewares = (commandName, ...middlewares) => {
   registerMiddlewares(commandName, middlewares);

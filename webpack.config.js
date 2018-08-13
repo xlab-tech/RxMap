@@ -6,12 +6,12 @@ const webpack = require('webpack');
 module.exports = {
   mode: 'development',
   entry: {
-    load: './examples/map.load.js',
+    RxMap: './index.js',
+    example: './examples/map.load.js',
     // index: './examples/map.js',
   },
   output: {
-    filename: '[name].bundle.js',
-    chunkFilename: '[name].bundle.js',
+    filename: '[hash]/[name].js',
     path: path.resolve(__dirname, 'dist'),
   },
   devtool: 'inline-source-map',
@@ -29,15 +29,4 @@ module.exports = {
       COMMANDS_PATH: JSON.stringify('../lib'),
     }),
   ],
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        commons: {
-          name: 'commons',
-          chunks: 'initial',
-          minChunks: 2,
-        },
-      },
-    },
-  },
 };

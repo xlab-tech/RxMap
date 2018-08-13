@@ -1,12 +1,11 @@
 import { map } from 'rxjs/internal/operators/map';
 import { take } from 'rxjs/internal/operators/take';
 import { delay } from 'rxjs/internal/operators/delay';
-import RxMapFromConfig from '../src/config';
-import { applyMiddlewares } from '../src/core/registerCommand';
+import { RxMapFromConfig, applyMiddlewares } from '../index';
 import { LoggerMiddleware, TimerMiddleware } from '../lib/middlewares/logger';
 
 const config = {
-  type: 'google',
+  type: 'leaflet',
   options: {
     key: 'AIzaSyCjj-I0sYedbWCAmAoW2LgAr4T2bkPa09Y',
     defer: true,
