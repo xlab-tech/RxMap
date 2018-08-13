@@ -2,18 +2,20 @@ import * as _register from './src/core/registerCommand';
 import * as _registerObserver from './src/core/registerObserver';
 import _RxMap from './src/RxMap';
 import _RxMapFromConfig from './src/config';
+import * as lazy from './src/core/importLazyLoad';
 
 export const { registerCommand, applyMiddlewares } = _register;
 export const { registerObserver } = _registerObserver;
 export const RxMap = _RxMap;
 export const RxMapFromConfig = _RxMapFromConfig;
-
+export const { addImportFunction } = lazy;
 const _R = {
   registerCommand,
   applyMiddlewares,
   registerObserver,
   Map: RxMap,
   RxMapFromConfig,
+  addImportFunction,
 };
 
 const _oldRxMap = window.RxMap;

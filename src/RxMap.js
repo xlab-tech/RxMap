@@ -3,39 +3,10 @@ import { from } from 'rxjs/internal/observable/from';
 import { switchMap } from 'rxjs/internal/operators/switchMap';
 import CommandBus from './core/CommandBus';
 import { registerObserver } from './core/registerObserver';
-import { registerCommand, getCommand } from './core/registerCommand';
+import { registerCommand } from './core/registerCommand';
+import { loadLib } from './core/importLazyLoad';
 
 let _Map;
-
-const _commons = ['gps', 'addData'];
-
-const loadJS = (url) => {
-  // url is URL of external file, implementationCode is the code
-  // to be called from the file, location is the location to 
-  // insert the <script> element
-  return new Promise((resolve) => {
-    const location = document.head;
-    const implementationCode = (args) => {
-      resolve(args);
-    };
-    const scriptTag = document.createElement('script');
-    scriptTag.src = url;
-    scriptTag.onload = implementationCode;
-    scriptTag.onreadystatechange = implementationCode;
-    location.appendChild(scriptTag);
-  });
-};
-
-const loadLib = async (lib, type, name, version = 'latest') => {
-  const _lib = _commons.includes(name) ? 'common' : lib;
-  if (typeof name === 'object') {
-    await loadJS(`${name.path}/${type}/${_lib}@${version}/${name.key}.js`);
-    return getCommand(name);
-  }
-
-  const module = await import(`../lib/${type}/${_lib}@${version}/${name}.js`)
-  return module.default;
-};
 
 export class RxMapClass extends CommandBus {
   constructor() {
@@ -43,6 +14,7 @@ export class RxMapClass extends CommandBus {
     this.createAsync = false;
     this._dataTypes = {};
     super.setSource(this);
+    this._importLib = {};
   }
 
   setMap(map) {
@@ -51,6 +23,10 @@ export class RxMapClass extends CommandBus {
 
   getMap() {
     return this._sourceMap;
+  }
+
+  addImportLib(lib, func) {
+    this._importLib[lib] = func;
   }
 
   async _loadMapLibrary(lib, options) {
@@ -95,14 +71,16 @@ export class RxMapClass extends CommandBus {
     }
 
     // create commands and observers for loader funcions when use it.
-    commands.forEach((key) => {
+    commands.forEach((item) => {
+      const key = typeof item === 'string' ? item : item.key;
       registerCommand(key, (...args) => {
-        const res = loadLib(lib, 'commands', key, options.version);
+        const res = loadLib(lib, 'commands', item, options.version);
         return res.then(func => func(...args));
       });
     });
-    observers.forEach((key) => {
-      registerObserver(key, (...args) => from(loadLib(lib, 'observers', key, options.version))
+    observers.forEach((item) => {
+      const key = typeof item === 'string' ? item : item.key;
+      registerObserver(key, (...args) => from(loadLib(lib, 'observers', item, options.version))
         .pipe(switchMap(observer => observer(...args))));
     });
     return Promise.resolve(this);

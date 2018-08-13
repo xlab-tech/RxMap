@@ -1,8 +1,11 @@
 import { map } from 'rxjs/internal/operators/map';
 import { take } from 'rxjs/internal/operators/take';
 import { delay } from 'rxjs/internal/operators/delay';
-import { RxMapFromConfig, applyMiddlewares } from '../index';
+import { RxMapFromConfig, applyMiddlewares, addImportFunction } from '../index';
 import { LoggerMiddleware, TimerMiddleware } from '../lib/middlewares/logger';
+// import './test/commands/leaflet@latest/testCommand';
+
+
 
 const config = {
   type: 'leaflet',
@@ -10,7 +13,7 @@ const config = {
     key: 'AIzaSyCjj-I0sYedbWCAmAoW2LgAr4T2bkPa09Y',
     defer: true,
   },
-  commands: ['create', 'marker', 'popup', 'setCenter', 'addData', 'point'],
+  commands: ['create', 'marker', 'popup', 'setCenter', 'addData', 'point', { key: 'test', lib: 'test' }],
   observers: ['center', 'click', 'gps'],
   map: {
     autoCenter: false,
@@ -104,11 +107,14 @@ const positions = [
   { lat: 1, lng: 2 },
 ];
 
+addImportFunction('test', arg => import(`./test/${arg}`));
+
 const p = async () => {
   const Map = await RxMapFromConfig('map', config);
+
   applyMiddlewares(LoggerMiddleware);
   applyMiddlewares('addData', TimerMiddleware);
-
+  Map.test('kkkkk');
   Map.marker({ lat: 51.5, lng: -0.09 })
     .popup('adios Mundo');
 
@@ -145,6 +151,7 @@ const p = async () => {
     .pipe(take(1))
     .setCenter(res => ({ lat: res.latitude, lng: res.longitude }))
     .subscribe(data => console.log('GPS', data));
+
 
   /*
 
