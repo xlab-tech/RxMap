@@ -3,9 +3,6 @@ import { take } from 'rxjs/internal/operators/take';
 import { delay } from 'rxjs/internal/operators/delay';
 import { RxMapFromConfig, applyMiddlewares, addImportFunction } from '../index';
 import { LoggerMiddleware, TimerMiddleware } from '../lib/middlewares/logger';
-// import './test/commands/leaflet@latest/testCommand';
-
-
 
 const config = {
   type: 'leaflet',
@@ -13,8 +10,8 @@ const config = {
     key: 'AIzaSyCjj-I0sYedbWCAmAoW2LgAr4T2bkPa09Y',
     defer: true,
   },
-  commands: ['create', 'marker', 'popup', 'setCenter', 'addData', 'point', { key: 'test', lib: 'test' }],
-  observers: ['center', 'click', 'gps'],
+  // commands: ['create', 'marker', 'popup', 'setCenter', 'addData', 'point', { key: 'test', lib: 'test' }],
+  // observers: ['center', 'click', 'gps'],
   map: {
     autoCenter: false,
     center: {

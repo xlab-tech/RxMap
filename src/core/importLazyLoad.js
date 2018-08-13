@@ -36,10 +36,11 @@ export const loadLib = async (lib, type, name, version = 'latest') => {
   const importFunc = _importFunctions[command.lib];
   let module;
   if (importFunc) {
-    module = await importFunc(`${type}/${_lib}@${version}/${command.key}.js`);
+    module = await importFunc(`${type}/${_lib}@${version}/${command.key}`);
   } else {
-    module = await import(`./../../lib/${type}/${_lib}@${version}/${command.key}.js`);
+    module = await import(`./../../lib/${type}/${_lib}@${version}/${command.key}`);
   }
-  // const iii = b => import(`./../lib/${b}.js`);
   return module.default;
 };
+
+export const loadAllRootLib = name => Promise.all(Object.keys(_importFunctions).map(key => _importFunctions[key](name)));

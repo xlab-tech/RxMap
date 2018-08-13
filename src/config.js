@@ -12,13 +12,17 @@ const RxMapFromConfig = async (id, config) => {
   const { center, zoom, autoCenter } = map;
   const mapCenter = center || { lat: 0, lng: 0 };
 
-  let allComands = commands.concat(mandatoryCommands);
-  allComands = allComands.filter((item, pos) => allComands.indexOf(item) === pos);
+  if (commands) {
+    let allComands = commands.concat(mandatoryCommands);
+    allComands = allComands.filter((item, pos) => allComands.indexOf(item) === pos);
+    options.commands = allComands;
+  }
 
-  let allObservers = observers.concat(mandatoryObservers, autoCenter ? 'gps' : []);
-  allObservers = allObservers.filter((item, pos) => allObservers.indexOf(item) === pos);
-  options.commands = allComands;
-  options.observers = allObservers;
+  if (observers) {
+    let allObservers = observers.concat(mandatoryObservers, autoCenter ? 'gps' : []);
+    allObservers = allObservers.filter((item, pos) => allObservers.indexOf(item) === pos);
+    options.observers = allObservers;
+  }
 
   await RxMap.load(type, options);
 

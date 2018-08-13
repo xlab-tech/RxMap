@@ -4,7 +4,7 @@ import { switchMap } from 'rxjs/internal/operators/switchMap';
 import CommandBus from './core/CommandBus';
 import { registerObserver } from './core/registerObserver';
 import { registerCommand } from './core/registerCommand';
-import { loadLib } from './core/importLazyLoad';
+import { loadLib, loadAllRootLib } from './core/importLazyLoad';
 
 let _Map;
 
@@ -30,11 +30,13 @@ export class RxMapClass extends CommandBus {
   }
 
   async _loadMapLibrary(lib, options) {
+    // TODO: cambiar latest por option.version
     if (lib === 'leaflet') {
       const _lib = import(/* webpackChunkName: "leaflet" */'leaflet');
       if (!options.noLoadCommands) {
         await _lib;
         await import(/* webpackChunkName: "leaflet@latest" */'./../lib/leaflet@latest');
+        await loadAllRootLib('leaflet@latest');
       }
       return _lib;
     }
@@ -45,6 +47,7 @@ export class RxMapClass extends CommandBus {
       if (!options.noLoadCommands) {
         await _lib;
         await import(/* webpackChunkName: "google@latest" */'./../lib/google@latest');
+        await loadAllRootLib('google@latest');
       }
       return _lib;
     }
