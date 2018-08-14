@@ -10,8 +10,8 @@ const config = {
     key: 'AIzaSyCjj-I0sYedbWCAmAoW2LgAr4T2bkPa09Y',
     defer: true,
   },
-  // commands: ['create', 'marker', 'popup', 'setCenter', 'addData', 'point', { key: 'test', lib: 'test' }],
-  // observers: ['center', 'click', 'gps'],
+  commands: ['create', 'marker', 'popup', 'setCenter', 'addData', 'point', { key: 'test', lib: 'test' }],
+  observers: ['center', 'click', 'gps'],
   map: {
     autoCenter: false,
     center: {

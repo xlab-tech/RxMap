@@ -34,13 +34,11 @@ export const loadLib = async (lib, type, name, version = 'latest') => {
     return getCommand(command.key);
   }
   const importFunc = _importFunctions[command.lib];
-  let module;
   if (importFunc) {
-    module = await importFunc(`${type}/${_lib}@${version}/${command.key}`);
-  } else {
-    module = await import(`./../../lib/${type}/${_lib}@${version}/${command.key}`);
+    const module = await importFunc(`${type}/${_lib}@${version}/${command.key}`);
+    return module.default;
   }
-  return module.default;
+  throw new Error(`not Found Import function for ${command.lib}`);
 };
 
 export const loadAllRootLib = name => Promise.all(Object.keys(_importFunctions).map(key => _importFunctions[key](name)));

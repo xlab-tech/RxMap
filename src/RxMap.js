@@ -4,7 +4,9 @@ import { switchMap } from 'rxjs/internal/operators/switchMap';
 import CommandBus from './core/CommandBus';
 import { registerObserver } from './core/registerObserver';
 import { registerCommand } from './core/registerCommand';
-import { loadLib, loadAllRootLib } from './core/importLazyLoad';
+import { loadLib } from './core/importLazyLoad';
+import importMapLibrary from './core/importMapLibrary';
+import './importFunctions';
 
 let _Map;
 
@@ -29,38 +31,15 @@ export class RxMapClass extends CommandBus {
     this._importLib[lib] = func;
   }
 
-  async _loadMapLibrary(lib, options) {
-    // TODO: cambiar latest por option.version
-    if (lib === 'leaflet') {
-      const _lib = import(/* webpackChunkName: "leaflet" */'leaflet');
-      if (!options.noLoadCommands) {
-        await _lib;
-        await import(/* webpackChunkName: "leaflet@latest" */'./../lib/leaflet@latest');
-        await loadAllRootLib('leaflet@latest');
-      }
-      return _lib;
-    }
-
-    if (lib === 'google') {
-      const { loadGoogle } = await import(/* webpackChunkName: "google" */'./utils/google');
-      const _lib = loadGoogle(options.key);
-      if (!options.noLoadCommands) {
-        await _lib;
-        await import(/* webpackChunkName: "google@latest" */'./../lib/google@latest');
-        await loadAllRootLib('google@latest');
-      }
-      return _lib;
-    }
-    throw new Error(`Library ${lib} not supported`);
-  }
 
   async load(lib, options = {}) {
     const { commands, observers } = options;
     if (commands || observers) {
+      // eslint-disable-next-line no-param-reassign
       options.noLoadCommands = true;
     }
     // First Load Map Lib
-    this._nativeLibrary = await this._loadMapLibrary(lib, options);
+    this._nativeLibrary = await importMapLibrary(lib, options);
 
     if (!commands || !observers) {
       return this;
