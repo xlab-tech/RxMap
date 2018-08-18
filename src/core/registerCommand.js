@@ -1,4 +1,4 @@
-import { applyMiddlewares as applyMiddlewaresAtCommand, registerMiddlewares } from './middlewares';
+import { applyMiddlewares, subscribe } from './middlewares';
 import registerOperator from './registerOperator';
 import AsyncCommandBus from './AsyncCommandBus';
 import CommandBus from './CommandBus';
@@ -22,16 +22,9 @@ const createFunctionInCommandBus = (commandName, commandExecute) => {
 };
 
 const _registerCommand = (commandName, command) => {
-  const commandExecute = applyMiddlewaresAtCommand(commandName, command);
+  const commandExecute = applyMiddlewares(commandName, command);
   createFunctionInCommandBus(commandName, commandExecute);
   registerOperator(commandName, commandExecute);
-};
-
-const registerWithMiddleware = (commandName) => {
-  const commandValue = registerCommands[commandName];
-  if (commandValue) {
-    _registerCommand(commandName, commandValue.command);
-  }
 };
 
 export const registerCommand = (commandName, command, options = {}) => {
@@ -41,14 +34,21 @@ export const registerCommand = (commandName, command, options = {}) => {
 
 export const getCommandInfo = commandName => registerCommands[commandName].options;
 export const getCommand = commandName => registerCommands[commandName].command;
+export const getAllCommandsName = () => Object.keys(registerCommands);
 
-export const applyMiddlewares = (commandName, ...middlewares) => {
-  registerMiddlewares(commandName, middlewares);
-  if (typeof commandName === 'string') {
-    registerWithMiddleware(commandName);
-  } else {
-    Object.keys(registerCommands).forEach(key => registerWithMiddleware(key));
+const updateCommandWithMiddleware = (commandName) => {
+  const commandValue = registerCommands[commandName];
+  if (commandValue) {
+    _registerCommand(commandName, commandValue.command);
   }
 };
+
+subscribe((commandName) => {
+  if (typeof commandName === 'string') {
+    updateCommandWithMiddleware(commandName);
+  } else {
+    Object.keys(registerCommands).forEach(key => updateCommandWithMiddleware(key));
+  }
+});
 
 export default registerCommand;

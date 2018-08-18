@@ -3,6 +3,8 @@ const _middlewares = {
   _global: [],
 };
 
+const _subscribers = [];
+
 const compose = (command, ...funcs) => {
   if (funcs.length === 0) {
     return command;
@@ -23,10 +25,16 @@ export const applyMiddlewares = (commandName, command) => {
   return compose(executeCommand(command), ...middlewares);
 };
 
-export const registerMiddlewares = (commandName, middlewares) => {
+export const registerMiddleware = (commandName, ...middlewares) => {
+  if (!commandName) {
+    return;
+  }
   if (typeof commandName === 'string') {
     _middlewares[commandName] = middlewares;
     return;
   }
   _middlewares._global = [commandName, ...middlewares];
+  _subscribers.forEach(func => func(commandName));
 };
+
+export const subscribe = func => _subscribers.push(func);

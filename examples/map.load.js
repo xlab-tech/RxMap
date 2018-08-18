@@ -1,7 +1,7 @@
 import { map } from 'rxjs/internal/operators/map';
 import { take } from 'rxjs/internal/operators/take';
 import { delay } from 'rxjs/internal/operators/delay';
-import { RxMapFromConfig, applyMiddlewares, addImportFunction } from '../index';
+import { RxMapFromConfig, registerMiddleware, addImportFunction } from '../index';
 import { LoggerMiddleware, TimerMiddleware } from '../lib/middlewares/logger';
 
 const config = {
@@ -109,8 +109,8 @@ addImportFunction('test', arg => import(`./test/${arg}`));
 const p = async () => {
   const Map = await RxMapFromConfig('map', config);
 
-  applyMiddlewares(LoggerMiddleware);
-  applyMiddlewares('addData', TimerMiddleware);
+  registerMiddleware(LoggerMiddleware);
+  registerMiddleware('addData', TimerMiddleware);
   Map.test('kkkkk');
   Map.marker({ lat: 51.5, lng: -0.09 })
     .popup('adios Mundo');
@@ -122,7 +122,7 @@ const p = async () => {
         console.log('PRE 2 MAP', d);
         return d;
       }),
-  )
+    )
     .marker(res => res)
     .popup('click')
     .subscribe();

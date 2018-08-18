@@ -2,11 +2,11 @@
 import { take, delay, map } from 'rxjs/operators';
 import Map from '../src/RxMap';
 import './leaflet';
-import { applyMiddlewares } from '../src/core/registerCommand';
+import { registerMiddleware } from '../src/core/middlewares';
 import { LoggerMiddleware, TimerMiddleware } from '../lib/middlewares/logger';
 
-applyMiddlewares(LoggerMiddleware);
-applyMiddlewares('create', TimerMiddleware);
+registerMiddleware(LoggerMiddleware);
+registerMiddleware('create', TimerMiddleware);
 
 Map.create('map', 51.505, -0.09, 13)
   .marker({ lat: 52.1, lng: -0.09 })
