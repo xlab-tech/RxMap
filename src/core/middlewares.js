@@ -31,10 +31,11 @@ export const registerMiddleware = (commandName, ...middlewares) => {
   }
   if (typeof commandName === 'string') {
     _middlewares[commandName] = middlewares;
+    _subscribers.forEach(func => func(commandName));
     return;
   }
   _middlewares._global = [commandName, ...middlewares];
-  _subscribers.forEach(func => func(commandName));
+  _subscribers.forEach(func => func());
 };
 
 export const subscribe = func => _subscribers.push(func);
