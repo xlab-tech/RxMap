@@ -20,11 +20,7 @@ class CommandBus {
     return this._source;
   }
 
-  value(callback) {
-    if (callback) {
-      callback(this._lastCommand);
-      return this;
-    }
+  value() {
     return this._lastCommand;
   }
 

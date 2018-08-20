@@ -1,20 +1,9 @@
 
-import { Observable } from 'rxjs/internal/Observable';
 import { from } from 'rxjs/internal/observable/from';
 import { of } from 'rxjs/internal/observable/of';
 import { concatMap } from 'rxjs/internal/operators/concatMap';
+import Observable, { getCommandBus } from './Observable';
 import isPromise from '../utils/isPromise';
-
-const getCommandBus = (source) => {
-  const commandBus = source.getCommandBus();
-  if (commandBus) {
-    return commandBus;
-  }
-  if (source.source) {
-    return getCommandBus(source.source);
-  }
-  return null;
-};
 
 const getArgs = (param, value) => {
   let args = param;
