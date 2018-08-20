@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">11.54% </span>
+        <span class="strong">38.46% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>3/26</span>
+        <span class='fraction'>10/26</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>1/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">23.81% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/21</span>
+        <span class='fraction'>5/21</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">12% </span>
+        <span class="strong">36% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>3/25</span>
+        <span class='fraction'>9/25</span>
       </div>
     </div>
     <p class="quiet">
@@ -81,7 +81,9 @@
 <a name='L33'></a><a href='#L33'>33</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -90,10 +92,8 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -104,18 +104,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { addImportFunction } from './core/importLazyLoad';
 &nbsp;
 // TODO: hacer una funcion con webpack que cree esto
-const <span class="fstat-no" title="function not covered" >_fixedImports = <span class="cstat-no" title="statement not covered" >(</span>) =&gt; ({</span>
+const _fixedImports = () =&gt; ({
   'google@latest': <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; import(/* webpackChunkName: "google@latest" */'../lib/google@latest'),</span></span>
-  'leaflet@latest': <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; import(/* webpackChunkName: "leaflet@latest" */'../lib/leaflet@latest'),</span></span>
+  'leaflet@latest': () =&gt; import(/* webpackChunkName: "leaflet@latest" */'../lib/leaflet@latest'),
   'commands/google@latest/create': <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; import('../lib/commands/google@latest/create'),</span></span>
   'commands/google@latest/marker': <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; import('../lib/commands/google@latest/marker'),</span></span>
   'commands/google@latest/popup': <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; import('../lib/commands/google@latest/popup'),</span></span>
@@ -124,8 +124,8 @@ const <span class="fstat-no" title="function not covered" >_fixedImports = <span
   'observers/google@latest/center': <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; import('../lib/observers/google@latest/center'),</span></span>
   'observers/google@latest/click': <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; import('../lib/observers/google@latest/click'),</span></span>
   'commands/common@latest/addData': <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; import('../lib/commands/common@latest/addData'),</span></span>
-  'observers/common@latest/gps': <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; import('../lib/observers/common@latest/gps'),</span></span>
-  'commands/leaflet@latest/create': <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; import('../lib/commands/leaflet@latest/create'),</span></span>
+  'observers/common@latest/gps': () =&gt; import('../lib/observers/common@latest/gps'),
+  'commands/leaflet@latest/create': () =&gt; import('../lib/commands/leaflet@latest/create'),
   'commands/leaflet@latest/marker': <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; import('../lib/commands/leaflet@latest/marker'),</span></span>
   'commands/leaflet@latest/popup': <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; import('../lib/commands/leaflet@latest/popup'),</span></span>
   'commands/leaflet@latest/setCenter': <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; import('../lib/commands/leaflet@latest/setCenter'),</span></span>
@@ -134,11 +134,11 @@ const <span class="fstat-no" title="function not covered" >_fixedImports = <span
   'observers/leaflet@latest/click': <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =&gt; import('../lib/observers/leaflet@latest/click'),</span></span>
 });
 &nbsp;
-addImportFunction('rxmap', <span class="fstat-no" title="function not covered" >(</span>arg) =&gt; {
+addImportFunction('rxmap', (arg) =&gt; {
   // HACK for dynamic import. The build system except latest version of webpack need all path for create bundles.
-  const f = <span class="cstat-no" title="statement not covered" >_fixedImports()[arg];</span>
-<span class="cstat-no" title="statement not covered" >  if (f) {</span>
-<span class="cstat-no" title="statement not covered" >    return f();</span>
+  const f = _fixedImports()[arg];
+  <span class="missing-if-branch" title="else path not taken" >E</span>if (f) {
+    return f();
   }
 <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >  return import(/* webpackMode: "lazy" */ `../lib/${arg}`);</span></span>
 });
@@ -148,7 +148,7 @@ addImportFunction('rxmap', <span class="fstat-no" title="function not covered" >
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Aug 17 2018 16:52:28 GMT+0200 (Central European Summer Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Aug 20 2018 22:51:41 GMT+0200 (Central European Summer Time)
 </div>
 </div>
 <script src="../prettify.js"></script>

@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">32.14% </span>
+        <span class="strong">96.43% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>9/28</span>
+        <span class='fraction'>27/28</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">82.35% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/17</span>
+        <span class='fraction'>14/17</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">22.22% </span>
+        <span class="strong">88.89% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/9</span>
+        <span class='fraction'>8/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">36.36% </span>
+        <span class="strong">95.45% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>8/22</span>
+        <span class='fraction'>21/22</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -97,26 +97,26 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -125,42 +125,42 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
 import { getCommand } from './registerCommand';
 &nbsp;
 const _importFunctions = {};
 const _commons = ['gps', 'addData'];
 &nbsp;
-const <span class="fstat-no" title="function not covered" >loadJS = <span class="cstat-no" title="statement not covered" >u</span>rl =&gt; new Promise(<span class="fstat-no" title="function not covered" >(</span>resolve) =&gt; {</span>
-  const location = <span class="cstat-no" title="statement not covered" >document.head;</span>
-  const <span class="fstat-no" title="function not covered" >implementationCode = <span class="cstat-no" title="statement not covered" >(</span>args) =&gt; {</span>
+const loadJS = url =&gt; new Promise((resolve) =&gt; {
+  const location = document.head;
+  const <span class="fstat-no" title="function not covered" >implementationCode = (</span>args) =&gt; {
 <span class="cstat-no" title="statement not covered" >    resolve(args);</span>
   };
-  const scriptTag = <span class="cstat-no" title="statement not covered" >document.createElement('script');</span>
-<span class="cstat-no" title="statement not covered" >  scriptTag.src = url;</span>
-<span class="cstat-no" title="statement not covered" >  scriptTag.onload = implementationCode;</span>
-<span class="cstat-no" title="statement not covered" >  scriptTag.onreadystatechange = implementationCode;</span>
-<span class="cstat-no" title="statement not covered" >  location.appendChild(scriptTag);</span>
+  const scriptTag = document.createElement('script');
+  scriptTag.src = url;
+  scriptTag.onload = implementationCode;
+  scriptTag.onreadystatechange = implementationCode;
+  location.appendChild(scriptTag);
 });
 &nbsp;
 export const addImportFunction = (lib, func) =&gt; {
   _importFunctions[lib] = func;
 };
 &nbsp;
-export const loadLib = <span class="cstat-no" title="statement not covered" ><span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" ><span class="fstat-no" title="function not covered" >async (</span>lib, type, name, version = 'latest') =&gt; {</span></span></span>
-  const <span class="cstat-no" title="statement not covered" >_lib = _commons.includes(name) ? 'common' : lib;</span>
-  let <span class="cstat-no" title="statement not covered" >command = name;</span>
-<span class="cstat-no" title="statement not covered" >  if (typeof name === 'string') {</span>
-<span class="cstat-no" title="statement not covered" >    command = {</span>
+export const loadLib = <span class="branch-5 cbranch-no" title="branch not covered" ><span class="branch-4 cbranch-no" title="branch not covered" ><span class="branch-1 cbranch-no" title="branch not covered" >async (lib, type, name, version = 'latest') =&gt; {</span></span></span>
+  const _lib = _commons.includes(name) ? 'common' : lib;
+  let command = name;
+  if (typeof name === 'string') {
+    command = {
       key: name,
       lib: 'rxmap',
     };
@@ -169,22 +169,22 @@ export const loadLib = <span class="cstat-no" title="statement not covered" ><sp
     await loadJS(`${command.path}/${type}/${_lib}@${version}/${command.key}.js`);
     return getCommand(command.key);
   }
-  const <span class="cstat-no" title="statement not covered" >importFunc = _importFunctions[command.lib];</span>
+  const importFunc = _importFunctions[command.lib];
   if (importFunc) {
-    const <span class="cstat-no" title="statement not covered" >module = await importFunc(`${type}/${_lib}@${version}/${command.key}`);</span>
+    const module = await importFunc(`${type}/${_lib}@${version}/${command.key}`);
     return module.default;
   }
   throw new Error(`not Found Import function for ${command.lib}`);
 };
 &nbsp;
-export const <span class="fstat-no" title="function not covered" >loadAllRootLib = <span class="cstat-no" title="statement not covered" >n</span>ame =&gt; Promise.all(Object.keys(_importFunctions).map(<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >key =&gt; _importFunctions[key](name)));</span></span></span>
+export const loadAllRootLib = name =&gt; Promise.all(Object.keys(_importFunctions).map(key =&gt; _importFunctions[key](name)));
 &nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Fri Aug 17 2018 16:52:28 GMT+0200 (Central European Summer Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Mon Aug 20 2018 22:51:41 GMT+0200 (Central European Summer Time)
 </div>
 </div>
 <script src="../../prettify.js"></script>
