@@ -4,3 +4,6 @@ node_js:
 cache:
   directories:
     - "node_modules"
+after_script:
+- "npm run test:cover"
+- "npm install coveralls && cat ./coverage/lcov.info | coveralls"
