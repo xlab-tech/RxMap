@@ -57,7 +57,6 @@ describe('RxMap', () => {
     beforeEach(() => {
       loadMap_ = sinon.stub(loadMap, 'default');
       loadMap_.callsFake(() => {
-        console.log('MOCK MAP');
         return Promise.resolve(5);
       });
       load_ = sinon.stub(load, 'loadLib');
@@ -66,24 +65,24 @@ describe('RxMap', () => {
     it('load', async () => {
       const ret = await RxMap.load('leaflet');
       expect(ret._nativeLibrary).to.eq(5);
-      console.log(ret);
+      // console.log(ret);
     });
     it('load commands', async () => {
       const ret = await RxMap.load('leaflet', { commands: [{ key: 'create' }], observers: ['click'] });
       expect(ret._nativeLibrary).to.eq(5);
-      console.log(ret);
+      // console.log(ret);
     });
     it('load commands defer', async () => {
       const ret = await RxMap.load('leaflet', { commands: [{ key: 'create' }], observers: [{ key: 'click' }], defer: true });
       expect(ret._nativeLibrary).to.eq(5);
       RxMap.create();
-      console.log(ret);
+      // console.log(ret);
     });
     it('load commands defer', async () => {
       const ret = await RxMap.load('leaflet', { commands: ['create'], observers: ['click'], defer: true });
       expect(ret._nativeLibrary).to.eq(5);
       RxMap.observer('click').subscribe();
-      console.log(ret);
+      // console.log(ret);
     });
   });
 });
