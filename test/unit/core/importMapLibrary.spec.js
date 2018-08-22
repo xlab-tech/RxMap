@@ -13,7 +13,7 @@ describe('Import Map Library', function () {
   let GoogleMapsLoader;
   before(async () => {
     GoogleMapsLoader = await import('google-maps');
-    sinon.stub(GoogleMapsLoader, 'load').callsFake(func => func());
+    sinon.stub(GoogleMapsLoader, 'load').callsFake(func => func({ maps: 5 }));
   });
   after(() => {
     GoogleMapsLoader.load.restore();
