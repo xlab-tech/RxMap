@@ -1,4 +1,4 @@
-/* global describe,it,afterEach,beforeEach */
+/* global describe,it */
 import jsdom from 'mocha-jsdom';
 import { expect } from 'chai';
 import '../../../src/importFunctions';

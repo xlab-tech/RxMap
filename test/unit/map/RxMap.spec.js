@@ -56,9 +56,7 @@ describe('RxMap', () => {
     });
     beforeEach(() => {
       loadMap_ = sinon.stub(loadMap, 'default');
-      loadMap_.callsFake(() => {
-        return Promise.resolve(5);
-      });
+      loadMap_.callsFake(() => Promise.resolve(5));
       load_ = sinon.stub(load, 'loadLib');
       load_.callsFake(() => Promise.resolve(() => 'aaaa'));
     });
