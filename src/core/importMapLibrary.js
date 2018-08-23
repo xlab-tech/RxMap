@@ -1,8 +1,9 @@
-import { loadAllRootLib } from './importLazyLoad';
+import { loadAllRootLib, loadCSS } from './importLazyLoad';
 
 export default async (lib, options = {}) => {
   const version = options.version || 'latest';
   if (lib === 'leaflet') {
+    loadCSS('https://unpkg.com/leaflet@1.3.3/dist/leaflet.css');
     const _lib = await import(/* webpackChunkName: "leaflet" */'leaflet');
     if (!options.noLoadCommands) {
       await loadAllRootLib(`leaflet@${version}`);

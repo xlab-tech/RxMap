@@ -4,7 +4,7 @@ import sinon from 'sinon';
 import jsdom from 'mocha-jsdom';
 
 import importMapLibrary from '../../../src/core/importMapLibrary';
-
+import * as loader from '../../../src/core/importLazyLoad';
 
 describe('Import Map Library', function () {
   jsdom({
@@ -14,9 +14,11 @@ describe('Import Map Library', function () {
   before(async () => {
     GoogleMapsLoader = await import('google-maps');
     sinon.stub(GoogleMapsLoader, 'load').callsFake(func => func({ maps: 5 }));
+    sinon.stub(loader, 'loadCSS').callsFake(() => Promise.resolve());
   });
   after(() => {
     GoogleMapsLoader.load.restore();
+    loader.loadCSS.restore();
   });
   this.timeout(2000);
   it('Import Google', async () => {
