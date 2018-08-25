@@ -1,6 +1,5 @@
 /* global describe,it,afterEach */
 import { expect } from 'chai';
-import jsdom from 'mocha-jsdom';
 import { Observable } from 'rxjs/internal/Observable';
 import CommandBus from '../../../src/core/CommandBus';
 import AsyncCommandBus from '../../../src/core/AsyncCommandBus';
@@ -9,16 +8,15 @@ import {
   registerCommand, getCommand, getCommandInfo, getAllCommandsName,
 } from '../../../src/core/registerCommand';
 import RxMap from '../../../src/RxMap';
+import { applyOperators } from '../../../src/core/registerOperator';
 
 describe('Register Command', () => {
-  jsdom({
-    url: 'https://example.org/',
-  });
   it('register command', () => {
     expect(Observable).to.not.respondTo('testRegister');
     expect(CommandBus).to.not.respondTo('testRegister');
 
     registerCommand('testRegister', () => 'testRegister');
+    applyOperators(Observable);
     const f = getCommand('testRegister');
     expect(f).to.be.a('function');
     expect(Observable).to.respondTo('testRegister');

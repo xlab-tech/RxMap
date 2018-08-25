@@ -1,24 +1,22 @@
 /* global describe,it,before,after */
 import { expect } from 'chai';
 import sinon from 'sinon';
-import jsdom from 'mocha-jsdom';
-
+import * as GoogleMapsLoader from 'google-maps';
 import importMapLibrary from '../../../src/core/importMapLibrary';
 import * as loader from '../../../src/core/importLazyLoad';
 
 describe('Import Map Library', function () {
-  jsdom({
-    url: 'https://example.org/',
-  });
-  let GoogleMapsLoader;
-  before(async () => {
-    GoogleMapsLoader = await import('google-maps');
+  before(() => {
     sinon.stub(GoogleMapsLoader, 'load').callsFake(func => func({ maps: 5 }));
     sinon.stub(loader, 'loadCSS').callsFake(() => Promise.resolve());
+    sinon.stub(loader, 'loadAllRootLib').returns(Promise.resolve([{ default: () => 'aa' }]));
   });
   after(() => {
     GoogleMapsLoader.load.restore();
     loader.loadCSS.restore();
+    loader.loadAllRootLib.restore();
+    // stub.loadGoogle.restore();
+    // stub.default.restore();
   });
   this.timeout(2000);
   it('Import Google', async () => {

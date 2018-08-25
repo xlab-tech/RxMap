@@ -1,13 +1,9 @@
 /* global describe,it */
 import { expect } from 'chai';
-import jsdom from 'mocha-jsdom';
+import { Observable } from 'rxjs/internal/Observable';
 import AsyncCommandBus from '../../../src/core/AsyncCommandBus';
-import Observable from '../../../src/core/Observable';
 
 describe('AsyncCommandBus', () => {
-  jsdom({
-    url: 'https://example.org/',
-  });
   it('subscribe', () => {
     const async = new AsyncCommandBus();
     let pepe;

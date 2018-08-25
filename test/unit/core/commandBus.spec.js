@@ -1,15 +1,11 @@
 /* global describe,it */
 import { expect } from 'chai';
-import jsdom from 'mocha-jsdom';
+import { Observable } from 'rxjs/internal/Observable';
 import CommandBus from '../../../src/core/CommandBus';
 import RxMap from '../../../src/RxMap';
 import { registerCommand } from '../../../src/core/registerCommand';
-import Observable from '../../../src/core/Observable';
 
 describe('CommandBus', () => {
-  jsdom({
-    url: 'https://example.org/',
-  });
   it('create new Command Bus', () => {
     const commandBus = new CommandBus();
     expect(commandBus).to.be.an.instanceof(CommandBus);

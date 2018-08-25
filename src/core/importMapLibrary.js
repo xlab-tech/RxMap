@@ -1,4 +1,13 @@
 import { loadAllRootLib, loadCSS } from './importLazyLoad';
+import { registerCommand } from './registerCommand';
+import { registerObserver } from './registerObserver';
+
+const loadAll = async (name) => {
+  const register = await loadAllRootLib(name);
+  if (register && register[0] && register[0].default) {
+    register[0].default(registerCommand, registerObserver);
+  }
+};
 
 export default async (lib, options = {}) => {
   const version = options.version || 'latest';
@@ -6,7 +15,7 @@ export default async (lib, options = {}) => {
     loadCSS('https://unpkg.com/leaflet@1.3.3/dist/leaflet.css');
     const _lib = await import(/* webpackChunkName: "leaflet" */'leaflet');
     if (!options.noLoadCommands) {
-      await loadAllRootLib(`leaflet@${version}`);
+      await loadAll(`leaflet@${version}`);
     }
     return _lib;
   }
@@ -15,7 +24,7 @@ export default async (lib, options = {}) => {
     const { loadGoogle } = await import(/* webpackChunkName: "google" */'../utils/google');
     const _lib = await loadGoogle(options.key);
     if (!options.noLoadCommands) {
-      await loadAllRootLib(`google@${version}`);
+      await loadAll(`google@${version}`);
     }
     return _lib;
   }

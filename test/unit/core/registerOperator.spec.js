@@ -1,26 +1,24 @@
 /* global describe,it */
 import { expect } from 'chai';
-import jsdom from 'mocha-jsdom';
 import { Observable } from 'rxjs/internal/Observable';
 import { from } from 'rxjs/internal/observable/from';
-import registerOperator from '../../../src/core/registerOperator';
+import registerOperator, { applyOperators } from '../../../src/core/registerOperator';
 import CommandBus from '../../../src/core/CommandBus';
+import RxMap from '../../../src/RxMap';
 
 describe('Register Operator', () => {
-  jsdom({
-    url: 'https://example.org/',
-  });
-
   it('add Observable function', () => {
-    registerOperator('test', () => 'asdf');
-    expect(Observable).to.respondTo('test');
+    registerOperator('testbb', () => 'asdf');
+    const $stream = from('1');
+    applyOperators($stream);
+    expect($stream).to.respondTo('testbb');
   });
   it('getCommandBus', () => {
-    registerOperator('test', () => 'asdf');
-    const commandBus = new CommandBus();
+    registerOperator('testb', () => 'asdf');
+    applyOperators(Observable);
     return new Promise((resolve) => {
-      from('1').setCommandBus(commandBus)
-        .test(res => res)
+      const $st = RxMap.fromObserver(from('1'));
+      $st.testb(res => res)
         .subscribe((a) => {
           expect(a).to.eq('asdf');
           resolve();
@@ -29,7 +27,9 @@ describe('Register Operator', () => {
   });
   it('getCommandBus 2', () => {
     registerOperator('test', () => Promise.resolve('asdf'));
+    applyOperators(Observable);
     const commandB = new CommandBus();
+    commandB._source = { getMapLibrary: () => 'ss' };
     return new Promise((resolve) => {
       const $stream = from('1');
       $stream.source = { getCommandBus: () => commandB };

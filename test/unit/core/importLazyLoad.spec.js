@@ -1,6 +1,5 @@
 /* global describe,it */
 import { expect } from 'chai';
-import jsdom from 'mocha-jsdom';
 import {
   loadAllRootLib,
   loadLib,
@@ -10,9 +9,6 @@ import {
 import { registerCommand } from '../../../src/core/registerCommand';
 
 describe('Import Lazy Load', function () {
-  jsdom({
-    url: 'https://example.org/',
-  });
   this.timeout(2000);
   it('addImportFunction', () => {
     let test;
@@ -29,16 +25,13 @@ describe('Import Lazy Load', function () {
     expect(res).to.eq('ttt');
   });
   it('load lib command rxmap', async () => {
+    addImportFunction('rxmap', () => Promise.resolve({ default: () => 'aaa' }));
     const res = await loadLib('leaflet', 'commands', 'create', 'latest');
     expect(res).to.be.a('function');
   });
   it('load lib command http', () => {
     const res = loadLib('test', 'commands', { key: 'test', path: 'test' });
     expect(res).to.be.a('promise');
-  });
-  it('load lib common rxmap', async () => {
-    const res = await loadLib('leaflet', 'observers', 'gps', 'latest');
-    expect(res).to.be.a('function');
   });
   it('load Css', async () => {
     document.styleSheets[-1] = { href: 'https://unpkg.com/leaflet@1.3.3/dist/leaflet.css' };

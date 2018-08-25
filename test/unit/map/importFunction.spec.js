@@ -1,13 +1,9 @@
 /* global describe,it */
-import jsdom from 'mocha-jsdom';
 import { expect } from 'chai';
-import '../../../src/importFunctions';
+// import '../../../src/importFunctions';
 import { loadLib, loadAllRootLib } from '../../../src/core/importLazyLoad';
 
 describe('addImport', () => {
-  jsdom({
-    url: 'https://example.org/',
-  });
   it('import google', () => {
     let res;
     res = loadAllRootLib('google@latest');
@@ -27,8 +23,6 @@ describe('addImport', () => {
     res = loadLib('google', 'observers', 'click');
     expect(res).to.be.a('promise');
     res = loadLib('google', 'observers', 'center');
-    expect(res).to.be.a('promise');
-    res = loadLib('common', 'commands', 'addData');
     expect(res).to.be.a('promise');
   });
   it('import leaflet', () => {
@@ -50,8 +44,6 @@ describe('addImport', () => {
     res = loadLib('leaflet', 'observers', 'click');
     expect(res).to.be.a('promise');
     res = loadLib('leaflet', 'observers', 'center');
-    expect(res).to.be.a('promise');
-    res = loadLib('common', 'commands', 'addData');
     expect(res).to.be.a('promise');
   });
   it('import other', () => {

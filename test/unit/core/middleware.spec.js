@@ -1,13 +1,9 @@
 /* global describe,it */
 import { expect } from 'chai';
-import jsdom from 'mocha-jsdom';
 import CommandBus from '../../../src/core/CommandBus';
 import { applyMiddlewares, registerMiddleware, subscribe } from '../../../src/core/middlewares';
 
 describe('Middlewares', () => {
-  jsdom({
-    url: 'https://example.org/',
-  });
   it('apply middleware No paramas', () => {
     registerMiddleware();
     const func = () => 'asfas';

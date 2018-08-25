@@ -2,7 +2,13 @@
 import { from } from 'rxjs/internal/observable/from';
 import isPromise from '../utils/isPromise';
 import { getObserver } from './registerObserver';
-import './Observable';
+import { applyOperators } from './registerOperator';
+
+const _applyCommandBus = (observer) => {
+  if (!observer.setCommandBus) {
+    applyOperators(observer);
+  }
+};
 
 class CommandBus {
   constructor() {
@@ -56,19 +62,24 @@ class CommandBus {
   }
 
   fromObserver(observer) {
+    _applyCommandBus(observer);
     return observer.setCommandBus(this);
   }
 
   observer(observerName, ...args) {
     if (typeof observerName !== 'string') {
-      return from(observerName).setCommandBus(this);
+      const obser = from(observerName);
+      _applyCommandBus(obser);
+      return obser.setCommandBus(this);
     }
     const observer = getObserver(observerName);
+
     if (!observer) {
       throw new Error(`Observer ${observerName} not register`);
     }
-
-    return observer(this.getContext(), ...args).setCommandBus(this);
+    const obser = observer(this.getContext(), ...args);
+    _applyCommandBus(obser);
+    return obser.setCommandBus(this);
   }
 
   getContext() {

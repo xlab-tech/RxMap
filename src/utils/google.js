@@ -1,9 +1,10 @@
 import GoogleMapsLoader from 'google-maps';
-// only for common js environments
+
 let _google;
 
 export const loadGoogle = key => new Promise((resolve) => {
   GoogleMapsLoader.KEY = key;
+  GoogleMapsLoader.VERSION = '3.34';
   GoogleMapsLoader.load((google) => {
     _google = google;
     resolve(google);

@@ -1,21 +1,17 @@
 /* global describe,it,after,before */
-import jsdom from 'mocha-jsdom';
 import { expect } from 'chai';
+import * as GoogleMapsLoader from 'google-maps';
+import * as google from '../../../src/utils/google';
 
 describe('google', () => {
-  jsdom({
-    url: 'https://example.org/',
-  });
-  let GoogleMapsLoader;
-  let google;
   before(async () => {
-    GoogleMapsLoader = await import('google-maps');
     GoogleMapsLoader.isLoaded = false;
     GoogleMapsLoader.default.load = f => f({ maps: 5 });
-    google = await import('../../../src/utils/google');
   });
 
   after(() => {
+    // stub.restore();
+    // google.default.restore();
     // GoogleMapsLoader.load.restore();
   });
 

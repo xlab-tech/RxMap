@@ -6,7 +6,7 @@ import { registerObserver } from './core/registerObserver';
 import { registerCommand } from './core/registerCommand';
 import { loadLib } from './core/importLazyLoad';
 import importMapLibrary from './core/importMapLibrary';
-import './importFunctions';
+// import './importFunctions';
 
 let _Map;
 
@@ -15,7 +15,7 @@ export class RxMapClass extends CommandBus {
     super();
     this.createAsync = false;
     this._dataTypes = {};
-    super.setSource(this);
+    this.setSource(this);
     this._importLib = {};
   }
 

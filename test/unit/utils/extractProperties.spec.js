@@ -1,6 +1,6 @@
 /* global describe,it */
 import { expect } from 'chai';
-import extractProperties from '../../../src/utils/extractProperties';
+import extractProperties from '../../../lib/utils/extractProperties';
 
 describe('extractProperties', () => {
   it('properties', () => {

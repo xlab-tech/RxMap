@@ -1,6 +1,7 @@
 /* global describe,it */
 import { expect } from 'chai';
-import { leafletPoint, googlePoint } from '../../../src/utils/transformPoint';
+import leafletPoint from '../../../lib/utils/transformPointLeaflet';
+import googlePoint from '../../../lib/utils/transformPointGoogle';
 
 describe('transformPoint', () => {
   describe('transformPoint Google', () => {

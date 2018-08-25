@@ -1,15 +1,10 @@
 /* global describe,it */
 import { expect } from 'chai';
-import jsdom from 'mocha-jsdom';
 import { of } from 'rxjs/internal/observable/of';
-import '../../../src/core/Observable';
 import { registerObserver } from '../../../src/core/registerObserver';
 import RxMap from '../../../src/RxMap';
 
 describe('Observable', () => {
-  jsdom({
-    url: 'https://example.org/',
-  });
   it('observer', () => {
     registerObserver('test', () => of(2));
     return new Promise((resolve, reject) => {

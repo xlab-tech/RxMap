@@ -2,7 +2,6 @@
 import { getCommand } from './registerCommand';
 
 const _importFunctions = {};
-const _commons = ['gps', 'addData'];
 
 // wait until body is defined before injecting link. This ensures a non-blocking load in IE11.
 const ready = (cb) => {
@@ -85,8 +84,7 @@ export const addImportFunction = (lib, func) => {
   _importFunctions[lib] = func;
 };
 
-export const loadLib = async (lib, type, name, version = 'latest') => {
-  const _lib = _commons.includes(name) ? 'common' : lib;
+export const loadLib = async (mapLib, type, name, version = 'latest') => {
   let command = name;
   if (typeof name === 'string') {
     command = {
@@ -95,12 +93,12 @@ export const loadLib = async (lib, type, name, version = 'latest') => {
     };
   }
   if (command.path) {
-    await loadJS(`${command.path}/${type}/${_lib}@${version}/${command.key}.js`);
+    await loadJS(`${command.path}/${type}/${mapLib}@${version}/${command.key}.js`);
     return getCommand(command.key);
   }
   const importFunc = _importFunctions[command.lib];
   if (importFunc) {
-    const module = await importFunc(`${type}/${_lib}@${version}/${command.key}`);
+    const module = await importFunc(`${type}/${mapLib}@${version}/${command.key}`);
     return module.default;
   }
   throw new Error(`not Found Import function for ${command.lib}`);

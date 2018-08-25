@@ -1,10 +1,3 @@
-import { map } from 'rxjs/internal/operators/map';
-import { take } from 'rxjs/internal/operators/take';
-import { delay } from 'rxjs/internal/operators/delay';
-import { RxMapFromConfig, registerMiddleware, addImportFunction } from '../index';
-import { LoggerMiddleware, TimerMiddleware } from '../lib/middlewares/logger';
-import '../src/importFunctions';
-
 const config = {
   type: 'leaflet',
   options: {
@@ -104,26 +97,14 @@ const positions = [
   { lat: 51.53270552998373, lng: -0.08368492126464844 },
   { lat: 1, lng: 2 },
 ];
+console.log(RxMap);
 
-addImportFunction('test', arg => import(`./test/${arg}`));
-
-const p = async () => {
-  const Map = await RxMapFromConfig('map', config);
-
-  registerMiddleware(LoggerMiddleware);
-  registerMiddleware('addData', TimerMiddleware);
-  Map.test('kkkkk');
+RxMap.RxMapFromConfig('map', config).then((Map) => {
+  console.log(Map);
   Map.marker({ lat: 51.5, lng: -0.09 })
     .popup('adios Mundo');
 
   Map.observer(positions)
-    .pipe(
-      delay(1000),
-      map((d) => {
-        console.log('PRE 2 MAP', d);
-        return d;
-      }),
-    )
     .marker(res => res)
     .popup('click')
     .subscribe();
@@ -131,10 +112,6 @@ const p = async () => {
   Map.observer('click')
     .marker((data => data))
     .subscribe(data => console.log('subscribe CLICK', data));
-
-  Map.observer('center')
-    .pipe(take(5))
-    .subscribe(data => console.log('subscribe Center', data));
 
   document.getElementById('addData').addEventListener('click', () => {
     Map.addData('test', dataTest).popup(props => `<br> Esto es un ejemplo <b>${props.test}</b>`);
@@ -144,15 +121,4 @@ const p = async () => {
       .observer('click')
       .subscribe(data => console.log('subscribe CLICK DATA PRE', data));
   });
-
-  Map.observer('gps')
-    .pipe(take(1))
-    .setCenter(res => ({ lat: res.latitude, lng: res.longitude }))
-    .subscribe(data => console.log('GPS', data));
-
-
-  /*
-
- */
-};
-p();
+});
