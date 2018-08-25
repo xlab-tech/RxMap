@@ -21,6 +21,7 @@
     "lint": "eslint \"./src/**/*.js\" \"./lib/**/*.js\" --fix",
     "start": "webpack-dev-server --open",
     "build": "webpack --config webpack.pro.config.js && babel src -d dist/es2015",
+    "prepublish": "npm run build",
     "build:es": "babel lib -d dist/lib2015"
   },
   "author": "Victor Rubinat",
