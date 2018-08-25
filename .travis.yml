@@ -4,10 +4,12 @@ node_js:
 cache:
   directories:
     - "node_modules"
-script: npm run build
+script: 
+- npm test
 after_script:
 - "npm run test:cover"
 - "npm install coveralls && cat ./coverage/lcov.info | coveralls"
+- "npm run build"
 build:
   - provider: npm
     email: "$NPM_EMAIL"
