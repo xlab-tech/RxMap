@@ -10,15 +10,15 @@ after_script:
 - "npm run test:cover"
 - "npm install coveralls && cat ./coverage/lcov.info | coveralls"
 - "npm run build"
-build:
-  - provider: npm
-    email: "$NPM_EMAIL"
-    api_key: "$NPM_TOKEN"
-    skip_cleanup: true
-  - provider: releases
-    api_key: "$GITHUB_TOKEN"
-    file_glob: true
-    file: dist/umd/**/*
-    skip_cleanup: true
+deploy:
+- provider: npm
+  email: "$NPM_EMAIL"
+  api_key: "$NPM_TOKEN"
+  skip_cleanup: true
+- provider: releases
+  api_key: "$GITHUB_TOKEN"
+  file_glob: true
+  file: dist/umd/**/*
+  skip_cleanup: true
   on:
     tags: true
