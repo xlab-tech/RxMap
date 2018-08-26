@@ -1,7 +1,16 @@
 {
   "name": "@rxmap/rxmap",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "map command and reactive ",
+  "keywords": [
+    "map",
+    "reactive",
+    "command",
+    "observer",
+    "leaflet",
+    "googlemaps",
+    "geo"
+  ],
   "main": "dist/umd/RxMap.min.js",
   "module": "dist/esm/index.js",
   "files": [
@@ -22,7 +31,7 @@
     "doc": "./node_modules/.bin/esdoc",
     "start": "webpack-dev-server --open",
     "build": "webpack --config webpack.pro.config.js && babel src -d dist/esm",
-    "prepare": "npm run build",
+    "prepare": "npm run doc && npm run build",
     "build:es": "babel lib -d dist/lib2015"
   },
   "author": "Victor Rubinat",
@@ -47,7 +56,9 @@
     "cross-env": "^5.2.0",
     "esdoc": "^1.1.0",
     "esdoc-ecmascript-proposal-plugin": "^1.0.0",
+    "esdoc-importpath-plugin": "^1.0.2",
     "esdoc-integrate-test-plugin": "^1.0.0",
+    "esdoc-lint-plugin": "^1.0.2",
     "esdoc-standard-plugin": "^1.0.0",
     "eslint": "^5.4.0",
     "eslint-config-airbnb-base": "^13.1.0",
