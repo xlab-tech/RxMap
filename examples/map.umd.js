@@ -1,3 +1,4 @@
+
 const config = {
   type: 'leaflet',
   options: {
@@ -97,9 +98,9 @@ const positions = [
   { lat: 51.53270552998373, lng: -0.08368492126464844 },
   { lat: 1, lng: 2 },
 ];
-console.log(RxMap);
+console.log(R);
 
-RxMap.RxMapFromConfig('map', config).then((Map) => {
+R.RxMapFromConfig('map', config).then((Map) => {
   console.log(Map);
   Map.marker({ lat: 51.5, lng: -0.09 })
     .popup('adios Mundo');
