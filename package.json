@@ -1,9 +1,9 @@
 {
-  "name": "rxmap",
+  "name": "@rxmap/rxmap",
   "version": "0.0.1",
   "description": "map command and reactive ",
   "main": "dist/umd/RxMap.min.js",
-  "module": "dist/es2015/index.js",
+  "module": "dist/esm/index.js",
   "files": [
     "lib.js",
     "dist/**",
@@ -20,8 +20,8 @@
     "test:debug": "cross-env BABEL_ENV=test mocha -c \"test/unit/**/*.spec.js\" --require babel-register -r jsdom-global/register --inspect-brk ",
     "lint": "eslint \"./src/**/*.js\" \"./lib/**/*.js\" --fix",
     "start": "webpack-dev-server --open",
-    "build": "webpack --config webpack.pro.config.js && babel src -d dist/es2015",
-    "prepublish": "npm run build",
+    "build": "webpack --config webpack.pro.config.js && babel src -d dist/esm",
+    "prepare": "npm run build",
     "build:es": "babel lib -d dist/lib2015"
   },
   "author": "Victor Rubinat",
@@ -63,6 +63,7 @@
     "core-js": "^2.5.7",
     "google-maps": "^3.3.0",
     "leaflet": "^1.3.3",
-    "rxjs": "^6.2.2"
+    "rxjs": "^6.2.2",
+    "url-polyfill": "^1.0.14"
   }
 }
