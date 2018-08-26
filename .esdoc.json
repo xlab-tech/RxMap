@@ -30,7 +30,7 @@
           "enable": true
         },
         "brand": {
-          "logo": "logo-xlab.png",
+          "logo": "./manual/asset/logo-xlab.png",
           "image": "https://avatars0.githubusercontent.com/u/37194013?s=400&u=692377e91a2dab11006abb01d0db33cdb211c9b8&v=4"
         },
         "manual": {
