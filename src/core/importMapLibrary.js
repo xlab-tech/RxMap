@@ -12,7 +12,7 @@ const loadAll = async (name) => {
 export default async (lib, options = {}) => {
   const version = options.version || 'latest';
   if (lib === 'leaflet') {
-    loadCSS('https://unpkg.com/leaflet@1.3.4/dist/leaflet.css');
+    await loadCSS('https://unpkg.com/leaflet@1.3.4/dist/leaflet.css');
     const _lib = await import(/* webpackChunkName: "leaflet" */'leaflet');
     if (!options.noLoadCommands) {
       await loadAll(`leaflet@${version}`);
