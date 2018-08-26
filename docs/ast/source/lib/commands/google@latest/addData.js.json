@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 97,
+  "end": 192,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 5,
+      "line": 11,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 97,
+    "end": 192,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 5,
+        "line": 11,
         "column": 0
       }
     },
@@ -95,53 +95,141 @@
             "raw": "'../common/addData'"
           },
           "value": "../common/addData"
-        }
+        },
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * @external {addData}  function/index.html#static-function-addData\n ",
+            "start": 42,
+            "end": 117,
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 0
+              },
+              "end": {
+                "line": 5,
+                "column": 3
+              }
+            }
+          }
+        ]
       },
       {
         "type": "ExportDefaultDeclaration",
-        "start": 42,
-        "end": 65,
+        "start": 118,
+        "end": 141,
         "loc": {
           "start": {
-            "line": 3,
+            "line": 6,
             "column": 0
           },
           "end": {
-            "line": 3,
+            "line": 6,
             "column": 23
           }
         },
         "declaration": {
           "type": "Identifier",
-          "start": 57,
-          "end": 64,
+          "start": 133,
+          "end": 140,
           "loc": {
             "start": {
-              "line": 3,
+              "line": 6,
               "column": 15
             },
             "end": {
-              "line": 3,
+              "line": 6,
               "column": 22
             },
             "identifierName": "addData"
           },
           "name": "addData",
-          "leadingComments": [],
-          "trailingComments": []
-        }
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n * @external {addData}  function/index.html#static-function-addData\n ",
+              "start": 42,
+              "end": 117,
+              "loc": {
+                "start": {
+                  "line": 3,
+                  "column": 0
+                },
+                "end": {
+                  "line": 5,
+                  "column": 3
+                }
+              }
+            }
+          ],
+          "trailingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n * @private\n",
+              "start": 142,
+              "end": 160,
+              "loc": {
+                "start": {
+                  "line": 7,
+                  "column": 0
+                },
+                "end": {
+                  "line": 9,
+                  "column": 2
+                }
+              }
+            }
+          ]
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * @external {addData}  function/index.html#static-function-addData\n ",
+            "start": 42,
+            "end": 117,
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 0
+              },
+              "end": {
+                "line": 5,
+                "column": 3
+              }
+            }
+          }
+        ],
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * @private\n",
+            "start": 142,
+            "end": 160,
+            "loc": {
+              "start": {
+                "line": 7,
+                "column": 0
+              },
+              "end": {
+                "line": 9,
+                "column": 2
+              }
+            }
+          }
+        ]
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 66,
-        "end": 96,
+        "start": 161,
+        "end": 191,
         "loc": {
           "start": {
-            "line": 4,
+            "line": 10,
             "column": 0
           },
           "end": {
-            "line": 4,
+            "line": 10,
             "column": 30
           }
         },
@@ -149,61 +237,62 @@
         "source": null,
         "declaration": {
           "type": "VariableDeclaration",
-          "start": 73,
-          "end": 96,
+          "start": 168,
+          "end": 191,
           "loc": {
             "start": {
-              "line": 4,
+              "line": 10,
               "column": 7
             },
             "end": {
-              "line": 4,
+              "line": 10,
               "column": 30
             }
           },
           "declarations": [
             {
               "type": "VariableDeclarator",
-              "start": 79,
-              "end": 95,
+              "start": 174,
+              "end": 190,
               "loc": {
                 "start": {
-                  "line": 4,
+                  "line": 10,
                   "column": 13
                 },
                 "end": {
-                  "line": 4,
+                  "line": 10,
                   "column": 29
                 }
               },
               "id": {
                 "type": "Identifier",
-                "start": 79,
-                "end": 83,
+                "start": 174,
+                "end": 178,
                 "loc": {
                   "start": {
-                    "line": 4,
+                    "line": 10,
                     "column": 13
                   },
                   "end": {
-                    "line": 4,
+                    "line": 10,
                     "column": 17
                   },
                   "identifierName": "name"
                 },
-                "name": "name"
+                "name": "name",
+                "leadingComments": null
               },
               "init": {
                 "type": "StringLiteral",
-                "start": 86,
-                "end": 95,
+                "start": 181,
+                "end": 190,
                 "loc": {
                   "start": {
-                    "line": 4,
+                    "line": 10,
                     "column": 20
                   },
                   "end": {
-                    "line": 4,
+                    "line": 10,
                     "column": 29
                   }
                 },
@@ -212,18 +301,87 @@
                   "raw": "'addData'"
                 },
                 "value": "addData"
-              }
+              },
+              "leadingComments": null
             }
           ],
           "kind": "const",
-          "leadingComments": [],
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n * @private\n",
+              "start": 142,
+              "end": 160,
+              "loc": {
+                "start": {
+                  "line": 7,
+                  "column": 0
+                },
+                "end": {
+                  "line": 9,
+                  "column": 2
+                }
+              }
+            }
+          ],
           "trailingComments": []
-        }
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * @private\n",
+            "start": 142,
+            "end": 160,
+            "loc": {
+              "start": {
+                "line": 7,
+                "column": 0
+              },
+              "end": {
+                "line": 9,
+                "column": 2
+              }
+            }
+          }
+        ]
       }
     ],
     "directives": []
   },
-  "comments": [],
+  "comments": [
+    {
+      "type": "CommentBlock",
+      "value": "*\n * @external {addData}  function/index.html#static-function-addData\n ",
+      "start": 42,
+      "end": 117,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 0
+        },
+        "end": {
+          "line": 5,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n * @private\n",
+      "start": 142,
+      "end": 160,
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 0
+        },
+        "end": {
+          "line": 9,
+          "column": 2
+        }
+      }
+    }
+  ],
   "tokens": [
     {
       "type": {
@@ -359,6 +517,22 @@
       }
     },
     {
+      "type": "CommentBlock",
+      "value": "*\n * @external {addData}  function/index.html#static-function-addData\n ",
+      "start": 42,
+      "end": 117,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 0
+        },
+        "end": {
+          "line": 5,
+          "column": 3
+        }
+      }
+    },
+    {
       "type": {
         "label": "export",
         "keyword": "export",
@@ -373,15 +547,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 42,
-      "end": 48,
+      "start": 118,
+      "end": 124,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 6,
           "column": 0
         },
         "end": {
-          "line": 3,
+          "line": 6,
           "column": 6
         }
       }
@@ -401,15 +575,15 @@
         "updateContext": null
       },
       "value": "default",
-      "start": 49,
-      "end": 56,
+      "start": 125,
+      "end": 132,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 6,
           "column": 7
         },
         "end": {
-          "line": 3,
+          "line": 6,
           "column": 14
         }
       }
@@ -427,15 +601,15 @@
         "binop": null
       },
       "value": "addData",
-      "start": 57,
-      "end": 64,
+      "start": 133,
+      "end": 140,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 6,
           "column": 15
         },
         "end": {
-          "line": 3,
+          "line": 6,
           "column": 22
         }
       }
@@ -453,16 +627,32 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 64,
-      "end": 65,
+      "start": 140,
+      "end": 141,
       "loc": {
         "start": {
-          "line": 3,
+          "line": 6,
           "column": 22
         },
         "end": {
-          "line": 3,
+          "line": 6,
           "column": 23
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n * @private\n",
+      "start": 142,
+      "end": 160,
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 0
+        },
+        "end": {
+          "line": 9,
+          "column": 2
         }
       }
     },
@@ -481,15 +671,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 66,
-      "end": 72,
+      "start": 161,
+      "end": 167,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 10,
           "column": 0
         },
         "end": {
-          "line": 4,
+          "line": 10,
           "column": 6
         }
       }
@@ -509,15 +699,15 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 73,
-      "end": 78,
+      "start": 168,
+      "end": 173,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 10,
           "column": 7
         },
         "end": {
-          "line": 4,
+          "line": 10,
           "column": 12
         }
       }
@@ -535,15 +725,15 @@
         "binop": null
       },
       "value": "name",
-      "start": 79,
-      "end": 83,
+      "start": 174,
+      "end": 178,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 10,
           "column": 13
         },
         "end": {
-          "line": 4,
+          "line": 10,
           "column": 17
         }
       }
@@ -562,15 +752,15 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 84,
-      "end": 85,
+      "start": 179,
+      "end": 180,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 10,
           "column": 18
         },
         "end": {
-          "line": 4,
+          "line": 10,
           "column": 19
         }
       }
@@ -589,15 +779,15 @@
         "updateContext": null
       },
       "value": "addData",
-      "start": 86,
-      "end": 95,
+      "start": 181,
+      "end": 190,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 10,
           "column": 20
         },
         "end": {
-          "line": 4,
+          "line": 10,
           "column": 29
         }
       }
@@ -615,15 +805,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 95,
-      "end": 96,
+      "start": 190,
+      "end": 191,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 10,
           "column": 29
         },
         "end": {
-          "line": 4,
+          "line": 10,
           "column": 30
         }
       }
@@ -641,15 +831,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 97,
-      "end": 97,
+      "start": 192,
+      "end": 192,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 11,
           "column": 0
         },
         "end": {
-          "line": 5,
+          "line": 11,
           "column": 0
         }
       }

@@ -12,42 +12,69 @@
     "coverage",
     "docs"
   ],
+  "index": "./README.md",
   "plugins": [
     {
       "name": "esdoc-standard-plugin",
-      "brand": {
-        "logo": "./logo.png",
-        "title": "RxMap",
-        "description": "RxMap la librearia de Mapas Reactiva",
-        "repository": "https://github.com/xlab-tech/RxMap.git",
-        "site": "http://my-library.org",
-        "author": "Victor Rubinat",
-        "image": "https://avatars0.githubusercontent.com/u/37194013?s=400&u=692377e91a2dab11006abb01d0db33cdb211c9b8&v=4"
+      "option": {
+        "undocumentIdentifier": {
+          "enable": true
+        },
+        "unexportedIdentifier": {
+          "enable": false
+        },
+        "coverage": {
+          "enable": true
+        },
+        "lint": {
+          "enable": true
+        },
+        "brand": {
+          "logo": "logo-xlab.png",
+          "image": "https://avatars0.githubusercontent.com/u/37194013?s=400&u=692377e91a2dab11006abb01d0db33cdb211c9b8&v=4"
+        },
+        "manual": {
+          "index": "./manual/index.md",
+          "globalIndex": true,
+          "asset": "./manual/asset",
+          "files": [
+            "./manual/overview.md",
+            "./manual/overview2.md"
+          ]
+        },
+        "accessor": {
+          "access": [
+            "public",
+            "protected"
+          ],
+          "autoPrivate": true
+        },
+        "test": {
+          "source": "./test/",
+          "includes": [
+            "(spec)\\.js$"
+          ]
+        }
+      }
+    },
+    {
+      "name": "esdoc-importpath-plugin",
+      "option": {
+        "stripPackageName": false,
+        "replaces": [
+        ]
+      }
+    },
+    {
+      "name": "esdoc-lint-plugin",
+      "option": {
+        "enable": true
       }
     },
     {
       "name": "esdoc-ecmascript-proposal-plugin",
       "option": {
         "all": true
-      }
-    },
-    {
-      "name": "esdoc-integrate-test-plugin",
-      "option": {
-        "source": "./test/",
-        "interfaces": [
-          "describe",
-          "it",
-          "context",
-          "suite",
-          "test"
-        ],
-        "includes": [
-          "(spec|Spec|test|Test)\\.js$"
-        ],
-        "excludes": [
-          "\\.config\\.js$"
-        ]
       }
     }
   ]

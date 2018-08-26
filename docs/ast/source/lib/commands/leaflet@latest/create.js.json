@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 400,
+  "end": 419,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 14,
+      "line": 17,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 400,
+    "end": 419,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 14,
+        "line": 17,
         "column": 0
       }
     },
@@ -993,21 +993,21 @@
           },
           "name": "create"
         },
+        "trailingComments": [],
         "name": "_",
-        "leadingComments": [],
-        "trailingComments": []
+        "leadingComments": []
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 370,
-        "end": 399,
+        "start": 389,
+        "end": 418,
         "loc": {
           "start": {
-            "line": 13,
+            "line": 16,
             "column": 0
           },
           "end": {
-            "line": 13,
+            "line": 16,
             "column": 29
           }
         },
@@ -1015,61 +1015,62 @@
         "source": null,
         "declaration": {
           "type": "VariableDeclaration",
-          "start": 377,
-          "end": 399,
+          "start": 396,
+          "end": 418,
           "loc": {
             "start": {
-              "line": 13,
+              "line": 16,
               "column": 7
             },
             "end": {
-              "line": 13,
+              "line": 16,
               "column": 29
             }
           },
           "declarations": [
             {
               "type": "VariableDeclarator",
-              "start": 383,
-              "end": 398,
+              "start": 402,
+              "end": 417,
               "loc": {
                 "start": {
-                  "line": 13,
+                  "line": 16,
                   "column": 13
                 },
                 "end": {
-                  "line": 13,
+                  "line": 16,
                   "column": 28
                 }
               },
               "id": {
                 "type": "Identifier",
-                "start": 383,
-                "end": 387,
+                "start": 402,
+                "end": 406,
                 "loc": {
                   "start": {
-                    "line": 13,
+                    "line": 16,
                     "column": 13
                   },
                   "end": {
-                    "line": 13,
+                    "line": 16,
                     "column": 17
                   },
                   "identifierName": "name"
                 },
-                "name": "name"
+                "name": "name",
+                "leadingComments": null
               },
               "init": {
                 "type": "StringLiteral",
-                "start": 390,
-                "end": 398,
+                "start": 409,
+                "end": 417,
                 "loc": {
                   "start": {
-                    "line": 13,
+                    "line": 16,
                     "column": 20
                   },
                   "end": {
-                    "line": 13,
+                    "line": 16,
                     "column": 28
                   }
                 },
@@ -1078,13 +1079,49 @@
                   "raw": "'create'"
                 },
                 "value": "create"
-              }
+              },
+              "leadingComments": null
             }
           ],
           "kind": "const",
-          "leadingComments": [],
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n * @private\n",
+              "start": 370,
+              "end": 388,
+              "loc": {
+                "start": {
+                  "line": 13,
+                  "column": 0
+                },
+                "end": {
+                  "line": 15,
+                  "column": 2
+                }
+              }
+            }
+          ],
           "trailingComments": []
-        }
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * @private\n",
+            "start": 370,
+            "end": 388,
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 0
+              },
+              "end": {
+                "line": 15,
+                "column": 2
+              }
+            }
+          }
+        ]
       },
       {
         "type": "ExportDefaultDeclaration",
@@ -2047,13 +2084,65 @@
           ],
           "kind": "const",
           "leadingComments": [],
-          "trailingComments": []
-        }
+          "trailingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n * @private\n",
+              "start": 370,
+              "end": 388,
+              "loc": {
+                "start": {
+                  "line": 13,
+                  "column": 0
+                },
+                "end": {
+                  "line": 15,
+                  "column": 2
+                }
+              }
+            }
+          ]
+        },
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * @private\n",
+            "start": 370,
+            "end": 388,
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 0
+              },
+              "end": {
+                "line": 15,
+                "column": 2
+              }
+            }
+          }
+        ]
       }
     ],
     "directives": []
   },
-  "comments": [],
+  "comments": [
+    {
+      "type": "CommentBlock",
+      "value": "*\n * @private\n",
+      "start": 370,
+      "end": 388,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 0
+        },
+        "end": {
+          "line": 15,
+          "column": 2
+        }
+      }
+    }
+  ],
   "tokens": [
     {
       "type": {
@@ -4163,6 +4252,22 @@
       }
     },
     {
+      "type": "CommentBlock",
+      "value": "*\n * @private\n",
+      "start": 370,
+      "end": 388,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 0
+        },
+        "end": {
+          "line": 15,
+          "column": 2
+        }
+      }
+    },
+    {
       "type": {
         "label": "export",
         "keyword": "export",
@@ -4177,15 +4282,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 370,
-      "end": 376,
+      "start": 389,
+      "end": 395,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 16,
           "column": 0
         },
         "end": {
-          "line": 13,
+          "line": 16,
           "column": 6
         }
       }
@@ -4205,15 +4310,15 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 377,
-      "end": 382,
+      "start": 396,
+      "end": 401,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 16,
           "column": 7
         },
         "end": {
-          "line": 13,
+          "line": 16,
           "column": 12
         }
       }
@@ -4231,15 +4336,15 @@
         "binop": null
       },
       "value": "name",
-      "start": 383,
-      "end": 387,
+      "start": 402,
+      "end": 406,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 16,
           "column": 13
         },
         "end": {
-          "line": 13,
+          "line": 16,
           "column": 17
         }
       }
@@ -4258,15 +4363,15 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 388,
-      "end": 389,
+      "start": 407,
+      "end": 408,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 16,
           "column": 18
         },
         "end": {
-          "line": 13,
+          "line": 16,
           "column": 19
         }
       }
@@ -4285,15 +4390,15 @@
         "updateContext": null
       },
       "value": "create",
-      "start": 390,
-      "end": 398,
+      "start": 409,
+      "end": 417,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 16,
           "column": 20
         },
         "end": {
-          "line": 13,
+          "line": 16,
           "column": 28
         }
       }
@@ -4311,15 +4416,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 398,
-      "end": 399,
+      "start": 417,
+      "end": 418,
       "loc": {
         "start": {
-          "line": 13,
+          "line": 16,
           "column": 28
         },
         "end": {
-          "line": 13,
+          "line": 16,
           "column": 29
         }
       }
@@ -4337,15 +4442,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 400,
-      "end": 400,
+      "start": 419,
+      "end": 419,
       "loc": {
         "start": {
-          "line": 14,
+          "line": 17,
           "column": 0
         },
         "end": {
-          "line": 14,
+          "line": 17,
           "column": 0
         }
       }

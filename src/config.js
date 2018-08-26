@@ -1,11 +1,13 @@
 import { take } from 'rxjs/internal/operators/take';
-import RxMap from './RxMap';
+import rxMap from './RxMap';
 import isPromise from './utils/isPromise';
 
+/** @private */
 const mandatoryCommands = ['create'];
+/** @private */
 const mandatoryObservers = [];
 
-const RxMapFromConfig = async (id, config) => {
+const rxMapFromConfig = async (id, config) => {
   const {
     type, commands, observers, map, options, dataTypes,
   } = config;
@@ -24,25 +26,25 @@ const RxMapFromConfig = async (id, config) => {
     options.observers = allObservers;
   }
 
-  await RxMap.load(type, options);
+  await rxMap.load(type, options);
 
-  const create = RxMap.create(id, mapCenter.lat, mapCenter.lng, zoom);
+  const create = rxMap.create(id, mapCenter.lat, mapCenter.lng, zoom);
 
   if (isPromise(create)) {
     await new Promise(resolve => create.subscribe(data => resolve(data)));
   }
 
   if (autoCenter) {
-    RxMap.observer('gps')
+    rxMap.observer('gps')
       .pipe(take(1))
       .setCenter(res => ({ lat: res.latitude, lng: res.longitude }))
       .subscribe();
   }
   if (dataTypes) {
-    dataTypes.forEach(element => RxMap.setDataType(element.id, element.geomType, element.style));
+    dataTypes.forEach(element => rxMap.setDataType(element.id, element.geomType, element.style));
   }
 
-  return RxMap;
+  return rxMap;
 };
 
-export default RxMapFromConfig;
+export default rxMapFromConfig;

@@ -7,7 +7,7 @@ import { registerMiddleware } from '../../../src/core/middlewares';
 import {
   registerCommand, getCommand, getCommandInfo, getAllCommandsName,
 } from '../../../src/core/registerCommand';
-import RxMap from '../../../src/RxMap';
+import rxMap from '../../../src/RxMap';
 import { applyOperators } from '../../../src/core/registerOperator';
 
 describe('Register Command', () => {
@@ -29,12 +29,12 @@ describe('Register Command', () => {
   });
   it('function return asyncCommandBus', () => {
     registerCommand('testRegister', () => 'testRegister');
-    const res = RxMap.testRegister();
+    const res = rxMap.testRegister();
     expect(res).to.instanceOf(AsyncCommandBus);
   });
   it('function create return CommandBus', () => {
     registerCommand('create', () => 'testRegister');
-    const res = RxMap.create('aa', 'bb');
+    const res = rxMap.create('aa', 'bb');
     expect(res).to.instanceOf(CommandBus);
   });
   it('getCommand', () => {
@@ -57,9 +57,9 @@ describe('Register Command', () => {
       return 'bb';
     };
     registerCommand('aaa', f);
-    const fBefore = RxMap.aaa;
+    const fBefore = rxMap.aaa;
     registerMiddleware(func);
-    const fAfter = RxMap.aaa;
+    const fAfter = rxMap.aaa;
     expect(fBefore).not.eq(fAfter);
   });
   afterEach(() => {

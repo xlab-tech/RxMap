@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 692,
+  "end": 710,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 26,
+      "line": 28,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 692,
+    "end": 710,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 26,
+        "line": 28,
         "column": 0
       }
     },
@@ -1940,56 +1940,57 @@
           }
         ],
         "kind": "const",
+        "trailingComments": [],
         "name": "_",
-        "leadingComments": [],
-        "trailingComments": []
+        "leadingComments": []
       },
       {
         "type": "Identifier",
-        "start": 668,
-        "end": 691,
+        "start": 686,
+        "end": 709,
         "loc": {
           "start": {
-            "line": 25,
+            "line": 27,
             "column": 0
           },
           "end": {
-            "line": 25,
+            "line": 27,
             "column": 23
           }
         },
         "declaration": {
           "type": "Identifier",
-          "start": 683,
-          "end": 690,
+          "start": 701,
+          "end": 708,
           "loc": {
             "start": {
-              "line": 25,
+              "line": 27,
               "column": 15
             },
             "end": {
-              "line": 25,
+              "line": 27,
               "column": 22
             },
             "identifierName": "addData"
           },
-          "name": "addData"
+          "name": "addData",
+          "leadingComments": null
         },
-        "name": "_",
         "leadingComments": [],
+        "name": "_",
         "trailingComments": []
       },
       {
         "type": "ExportDefaultDeclaration",
-        "start": 668,
-        "end": 691,
+        "start": 686,
+        "end": 709,
         "loc": {
           "start": {
-            "line": 25,
+            "line": 27,
             "column": 0
           },
           "end": {
-            "line": 25,
+            "line": 27,
             "column": 23
           }
         },
@@ -3921,14 +3922,83 @@
             }
           ],
           "kind": "const",
-          "leadingComments": [],
-          "trailingComments": []
-        }
+          "trailingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n * @private\n",
+              "start": 667,
+              "end": 685,
+              "loc": {
+                "start": {
+                  "line": 24,
+                  "column": 0
+                },
+                "end": {
+                  "line": 26,
+                  "column": 2
+                }
+              }
+            }
+          ],
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n * @private\n",
+              "start": 667,
+              "end": 685,
+              "loc": {
+                "start": {
+                  "line": 24,
+                  "column": 0
+                },
+                "end": {
+                  "line": 26,
+                  "column": 2
+                }
+              }
+            }
+          ]
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * @private\n",
+            "start": 667,
+            "end": 685,
+            "loc": {
+              "start": {
+                "line": 24,
+                "column": 0
+              },
+              "end": {
+                "line": 26,
+                "column": 2
+              }
+            }
+          }
+        ]
       }
     ],
     "directives": []
   },
-  "comments": [],
+  "comments": [
+    {
+      "type": "CommentBlock",
+      "value": "*\n * @private\n",
+      "start": 667,
+      "end": 685,
+      "loc": {
+        "start": {
+          "line": 24,
+          "column": 0
+        },
+        "end": {
+          "line": 26,
+          "column": 2
+        }
+      }
+    }
+  ],
   "tokens": [
     {
       "type": {
@@ -8437,6 +8507,22 @@
       }
     },
     {
+      "type": "CommentBlock",
+      "value": "*\n * @private\n",
+      "start": 667,
+      "end": 685,
+      "loc": {
+        "start": {
+          "line": 24,
+          "column": 0
+        },
+        "end": {
+          "line": 26,
+          "column": 2
+        }
+      }
+    },
+    {
       "type": {
         "label": "export",
         "keyword": "export",
@@ -8451,15 +8537,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 668,
-      "end": 674,
+      "start": 686,
+      "end": 692,
       "loc": {
         "start": {
-          "line": 25,
+          "line": 27,
           "column": 0
         },
         "end": {
-          "line": 25,
+          "line": 27,
           "column": 6
         }
       }
@@ -8479,15 +8565,15 @@
         "updateContext": null
       },
       "value": "default",
-      "start": 675,
-      "end": 682,
+      "start": 693,
+      "end": 700,
       "loc": {
         "start": {
-          "line": 25,
+          "line": 27,
           "column": 7
         },
         "end": {
-          "line": 25,
+          "line": 27,
           "column": 14
         }
       }
@@ -8505,15 +8591,15 @@
         "binop": null
       },
       "value": "addData",
-      "start": 683,
-      "end": 690,
+      "start": 701,
+      "end": 708,
       "loc": {
         "start": {
-          "line": 25,
+          "line": 27,
           "column": 15
         },
         "end": {
-          "line": 25,
+          "line": 27,
           "column": 22
         }
       }
@@ -8531,15 +8617,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 690,
-      "end": 691,
+      "start": 708,
+      "end": 709,
       "loc": {
         "start": {
-          "line": 25,
+          "line": 27,
           "column": 22
         },
         "end": {
-          "line": 25,
+          "line": 27,
           "column": 23
         }
       }
@@ -8557,15 +8643,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 692,
-      "end": 692,
+      "start": 710,
+      "end": 710,
       "loc": {
         "start": {
-          "line": 26,
+          "line": 28,
           "column": 0
         },
         "end": {
-          "line": 26,
+          "line": 28,
           "column": 0
         }
       }

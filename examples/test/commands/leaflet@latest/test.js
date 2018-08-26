@@ -1,5 +1,5 @@
 
-import { registerCommand } from '../../../../index';
+import { registerCommand } from '../../../../src/index';
 
 const test = (context, text) => {
     alert(text);

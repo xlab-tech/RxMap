@@ -18,22 +18,22 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "@rxmap/rxmap/rxmap/src/rxmap.js~rxmap",
+    "class/RxMap/src/RxMap.js~RxMap.html",
+    "<span>RxMap</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/RxMap.js</span>",
+    "class"
+  ],
+  [
     "@rxmap/rxmap/rxmap/src/index.js~rxmap",
     "variable/index.html#static-variable-RxMap",
     "<span>RxMap</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/index.js</span>",
     "variable"
   ],
   [
-    "@rxmap/rxmap/rxmap/src/rxmap.js~rxmapclass",
-    "class/RxMap/src/RxMap.js~RxMapClass.html",
-    "<span>RxMapClass</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/RxMap.js</span>",
-    "class"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/src/config.js~rxmapfromconfig",
-    "function/index.html#static-function-RxMapFromConfig",
-    "<span>RxMapFromConfig</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/config.js</span>",
-    "function"
+    "@rxmap/rxmap/rxmap/src/index.js~rxmapclass",
+    "variable/index.html#static-variable-RxMapClass",
+    "<span>RxMapClass</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/index.js</span>",
+    "variable"
   ],
   [
     "@rxmap/rxmap/rxmap/src/index.js~rxmapfromconfig",
@@ -45,12 +45,6 @@ window.esdocSearchIndex = [
     "@rxmap/rxmap/rxmap/lib/middlewares/logger.js~timermiddleware",
     "function/index.html#static-function-TimerMiddleware",
     "<span>TimerMiddleware</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/middlewares/logger.js</span>",
-    "function"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/commands/common/adddata.js~adddata",
-    "function/index.html#static-function-addData",
-    "<span>addData</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/commands/common/addData.js</span>",
     "function"
   ],
   [
@@ -186,12 +180,6 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
-    "@rxmap/rxmap/rxmap/lib/google@latest.js~googlelatest",
-    "function/index.html#static-function-googlelatest",
-    "<span>googlelatest</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/google@latest.js</span>",
-    "function"
-  ],
-  [
     "@rxmap/rxmap/rxmap/src/core/importmaplibrary.js~importmaplibrary",
     "function/index.html#static-function-importMapLibrary",
     "<span>importMapLibrary</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/core/importMapLibrary.js</span>",
@@ -207,12 +195,6 @@ window.esdocSearchIndex = [
     "@rxmap/rxmap/rxmap/lib/utils/transformpointleaflet.js~leafletpoint",
     "function/index.html#static-function-leafletPoint",
     "<span>leafletPoint</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/utils/transformPointLeaflet.js</span>",
-    "function"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/leaflet@latest.js~leafletlatest",
-    "function/index.html#static-function-leafletlatest",
-    "<span>leafletlatest</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/leaflet@latest.js</span>",
     "function"
   ],
   [
@@ -238,114 +220,6 @@ window.esdocSearchIndex = [
     "function/index.html#static-function-loadLib",
     "<span>loadLib</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/core/importLazyLoad.js</span>",
     "function"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/commands/google@latest/adddata.js~name",
-    "variable/index.html#static-variable-name",
-    "<span>name</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/commands/google@latest/addData.js</span>",
-    "variable"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/commands/google@latest/create.js~name",
-    "variable/index.html#static-variable-name",
-    "<span>name</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/commands/google@latest/create.js</span>",
-    "variable"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/commands/google@latest/marker.js~name",
-    "variable/index.html#static-variable-name",
-    "<span>name</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/commands/google@latest/marker.js</span>",
-    "variable"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/commands/google@latest/point.js~name",
-    "variable/index.html#static-variable-name",
-    "<span>name</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/commands/google@latest/point.js</span>",
-    "variable"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/commands/google@latest/popup.js~name",
-    "variable/index.html#static-variable-name",
-    "<span>name</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/commands/google@latest/popup.js</span>",
-    "variable"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/commands/google@latest/setcenter.js~name",
-    "variable/index.html#static-variable-name",
-    "<span>name</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/commands/google@latest/setCenter.js</span>",
-    "variable"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/commands/leaflet@latest/adddata.js~name",
-    "variable/index.html#static-variable-name",
-    "<span>name</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/commands/leaflet@latest/addData.js</span>",
-    "variable"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/commands/leaflet@latest/create.js~name",
-    "variable/index.html#static-variable-name",
-    "<span>name</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/commands/leaflet@latest/create.js</span>",
-    "variable"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/commands/leaflet@latest/marker.js~name",
-    "variable/index.html#static-variable-name",
-    "<span>name</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/commands/leaflet@latest/marker.js</span>",
-    "variable"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/commands/leaflet@latest/point.js~name",
-    "variable/index.html#static-variable-name",
-    "<span>name</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/commands/leaflet@latest/point.js</span>",
-    "variable"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/commands/leaflet@latest/popup.js~name",
-    "variable/index.html#static-variable-name",
-    "<span>name</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/commands/leaflet@latest/popup.js</span>",
-    "variable"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/commands/leaflet@latest/setcenter.js~name",
-    "variable/index.html#static-variable-name",
-    "<span>name</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/commands/leaflet@latest/setCenter.js</span>",
-    "variable"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/observers/google@latest/center.js~name",
-    "variable/index.html#static-variable-name",
-    "<span>name</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/observers/google@latest/center.js</span>",
-    "variable"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/observers/google@latest/click.js~name",
-    "variable/index.html#static-variable-name",
-    "<span>name</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/observers/google@latest/click.js</span>",
-    "variable"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/observers/google@latest/gps.js~name",
-    "variable/index.html#static-variable-name",
-    "<span>name</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/observers/google@latest/gps.js</span>",
-    "variable"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/observers/leaflet@latest/center.js~name",
-    "variable/index.html#static-variable-name",
-    "<span>name</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/observers/leaflet@latest/center.js</span>",
-    "variable"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/observers/leaflet@latest/click.js~name",
-    "variable/index.html#static-variable-name",
-    "<span>name</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/observers/leaflet@latest/click.js</span>",
-    "variable"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/observers/leaflet@latest/gps.js~name",
-    "variable/index.html#static-variable-name",
-    "<span>name</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/observers/leaflet@latest/gps.js</span>",
-    "variable"
   ],
   [
     "@rxmap/rxmap/rxmap/lib/commands/google@latest/popup.js~popup",
@@ -399,6 +273,12 @@ window.esdocSearchIndex = [
     "@rxmap/rxmap/rxmap/src/core/registeroperator.js~registeroperator",
     "function/index.html#static-function-registerOperator",
     "<span>registerOperator</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/core/registerOperator.js</span>",
+    "function"
+  ],
+  [
+    "@rxmap/rxmap/rxmap/src/config.js~rxmapfromconfig",
+    "function/index.html#static-function-rxMapFromConfig",
+    "<span>rxMapFromConfig</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/config.js</span>",
     "function"
   ],
   [
@@ -691,12 +571,6 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/map/RxMap.spec.js.html#lineNumber30",
-    "RxMap add import Lib",
-    "test"
-  ],
-  [
-    "",
     "test-file/test/unit/map/RxMap.spec.js.html#lineNumber15",
     "RxMap commands return AsyncCommand",
     "test"
@@ -715,49 +589,49 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/map/RxMap.spec.js.html#lineNumber36",
+    "test-file/test/unit/map/RxMap.spec.js.html#lineNumber30",
     "RxMap getMapLibrary",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/map/RxMap.spec.js.html#lineNumber46",
+    "test-file/test/unit/map/RxMap.spec.js.html#lineNumber40",
     "RxMap loads",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/map/RxMap.spec.js.html#lineNumber81",
+    "test-file/test/unit/map/RxMap.spec.js.html#lineNumber75",
     "RxMap loads get getMapLibrary null",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/map/RxMap.spec.js.html#lineNumber59",
+    "test-file/test/unit/map/RxMap.spec.js.html#lineNumber53",
     "RxMap loads load",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/map/RxMap.spec.js.html#lineNumber64",
+    "test-file/test/unit/map/RxMap.spec.js.html#lineNumber58",
     "RxMap loads load commands",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/map/RxMap.spec.js.html#lineNumber69",
+    "test-file/test/unit/map/RxMap.spec.js.html#lineNumber63",
     "RxMap loads load commands defer",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/map/RxMap.spec.js.html#lineNumber75",
+    "test-file/test/unit/map/RxMap.spec.js.html#lineNumber69",
     "RxMap loads load commands defer 2",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/map/RxMap.spec.js.html#lineNumber89",
+    "test-file/test/unit/map/RxMap.spec.js.html#lineNumber83",
     "RxMap loads new",
     "test"
   ],
@@ -784,6 +658,12 @@ window.esdocSearchIndex = [
     "file/RxMap/lib/commands/google@latest/addData.js.html",
     "RxMap/lib/commands/google@latest/addData.js",
     "file"
+  ],
+  [
+    "rxmap/lib/commands/google@latest/adddata.js~adddata",
+    "function/index.html#static-function-addData",
+    "RxMap/lib/commands/google@latest/addData.js~addData",
+    "external"
   ],
   [
     "rxmap/lib/commands/google@latest/create.js",
@@ -936,87 +816,51 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "rxmap/src/rxmap.js~rxmapclass#_datatypes",
-    "class/RxMap/src/RxMap.js~RxMapClass.html#instance-member-_dataTypes",
-    "RxMap/src/RxMap.js~RxMapClass#_dataTypes",
-    "member"
-  ],
-  [
-    "rxmap/src/rxmap.js~rxmapclass#_importlib",
-    "class/RxMap/src/RxMap.js~RxMapClass.html#instance-member-_importLib",
-    "RxMap/src/RxMap.js~RxMapClass#_importLib",
-    "member"
-  ],
-  [
-    "rxmap/src/rxmap.js~rxmapclass#_nativelibrary",
-    "class/RxMap/src/RxMap.js~RxMapClass.html#instance-member-_nativeLibrary",
-    "RxMap/src/RxMap.js~RxMapClass#_nativeLibrary",
-    "member"
-  ],
-  [
-    "rxmap/src/rxmap.js~rxmapclass#_sourcemap",
-    "class/RxMap/src/RxMap.js~RxMapClass.html#instance-member-_sourceMap",
-    "RxMap/src/RxMap.js~RxMapClass#_sourceMap",
-    "member"
-  ],
-  [
-    "rxmap/src/rxmap.js~rxmapclass#addimportlib",
-    "class/RxMap/src/RxMap.js~RxMapClass.html#instance-method-addImportLib",
-    "RxMap/src/RxMap.js~RxMapClass#addImportLib",
+    "rxmap/src/rxmap.js~rxmap#constructor",
+    "class/RxMap/src/RxMap.js~RxMap.html#instance-constructor-constructor",
+    "RxMap/src/RxMap.js~RxMap#constructor",
     "method"
   ],
   [
-    "rxmap/src/rxmap.js~rxmapclass#constructor",
-    "class/RxMap/src/RxMap.js~RxMapClass.html#instance-constructor-constructor",
-    "RxMap/src/RxMap.js~RxMapClass#constructor",
+    "rxmap/src/rxmap.js~rxmap#getdatatype",
+    "class/RxMap/src/RxMap.js~RxMap.html#instance-method-getDataType",
+    "RxMap/src/RxMap.js~RxMap#getDataType",
     "method"
   ],
   [
-    "rxmap/src/rxmap.js~rxmapclass#createasync",
-    "class/RxMap/src/RxMap.js~RxMapClass.html#instance-member-createAsync",
-    "RxMap/src/RxMap.js~RxMapClass#createAsync",
-    "member"
-  ],
-  [
-    "rxmap/src/rxmap.js~rxmapclass#getdatatype",
-    "class/RxMap/src/RxMap.js~RxMapClass.html#instance-method-getDataType",
-    "RxMap/src/RxMap.js~RxMapClass#getDataType",
+    "rxmap/src/rxmap.js~rxmap#getmap",
+    "class/RxMap/src/RxMap.js~RxMap.html#instance-method-getMap",
+    "RxMap/src/RxMap.js~RxMap#getMap",
     "method"
   ],
   [
-    "rxmap/src/rxmap.js~rxmapclass#getmap",
-    "class/RxMap/src/RxMap.js~RxMapClass.html#instance-method-getMap",
-    "RxMap/src/RxMap.js~RxMapClass#getMap",
+    "rxmap/src/rxmap.js~rxmap#getmaplibrary",
+    "class/RxMap/src/RxMap.js~RxMap.html#instance-method-getMapLibrary",
+    "RxMap/src/RxMap.js~RxMap#getMapLibrary",
     "method"
   ],
   [
-    "rxmap/src/rxmap.js~rxmapclass#getmaplibrary",
-    "class/RxMap/src/RxMap.js~RxMapClass.html#instance-method-getMapLibrary",
-    "RxMap/src/RxMap.js~RxMapClass#getMapLibrary",
+    "rxmap/src/rxmap.js~rxmap#init",
+    "class/RxMap/src/RxMap.js~RxMap.html#instance-method-init",
+    "RxMap/src/RxMap.js~RxMap#init",
     "method"
   ],
   [
-    "rxmap/src/rxmap.js~rxmapclass#init",
-    "class/RxMap/src/RxMap.js~RxMapClass.html#instance-method-init",
-    "RxMap/src/RxMap.js~RxMapClass#init",
+    "rxmap/src/rxmap.js~rxmap#load",
+    "class/RxMap/src/RxMap.js~RxMap.html#instance-method-load",
+    "RxMap/src/RxMap.js~RxMap#load",
     "method"
   ],
   [
-    "rxmap/src/rxmap.js~rxmapclass#load",
-    "class/RxMap/src/RxMap.js~RxMapClass.html#instance-method-load",
-    "RxMap/src/RxMap.js~RxMapClass#load",
+    "rxmap/src/rxmap.js~rxmap#setdatatype",
+    "class/RxMap/src/RxMap.js~RxMap.html#instance-method-setDataType",
+    "RxMap/src/RxMap.js~RxMap#setDataType",
     "method"
   ],
   [
-    "rxmap/src/rxmap.js~rxmapclass#setdatatype",
-    "class/RxMap/src/RxMap.js~RxMapClass.html#instance-method-setDataType",
-    "RxMap/src/RxMap.js~RxMapClass#setDataType",
-    "method"
-  ],
-  [
-    "rxmap/src/rxmap.js~rxmapclass#setmap",
-    "class/RxMap/src/RxMap.js~RxMapClass.html#instance-method-setMap",
-    "RxMap/src/RxMap.js~RxMapClass#setMap",
+    "rxmap/src/rxmap.js~rxmap#setmap",
+    "class/RxMap/src/RxMap.js~RxMap.html#instance-method-setMap",
+    "RxMap/src/RxMap.js~RxMap#setMap",
     "method"
   ],
   [
@@ -1030,30 +874,6 @@ window.esdocSearchIndex = [
     "file/RxMap/src/core/AsyncCommandBus.js.html",
     "RxMap/src/core/AsyncCommandBus.js",
     "file"
-  ],
-  [
-    "rxmap/src/core/asynccommandbus.js~asynccommandbus#_complete",
-    "class/RxMap/src/core/AsyncCommandBus.js~AsyncCommandBus.html#instance-method-_complete",
-    "RxMap/src/core/AsyncCommandBus.js~AsyncCommandBus#_complete",
-    "method"
-  ],
-  [
-    "rxmap/src/core/asynccommandbus.js~asynccommandbus#_executingcommand",
-    "class/RxMap/src/core/AsyncCommandBus.js~AsyncCommandBus.html#instance-member-_executingCommand",
-    "RxMap/src/core/AsyncCommandBus.js~AsyncCommandBus#_executingCommand",
-    "member"
-  ],
-  [
-    "rxmap/src/core/asynccommandbus.js~asynccommandbus#_next",
-    "class/RxMap/src/core/AsyncCommandBus.js~AsyncCommandBus.html#instance-method-_next",
-    "RxMap/src/core/AsyncCommandBus.js~AsyncCommandBus#_next",
-    "method"
-  ],
-  [
-    "rxmap/src/core/asynccommandbus.js~asynccommandbus#_saveexecution",
-    "class/RxMap/src/core/AsyncCommandBus.js~AsyncCommandBus.html#instance-method-_saveExecution",
-    "RxMap/src/core/AsyncCommandBus.js~AsyncCommandBus#_saveExecution",
-    "method"
   ],
   [
     "rxmap/src/core/asynccommandbus.js~asynccommandbus#allresults",
@@ -1102,36 +922,6 @@ window.esdocSearchIndex = [
     "file/RxMap/src/core/CommandBus.js.html",
     "RxMap/src/core/CommandBus.js",
     "file"
-  ],
-  [
-    "rxmap/src/core/commandbus.js~commandbus#_execute",
-    "class/RxMap/src/core/CommandBus.js~CommandBus.html#instance-method-_execute",
-    "RxMap/src/core/CommandBus.js~CommandBus#_execute",
-    "method"
-  ],
-  [
-    "rxmap/src/core/commandbus.js~commandbus#_executingcommand",
-    "class/RxMap/src/core/CommandBus.js~CommandBus.html#instance-member-_executingCommand",
-    "RxMap/src/core/CommandBus.js~CommandBus#_executingCommand",
-    "member"
-  ],
-  [
-    "rxmap/src/core/commandbus.js~commandbus#_lastcommand",
-    "class/RxMap/src/core/CommandBus.js~CommandBus.html#instance-member-_lastCommand",
-    "RxMap/src/core/CommandBus.js~CommandBus#_lastCommand",
-    "member"
-  ],
-  [
-    "rxmap/src/core/commandbus.js~commandbus#_saveexecution",
-    "class/RxMap/src/core/CommandBus.js~CommandBus.html#instance-method-_saveExecution",
-    "RxMap/src/core/CommandBus.js~CommandBus#_saveExecution",
-    "method"
-  ],
-  [
-    "rxmap/src/core/commandbus.js~commandbus#_source",
-    "class/RxMap/src/core/CommandBus.js~CommandBus.html#instance-member-_source",
-    "RxMap/src/core/CommandBus.js~CommandBus#_source",
-    "member"
   ],
   [
     "rxmap/src/core/commandbus.js~commandbus#constructor",
@@ -1551,6 +1341,12 @@ window.esdocSearchIndex = [
     "",
     "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber91",
     "transformPoint transformPoint Leaflet location",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber99",
+    "transformPoint transformPoint Leaflet no mandatory",
     "test"
   ],
   [

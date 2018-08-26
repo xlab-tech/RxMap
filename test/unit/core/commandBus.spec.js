@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 import { Observable } from 'rxjs/internal/Observable';
 import CommandBus from '../../../src/core/CommandBus';
-import RxMap from '../../../src/RxMap';
+import rxMap from '../../../src/RxMap';
 import { registerCommand } from '../../../src/core/registerCommand';
 
 describe('CommandBus', () => {
@@ -17,7 +17,7 @@ describe('CommandBus', () => {
   });
   it('executing', (done) => {
     registerCommand('test', () => new Promise(resolve => setTimeout(resolve, 500)));
-    const bus = RxMap.test();
+    const bus = rxMap.test();
 
     setTimeout(() => {
       // eslint-disable-next-line no-unused-expressions
@@ -27,12 +27,12 @@ describe('CommandBus', () => {
     }, 10);
   });
   it('observer data ', () => {
-    const $stream = RxMap.observer([5]);
+    const $stream = rxMap.observer([5]);
     expect($stream).is.a.instanceOf(Observable);
   });
   it('observer error ', () => {
     try {
-      RxMap.observer('kk');
+      rxMap.observer('kk');
     } catch (err) {
       expect(err).is.a.instanceOf(Error);
     }

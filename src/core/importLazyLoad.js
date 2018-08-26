@@ -80,6 +80,20 @@ export const loadCSS = href => new Promise((resolve) => {
   onloadcssdefined(loadCB);
 });
 
+/**
+   *
+   *  Funcion que permite añadir librerias externas para cargar dinamicamente nuevos
+   *  comandos y observadores
+   *  la funcion recibe como parametro la ruta del fichero a cargar siguiendo el siguiente
+   *  patron ${type}/${mapLib}@${version}/${command.key} y la funcion tiene que hacer el import
+   *  dinamico import()
+   * @example
+   *
+   * RxMap.addImportLib('test',arg => import(`../lib/${arg}`));
+   *
+   * @param {string} lib Nombre de la libreria
+   * @param {function} func Funcion a invocar
+   */
 export const addImportFunction = (lib, func) => {
   _importFunctions[lib] = func;
 };

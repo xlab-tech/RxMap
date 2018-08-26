@@ -1,7 +1,7 @@
 import { map } from 'rxjs/internal/operators/map';
 import { take } from 'rxjs/internal/operators/take';
 import { delay } from 'rxjs/internal/operators/delay';
-import { RxMapFromConfig, registerMiddleware, addImportFunction } from '../index';
+import { RxMapFromConfig, registerMiddleware, addImportFunction } from '../src/index';
 import { LoggerMiddleware, TimerMiddleware } from '../lib/middlewares/logger';
 import '../src/importFunctions';
 

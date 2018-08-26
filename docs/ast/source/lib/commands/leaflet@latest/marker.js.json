@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 767,
+  "end": 786,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 28,
+      "line": 31,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 767,
+    "end": 786,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 28,
+        "line": 31,
         "column": 0
       }
     },
@@ -2000,21 +2000,21 @@
           },
           "name": "drawMarker"
         },
+        "trailingComments": [],
         "name": "_",
-        "leadingComments": [],
-        "trailingComments": []
+        "leadingComments": []
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 737,
-        "end": 766,
+        "start": 756,
+        "end": 785,
         "loc": {
           "start": {
-            "line": 27,
+            "line": 30,
             "column": 0
           },
           "end": {
-            "line": 27,
+            "line": 30,
             "column": 29
           }
         },
@@ -2022,61 +2022,62 @@
         "source": null,
         "declaration": {
           "type": "VariableDeclaration",
-          "start": 744,
-          "end": 766,
+          "start": 763,
+          "end": 785,
           "loc": {
             "start": {
-              "line": 27,
+              "line": 30,
               "column": 7
             },
             "end": {
-              "line": 27,
+              "line": 30,
               "column": 29
             }
           },
           "declarations": [
             {
               "type": "VariableDeclarator",
-              "start": 750,
-              "end": 765,
+              "start": 769,
+              "end": 784,
               "loc": {
                 "start": {
-                  "line": 27,
+                  "line": 30,
                   "column": 13
                 },
                 "end": {
-                  "line": 27,
+                  "line": 30,
                   "column": 28
                 }
               },
               "id": {
                 "type": "Identifier",
-                "start": 750,
-                "end": 754,
+                "start": 769,
+                "end": 773,
                 "loc": {
                   "start": {
-                    "line": 27,
+                    "line": 30,
                     "column": 13
                   },
                   "end": {
-                    "line": 27,
+                    "line": 30,
                     "column": 17
                   },
                   "identifierName": "name"
                 },
-                "name": "name"
+                "name": "name",
+                "leadingComments": null
               },
               "init": {
                 "type": "StringLiteral",
-                "start": 757,
-                "end": 765,
+                "start": 776,
+                "end": 784,
                 "loc": {
                   "start": {
-                    "line": 27,
+                    "line": 30,
                     "column": 20
                   },
                   "end": {
-                    "line": 27,
+                    "line": 30,
                     "column": 28
                   }
                 },
@@ -2085,13 +2086,49 @@
                   "raw": "'marker'"
                 },
                 "value": "marker"
-              }
+              },
+              "leadingComments": null
             }
           ],
           "kind": "const",
-          "leadingComments": [],
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n * @private\n",
+              "start": 737,
+              "end": 755,
+              "loc": {
+                "start": {
+                  "line": 27,
+                  "column": 0
+                },
+                "end": {
+                  "line": 29,
+                  "column": 2
+                }
+              }
+            }
+          ],
           "trailingComments": []
-        }
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * @private\n",
+            "start": 737,
+            "end": 755,
+            "loc": {
+              "start": {
+                "line": 27,
+                "column": 0
+              },
+              "end": {
+                "line": 29,
+                "column": 2
+              }
+            }
+          }
+        ]
       },
       {
         "type": "ExportDefaultDeclaration",
@@ -3923,13 +3960,65 @@
           ],
           "kind": "const",
           "leadingComments": [],
-          "trailingComments": []
-        }
+          "trailingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n * @private\n",
+              "start": 737,
+              "end": 755,
+              "loc": {
+                "start": {
+                  "line": 27,
+                  "column": 0
+                },
+                "end": {
+                  "line": 29,
+                  "column": 2
+                }
+              }
+            }
+          ]
+        },
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * @private\n",
+            "start": 737,
+            "end": 755,
+            "loc": {
+              "start": {
+                "line": 27,
+                "column": 0
+              },
+              "end": {
+                "line": 29,
+                "column": 2
+              }
+            }
+          }
+        ]
       }
     ],
     "directives": []
   },
-  "comments": [],
+  "comments": [
+    {
+      "type": "CommentBlock",
+      "value": "*\n * @private\n",
+      "start": 737,
+      "end": 755,
+      "loc": {
+        "start": {
+          "line": 27,
+          "column": 0
+        },
+        "end": {
+          "line": 29,
+          "column": 2
+        }
+      }
+    }
+  ],
   "tokens": [
     {
       "type": {
@@ -8026,6 +8115,22 @@
       }
     },
     {
+      "type": "CommentBlock",
+      "value": "*\n * @private\n",
+      "start": 737,
+      "end": 755,
+      "loc": {
+        "start": {
+          "line": 27,
+          "column": 0
+        },
+        "end": {
+          "line": 29,
+          "column": 2
+        }
+      }
+    },
+    {
       "type": {
         "label": "export",
         "keyword": "export",
@@ -8040,15 +8145,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 737,
-      "end": 743,
+      "start": 756,
+      "end": 762,
       "loc": {
         "start": {
-          "line": 27,
+          "line": 30,
           "column": 0
         },
         "end": {
-          "line": 27,
+          "line": 30,
           "column": 6
         }
       }
@@ -8068,15 +8173,15 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 744,
-      "end": 749,
+      "start": 763,
+      "end": 768,
       "loc": {
         "start": {
-          "line": 27,
+          "line": 30,
           "column": 7
         },
         "end": {
-          "line": 27,
+          "line": 30,
           "column": 12
         }
       }
@@ -8094,15 +8199,15 @@
         "binop": null
       },
       "value": "name",
-      "start": 750,
-      "end": 754,
+      "start": 769,
+      "end": 773,
       "loc": {
         "start": {
-          "line": 27,
+          "line": 30,
           "column": 13
         },
         "end": {
-          "line": 27,
+          "line": 30,
           "column": 17
         }
       }
@@ -8121,15 +8226,15 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 755,
-      "end": 756,
+      "start": 774,
+      "end": 775,
       "loc": {
         "start": {
-          "line": 27,
+          "line": 30,
           "column": 18
         },
         "end": {
-          "line": 27,
+          "line": 30,
           "column": 19
         }
       }
@@ -8148,15 +8253,15 @@
         "updateContext": null
       },
       "value": "marker",
-      "start": 757,
-      "end": 765,
+      "start": 776,
+      "end": 784,
       "loc": {
         "start": {
-          "line": 27,
+          "line": 30,
           "column": 20
         },
         "end": {
-          "line": 27,
+          "line": 30,
           "column": 28
         }
       }
@@ -8174,15 +8279,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 765,
-      "end": 766,
+      "start": 784,
+      "end": 785,
       "loc": {
         "start": {
-          "line": 27,
+          "line": 30,
           "column": 28
         },
         "end": {
-          "line": 27,
+          "line": 30,
           "column": 29
         }
       }
@@ -8200,15 +8305,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 767,
-      "end": 767,
+      "start": 786,
+      "end": 786,
       "loc": {
         "start": {
-          "line": 28,
+          "line": 31,
           "column": 0
         },
         "end": {
-          "line": 28,
+          "line": 31,
           "column": 0
         }
       }

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/internal/Observable';
 import { from } from 'rxjs/internal/observable/from';
 import registerOperator, { applyOperators } from '../../../src/core/registerOperator';
 import CommandBus from '../../../src/core/CommandBus';
-import RxMap from '../../../src/RxMap';
+import rxMap from '../../../src/RxMap';
 
 describe('Register Operator', () => {
   it('add Observable function', () => {
@@ -17,7 +17,7 @@ describe('Register Operator', () => {
     registerOperator('testb', () => 'asdf');
     applyOperators(Observable);
     return new Promise((resolve) => {
-      const $st = RxMap.fromObserver(from('1'));
+      const $st = rxMap.fromObserver(from('1'));
       $st.testb(res => res)
         .subscribe((a) => {
           expect(a).to.eq('asdf');

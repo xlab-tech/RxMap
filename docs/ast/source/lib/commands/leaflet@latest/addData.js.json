@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 97,
+  "end": 116,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 5,
+      "line": 8,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 97,
+    "end": 116,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 5,
+        "line": 8,
         "column": 0
       }
     },
@@ -128,20 +128,55 @@
           },
           "name": "addData",
           "leadingComments": [],
-          "trailingComments": []
-        }
+          "trailingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n * @private\n",
+              "start": 66,
+              "end": 84,
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 0
+                },
+                "end": {
+                  "line": 6,
+                  "column": 2
+                }
+              }
+            }
+          ]
+        },
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * @private\n",
+            "start": 66,
+            "end": 84,
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 0
+              },
+              "end": {
+                "line": 6,
+                "column": 2
+              }
+            }
+          }
+        ]
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 66,
-        "end": 96,
+        "start": 85,
+        "end": 115,
         "loc": {
           "start": {
-            "line": 4,
+            "line": 7,
             "column": 0
           },
           "end": {
-            "line": 4,
+            "line": 7,
             "column": 30
           }
         },
@@ -149,61 +184,62 @@
         "source": null,
         "declaration": {
           "type": "VariableDeclaration",
-          "start": 73,
-          "end": 96,
+          "start": 92,
+          "end": 115,
           "loc": {
             "start": {
-              "line": 4,
+              "line": 7,
               "column": 7
             },
             "end": {
-              "line": 4,
+              "line": 7,
               "column": 30
             }
           },
           "declarations": [
             {
               "type": "VariableDeclarator",
-              "start": 79,
-              "end": 95,
+              "start": 98,
+              "end": 114,
               "loc": {
                 "start": {
-                  "line": 4,
+                  "line": 7,
                   "column": 13
                 },
                 "end": {
-                  "line": 4,
+                  "line": 7,
                   "column": 29
                 }
               },
               "id": {
                 "type": "Identifier",
-                "start": 79,
-                "end": 83,
+                "start": 98,
+                "end": 102,
                 "loc": {
                   "start": {
-                    "line": 4,
+                    "line": 7,
                     "column": 13
                   },
                   "end": {
-                    "line": 4,
+                    "line": 7,
                     "column": 17
                   },
                   "identifierName": "name"
                 },
-                "name": "name"
+                "name": "name",
+                "leadingComments": null
               },
               "init": {
                 "type": "StringLiteral",
-                "start": 86,
-                "end": 95,
+                "start": 105,
+                "end": 114,
                 "loc": {
                   "start": {
-                    "line": 4,
+                    "line": 7,
                     "column": 20
                   },
                   "end": {
-                    "line": 4,
+                    "line": 7,
                     "column": 29
                   }
                 },
@@ -212,18 +248,71 @@
                   "raw": "'addData'"
                 },
                 "value": "addData"
-              }
+              },
+              "leadingComments": null
             }
           ],
           "kind": "const",
-          "leadingComments": [],
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n * @private\n",
+              "start": 66,
+              "end": 84,
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 0
+                },
+                "end": {
+                  "line": 6,
+                  "column": 2
+                }
+              }
+            }
+          ],
           "trailingComments": []
-        }
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * @private\n",
+            "start": 66,
+            "end": 84,
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 0
+              },
+              "end": {
+                "line": 6,
+                "column": 2
+              }
+            }
+          }
+        ]
       }
     ],
     "directives": []
   },
-  "comments": [],
+  "comments": [
+    {
+      "type": "CommentBlock",
+      "value": "*\n * @private\n",
+      "start": 66,
+      "end": 84,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 0
+        },
+        "end": {
+          "line": 6,
+          "column": 2
+        }
+      }
+    }
+  ],
   "tokens": [
     {
       "type": {
@@ -467,6 +556,22 @@
       }
     },
     {
+      "type": "CommentBlock",
+      "value": "*\n * @private\n",
+      "start": 66,
+      "end": 84,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 0
+        },
+        "end": {
+          "line": 6,
+          "column": 2
+        }
+      }
+    },
+    {
       "type": {
         "label": "export",
         "keyword": "export",
@@ -481,15 +586,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 66,
-      "end": 72,
+      "start": 85,
+      "end": 91,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 7,
           "column": 0
         },
         "end": {
-          "line": 4,
+          "line": 7,
           "column": 6
         }
       }
@@ -509,15 +614,15 @@
         "updateContext": null
       },
       "value": "const",
-      "start": 73,
-      "end": 78,
+      "start": 92,
+      "end": 97,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 7,
           "column": 7
         },
         "end": {
-          "line": 4,
+          "line": 7,
           "column": 12
         }
       }
@@ -535,15 +640,15 @@
         "binop": null
       },
       "value": "name",
-      "start": 79,
-      "end": 83,
+      "start": 98,
+      "end": 102,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 7,
           "column": 13
         },
         "end": {
-          "line": 4,
+          "line": 7,
           "column": 17
         }
       }
@@ -562,15 +667,15 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 84,
-      "end": 85,
+      "start": 103,
+      "end": 104,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 7,
           "column": 18
         },
         "end": {
-          "line": 4,
+          "line": 7,
           "column": 19
         }
       }
@@ -589,15 +694,15 @@
         "updateContext": null
       },
       "value": "addData",
-      "start": 86,
-      "end": 95,
+      "start": 105,
+      "end": 114,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 7,
           "column": 20
         },
         "end": {
-          "line": 4,
+          "line": 7,
           "column": 29
         }
       }
@@ -615,15 +720,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 95,
-      "end": 96,
+      "start": 114,
+      "end": 115,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 7,
           "column": 29
         },
         "end": {
-          "line": 4,
+          "line": 7,
           "column": 30
         }
       }
@@ -641,15 +746,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 97,
-      "end": 97,
+      "start": 116,
+      "end": 116,
       "loc": {
         "start": {
-          "line": 5,
+          "line": 8,
           "column": 0
         },
         "end": {
-          "line": 5,
+          "line": 8,
           "column": 0
         }
       }
