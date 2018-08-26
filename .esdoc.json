@@ -1,0 +1,54 @@
+{
+  "source": ".",
+  "destination": "./docs",
+  "includes": [
+    "src",
+    "lib"
+  ],
+  "excludes": [
+    "node_modules",
+    "dist",
+    "examples",
+    "coverage",
+    "docs"
+  ],
+  "plugins": [
+    {
+      "name": "esdoc-standard-plugin",
+      "brand": {
+        "logo": "./logo.png",
+        "title": "RxMap",
+        "description": "RxMap la librearia de Mapas Reactiva",
+        "repository": "https://github.com/xlab-tech/RxMap.git",
+        "site": "http://my-library.org",
+        "author": "Victor Rubinat",
+        "image": "https://avatars0.githubusercontent.com/u/37194013?s=400&u=692377e91a2dab11006abb01d0db33cdb211c9b8&v=4"
+      }
+    },
+    {
+      "name": "esdoc-ecmascript-proposal-plugin",
+      "option": {
+        "all": true
+      }
+    },
+    {
+      "name": "esdoc-integrate-test-plugin",
+      "option": {
+        "source": "./test/",
+        "interfaces": [
+          "describe",
+          "it",
+          "context",
+          "suite",
+          "test"
+        ],
+        "includes": [
+          "(spec|Spec|test|Test)\\.js$"
+        ],
+        "excludes": [
+          "\\.config\\.js$"
+        ]
+      }
+    }
+  ]
+}
