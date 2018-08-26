@@ -18,7 +18,7 @@
     "test:cover": "cross-env BABEL_ENV=test ./node_modules/.bin/istanbul cover -x \"lib/**\" ./node_modules/mocha/bin/_mocha -- \"test/unit/**/*.spec.js\"  --recursive --require babel-register -r jsdom-global/register",
     "test:tdd": "cross-env BABEL_ENV=test mocha -c \"test/unit/**/*.spec.js\" --require babel-register -r jsdom-global/register --watch --watch-extensions js",
     "test:debug": "cross-env BABEL_ENV=test mocha -c \"test/unit/**/*.spec.js\" --require babel-register -r jsdom-global/register --inspect-brk ",
-    "lint": "eslint \"./src/**/*.js\" \"./lib/**/*.js\" --fix",
+    "lint": "eslint \"./**/*.js\" --fix",
     "start": "webpack-dev-server --open",
     "build": "webpack --config webpack.pro.config.js && babel src -d dist/esm",
     "prepare": "npm run build",
