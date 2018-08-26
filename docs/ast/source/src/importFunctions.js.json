@@ -1,0 +1,3054 @@
+{
+  "type": "File",
+  "start": 0,
+  "end": 2426,
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 37,
+      "column": 0
+    }
+  },
+  "program": {
+    "type": "Program",
+    "start": 0,
+    "end": 2426,
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 0
+      },
+      "end": {
+        "line": 37,
+        "column": 0
+      }
+    },
+    "sourceType": "module",
+    "body": [
+      {
+        "type": "ImportDeclaration",
+        "start": 0,
+        "end": 58,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 58
+          }
+        },
+        "specifiers": [
+          {
+            "type": "ImportSpecifier",
+            "start": 9,
+            "end": 26,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 9
+              },
+              "end": {
+                "line": 1,
+                "column": 26
+              }
+            },
+            "imported": {
+              "type": "Identifier",
+              "start": 9,
+              "end": 26,
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 9
+                },
+                "end": {
+                  "line": 1,
+                  "column": 26
+                },
+                "identifierName": "addImportFunction"
+              },
+              "name": "addImportFunction"
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 9,
+              "end": 26,
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 9
+                },
+                "end": {
+                  "line": 1,
+                  "column": 26
+                },
+                "identifierName": "addImportFunction"
+              },
+              "name": "addImportFunction"
+            }
+          }
+        ],
+        "source": {
+          "type": "StringLiteral",
+          "start": 34,
+          "end": 57,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 34
+            },
+            "end": {
+              "line": 1,
+              "column": 57
+            }
+          },
+          "extra": {
+            "rawValue": "./core/importLazyLoad",
+            "raw": "'./core/importLazyLoad'"
+          },
+          "value": "./core/importLazyLoad"
+        },
+        "trailingComments": [
+          {
+            "type": "CommentLine",
+            "value": " TODO: hacer una funcion con webpack que cree esto",
+            "start": 60,
+            "end": 112,
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 0
+              },
+              "end": {
+                "line": 3,
+                "column": 52
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " const _fixedImports = () => ({",
+            "start": 113,
+            "end": 146,
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 0
+              },
+              "end": {
+                "line": 4,
+                "column": 33
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'google@latest': () => import(/* webpackChunkName: \"google@latest\" */'../lib/google@latest'),",
+            "start": 147,
+            "end": 245,
+            "loc": {
+              "start": {
+                "line": 5,
+                "column": 0
+              },
+              "end": {
+                "line": 5,
+                "column": 98
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'leaflet@latest': () => import(/* webpackChunkName: \"leaflet@latest\" */'../lib/leaflet@latest'),",
+            "start": 246,
+            "end": 347,
+            "loc": {
+              "start": {
+                "line": 6,
+                "column": 0
+              },
+              "end": {
+                "line": 6,
+                "column": 101
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'commands/google@latest/create': () => import('../lib/commands/google@latest/create'),",
+            "start": 348,
+            "end": 439,
+            "loc": {
+              "start": {
+                "line": 7,
+                "column": 0
+              },
+              "end": {
+                "line": 7,
+                "column": 91
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'commands/google@latest/marker': () => import('../lib/commands/google@latest/marker'),",
+            "start": 440,
+            "end": 531,
+            "loc": {
+              "start": {
+                "line": 8,
+                "column": 0
+              },
+              "end": {
+                "line": 8,
+                "column": 91
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'commands/google@latest/popup': () => import('../lib/commands/google@latest/popup'),",
+            "start": 532,
+            "end": 621,
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 0
+              },
+              "end": {
+                "line": 9,
+                "column": 89
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'commands/google@latest/point': () => import('../lib/commands/google@latest/point'),",
+            "start": 622,
+            "end": 711,
+            "loc": {
+              "start": {
+                "line": 10,
+                "column": 0
+              },
+              "end": {
+                "line": 10,
+                "column": 89
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'commands/google@latest/setCenter': () => import('../lib/commands/google@latest/setCenter'),",
+            "start": 712,
+            "end": 809,
+            "loc": {
+              "start": {
+                "line": 11,
+                "column": 0
+              },
+              "end": {
+                "line": 11,
+                "column": 97
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'observers/google@latest/center': () => import('../lib/observers/google@latest/center'),",
+            "start": 810,
+            "end": 903,
+            "loc": {
+              "start": {
+                "line": 12,
+                "column": 0
+              },
+              "end": {
+                "line": 12,
+                "column": 93
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'observers/google@latest/click': () => import('../lib/observers/google@latest/click'),",
+            "start": 904,
+            "end": 995,
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 0
+              },
+              "end": {
+                "line": 13,
+                "column": 91
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'commands/google@latest/addData': () => import('../lib/commands/google@latest/addData'),",
+            "start": 996,
+            "end": 1089,
+            "loc": {
+              "start": {
+                "line": 14,
+                "column": 0
+              },
+              "end": {
+                "line": 14,
+                "column": 93
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'observers/google@latest/gps': () => import('../lib/observers/google@latest/gps'),",
+            "start": 1090,
+            "end": 1177,
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 0
+              },
+              "end": {
+                "line": 15,
+                "column": 87
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'commands/leaflet@latest/addData': () => import('../lib/commands/leaflet@latest/addData'),",
+            "start": 1178,
+            "end": 1273,
+            "loc": {
+              "start": {
+                "line": 16,
+                "column": 0
+              },
+              "end": {
+                "line": 16,
+                "column": 95
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'observers/leaflet@latest/gps': () => import('../lib/observers/leaflet@latest/gps'),",
+            "start": 1274,
+            "end": 1363,
+            "loc": {
+              "start": {
+                "line": 17,
+                "column": 0
+              },
+              "end": {
+                "line": 17,
+                "column": 89
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'commands/leaflet@latest/create': () => import('../lib/commands/leaflet@latest/create'),",
+            "start": 1364,
+            "end": 1457,
+            "loc": {
+              "start": {
+                "line": 18,
+                "column": 0
+              },
+              "end": {
+                "line": 18,
+                "column": 93
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'commands/leaflet@latest/marker': () => import('../lib/commands/leaflet@latest/marker'),",
+            "start": 1458,
+            "end": 1551,
+            "loc": {
+              "start": {
+                "line": 19,
+                "column": 0
+              },
+              "end": {
+                "line": 19,
+                "column": 93
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'commands/leaflet@latest/popup': () => import('../lib/commands/leaflet@latest/popup'),",
+            "start": 1552,
+            "end": 1643,
+            "loc": {
+              "start": {
+                "line": 20,
+                "column": 0
+              },
+              "end": {
+                "line": 20,
+                "column": 91
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'commands/leaflet@latest/setCenter': () => import('../lib/commands/leaflet@latest/setCenter'),",
+            "start": 1644,
+            "end": 1743,
+            "loc": {
+              "start": {
+                "line": 21,
+                "column": 0
+              },
+              "end": {
+                "line": 21,
+                "column": 99
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'commands/leaflet@latest/point': () => import('../lib/commands/leaflet@latest/point'),",
+            "start": 1744,
+            "end": 1835,
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 0
+              },
+              "end": {
+                "line": 22,
+                "column": 91
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'observers/leaflet@latest/center': () => import('../lib/observers/leaflet@latest/center'),",
+            "start": 1836,
+            "end": 1931,
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 0
+              },
+              "end": {
+                "line": 23,
+                "column": 95
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'observers/leaflet@latest/click': () => import('../lib/observers/leaflet@latest/click'),",
+            "start": 1932,
+            "end": 2025,
+            "loc": {
+              "start": {
+                "line": 24,
+                "column": 0
+              },
+              "end": {
+                "line": 24,
+                "column": 93
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " });",
+            "start": 2026,
+            "end": 2032,
+            "loc": {
+              "start": {
+                "line": 25,
+                "column": 0
+              },
+              "end": {
+                "line": 25,
+                "column": 6
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " addImportFunction('rxmap', (arg) => {",
+            "start": 2034,
+            "end": 2074,
+            "loc": {
+              "start": {
+                "line": 27,
+                "column": 0
+              },
+              "end": {
+                "line": 27,
+                "column": 40
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   // HACK for dynamic import. The build system except latest version of webpack need all path for create bundles.",
+            "start": 2075,
+            "end": 2191,
+            "loc": {
+              "start": {
+                "line": 28,
+                "column": 0
+              },
+              "end": {
+                "line": 28,
+                "column": 116
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   const f = _fixedImports()[arg];",
+            "start": 2192,
+            "end": 2228,
+            "loc": {
+              "start": {
+                "line": 29,
+                "column": 0
+              },
+              "end": {
+                "line": 29,
+                "column": 36
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   if (f) {",
+            "start": 2229,
+            "end": 2242,
+            "loc": {
+              "start": {
+                "line": 30,
+                "column": 0
+              },
+              "end": {
+                "line": 30,
+                "column": 13
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "     return f();",
+            "start": 2243,
+            "end": 2261,
+            "loc": {
+              "start": {
+                "line": 31,
+                "column": 0
+              },
+              "end": {
+                "line": 31,
+                "column": 18
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   }",
+            "start": 2262,
+            "end": 2268,
+            "loc": {
+              "start": {
+                "line": 32,
+                "column": 0
+              },
+              "end": {
+                "line": 32,
+                "column": 6
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   return import(/* webpackMode: \"lazy\" */ `../lib/${arg}`);",
+            "start": 2269,
+            "end": 2331,
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 0
+              },
+              "end": {
+                "line": 33,
+                "column": 62
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " });",
+            "start": 2332,
+            "end": 2338,
+            "loc": {
+              "start": {
+                "line": 34,
+                "column": 0
+              },
+              "end": {
+                "line": 34,
+                "column": 6
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "ExpressionStatement",
+        "start": 2340,
+        "end": 2425,
+        "loc": {
+          "start": {
+            "line": 36,
+            "column": 0
+          },
+          "end": {
+            "line": 36,
+            "column": 85
+          }
+        },
+        "expression": {
+          "type": "CallExpression",
+          "start": 2340,
+          "end": 2424,
+          "loc": {
+            "start": {
+              "line": 36,
+              "column": 0
+            },
+            "end": {
+              "line": 36,
+              "column": 84
+            }
+          },
+          "callee": {
+            "type": "Identifier",
+            "start": 2340,
+            "end": 2357,
+            "loc": {
+              "start": {
+                "line": 36,
+                "column": 0
+              },
+              "end": {
+                "line": 36,
+                "column": 17
+              },
+              "identifierName": "addImportFunction"
+            },
+            "name": "addImportFunction",
+            "leadingComments": null
+          },
+          "arguments": [
+            {
+              "type": "StringLiteral",
+              "start": 2358,
+              "end": 2365,
+              "loc": {
+                "start": {
+                  "line": 36,
+                  "column": 18
+                },
+                "end": {
+                  "line": 36,
+                  "column": 25
+                }
+              },
+              "extra": {
+                "rawValue": "rxmap",
+                "raw": "'rxmap'"
+              },
+              "value": "rxmap"
+            },
+            {
+              "type": "ArrowFunctionExpression",
+              "start": 2367,
+              "end": 2423,
+              "loc": {
+                "start": {
+                  "line": 36,
+                  "column": 27
+                },
+                "end": {
+                  "line": 36,
+                  "column": 83
+                }
+              },
+              "id": null,
+              "generator": false,
+              "expression": true,
+              "async": false,
+              "params": [
+                {
+                  "type": "Identifier",
+                  "start": 2367,
+                  "end": 2370,
+                  "loc": {
+                    "start": {
+                      "line": 36,
+                      "column": 27
+                    },
+                    "end": {
+                      "line": 36,
+                      "column": 30
+                    },
+                    "identifierName": "arg"
+                  },
+                  "name": "arg"
+                }
+              ],
+              "body": {
+                "type": "CallExpression",
+                "start": 2374,
+                "end": 2423,
+                "loc": {
+                  "start": {
+                    "line": 36,
+                    "column": 34
+                  },
+                  "end": {
+                    "line": 36,
+                    "column": 83
+                  }
+                },
+                "callee": {
+                  "type": "Import",
+                  "start": 2374,
+                  "end": 2380,
+                  "loc": {
+                    "start": {
+                      "line": 36,
+                      "column": 34
+                    },
+                    "end": {
+                      "line": 36,
+                      "column": 40
+                    }
+                  }
+                },
+                "arguments": [
+                  {
+                    "type": "TemplateLiteral",
+                    "start": 2407,
+                    "end": 2422,
+                    "loc": {
+                      "start": {
+                        "line": 36,
+                        "column": 67
+                      },
+                      "end": {
+                        "line": 36,
+                        "column": 82
+                      }
+                    },
+                    "expressions": [
+                      {
+                        "type": "Identifier",
+                        "start": 2417,
+                        "end": 2420,
+                        "loc": {
+                          "start": {
+                            "line": 36,
+                            "column": 77
+                          },
+                          "end": {
+                            "line": 36,
+                            "column": 80
+                          },
+                          "identifierName": "arg"
+                        },
+                        "name": "arg"
+                      }
+                    ],
+                    "quasis": [
+                      {
+                        "type": "TemplateElement",
+                        "start": 2408,
+                        "end": 2415,
+                        "loc": {
+                          "start": {
+                            "line": 36,
+                            "column": 68
+                          },
+                          "end": {
+                            "line": 36,
+                            "column": 75
+                          }
+                        },
+                        "value": {
+                          "raw": "../lib/",
+                          "cooked": "../lib/"
+                        },
+                        "tail": false,
+                        "leadingComments": null
+                      },
+                      {
+                        "type": "TemplateElement",
+                        "start": 2421,
+                        "end": 2421,
+                        "loc": {
+                          "start": {
+                            "line": 36,
+                            "column": 81
+                          },
+                          "end": {
+                            "line": 36,
+                            "column": 81
+                          }
+                        },
+                        "value": {
+                          "raw": "",
+                          "cooked": ""
+                        },
+                        "tail": true
+                      }
+                    ],
+                    "leadingComments": [
+                      {
+                        "type": "CommentBlock",
+                        "value": " webpackMode: \"lazy\" ",
+                        "start": 2381,
+                        "end": 2406,
+                        "loc": {
+                          "start": {
+                            "line": 36,
+                            "column": 41
+                          },
+                          "end": {
+                            "line": 36,
+                            "column": 66
+                          }
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "leadingComments": null
+        },
+        "leadingComments": [
+          {
+            "type": "CommentLine",
+            "value": " TODO: hacer una funcion con webpack que cree esto",
+            "start": 60,
+            "end": 112,
+            "loc": {
+              "start": {
+                "line": 3,
+                "column": 0
+              },
+              "end": {
+                "line": 3,
+                "column": 52
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " const _fixedImports = () => ({",
+            "start": 113,
+            "end": 146,
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 0
+              },
+              "end": {
+                "line": 4,
+                "column": 33
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'google@latest': () => import(/* webpackChunkName: \"google@latest\" */'../lib/google@latest'),",
+            "start": 147,
+            "end": 245,
+            "loc": {
+              "start": {
+                "line": 5,
+                "column": 0
+              },
+              "end": {
+                "line": 5,
+                "column": 98
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'leaflet@latest': () => import(/* webpackChunkName: \"leaflet@latest\" */'../lib/leaflet@latest'),",
+            "start": 246,
+            "end": 347,
+            "loc": {
+              "start": {
+                "line": 6,
+                "column": 0
+              },
+              "end": {
+                "line": 6,
+                "column": 101
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'commands/google@latest/create': () => import('../lib/commands/google@latest/create'),",
+            "start": 348,
+            "end": 439,
+            "loc": {
+              "start": {
+                "line": 7,
+                "column": 0
+              },
+              "end": {
+                "line": 7,
+                "column": 91
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'commands/google@latest/marker': () => import('../lib/commands/google@latest/marker'),",
+            "start": 440,
+            "end": 531,
+            "loc": {
+              "start": {
+                "line": 8,
+                "column": 0
+              },
+              "end": {
+                "line": 8,
+                "column": 91
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'commands/google@latest/popup': () => import('../lib/commands/google@latest/popup'),",
+            "start": 532,
+            "end": 621,
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 0
+              },
+              "end": {
+                "line": 9,
+                "column": 89
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'commands/google@latest/point': () => import('../lib/commands/google@latest/point'),",
+            "start": 622,
+            "end": 711,
+            "loc": {
+              "start": {
+                "line": 10,
+                "column": 0
+              },
+              "end": {
+                "line": 10,
+                "column": 89
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'commands/google@latest/setCenter': () => import('../lib/commands/google@latest/setCenter'),",
+            "start": 712,
+            "end": 809,
+            "loc": {
+              "start": {
+                "line": 11,
+                "column": 0
+              },
+              "end": {
+                "line": 11,
+                "column": 97
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'observers/google@latest/center': () => import('../lib/observers/google@latest/center'),",
+            "start": 810,
+            "end": 903,
+            "loc": {
+              "start": {
+                "line": 12,
+                "column": 0
+              },
+              "end": {
+                "line": 12,
+                "column": 93
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'observers/google@latest/click': () => import('../lib/observers/google@latest/click'),",
+            "start": 904,
+            "end": 995,
+            "loc": {
+              "start": {
+                "line": 13,
+                "column": 0
+              },
+              "end": {
+                "line": 13,
+                "column": 91
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'commands/google@latest/addData': () => import('../lib/commands/google@latest/addData'),",
+            "start": 996,
+            "end": 1089,
+            "loc": {
+              "start": {
+                "line": 14,
+                "column": 0
+              },
+              "end": {
+                "line": 14,
+                "column": 93
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'observers/google@latest/gps': () => import('../lib/observers/google@latest/gps'),",
+            "start": 1090,
+            "end": 1177,
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 0
+              },
+              "end": {
+                "line": 15,
+                "column": 87
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'commands/leaflet@latest/addData': () => import('../lib/commands/leaflet@latest/addData'),",
+            "start": 1178,
+            "end": 1273,
+            "loc": {
+              "start": {
+                "line": 16,
+                "column": 0
+              },
+              "end": {
+                "line": 16,
+                "column": 95
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'observers/leaflet@latest/gps': () => import('../lib/observers/leaflet@latest/gps'),",
+            "start": 1274,
+            "end": 1363,
+            "loc": {
+              "start": {
+                "line": 17,
+                "column": 0
+              },
+              "end": {
+                "line": 17,
+                "column": 89
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'commands/leaflet@latest/create': () => import('../lib/commands/leaflet@latest/create'),",
+            "start": 1364,
+            "end": 1457,
+            "loc": {
+              "start": {
+                "line": 18,
+                "column": 0
+              },
+              "end": {
+                "line": 18,
+                "column": 93
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'commands/leaflet@latest/marker': () => import('../lib/commands/leaflet@latest/marker'),",
+            "start": 1458,
+            "end": 1551,
+            "loc": {
+              "start": {
+                "line": 19,
+                "column": 0
+              },
+              "end": {
+                "line": 19,
+                "column": 93
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'commands/leaflet@latest/popup': () => import('../lib/commands/leaflet@latest/popup'),",
+            "start": 1552,
+            "end": 1643,
+            "loc": {
+              "start": {
+                "line": 20,
+                "column": 0
+              },
+              "end": {
+                "line": 20,
+                "column": 91
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'commands/leaflet@latest/setCenter': () => import('../lib/commands/leaflet@latest/setCenter'),",
+            "start": 1644,
+            "end": 1743,
+            "loc": {
+              "start": {
+                "line": 21,
+                "column": 0
+              },
+              "end": {
+                "line": 21,
+                "column": 99
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'commands/leaflet@latest/point': () => import('../lib/commands/leaflet@latest/point'),",
+            "start": 1744,
+            "end": 1835,
+            "loc": {
+              "start": {
+                "line": 22,
+                "column": 0
+              },
+              "end": {
+                "line": 22,
+                "column": 91
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'observers/leaflet@latest/center': () => import('../lib/observers/leaflet@latest/center'),",
+            "start": 1836,
+            "end": 1931,
+            "loc": {
+              "start": {
+                "line": 23,
+                "column": 0
+              },
+              "end": {
+                "line": 23,
+                "column": 95
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   'observers/leaflet@latest/click': () => import('../lib/observers/leaflet@latest/click'),",
+            "start": 1932,
+            "end": 2025,
+            "loc": {
+              "start": {
+                "line": 24,
+                "column": 0
+              },
+              "end": {
+                "line": 24,
+                "column": 93
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " });",
+            "start": 2026,
+            "end": 2032,
+            "loc": {
+              "start": {
+                "line": 25,
+                "column": 0
+              },
+              "end": {
+                "line": 25,
+                "column": 6
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " addImportFunction('rxmap', (arg) => {",
+            "start": 2034,
+            "end": 2074,
+            "loc": {
+              "start": {
+                "line": 27,
+                "column": 0
+              },
+              "end": {
+                "line": 27,
+                "column": 40
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   // HACK for dynamic import. The build system except latest version of webpack need all path for create bundles.",
+            "start": 2075,
+            "end": 2191,
+            "loc": {
+              "start": {
+                "line": 28,
+                "column": 0
+              },
+              "end": {
+                "line": 28,
+                "column": 116
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   const f = _fixedImports()[arg];",
+            "start": 2192,
+            "end": 2228,
+            "loc": {
+              "start": {
+                "line": 29,
+                "column": 0
+              },
+              "end": {
+                "line": 29,
+                "column": 36
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   if (f) {",
+            "start": 2229,
+            "end": 2242,
+            "loc": {
+              "start": {
+                "line": 30,
+                "column": 0
+              },
+              "end": {
+                "line": 30,
+                "column": 13
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "     return f();",
+            "start": 2243,
+            "end": 2261,
+            "loc": {
+              "start": {
+                "line": 31,
+                "column": 0
+              },
+              "end": {
+                "line": 31,
+                "column": 18
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   }",
+            "start": 2262,
+            "end": 2268,
+            "loc": {
+              "start": {
+                "line": 32,
+                "column": 0
+              },
+              "end": {
+                "line": 32,
+                "column": 6
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": "   return import(/* webpackMode: \"lazy\" */ `../lib/${arg}`);",
+            "start": 2269,
+            "end": 2331,
+            "loc": {
+              "start": {
+                "line": 33,
+                "column": 0
+              },
+              "end": {
+                "line": 33,
+                "column": 62
+              }
+            }
+          },
+          {
+            "type": "CommentLine",
+            "value": " });",
+            "start": 2332,
+            "end": 2338,
+            "loc": {
+              "start": {
+                "line": 34,
+                "column": 0
+              },
+              "end": {
+                "line": 34,
+                "column": 6
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "directives": []
+  },
+  "comments": [
+    {
+      "type": "CommentLine",
+      "value": " TODO: hacer una funcion con webpack que cree esto",
+      "start": 60,
+      "end": 112,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 0
+        },
+        "end": {
+          "line": 3,
+          "column": 52
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " const _fixedImports = () => ({",
+      "start": 113,
+      "end": 146,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 0
+        },
+        "end": {
+          "line": 4,
+          "column": 33
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'google@latest': () => import(/* webpackChunkName: \"google@latest\" */'../lib/google@latest'),",
+      "start": 147,
+      "end": 245,
+      "loc": {
+        "start": {
+          "line": 5,
+          "column": 0
+        },
+        "end": {
+          "line": 5,
+          "column": 98
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'leaflet@latest': () => import(/* webpackChunkName: \"leaflet@latest\" */'../lib/leaflet@latest'),",
+      "start": 246,
+      "end": 347,
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 0
+        },
+        "end": {
+          "line": 6,
+          "column": 101
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'commands/google@latest/create': () => import('../lib/commands/google@latest/create'),",
+      "start": 348,
+      "end": 439,
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 0
+        },
+        "end": {
+          "line": 7,
+          "column": 91
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'commands/google@latest/marker': () => import('../lib/commands/google@latest/marker'),",
+      "start": 440,
+      "end": 531,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 0
+        },
+        "end": {
+          "line": 8,
+          "column": 91
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'commands/google@latest/popup': () => import('../lib/commands/google@latest/popup'),",
+      "start": 532,
+      "end": 621,
+      "loc": {
+        "start": {
+          "line": 9,
+          "column": 0
+        },
+        "end": {
+          "line": 9,
+          "column": 89
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'commands/google@latest/point': () => import('../lib/commands/google@latest/point'),",
+      "start": 622,
+      "end": 711,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 0
+        },
+        "end": {
+          "line": 10,
+          "column": 89
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'commands/google@latest/setCenter': () => import('../lib/commands/google@latest/setCenter'),",
+      "start": 712,
+      "end": 809,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 0
+        },
+        "end": {
+          "line": 11,
+          "column": 97
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'observers/google@latest/center': () => import('../lib/observers/google@latest/center'),",
+      "start": 810,
+      "end": 903,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 0
+        },
+        "end": {
+          "line": 12,
+          "column": 93
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'observers/google@latest/click': () => import('../lib/observers/google@latest/click'),",
+      "start": 904,
+      "end": 995,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 0
+        },
+        "end": {
+          "line": 13,
+          "column": 91
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'commands/google@latest/addData': () => import('../lib/commands/google@latest/addData'),",
+      "start": 996,
+      "end": 1089,
+      "loc": {
+        "start": {
+          "line": 14,
+          "column": 0
+        },
+        "end": {
+          "line": 14,
+          "column": 93
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'observers/google@latest/gps': () => import('../lib/observers/google@latest/gps'),",
+      "start": 1090,
+      "end": 1177,
+      "loc": {
+        "start": {
+          "line": 15,
+          "column": 0
+        },
+        "end": {
+          "line": 15,
+          "column": 87
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'commands/leaflet@latest/addData': () => import('../lib/commands/leaflet@latest/addData'),",
+      "start": 1178,
+      "end": 1273,
+      "loc": {
+        "start": {
+          "line": 16,
+          "column": 0
+        },
+        "end": {
+          "line": 16,
+          "column": 95
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'observers/leaflet@latest/gps': () => import('../lib/observers/leaflet@latest/gps'),",
+      "start": 1274,
+      "end": 1363,
+      "loc": {
+        "start": {
+          "line": 17,
+          "column": 0
+        },
+        "end": {
+          "line": 17,
+          "column": 89
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'commands/leaflet@latest/create': () => import('../lib/commands/leaflet@latest/create'),",
+      "start": 1364,
+      "end": 1457,
+      "loc": {
+        "start": {
+          "line": 18,
+          "column": 0
+        },
+        "end": {
+          "line": 18,
+          "column": 93
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'commands/leaflet@latest/marker': () => import('../lib/commands/leaflet@latest/marker'),",
+      "start": 1458,
+      "end": 1551,
+      "loc": {
+        "start": {
+          "line": 19,
+          "column": 0
+        },
+        "end": {
+          "line": 19,
+          "column": 93
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'commands/leaflet@latest/popup': () => import('../lib/commands/leaflet@latest/popup'),",
+      "start": 1552,
+      "end": 1643,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 0
+        },
+        "end": {
+          "line": 20,
+          "column": 91
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'commands/leaflet@latest/setCenter': () => import('../lib/commands/leaflet@latest/setCenter'),",
+      "start": 1644,
+      "end": 1743,
+      "loc": {
+        "start": {
+          "line": 21,
+          "column": 0
+        },
+        "end": {
+          "line": 21,
+          "column": 99
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'commands/leaflet@latest/point': () => import('../lib/commands/leaflet@latest/point'),",
+      "start": 1744,
+      "end": 1835,
+      "loc": {
+        "start": {
+          "line": 22,
+          "column": 0
+        },
+        "end": {
+          "line": 22,
+          "column": 91
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'observers/leaflet@latest/center': () => import('../lib/observers/leaflet@latest/center'),",
+      "start": 1836,
+      "end": 1931,
+      "loc": {
+        "start": {
+          "line": 23,
+          "column": 0
+        },
+        "end": {
+          "line": 23,
+          "column": 95
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'observers/leaflet@latest/click': () => import('../lib/observers/leaflet@latest/click'),",
+      "start": 1932,
+      "end": 2025,
+      "loc": {
+        "start": {
+          "line": 24,
+          "column": 0
+        },
+        "end": {
+          "line": 24,
+          "column": 93
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " });",
+      "start": 2026,
+      "end": 2032,
+      "loc": {
+        "start": {
+          "line": 25,
+          "column": 0
+        },
+        "end": {
+          "line": 25,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " addImportFunction('rxmap', (arg) => {",
+      "start": 2034,
+      "end": 2074,
+      "loc": {
+        "start": {
+          "line": 27,
+          "column": 0
+        },
+        "end": {
+          "line": 27,
+          "column": 40
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   // HACK for dynamic import. The build system except latest version of webpack need all path for create bundles.",
+      "start": 2075,
+      "end": 2191,
+      "loc": {
+        "start": {
+          "line": 28,
+          "column": 0
+        },
+        "end": {
+          "line": 28,
+          "column": 116
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   const f = _fixedImports()[arg];",
+      "start": 2192,
+      "end": 2228,
+      "loc": {
+        "start": {
+          "line": 29,
+          "column": 0
+        },
+        "end": {
+          "line": 29,
+          "column": 36
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   if (f) {",
+      "start": 2229,
+      "end": 2242,
+      "loc": {
+        "start": {
+          "line": 30,
+          "column": 0
+        },
+        "end": {
+          "line": 30,
+          "column": 13
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "     return f();",
+      "start": 2243,
+      "end": 2261,
+      "loc": {
+        "start": {
+          "line": 31,
+          "column": 0
+        },
+        "end": {
+          "line": 31,
+          "column": 18
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   }",
+      "start": 2262,
+      "end": 2268,
+      "loc": {
+        "start": {
+          "line": 32,
+          "column": 0
+        },
+        "end": {
+          "line": 32,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   return import(/* webpackMode: \"lazy\" */ `../lib/${arg}`);",
+      "start": 2269,
+      "end": 2331,
+      "loc": {
+        "start": {
+          "line": 33,
+          "column": 0
+        },
+        "end": {
+          "line": 33,
+          "column": 62
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " });",
+      "start": 2332,
+      "end": 2338,
+      "loc": {
+        "start": {
+          "line": 34,
+          "column": 0
+        },
+        "end": {
+          "line": 34,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": " webpackMode: \"lazy\" ",
+      "start": 2381,
+      "end": 2406,
+      "loc": {
+        "start": {
+          "line": 36,
+          "column": 41
+        },
+        "end": {
+          "line": 36,
+          "column": 66
+        }
+      }
+    }
+  ],
+  "tokens": [
+    {
+      "type": {
+        "label": "import",
+        "keyword": "import",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "import",
+      "start": 0,
+      "end": 6,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "{",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 7,
+      "end": 8,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 7
+        },
+        "end": {
+          "line": 1,
+          "column": 8
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "addImportFunction",
+      "start": 9,
+      "end": 26,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 9
+        },
+        "end": {
+          "line": 1,
+          "column": 26
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "}",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 27,
+      "end": 28,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 27
+        },
+        "end": {
+          "line": 1,
+          "column": 28
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "from",
+      "start": 29,
+      "end": 33,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 29
+        },
+        "end": {
+          "line": 1,
+          "column": 33
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "./core/importLazyLoad",
+      "start": 34,
+      "end": 57,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 34
+        },
+        "end": {
+          "line": 1,
+          "column": 57
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 57,
+      "end": 58,
+      "loc": {
+        "start": {
+          "line": 1,
+          "column": 57
+        },
+        "end": {
+          "line": 1,
+          "column": 58
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " TODO: hacer una funcion con webpack que cree esto",
+      "start": 60,
+      "end": 112,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 0
+        },
+        "end": {
+          "line": 3,
+          "column": 52
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " const _fixedImports = () => ({",
+      "start": 113,
+      "end": 146,
+      "loc": {
+        "start": {
+          "line": 4,
+          "column": 0
+        },
+        "end": {
+          "line": 4,
+          "column": 33
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'google@latest': () => import(/* webpackChunkName: \"google@latest\" */'../lib/google@latest'),",
+      "start": 147,
+      "end": 245,
+      "loc": {
+        "start": {
+          "line": 5,
+          "column": 0
+        },
+        "end": {
+          "line": 5,
+          "column": 98
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'leaflet@latest': () => import(/* webpackChunkName: \"leaflet@latest\" */'../lib/leaflet@latest'),",
+      "start": 246,
+      "end": 347,
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 0
+        },
+        "end": {
+          "line": 6,
+          "column": 101
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'commands/google@latest/create': () => import('../lib/commands/google@latest/create'),",
+      "start": 348,
+      "end": 439,
+      "loc": {
+        "start": {
+          "line": 7,
+          "column": 0
+        },
+        "end": {
+          "line": 7,
+          "column": 91
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'commands/google@latest/marker': () => import('../lib/commands/google@latest/marker'),",
+      "start": 440,
+      "end": 531,
+      "loc": {
+        "start": {
+          "line": 8,
+          "column": 0
+        },
+        "end": {
+          "line": 8,
+          "column": 91
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'commands/google@latest/popup': () => import('../lib/commands/google@latest/popup'),",
+      "start": 532,
+      "end": 621,
+      "loc": {
+        "start": {
+          "line": 9,
+          "column": 0
+        },
+        "end": {
+          "line": 9,
+          "column": 89
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'commands/google@latest/point': () => import('../lib/commands/google@latest/point'),",
+      "start": 622,
+      "end": 711,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 0
+        },
+        "end": {
+          "line": 10,
+          "column": 89
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'commands/google@latest/setCenter': () => import('../lib/commands/google@latest/setCenter'),",
+      "start": 712,
+      "end": 809,
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 0
+        },
+        "end": {
+          "line": 11,
+          "column": 97
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'observers/google@latest/center': () => import('../lib/observers/google@latest/center'),",
+      "start": 810,
+      "end": 903,
+      "loc": {
+        "start": {
+          "line": 12,
+          "column": 0
+        },
+        "end": {
+          "line": 12,
+          "column": 93
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'observers/google@latest/click': () => import('../lib/observers/google@latest/click'),",
+      "start": 904,
+      "end": 995,
+      "loc": {
+        "start": {
+          "line": 13,
+          "column": 0
+        },
+        "end": {
+          "line": 13,
+          "column": 91
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'commands/google@latest/addData': () => import('../lib/commands/google@latest/addData'),",
+      "start": 996,
+      "end": 1089,
+      "loc": {
+        "start": {
+          "line": 14,
+          "column": 0
+        },
+        "end": {
+          "line": 14,
+          "column": 93
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'observers/google@latest/gps': () => import('../lib/observers/google@latest/gps'),",
+      "start": 1090,
+      "end": 1177,
+      "loc": {
+        "start": {
+          "line": 15,
+          "column": 0
+        },
+        "end": {
+          "line": 15,
+          "column": 87
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'commands/leaflet@latest/addData': () => import('../lib/commands/leaflet@latest/addData'),",
+      "start": 1178,
+      "end": 1273,
+      "loc": {
+        "start": {
+          "line": 16,
+          "column": 0
+        },
+        "end": {
+          "line": 16,
+          "column": 95
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'observers/leaflet@latest/gps': () => import('../lib/observers/leaflet@latest/gps'),",
+      "start": 1274,
+      "end": 1363,
+      "loc": {
+        "start": {
+          "line": 17,
+          "column": 0
+        },
+        "end": {
+          "line": 17,
+          "column": 89
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'commands/leaflet@latest/create': () => import('../lib/commands/leaflet@latest/create'),",
+      "start": 1364,
+      "end": 1457,
+      "loc": {
+        "start": {
+          "line": 18,
+          "column": 0
+        },
+        "end": {
+          "line": 18,
+          "column": 93
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'commands/leaflet@latest/marker': () => import('../lib/commands/leaflet@latest/marker'),",
+      "start": 1458,
+      "end": 1551,
+      "loc": {
+        "start": {
+          "line": 19,
+          "column": 0
+        },
+        "end": {
+          "line": 19,
+          "column": 93
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'commands/leaflet@latest/popup': () => import('../lib/commands/leaflet@latest/popup'),",
+      "start": 1552,
+      "end": 1643,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 0
+        },
+        "end": {
+          "line": 20,
+          "column": 91
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'commands/leaflet@latest/setCenter': () => import('../lib/commands/leaflet@latest/setCenter'),",
+      "start": 1644,
+      "end": 1743,
+      "loc": {
+        "start": {
+          "line": 21,
+          "column": 0
+        },
+        "end": {
+          "line": 21,
+          "column": 99
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'commands/leaflet@latest/point': () => import('../lib/commands/leaflet@latest/point'),",
+      "start": 1744,
+      "end": 1835,
+      "loc": {
+        "start": {
+          "line": 22,
+          "column": 0
+        },
+        "end": {
+          "line": 22,
+          "column": 91
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'observers/leaflet@latest/center': () => import('../lib/observers/leaflet@latest/center'),",
+      "start": 1836,
+      "end": 1931,
+      "loc": {
+        "start": {
+          "line": 23,
+          "column": 0
+        },
+        "end": {
+          "line": 23,
+          "column": 95
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   'observers/leaflet@latest/click': () => import('../lib/observers/leaflet@latest/click'),",
+      "start": 1932,
+      "end": 2025,
+      "loc": {
+        "start": {
+          "line": 24,
+          "column": 0
+        },
+        "end": {
+          "line": 24,
+          "column": 93
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " });",
+      "start": 2026,
+      "end": 2032,
+      "loc": {
+        "start": {
+          "line": 25,
+          "column": 0
+        },
+        "end": {
+          "line": 25,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " addImportFunction('rxmap', (arg) => {",
+      "start": 2034,
+      "end": 2074,
+      "loc": {
+        "start": {
+          "line": 27,
+          "column": 0
+        },
+        "end": {
+          "line": 27,
+          "column": 40
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   // HACK for dynamic import. The build system except latest version of webpack need all path for create bundles.",
+      "start": 2075,
+      "end": 2191,
+      "loc": {
+        "start": {
+          "line": 28,
+          "column": 0
+        },
+        "end": {
+          "line": 28,
+          "column": 116
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   const f = _fixedImports()[arg];",
+      "start": 2192,
+      "end": 2228,
+      "loc": {
+        "start": {
+          "line": 29,
+          "column": 0
+        },
+        "end": {
+          "line": 29,
+          "column": 36
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   if (f) {",
+      "start": 2229,
+      "end": 2242,
+      "loc": {
+        "start": {
+          "line": 30,
+          "column": 0
+        },
+        "end": {
+          "line": 30,
+          "column": 13
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "     return f();",
+      "start": 2243,
+      "end": 2261,
+      "loc": {
+        "start": {
+          "line": 31,
+          "column": 0
+        },
+        "end": {
+          "line": 31,
+          "column": 18
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   }",
+      "start": 2262,
+      "end": 2268,
+      "loc": {
+        "start": {
+          "line": 32,
+          "column": 0
+        },
+        "end": {
+          "line": 32,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": "   return import(/* webpackMode: \"lazy\" */ `../lib/${arg}`);",
+      "start": 2269,
+      "end": 2331,
+      "loc": {
+        "start": {
+          "line": 33,
+          "column": 0
+        },
+        "end": {
+          "line": 33,
+          "column": 62
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " });",
+      "start": 2332,
+      "end": 2338,
+      "loc": {
+        "start": {
+          "line": 34,
+          "column": 0
+        },
+        "end": {
+          "line": 34,
+          "column": 6
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "addImportFunction",
+      "start": 2340,
+      "end": 2357,
+      "loc": {
+        "start": {
+          "line": 36,
+          "column": 0
+        },
+        "end": {
+          "line": 36,
+          "column": 17
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 2357,
+      "end": 2358,
+      "loc": {
+        "start": {
+          "line": 36,
+          "column": 17
+        },
+        "end": {
+          "line": 36,
+          "column": 18
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "string",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "rxmap",
+      "start": 2358,
+      "end": 2365,
+      "loc": {
+        "start": {
+          "line": 36,
+          "column": 18
+        },
+        "end": {
+          "line": 36,
+          "column": 25
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 2365,
+      "end": 2366,
+      "loc": {
+        "start": {
+          "line": 36,
+          "column": 25
+        },
+        "end": {
+          "line": 36,
+          "column": 26
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "arg",
+      "start": 2367,
+      "end": 2370,
+      "loc": {
+        "start": {
+          "line": 36,
+          "column": 27
+        },
+        "end": {
+          "line": 36,
+          "column": 30
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "=>",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 2371,
+      "end": 2373,
+      "loc": {
+        "start": {
+          "line": 36,
+          "column": 31
+        },
+        "end": {
+          "line": 36,
+          "column": 33
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "import",
+        "keyword": "import",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "import",
+      "start": 2374,
+      "end": 2380,
+      "loc": {
+        "start": {
+          "line": 36,
+          "column": 34
+        },
+        "end": {
+          "line": 36,
+          "column": 40
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 2380,
+      "end": 2381,
+      "loc": {
+        "start": {
+          "line": 36,
+          "column": 40
+        },
+        "end": {
+          "line": 36,
+          "column": 41
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": " webpackMode: \"lazy\" ",
+      "start": 2381,
+      "end": 2406,
+      "loc": {
+        "start": {
+          "line": 36,
+          "column": 41
+        },
+        "end": {
+          "line": 36,
+          "column": 66
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "`",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 2407,
+      "end": 2408,
+      "loc": {
+        "start": {
+          "line": 36,
+          "column": 67
+        },
+        "end": {
+          "line": 36,
+          "column": 68
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "template",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "../lib/",
+      "start": 2408,
+      "end": 2415,
+      "loc": {
+        "start": {
+          "line": 36,
+          "column": 68
+        },
+        "end": {
+          "line": 36,
+          "column": 75
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "${",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 2415,
+      "end": 2417,
+      "loc": {
+        "start": {
+          "line": 36,
+          "column": 75
+        },
+        "end": {
+          "line": 36,
+          "column": 77
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "arg",
+      "start": 2417,
+      "end": 2420,
+      "loc": {
+        "start": {
+          "line": 36,
+          "column": 77
+        },
+        "end": {
+          "line": 36,
+          "column": 80
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "}",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 2420,
+      "end": 2421,
+      "loc": {
+        "start": {
+          "line": 36,
+          "column": 80
+        },
+        "end": {
+          "line": 36,
+          "column": 81
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "template",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "",
+      "start": 2421,
+      "end": 2421,
+      "loc": {
+        "start": {
+          "line": 36,
+          "column": 81
+        },
+        "end": {
+          "line": 36,
+          "column": 81
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "`",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 2421,
+      "end": 2422,
+      "loc": {
+        "start": {
+          "line": 36,
+          "column": 81
+        },
+        "end": {
+          "line": 36,
+          "column": 82
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 2422,
+      "end": 2423,
+      "loc": {
+        "start": {
+          "line": 36,
+          "column": 82
+        },
+        "end": {
+          "line": 36,
+          "column": 83
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 2423,
+      "end": 2424,
+      "loc": {
+        "start": {
+          "line": 36,
+          "column": 83
+        },
+        "end": {
+          "line": 36,
+          "column": 84
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 2424,
+      "end": 2425,
+      "loc": {
+        "start": {
+          "line": 36,
+          "column": 84
+        },
+        "end": {
+          "line": 36,
+          "column": 85
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "eof",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 2426,
+      "end": 2426,
+      "loc": {
+        "start": {
+          "line": 37,
+          "column": 0
+        },
+        "end": {
+          "line": 37,
+          "column": 0
+        }
+      }
+    }
+  ]
+}

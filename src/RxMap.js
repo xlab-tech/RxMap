@@ -10,6 +10,10 @@ import importMapLibrary from './core/importMapLibrary';
 
 let _Map;
 
+/**
+ * RxMap
+ * @extends CommandBus
+ */
 export class RxMapClass extends CommandBus {
   constructor() {
     super();
