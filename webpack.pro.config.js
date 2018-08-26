@@ -41,14 +41,13 @@ module.exports = [
   },
   {
     mode: 'development',
-    entry: './webpack.js',
+    entry: './src/index.umd.js',
     output: {
-      library: 'RxMap',
+      library: 'R',
       libraryTarget: 'umd',
       libraryExport: 'default',
       filename: 'umd/RxMap.src.js',
       chunkFilename: 'umd/lib/[name].src.js',
-      publicPath: 'http://localhost:8080/',
       path: path.resolve(__dirname, 'dist'),
     },
     devtool: 'inline-source-map',
@@ -56,14 +55,13 @@ module.exports = [
   },
   {
     mode: 'production',
-    entry: './webpack.js',
+    entry: './src/index.umd.js',
     output: {
-      library: 'RxMap',
+      library: 'R',
       libraryTarget: 'umd',
       libraryExport: 'default',
       filename: 'umd/RxMap.min.js',
       chunkFilename: 'umd/lib/[name].min.js',
-      publicPath: 'http://localhost:8080/',
       path: path.resolve(__dirname, 'dist'),
     },
     devtool: 'source-map',

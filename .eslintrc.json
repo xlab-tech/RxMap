@@ -19,6 +19,6 @@
   ],
   "globals": {
     "import": true,
-    "COMMANDS_PATH": true
+    "__webpack_public_path__": true
   }
 }
