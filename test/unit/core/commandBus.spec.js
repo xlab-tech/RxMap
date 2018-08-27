@@ -15,6 +15,19 @@ describe('CommandBus', () => {
       name: null,
     });
   });
+
+  it('command Bus getSource', () => {
+    const commandBus = new CommandBus();
+    const temp = commandBus.getSource();
+    expect(temp).to.be.eq(commandBus);
+  });
+
+  it('command Bus getContext', () => {
+    const commandBus = new CommandBus();
+    const temp = commandBus.getContext();
+    // eslint-disable-next-line no-unused-expressions
+    expect(temp).to.be.null;
+  });
   it('executing', (done) => {
     registerCommand('test', () => new Promise(resolve => setTimeout(resolve, 500)));
     const bus = rxMap.test();
