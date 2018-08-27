@@ -12,8 +12,6 @@ let _Map;
 export class RxMap extends CommandBus {
   constructor() {
     super();
-    /** @private  */
-    this.createAsync = false;
     this._dataTypes = {};
     this.setSource(this);
     this.libName = null;

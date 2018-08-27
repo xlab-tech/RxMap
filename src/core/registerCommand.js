@@ -13,7 +13,7 @@ const createFunctionInCommandBus = (commandName, commandExecute) => {
   CommandBus.prototype[commandName] = function (...args) {
     let _this = this;
     if (!(isAsyncCommandBus(_this))
-      && (commandName !== 'create' || (commandName === 'create' && this.createAsync))) {
+      && (commandName !== 'create')) {
       _this = AsyncCommandBus.lift(this);
     }
     _this.execute(commandName, commandExecute, args);
