@@ -112,7 +112,7 @@ export const loadLib = async (mapLib, type, name, version = 'latest') => {
   }
   const importFunc = _importFunctions[command.lib];
   if (importFunc) {
-    const module = await importFunc(`${type}/${mapLib}@${version}/${command.key}`);
+    const module = await importFunc(type, mapLib, version, command.key);
     return module.default;
   }
   throw new Error(`not Found Import function for ${command.lib}`);

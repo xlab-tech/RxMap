@@ -6,7 +6,7 @@ const webpack = require('webpack');
 module.exports = {
   mode: 'development',
   entry: {
-    RxMap: ['./index.js', './src/importFunctions.js'],
+    RxMap: ['./src/index.js', './src/importFunctions.js'],
     example: './examples/map.load.js',
     // index: './examples/map.js',
   },

@@ -33,4 +33,4 @@ import { addImportFunction } from './core/importLazyLoad';
 //   return import(/* webpackMode: "lazy" */ `../lib/${arg}`);
 // });
 
-addImportFunction('rxmap', arg => import(/* webpackMode: "lazy" */ `../lib/${arg}`));
+addImportFunction('rxmap', (type, mapLib, version, key) => import(/* webpackMode: "lazy" */ `../lib/${type}/${mapLib}@${version}/${key}`));

@@ -105,7 +105,7 @@ const positions = [
   { lat: 1, lng: 2 },
 ];
 
-addImportFunction('test', arg => import(`./test/${arg}`));
+addImportFunction('test', (type, mapLib, version, key) => import(`./test/${type}/${mapLib}@${version}/${key}`));
 
 const p = async () => {
   const Map = await RxMapFromConfig('map', config);
