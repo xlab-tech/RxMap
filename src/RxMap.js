@@ -1,10 +1,5 @@
 
-import { from } from 'rxjs/internal/observable/from';
-import { switchMap } from 'rxjs/internal/operators/switchMap';
 import CommandBus from './core/CommandBus';
-import { registerObserver } from './core/registerObserver';
-import { registerCommand } from './core/registerCommand';
-import { loadLib } from './core/importLazyLoad';
 import importMapLibrary from './core/importMapLibrary';
 
 let _Map;
@@ -21,6 +16,8 @@ export class RxMap extends CommandBus {
     this.createAsync = false;
     this._dataTypes = {};
     this.setSource(this);
+    this.libName = null;
+    this.libVersion = null;
   }
 
   /**
@@ -67,9 +64,7 @@ export class RxMap extends CommandBus {
 
   /**
    * Metodo asyncrono que permite cargar la libreria de mapas que se le pasa por
-   * parametros y que inicializa los comandos y observadres que se le pasan por parametro
-   * Si no se pasan ni comando ni observadres se inicializan todos los camandos
-   * de las librerias que se han añadido con la funcion addImportLib
+   * parametros
    *
    * @param {String} lib Nombre de la libreria de mapas
    * @param {loadOptions} [options={}]
@@ -78,39 +73,11 @@ export class RxMap extends CommandBus {
    * @memberof RxMap
    */
   async load(lib, options = {}) {
-    const { commands, observers } = options;
-    if (commands || observers) {
-      // eslint-disable-next-line no-param-reassign
-      options.noLoadCommands = true;
-    }
+    this.libName = lib;
+    this.libVersion = options.version || 'latest';
     // First Load Map Lib
     this._nativeLibrary = await importMapLibrary(lib, options);
-
-    if (!commands || !observers) {
-      return this;
-    }
-    if (!options.defer) {
-      // After Load all Commands and observers if not defer the loader.
-      const _commands = commands.map(key => loadLib(lib, 'commands', key, options.version));
-      const _observers = observers.map(key => loadLib(lib, 'observers', key, options.version));
-      return Promise.all(_commands.concat(_observers))
-        .then(() => this);
-    }
-
-    // create commands and observers for loader funcions when use it.
-    commands.forEach((item) => {
-      const key = typeof item === 'string' ? item : item.key;
-      registerCommand(key, (...args) => {
-        const res = loadLib(lib, 'commands', item, options.version);
-        return res.then(func => func(...args));
-      });
-    });
-    observers.forEach((item) => {
-      const key = typeof item === 'string' ? item : item.key;
-      registerObserver(key, (...args) => from(loadLib(lib, 'observers', item, options.version))
-        .pipe(switchMap(observer => observer(...args))));
-    });
-    return Promise.resolve(this);
+    return this;
   }
 
   /**

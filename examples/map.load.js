@@ -1,18 +1,16 @@
 import { map } from 'rxjs/internal/operators/map';
 import { take } from 'rxjs/internal/operators/take';
 import { delay } from 'rxjs/internal/operators/delay';
-import { RxMapFromConfig, registerMiddleware, addImportFunction } from '../src/index';
+import { RxMapFromConfig, registerMiddleware, registerLib } from '../src/index';
 import { LoggerMiddleware, TimerMiddleware } from '../lib/middlewares/logger';
-import '../src/importFunctions';
+// import '../src/importFunctions';
+import rxLib from '../lib/';
 
 const config = {
   type: 'leaflet',
   options: {
     key: 'AIzaSyCjj-I0sYedbWCAmAoW2LgAr4T2bkPa09Y',
-    defer: true,
   },
-  commands: ['create', 'marker', 'popup', 'setCenter', 'addData', 'point', { key: 'test', lib: 'test' }],
-  observers: ['center', 'click', 'gps'],
   map: {
     autoCenter: false,
     center: {
@@ -105,7 +103,14 @@ const positions = [
   { lat: 1, lng: 2 },
 ];
 
-addImportFunction('test', (type, mapLib, version, key) => import(`./test/${type}/${mapLib}@${version}/${key}`));
+registerLib(...rxLib);
+registerLib(
+  'test',
+  {
+    commands: ['test']
+  },
+  (type, mapLib, version, key) => import(`./test/${type}/${mapLib}@${version}/${key}`)
+);
 
 const p = async () => {
   const Map = await RxMapFromConfig('map', config);

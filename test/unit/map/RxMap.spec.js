@@ -37,6 +37,13 @@ describe('RxMap', () => {
     window.google = { maps: 5 };
     expect(rxMap.getMapLibrary().maps).to.eq(5);
   });
+  it('load', async () => {
+    try {
+      await rxMap.load('tt');
+    } catch (err) {
+      expect(err).is.a.instanceOf(Error);
+    }
+  });
   describe('loads', () => {
     let load_;
     let loadMap_;
@@ -55,21 +62,9 @@ describe('RxMap', () => {
       expect(ret._nativeLibrary).to.eq(5);
       // console.log(ret);
     });
-    it('load commands', async () => {
-      const ret = await rxMap.load('leaflet', { commands: [{ key: 'create' }], observers: ['click'] });
+    it('load not', async () => {
+      const ret = await rxMap.load('test');
       expect(ret._nativeLibrary).to.eq(5);
-      // console.log(ret);
-    });
-    it('load commands defer', async () => {
-      const ret = await rxMap.load('leaflet', { commands: [{ key: 'create' }], observers: [{ key: 'click' }], defer: true });
-      expect(ret._nativeLibrary).to.eq(5);
-      rxMap.create();
-      // console.log(ret);
-    });
-    it('load commands defer 2', async () => {
-      const ret = await rxMap.load('leaflet', { commands: ['create'], observers: ['click'], defer: true });
-      expect(ret._nativeLibrary).to.eq(5);
-      rxMap.observer('click').subscribe();
       // console.log(ret);
     });
     it('get getMapLibrary null', () => {

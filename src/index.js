@@ -4,6 +4,7 @@ import * as _registerMiddleware from './core/middlewares';
 import * as _RxMap from './RxMap';
 import _RxMapFromConfig from './config';
 import * as lazy from './core/importLazyLoad';
+import _registerLib from './core/registerLib';
 
 /**
  * @type {registerCommand}
@@ -35,12 +36,14 @@ export const RxMapFromConfig = _RxMapFromConfig;
  */
 export const { addImportFunction } = lazy;
 
+export const registerLib = _registerLib;
+
 export default {
-  registerCommand: _register.registerCommand,
-  registerObserver: _registerObserver.registerObserver,
-  registerMiddleware: _registerMiddleware.registerMiddleware,
-  RxMap: _RxMap.default,
-  RxMapClass: _RxMap.RxMap,
-  RxMapFromConfig: _RxMapFromConfig,
-  addImportFunction: lazy.addImportFunction,
+  registerCommand,
+  registerObserver,
+  registerMiddleware,
+  registerLib,
+  RxMap,
+  RxMapClass,
+  RxMapFromConfig,
 };

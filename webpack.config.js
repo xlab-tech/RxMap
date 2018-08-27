@@ -6,12 +6,12 @@ const webpack = require('webpack');
 module.exports = {
   mode: 'development',
   entry: {
-    RxMap: ['./src/index.js', './src/importFunctions.js'],
+    RxMap: './src/index.js',
     example: './examples/map.load.js',
     // index: './examples/map.js',
   },
   output: {
-    filename: '[hash]/[name].js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
   },
   devtool: 'inline-source-map',

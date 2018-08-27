@@ -25,7 +25,6 @@ const rxMapFromConfig = async (id, config) => {
     allObservers = allObservers.filter((item, pos) => allObservers.indexOf(item) === pos);
     options.observers = allObservers;
   }
-
   await rxMap.load(type, options);
 
   const create = rxMap.create(id, mapCenter.lat, mapCenter.lng, zoom);

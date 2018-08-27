@@ -1,5 +1,4 @@
 
-import { getCommand } from './registerCommand';
 
 const _importFunctions = {};
 
@@ -32,6 +31,7 @@ const addElement = (tag) => {
   });
 };
 
+/*
 const loadJS = url => new Promise((resolve) => {
   const implementationCode = args => resolve(args);
   const scriptTag = document.createElement('script');
@@ -40,6 +40,7 @@ const loadJS = url => new Promise((resolve) => {
   scriptTag.onreadystatechange = implementationCode;
   addElement(scriptTag);
 });
+*/
 
 export const loadCSS = href => new Promise((resolve) => {
   const ss = document.createElement('link');
@@ -98,24 +99,11 @@ export const addImportFunction = (lib, func) => {
   _importFunctions[lib] = func;
 };
 
-export const loadLib = async (mapLib, type, name, version = 'latest') => {
-  let command = name;
-  if (typeof name === 'string') {
-    command = {
-      key: name,
-      lib: 'rxmap',
-    };
-  }
-  if (command.path) {
-    await loadJS(`${command.path}/${type}/${mapLib}@${version}/${command.key}.js`);
-    return getCommand(command.key);
-  }
-  const importFunc = _importFunctions[command.lib];
+export const loadLib = async (lib, mapLib, type, key, version = 'latest') => {
+  const importFunc = _importFunctions[lib];
   if (importFunc) {
-    const module = await importFunc(type, mapLib, version, command.key);
-    return module.default;
+    const module = await importFunc(type, mapLib, version, key);
+    return module.default || module[key];
   }
-  throw new Error(`not Found Import function for ${command.lib}`);
+  throw new Error(`not Found Import function for ${lib}`);
 };
-
-export const loadAllRootLib = name => Promise.all(Object.keys(_importFunctions).map(key => _importFunctions[key](name)));

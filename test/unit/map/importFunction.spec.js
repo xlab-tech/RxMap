@@ -1,53 +1,49 @@
 /* global describe,it */
 import { expect } from 'chai';
 // import '../../../src/importFunctions';
-import { loadLib, loadAllRootLib } from '../../../src/core/importLazyLoad';
+import { loadLib } from '../../../src/core/importLazyLoad';
 
 describe('addImport', () => {
   it('import google', () => {
     let res;
-    res = loadAllRootLib('google@latest');
+    res = loadLib('rxmap', 'google', 'commands', 'create');
     expect(res).to.be.a('promise');
-    res = loadLib('google', 'commands', 'create');
+    res = loadLib('rxmap', 'google', 'commands', 'marker');
     expect(res).to.be.a('promise');
-    res = loadLib('google', 'commands', 'marker');
+    res = loadLib('rxmap', 'google', 'commands', 'popup');
     expect(res).to.be.a('promise');
-    res = loadLib('google', 'commands', 'popup');
+    res = loadLib('rxmap', 'google', 'commands', 'point');
     expect(res).to.be.a('promise');
-    res = loadLib('google', 'commands', 'point');
+    res = loadLib('rxmap', 'google', 'commands', 'setCenter');
     expect(res).to.be.a('promise');
-    res = loadLib('google', 'commands', 'setCenter');
+    res = loadLib('rxmap', 'google', 'observers', 'gps');
     expect(res).to.be.a('promise');
-    res = loadLib('google', 'observers', 'gps');
+    res = loadLib('rxmap', 'google', 'observers', 'click');
     expect(res).to.be.a('promise');
-    res = loadLib('google', 'observers', 'click');
-    expect(res).to.be.a('promise');
-    res = loadLib('google', 'observers', 'center');
+    res = loadLib('rxmap', 'google', 'observers', 'center');
     expect(res).to.be.a('promise');
   });
   it('import leaflet', () => {
     let res;
-    res = loadAllRootLib('leaflet@latest');
+    res = loadLib('rxmap', 'leaflet', 'commands', 'create');
     expect(res).to.be.a('promise');
-    res = loadLib('leaflet', 'commands', 'create');
+    res = loadLib('rxmap', 'leaflet', 'commands', 'marker');
     expect(res).to.be.a('promise');
-    res = loadLib('leaflet', 'commands', 'marker');
+    res = loadLib('rxmap', 'leaflet', 'commands', 'popup');
     expect(res).to.be.a('promise');
-    res = loadLib('leaflet', 'commands', 'popup');
+    res = loadLib('rxmap', 'leaflet', 'commands', 'point');
     expect(res).to.be.a('promise');
-    res = loadLib('leaflet', 'commands', 'point');
+    res = loadLib('rxmap', 'leaflet', 'commands', 'setCenter');
     expect(res).to.be.a('promise');
-    res = loadLib('leaflet', 'commands', 'setCenter');
+    res = loadLib('rxmap', 'leaflet', 'observers', 'gps');
     expect(res).to.be.a('promise');
-    res = loadLib('leaflet', 'observers', 'gps');
+    res = loadLib('rxmap', 'leaflet', 'observers', 'click');
     expect(res).to.be.a('promise');
-    res = loadLib('leaflet', 'observers', 'click');
-    expect(res).to.be.a('promise');
-    res = loadLib('leaflet', 'observers', 'center');
+    res = loadLib('rxmap', 'leaflet', 'observers', 'center');
     expect(res).to.be.a('promise');
   });
   it('import other', () => {
-    const res = loadLib('leaflet', 'commands', 'test');
+    const res = loadLib('rxmap', 'leaflet', 'commands', 'test');
     expect(res).to.be.a('promise');
   });
 });

@@ -9,12 +9,10 @@ describe('Import Map Library', function () {
   before(() => {
     sinon.stub(GoogleMapsLoader, 'load').callsFake(func => func({ maps: 5 }));
     sinon.stub(loader, 'loadCSS').callsFake(() => Promise.resolve());
-    sinon.stub(loader, 'loadAllRootLib').returns(Promise.resolve([{ default: () => 'aa' }]));
   });
   after(() => {
     GoogleMapsLoader.load.restore();
     loader.loadCSS.restore();
-    loader.loadAllRootLib.restore();
     // stub.loadGoogle.restore();
     // stub.default.restore();
   });
