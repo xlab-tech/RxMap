@@ -39,6 +39,12 @@ describe('AsyncCommandBus', () => {
   it('save data', () => {
     const async = new AsyncCommandBus();
     async._saveExecution('test', 5);
-    expect(async.value().value).to.eq(5);
+    expect(async._lastCommand.value).to.eq(5);
+  });
+  it('save data', () => {
+    const async = new AsyncCommandBus();
+    async.setSource(5);
+    const temp = async.getSource();
+    expect(temp).to.eq(5);
   });
 });

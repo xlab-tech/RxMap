@@ -11,6 +11,18 @@ class AsyncCommandBus extends CommandBus {
     this.allResults = [];
   }
 
+  setSource(source) {
+    this._source = source;
+  }
+
+  getSource() {
+    return this._source;
+  }
+
+  getContext() {
+    return this._source.getContext(this._lastCommand);
+  }
+
   execute(commandName, command, args) {
     this.queue.push({
       commandName,

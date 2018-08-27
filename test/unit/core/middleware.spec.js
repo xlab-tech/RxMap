@@ -9,7 +9,6 @@ describe('Middlewares', () => {
     const func = () => 'asfas';
     const newFunc = applyMiddlewares('test', func);
     const commandBus = new CommandBus();
-    commandBus.setSource({ getMapLibrary: () => 'tt' });
     expect(newFunc(commandBus, [])).to.eq(func(commandBus, []));
   });
   it('apply middleware one', () => {
@@ -19,7 +18,6 @@ describe('Middlewares', () => {
     };
     registerMiddleware('testRegister', f);
     const commandBus = new CommandBus();
-    commandBus.setSource({ getMapLibrary: () => 'tt' });
     const func = () => 'asfas';
     const newFunc = applyMiddlewares('test', func);
     const newFunc2 = applyMiddlewares('testRegister', func);
@@ -35,7 +33,6 @@ describe('Middlewares', () => {
     const func = () => 'asfas';
     const newFunc = applyMiddlewares('test', func);
     const commandBus = new CommandBus();
-    commandBus.setSource({ getMapLibrary: () => 'tt' });
     expect(newFunc(commandBus, [])).to.eq('aa');
   });
   it('subscribe', () => new Promise((resolve) => {

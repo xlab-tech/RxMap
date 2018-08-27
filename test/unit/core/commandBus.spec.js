@@ -9,7 +9,7 @@ describe('CommandBus', () => {
   it('create new Command Bus', () => {
     const commandBus = new CommandBus();
     expect(commandBus).to.be.an.instanceof(CommandBus);
-    const ret = commandBus.value();
+    const ret = commandBus._lastCommand;
     expect(ret).to.deep.equal({
       value: null,
       name: null,

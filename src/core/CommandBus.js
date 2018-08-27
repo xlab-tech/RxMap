@@ -18,16 +18,8 @@ class CommandBus {
     };
   }
 
-  setSource(source) {
-    this._source = source;
-  }
-
-  getRxMap() {
-    return this._source;
-  }
-
-  value() {
-    return this._lastCommand;
+  getSource() {
+    return this;
   }
 
   execute(commandName, command, args) {
@@ -83,11 +75,7 @@ class CommandBus {
   }
 
   getContext() {
-    return {
-      RxMap: this.getRxMap(),
-      lastExecution: this.value(),
-      library: this.getRxMap().getMapLibrary(),
-    };
+    return null;
   }
 }
 

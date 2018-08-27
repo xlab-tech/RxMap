@@ -13,7 +13,6 @@ export class RxMap extends CommandBus {
   constructor() {
     super();
     this._dataTypes = {};
-    this.setSource(this);
     this.libName = null;
     this.libVersion = null;
   }
@@ -40,6 +39,18 @@ export class RxMap extends CommandBus {
     return this._sourceMap;
   }
 
+  /**
+   * Recupera el contexto para las ejecuciones de los comandos y observadores
+   * @param { object} [value] puede recibir la ultima ejecucion si se solicita desde AsyncCommand
+   * @private
+   */
+  getContext(value) {
+    return {
+      RxMap: this,
+      lastExecution: value || this._lastCommand,
+      library: this.getMapLibrary(),
+    };
+  }
   /**
     * @typedef {Object} Command
     * @property {String} key nombre del comando.
