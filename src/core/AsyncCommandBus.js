@@ -83,4 +83,21 @@ AsyncCommandBus.lift = function (source, commandsSubject) {
   return bus;
 };
 
+
+const isAsyncCommandBus = function (value) {
+  return value && typeof value.subscribe === 'function' && typeof value.execute === 'function';
+};
+
+export const createFunctionInCommandBus = (commandName, commandExecute) => {
+  CommandBus.prototype[commandName] = function (...args) {
+    let _this = this;
+    if (!(isAsyncCommandBus(_this))
+      && (commandName !== 'create')) {
+      _this = AsyncCommandBus.lift(this, this._commandsSubject);
+    }
+    _this.execute(commandName, commandExecute, args);
+    return _this;
+  };
+};
+
 export default AsyncCommandBus;
