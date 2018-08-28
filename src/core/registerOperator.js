@@ -70,10 +70,7 @@ const applyCommandBus = (observable) => {
   return observable;
 };
 
-export const applyOperators = (observable) => {
-  _applyOperators(observable);
-  return applyCommandBus(observable);
-};
+export const applyOperators = observable => applyCommandBus(_applyOperators(observable));
 
 const registerOperator = (commandName, command) => {
   _operators[commandName] = function (someCallback) {

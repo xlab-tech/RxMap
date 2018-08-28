@@ -4,7 +4,6 @@ import { Observable } from 'rxjs/internal/Observable';
 import { from } from 'rxjs/internal/observable/from';
 import registerOperator, { applyOperators } from '../../../src/core/registerOperator';
 import CommandBus from '../../../src/core/CommandBus';
-import rxMap from '../../../src/RxMap';
 
 describe('Register Operator', () => {
   it('add Observable function', () => {
@@ -13,20 +12,8 @@ describe('Register Operator', () => {
     applyOperators($stream);
     expect($stream).to.respondTo('testbb');
   });
-  it('getCommandBus', () => {
-    registerOperator('testb', () => 'asdf');
-    applyOperators(Observable);
-    return new Promise((resolve) => {
-      const $st = rxMap.fromObserver(from('1'));
-      $st.testb(res => res)
-        .subscribe((a) => {
-          expect(a).to.eq('asdf');
-          resolve();
-        });
-    });
-  });
   it('getCommandBus 2', () => {
-    registerOperator('test', () => Promise.resolve('asdf'));
+    registerOperator('test22', () => Promise.resolve('asdf'));
     applyOperators(Observable);
     const commandB = new CommandBus();
     commandB._source = { getMapLibrary: () => 'ss' };
@@ -34,7 +21,7 @@ describe('Register Operator', () => {
       const $stream = from('1');
       $stream.source = { getCommandBus: () => commandB };
       $stream
-        .test('aaa')
+        .test22('aaa')
         .subscribe((a) => {
           expect(a).to.eq('asdf');
           resolve();
