@@ -14,7 +14,7 @@ const createFunctionInCommandBus = (commandName, commandExecute) => {
     let _this = this;
     if (!(isAsyncCommandBus(_this))
       && (commandName !== 'create')) {
-      _this = AsyncCommandBus.lift(this);
+      _this = AsyncCommandBus.lift(this, this._commandsSubject);
     }
     _this.execute(commandName, commandExecute, args);
     return _this;

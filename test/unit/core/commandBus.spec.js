@@ -50,4 +50,22 @@ describe('CommandBus', () => {
       expect(err).is.a.instanceOf(Error);
     }
   });
+  it('observer command', (done) => {
+    registerCommand('testObs', () => 'kk');
+    rxMap.observerCommand('testObs').subscribe((res) => {
+      expect(res.name).to.have.eq('testObs');
+      expect(res.value).to.have.eq('kk');
+      done();
+    });
+    rxMap.testObs();
+  });
+  it('observer command 2', (done) => {
+    registerCommand('ostrr', () => 'kk');
+    rxMap.observerCommand('os.').subscribe((res) => {
+      expect(res.name).to.have.eq('ostrr');
+      expect(res.value).to.have.eq('kk');
+      done();
+    });
+    rxMap.ostrr();
+  });
 });

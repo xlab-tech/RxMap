@@ -15,6 +15,10 @@ class AsyncCommandBus extends CommandBus {
     this._source = source;
   }
 
+  setCommandsSubject(commandsSubject) {
+    this._commandsSubject = commandsSubject;
+  }
+
   getSource() {
     return this._source;
   }
@@ -72,9 +76,10 @@ class AsyncCommandBus extends CommandBus {
   }
 }
 
-AsyncCommandBus.lift = function (source) {
+AsyncCommandBus.lift = function (source, commandsSubject) {
   const bus = new AsyncCommandBus();
   bus.setSource(source);
+  bus.setCommandsSubject(commandsSubject);
   return bus;
 };
 

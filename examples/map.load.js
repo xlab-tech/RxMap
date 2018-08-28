@@ -115,6 +115,9 @@ registerLib(
 const p = async () => {
   const Map = await RxMapFromConfig('map', config);
 
+  Map.observerCommand('.').subscribe((data) => {
+    console.log("COMMAND Subscriber 1 got data >>>>> ", data);
+  });
   registerMiddleware(LoggerMiddleware);
   registerMiddleware('addData', TimerMiddleware);
   Map.test('kkkkk');
