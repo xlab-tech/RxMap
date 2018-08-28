@@ -7,11 +7,11 @@ import { getObserver } from './registerObserver';
 import { applyOperators } from './registerOperator';
 
 const _applyCommandBus = (observer, CommandBus) => {
+  let _observer = observer;
   if (!observer.setCommandBus) {
-    applyOperators(observer);
-    return observer.setCommandBus(CommandBus);
+    _observer = applyOperators(observer);
   }
-  return observer;
+  return _observer.setCommandBus(CommandBus);
 };
 
 class CommandBus {
