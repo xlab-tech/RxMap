@@ -64,5 +64,3 @@ subscribe((commandName) => {
     Object.keys(registerCommands).forEach(key => updateCommandWithMiddleware(key));
   }
 });
-
-export default registerCommand;
