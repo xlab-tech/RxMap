@@ -6,10 +6,12 @@ import isPromise from '../utils/isPromise';
 import { getObserver } from './registerObserver';
 import { applyOperators } from './registerOperator';
 
-const _applyCommandBus = (observer) => {
+const _applyCommandBus = (observer, CommandBus) => {
   if (!observer.setCommandBus) {
     applyOperators(observer);
+    return observer.setCommandBus(CommandBus);
   }
+  return observer;
 };
 
 class CommandBus {
@@ -71,8 +73,7 @@ class CommandBus {
    * @return {Observer}
    */
   fromObserver(observer) {
-    _applyCommandBus(observer);
-    return observer.setCommandBus(this);
+    return _applyCommandBus(observer, this);
   }
 
   /**
@@ -104,8 +105,7 @@ class CommandBus {
   observer(observerName, ...args) {
     if (typeof observerName !== 'string') {
       const obser = from(observerName);
-      _applyCommandBus(obser);
-      return obser.setCommandBus(this);
+      return _applyCommandBus(obser, this);
     }
     const observer = getObserver(observerName);
 
@@ -113,8 +113,7 @@ class CommandBus {
       throw new Error(`Observer ${observerName} not register`);
     }
     const obser = observer(this.getContext(), ...args);
-    _applyCommandBus(obser);
-    return obser.setCommandBus(this);
+    return _applyCommandBus(obser, this);
   }
 
   /**
