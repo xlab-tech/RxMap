@@ -1,4 +1,5 @@
 
+import { take } from 'rxjs/internal/operators/take';
 import CommandBus from './core/CommandBus';
 import importMapLibrary from './core/importMapLibrary';
 
@@ -15,18 +16,6 @@ export class RxMap extends CommandBus {
     this._dataTypes = {};
     this.libName = null;
     this.libVersion = null;
-  }
-
-  /**
-   *
-   * Funcion que establece el mapa nativo inicializado
-   * que se va a utilizar se llama desde el comando 'create'
-   *
-   * @param {Object} map
-   * @memberof RxMap
-   */
-  setMap(map) {
-    this._sourceMap = map;
   }
 
   /**
@@ -84,8 +73,13 @@ export class RxMap extends CommandBus {
   async load(lib, options = {}) {
     this.libName = lib;
     this.libVersion = options.version || 'latest';
+
+    this._commandsSubject.pipe(take(1)).subscribe((res) => {
+      this._sourceMap = res.value;
+    });
     // First Load Map Lib
     this._nativeLibrary = await importMapLibrary(lib, options);
+
     return this;
   }
 

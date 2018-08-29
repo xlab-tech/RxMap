@@ -49,7 +49,7 @@ class CommandBus {
    * @private
    */
   execute(commandName, command, args) {
-    return this._execute(commandName, command, args);
+    return this._execute(commandName, command, args).subscribe();
   }
 
   _saveExecution(commandName, result) {
@@ -57,7 +57,6 @@ class CommandBus {
       value: result,
       name: commandName,
     };
-    // this._commandsSubject.next(this._lastCommand);
     this._executingCommand = false;
     return this._lastCommand;
   }
@@ -145,9 +144,7 @@ class CommandBus {
    * @return Observer
    */
   observerCommand(name) {
-    return this._commandsSubject.pipe(
-      filter(lastCommand => lastCommand.name.match(name)),
-    );
+    return this._commandsSubject.pipe(filter(lastCommand => lastCommand.name.match(name)));
   }
 
   /**

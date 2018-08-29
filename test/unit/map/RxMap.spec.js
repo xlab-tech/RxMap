@@ -18,8 +18,8 @@ describe('RxMap', () => {
     const ret = rxMap.test();
     expect(ret).to.be.an.instanceof(AsyncCommandBus);
   });
-  it('setMap, getMap', () => {
-    rxMap.setMap(5);
+  it('getMap', () => {
+    rxMap._sourceMap = 5;
     const res = rxMap.getMap();
     expect(res).to.eq(5);
   });
