@@ -1,7 +1,11 @@
 
+import { Observable } from 'rxjs/internal/Observable';
 import { from } from 'rxjs/internal/observable/from';
+import { of } from 'rxjs/internal/observable/of';
 import { Subject } from 'rxjs/internal/Subject';
 import { filter } from 'rxjs/internal/operators/filter';
+import { map } from 'rxjs/internal/operators/map';
+import { tap } from 'rxjs/internal/operators/tap';
 import isPromise from '../utils/isPromise';
 import { getObserver } from './registerObserver';
 import { applyOperators } from './registerOperator';
@@ -11,7 +15,7 @@ const _applyCommandBus = (observer, CommandBus) => {
   if (!observer.setCommandBus) {
     _observer = applyOperators(observer);
   }
-  return _observer.setCommandBus(CommandBus);
+  return _observer.setCommandBus(CommandBus.getSource());
 };
 
 class CommandBus {
@@ -23,10 +27,27 @@ class CommandBus {
     };
   }
 
+  /**
+   * @private
+   */
   getSource() {
     return this;
   }
 
+  /**
+   * @private
+   */
+  getValue() {
+    return of(this._lastCommand);
+  }
+
+  /**
+   * Funcion que ejecuta la  funcion sobre
+   * @param {*} commandName
+   * @param {*} command
+   * @param {*} args
+   * @private
+   */
   execute(commandName, command, args) {
     return this._execute(commandName, command, args);
   }
@@ -36,44 +57,35 @@ class CommandBus {
       value: result,
       name: commandName,
     };
-    this._commandsSubject.next(this._lastCommand);
+    // this._commandsSubject.next(this._lastCommand);
     this._executingCommand = false;
-    return result;
+    return this._lastCommand;
   }
 
   _execute(commandName, command, args) {
     this._executingCommand = commandName;
     const ret = command(this, args);
-    const value = ret;
-    if (isPromise(ret)) {
-      return ret.then(data => this._saveExecution(commandName, data));
-    }
-    return this._saveExecution(commandName, value);
+    const $let = (isPromise(ret) || ret instanceof Observable) ? from(ret) : of(ret);
+    $let.setCommandBus(this.getSource());
+    return $let.pipe(
+      map(data => this._saveExecution(commandName, data)),
+      tap(data => this._commandsSubject.next(data)),
+    );
   }
 
+  /**
+   *
+   * @private
+   */
   isExecuting() {
     return !!this._executingCommand;
   }
 
+  /**
+   * @private
+   */
   getCommandName() {
     return this._executingCommand;
-  }
-
-  /**
-   * funcion que añade el CommandBus al Observador RxJS para
-   * poder utilizar todos comandos registrados
-   *
-   * @example
-   * const $stream = from(['a','b','c']);
-   * RxMap.fromObserver($stream)
-   *  .example('test')
-   *  .subscribe(console.log);
-   *
-   * @param {Observer} observador RxJs
-   * @return {Observer}
-   */
-  fromObserver(observer) {
-    return _applyCommandBus(observer, this);
   }
 
   /**
@@ -81,8 +93,9 @@ class CommandBus {
    * Funcion que puede recibir un string con el nombre del
    * obsevador que se quiere recuperar de los registrados
    * o que puede recibir un Array, una promesa o un Iterable
+   * o otro Observebable
    * sobre el que devuelve un observable con el CommandBus
-   * aplicado.
+   * aplicado para poder invocar los comandos.
    *
    * Al observador se le pueden pasar los argumentos que necesite.
    *
@@ -97,8 +110,14 @@ class CommandBus {
    * RxMap.observer([1,2,3,4,5])
    *  .example('test')
    *  .subscribe(console.log);
+   * @example
    *
-   * @param {string|Array|Promise|Iterable} observerName
+   * const $stream = from(['a','b','c']);
+   * RxMap.observer($stream)
+   *  .example('test')
+   *  .subscribe(console.log);
+   *
+   * @param {string|Array|Promise|Iterable|Observer} observerName
    * @param  {...any} args
    * @return {Observer}
    */
@@ -131,6 +150,10 @@ class CommandBus {
     );
   }
 
+  /**
+   *
+   * @private
+   */
   getContext() {
     return null;
   }

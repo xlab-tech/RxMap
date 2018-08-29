@@ -15,17 +15,20 @@ describe('AsyncCommandBus', () => {
   });
   it('observer data ', () => {
     const async = new AsyncCommandBus();
+    async.setSource({ _commandsSubject: 3 });
     async._executingCommand = false;
     const $stream = async.observer([5]);
     expect($stream).is.a.instanceOf(Observable);
   });
   it('observer data args', () => {
     const async = new AsyncCommandBus();
+    async.setSource({ _commandsSubject: 3 });
     const $stream = async.observer([5], 4);
     expect($stream).is.a.instanceOf(Observable);
   });
   it('observer executing', (done) => {
     const async = new AsyncCommandBus();
+    async.setSource({ _commandsSubject: 3 });
     async._executingCommand = 'test';
     const $stream = async.observer([5]);
     async._complete();
@@ -46,5 +49,14 @@ describe('AsyncCommandBus', () => {
     async.setSource(5);
     const temp = async.getSource();
     expect(temp).to.eq(5);
+  });
+  it('command Bus getValue', (done) => {
+    const async = new AsyncCommandBus();
+    async._executingCommand = false;
+    async._lastCommand = { value: 'rrr' };
+    async.getValue().subscribe((res) => {
+      expect(res.value).to.have.eq('rrr');
+      done();
+    });
   });
 });

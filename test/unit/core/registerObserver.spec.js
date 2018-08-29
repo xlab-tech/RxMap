@@ -12,7 +12,7 @@ describe('Register Observer', () => {
     registerObserver('test', () => of(1));
 
     const res = rxMap.observer('test');
-    const res2 = rxMap.fromObserver(of(1)).observer('test');
+    const res2 = rxMap.observer(of(1)).observer('test');
     expect(res).to.instanceOf(Observable);
     expect(res2).to.instanceOf(Observable);
   });

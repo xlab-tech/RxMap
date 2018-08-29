@@ -1,6 +1,7 @@
 /* global describe,it */
 import { expect } from 'chai';
 import { Observable } from 'rxjs/internal/Observable';
+import { of } from 'rxjs/internal/observable/of';
 import CommandBus from '../../../src/core/CommandBus';
 import rxMap from '../../../src/RxMap';
 import { registerCommand } from '../../../src/core/registerCommand';
@@ -20,6 +21,23 @@ describe('CommandBus', () => {
     const commandBus = new CommandBus();
     const temp = commandBus.getSource();
     expect(temp).to.be.eq(commandBus);
+  });
+
+  it('command Bus getValue', (done) => {
+    const commandBus = new CommandBus();
+    commandBus._lastCommand = { value: 'rrr' };
+    commandBus.getValue().subscribe((res) => {
+      expect(res.value).to.have.eq('rrr');
+      done();
+    });
+  });
+
+  it('command Bus applyCommandBus', () => {
+    const commandBus = new CommandBus();
+    const $s = of(1);
+    $s.setCommandBus = null;
+    const $p = commandBus.observer($s);
+    expect($p).to.have.property('setCommandBus');
   });
 
   it('command Bus getContext', () => {

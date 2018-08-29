@@ -1,7 +1,7 @@
 import { from } from 'rxjs/internal/observable/from';
 import { switchMap } from 'rxjs/internal/operators/switchMap';
 import CommandBus from './CommandBus';
-import isPromise from '../utils/isPromise';
+import { setAsyncCommandBus } from './registerOperator';
 
 class AsyncCommandBus extends CommandBus {
   constructor() {
@@ -41,7 +41,7 @@ class AsyncCommandBus extends CommandBus {
 
   _saveExecution(commandName, result) {
     const res = super._saveExecution(commandName, result);
-    this.allResults.push(res);
+    this.allResults.push(res.value);
     return res;
   }
 
@@ -51,12 +51,9 @@ class AsyncCommandBus extends CommandBus {
       return;
     }
     const params = this.queue.shift();
-    const ret = this._execute(params.commandName, params.command, params.args);
-    if (isPromise(ret)) {
-      ret.then(() => this._next());
-      return;
-    }
-    this._next();
+    this._execute(params.commandName, params.command, params.args).subscribe((value) => {
+      this._next(value);
+    });
   }
 
   _complete() {
@@ -65,6 +62,15 @@ class AsyncCommandBus extends CommandBus {
 
   subscribe(func) {
     this.subscribers.push(func);
+  }
+
+  getValue() {
+    if (this.isExecuting()) {
+      return from(new Promise(resolve => this.subscribe((res) => {
+        resolve(res);
+      })));
+    }
+    return super.getValue();
   }
 
   observer(observerName, ...args) {
@@ -83,21 +89,19 @@ AsyncCommandBus.lift = function (source, commandsSubject) {
   return bus;
 };
 
-
-const isAsyncCommandBus = function (value) {
-  return value && typeof value.subscribe === 'function' && typeof value.execute === 'function';
-};
-
 export const createFunctionInCommandBus = (commandName, commandExecute) => {
   CommandBus.prototype[commandName] = function (...args) {
     let _this = this;
-    if (!(isAsyncCommandBus(_this))
+    if (!(_this instanceof AsyncCommandBus)
       && (commandName !== 'create')) {
-      _this = AsyncCommandBus.lift(this, this._commandsSubject);
+      _this = AsyncCommandBus.lift(_this, _this._commandsSubject);
     }
     _this.execute(commandName, commandExecute, args);
     return _this;
   };
 };
+
+
+setAsyncCommandBus(AsyncCommandBus);
 
 export default AsyncCommandBus;

@@ -1,12 +1,9 @@
-
-import { from } from 'rxjs/internal/observable/from';
-import { of } from 'rxjs/internal/observable/of';
+import { Observable } from 'rxjs/internal/Observable';
 import { concatMap } from 'rxjs/internal/operators/concatMap';
 import { mergeMap } from 'rxjs/internal/operators/mergeMap';
-import isPromise from '../utils/isPromise';
 
 const _operators = {};
-
+let AsyncCommandBus = null;
 let _pipe = null;
 
 const getArgs = (param, value) => {
@@ -47,7 +44,11 @@ const applyCommandBus = (observable) => {
     _pipe = obj.pipe;
   }
   obj.setCommandBus = function (commandBus) {
-    this._commandBus = commandBus;
+    if (commandBus instanceof AsyncCommandBus) {
+      this._commandBus = commandBus;
+    } else {
+      this._commandBus = AsyncCommandBus.lift(commandBus, commandBus._commandsSubject);
+    }
     return this;
   };
   // eslint-disable-next-line no-param-reassign
@@ -59,30 +60,40 @@ const applyCommandBus = (observable) => {
     const commandBus = getCommandBus(this);
     return this.pipe(mergeMap(() => commandBus.observer(observerName, ...args)));
   };
-  // obj._pipe = obj.pipe;
+
   obj.pipe = function (...args) {
     const observer = _pipe.bind(this)(...args);
     const _commandBus = this.getCommandBus();
-    _applyOperators(observer);
-    applyCommandBus(observer);
+    if (!_commandBus) {
+      return observer;
+    }
+    if (!_commandBus.setCommandBus) {
+      _applyOperators(observer);
+      applyCommandBus(observer);
+    }
     return observer.setCommandBus(_commandBus);
   };
+
   return observable;
 };
 
+
+export const setAsyncCommandBus = (AsyncCommandBusClass) => { AsyncCommandBus = AsyncCommandBusClass; };
+
 export const applyOperators = observable => applyCommandBus(_applyOperators(observable));
 
-const registerOperator = (commandName, command) => {
+const registerOperator = (commandName) => {
   _operators[commandName] = function (someCallback) {
     const commandBus = getCommandBus(this);
     return this.pipe(concatMap((value) => {
       const args = getArgs(someCallback, value);
-      const result = commandBus.execute(commandName, command, args);
-      if (!isPromise(result)) {
-        return of(result);
-      }
-      return from(result);
+      const result = commandBus[commandName](...args);
+      return result.getValue();
     }));
   };
+  Observable.prototype[commandName] = _operators[commandName];
 };
+
+applyCommandBus(Observable);
+
 export default registerOperator;

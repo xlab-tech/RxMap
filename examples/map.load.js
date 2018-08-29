@@ -1,9 +1,13 @@
 import { map } from 'rxjs/internal/operators/map';
 import { take } from 'rxjs/internal/operators/take';
 import { delay } from 'rxjs/internal/operators/delay';
-import { RxMapFromConfig, registerMiddleware, registerLib } from '../src/index';
+import { RxMapFromConfig, registerMiddleware, registerLib, RxMap } from '../src/index';
 import { LoggerMiddleware, TimerMiddleware } from '../lib/middlewares/logger';
 // import '../src/importFunctions';
+
+import { from } from 'rxjs/internal/observable/from';
+
+
 import rxLib from '../lib/';
 
 const config = {
@@ -118,6 +122,7 @@ const p = async () => {
   Map.observerCommand('.').subscribe((data) => {
     console.log("COMMAND Subscriber 1 got data >>>>> ", data);
   });
+  
   registerMiddleware(LoggerMiddleware);
   registerMiddleware('addData', TimerMiddleware);
   Map.test('kkkkk');
@@ -158,9 +163,17 @@ const p = async () => {
     .setCenter(res => ({ lat: res.latitude, lng: res.longitude }))
     .subscribe(data => console.log('GPS', data));
 
-
   /*
 
  */
 };
 p();
+
+
+debugger;
+const t = from([1, 2, 3]);
+const $p = RxMap.observer(t);
+
+$p.subscribe(console.log);
+
+

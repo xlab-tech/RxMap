@@ -50,7 +50,7 @@ describe('Register Command', () => {
     const opt = getCommandInfo('test');
     expect(opt).to.eq(options);
   });
-  it('update all commands ', () => {
+  it.skip('update all commands ', () => {
     const f = () => 'test';
     const func = next => (Map, args) => {
       next(Map, args);
