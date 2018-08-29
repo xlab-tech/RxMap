@@ -1,6 +1,9 @@
 import 'url-polyfill';
-import './importFunctions';
 import exp from './index';
+import registerLib from './core/registerLib';
+import rxLib from '../lib/index';
+
+registerLib(...rxLib);
 
 /**
  * Recupera el path de una url
