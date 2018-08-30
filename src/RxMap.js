@@ -13,7 +13,6 @@ let _Map;
 export class RxMap extends CommandBus {
   constructor() {
     super();
-    this._dataTypes = {};
     this.libName = null;
     this.libVersion = null;
   }
@@ -38,6 +37,7 @@ export class RxMap extends CommandBus {
       RxMap: this,
       lastExecution: value || this._lastAction,
       library: this.getMapLibrary(),
+      store: this.store,
     };
   }
   /**
@@ -135,7 +135,7 @@ export class RxMap extends CommandBus {
    * @memberof RxMap
    */
   setDataType(id, geomType, style) {
-    this._dataTypes[id] = { geomType, style };
+    this.store[`type@${id}`] = { geomType, style };
   }
 
   /**
@@ -146,7 +146,7 @@ export class RxMap extends CommandBus {
    * @memberof RxMap
    */
   getDataType(id) {
-    return this._dataTypes[id];
+    return this.store[`type@${id}`];
   }
 }
 

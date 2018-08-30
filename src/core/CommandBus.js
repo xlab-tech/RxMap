@@ -9,6 +9,7 @@ import { tap } from 'rxjs/internal/operators/tap';
 import isPromise from '../utils/isPromise';
 import { getObserver } from './registerObserver';
 import { applyOperators } from './registerOperator';
+import observableStore from './observableStore';
 
 const _applyCommandBus = (observer, CommandBus) => {
   let _observer = observer;
@@ -21,6 +22,7 @@ const _applyCommandBus = (observer, CommandBus) => {
 class CommandBus {
   constructor() {
     this._actionsSubject = new Subject();
+    this.store = observableStore();
     this._lastAction = {
       value: null,
       name: null,
@@ -145,6 +147,18 @@ class CommandBus {
    */
   observerAction(name) {
     return this._actionsSubject.pipe(filter(lastAction => lastAction.name.match(name)));
+  }
+
+  /**
+   * Funcion que permite observar los datos del store,
+   * Se puede pasar una propiedad o una expresion regular para poder
+   * observar mas de un comando o todos.
+   *
+   * @param {String} name Nombre o Regex a evaluar
+   * @return Observer
+  */
+  observerData(property) {
+    return this.store.observer(property);
   }
 
   /**
