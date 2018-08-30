@@ -2,7 +2,7 @@ import { from } from 'rxjs/internal/observable/from';
 import { switchMap } from 'rxjs/internal/operators/switchMap';
 import { addImportFunction, loadLib } from './importLazyLoad';
 import { registerObserver } from './registerObserver';
-import { registerCommand } from './registerCommand';
+import { registerAction } from './registerAction';
 
 /**
  * Funcion que permite registrar librerias de Comandos y Observadores
@@ -21,19 +21,19 @@ import { registerCommand } from './registerCommand';
  * (type, mapLib, version, key) => import( `../lib/${type}/${mapLib}@${version}/${key}`));
  *
  * @param {string} name Nombre de la libreria a registrar
- * @param {object{commands:Array,observers:Array}} options Lista de comandos y Observadores de la lirberia
+ * @param {object{actions:Array,observers:Array}} options Lista de comandos y Observadores de la lirberia
  * @param {Function(name:string)} func Funcion que se utilizara para cargar dynamicamente los comados y los Observadores
  */
 const registerLib = (name, options, func) => {
   addImportFunction(name, func);
-  const commands = options.commands || [];
+  const actions = options.actions || [];
   const observers = options.observers || [];
-  commands.forEach((key) => {
-    registerCommand(key, (...args) => {
+  actions.forEach((key) => {
+    registerAction(key, (...args) => {
       const lib = args[0].RxMap.libName;
       const version = args[0].RxMap.libVersion;
-      const res = loadLib(name, lib, 'commands', key, version);
-      return res.then(command => command(...args));
+      const res = loadLib(name, lib, 'actions', key, version);
+      return res.then(action => action(...args));
     });
   });
   observers.forEach((key) => {

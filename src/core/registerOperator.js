@@ -47,7 +47,7 @@ const applyCommandBus = (observable) => {
     if (commandBus instanceof AsyncCommandBus) {
       this._commandBus = commandBus;
     } else {
-      this._commandBus = AsyncCommandBus.lift(commandBus, commandBus._commandsSubject);
+      this._commandBus = AsyncCommandBus.lift(commandBus, commandBus._actionsSubject);
     }
     return this;
   };
@@ -82,16 +82,16 @@ export const setAsyncCommandBus = (AsyncCommandBusClass) => { AsyncCommandBus = 
 
 export const applyOperators = observable => applyCommandBus(_applyOperators(observable));
 
-const registerOperator = (commandName) => {
-  _operators[commandName] = function (someCallback) {
+const registerOperator = (actionName) => {
+  _operators[actionName] = function (someCallback) {
     const commandBus = getCommandBus(this);
     return this.pipe(concatMap((value) => {
       const args = getArgs(someCallback, value);
-      const result = commandBus[commandName](...args);
+      const result = commandBus[actionName](...args);
       return result.getValue();
     }));
   };
-  Observable.prototype[commandName] = _operators[commandName];
+  Observable.prototype[actionName] = _operators[actionName];
 };
 
 applyCommandBus(Observable);

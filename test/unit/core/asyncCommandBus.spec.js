@@ -15,34 +15,34 @@ describe('AsyncCommandBus', () => {
   });
   it('observer data ', () => {
     const async = new AsyncCommandBus();
-    async.setSource({ _commandsSubject: 3 });
-    async._executingCommand = false;
+    async.setSource({ _actionsSubject: 3 });
+    async._executingAction = false;
     const $stream = async.observer([5]);
     expect($stream).is.a.instanceOf(Observable);
   });
   it('observer data args', () => {
     const async = new AsyncCommandBus();
-    async.setSource({ _commandsSubject: 3 });
+    async.setSource({ _actionsSubject: 3 });
     const $stream = async.observer([5], 4);
     expect($stream).is.a.instanceOf(Observable);
   });
   it('observer executing', (done) => {
     const async = new AsyncCommandBus();
-    async.setSource({ _commandsSubject: 3 });
-    async._executingCommand = 'test';
+    async.setSource({ _actionsSubject: 3 });
+    async._executingAction = 'test';
     const $stream = async.observer([5]);
     async._complete();
     expect($stream).is.a.instanceOf(Observable);
     $stream.subscribe((res) => {
       expect(res).to.eq(5);
-      async._executingCommand = false;
+      async._executingAction = false;
       done();
     });
   });
   it('save data', () => {
     const async = new AsyncCommandBus();
     async._saveExecution('test', 5);
-    expect(async._lastCommand.value).to.eq(5);
+    expect(async._lastAction.value).to.eq(5);
   });
   it('save data', () => {
     const async = new AsyncCommandBus();
@@ -50,10 +50,10 @@ describe('AsyncCommandBus', () => {
     const temp = async.getSource();
     expect(temp).to.eq(5);
   });
-  it('command Bus getValue', (done) => {
+  it('action Bus getValue', (done) => {
     const async = new AsyncCommandBus();
-    async._executingCommand = false;
-    async._lastCommand = { value: 'rrr' };
+    async._executingAction = false;
+    async._lastAction = { value: 'rrr' };
     async.getValue().subscribe((res) => {
       expect(res.value).to.have.eq('rrr');
       done();

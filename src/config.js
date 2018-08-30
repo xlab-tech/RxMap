@@ -9,15 +9,15 @@ const mandatoryObservers = [];
 
 const rxMapFromConfig = async (id, config) => {
   const {
-    type, commands, observers, map, options, dataTypes,
+    type, actions, observers, map, options, dataTypes,
   } = config;
   const { center, zoom, autoCenter } = map;
   const mapCenter = center || { lat: 0, lng: 0 };
 
-  if (commands) {
-    let allComands = commands.concat(mandatoryCommands);
+  if (actions) {
+    let allComands = actions.concat(mandatoryCommands);
     allComands = allComands.filter((item, pos) => allComands.indexOf(item) === pos);
-    options.commands = allComands;
+    options.actions = allComands;
   }
 
   if (observers) {

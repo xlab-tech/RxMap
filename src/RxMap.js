@@ -36,12 +36,12 @@ export class RxMap extends CommandBus {
   getContext(value) {
     return {
       RxMap: this,
-      lastExecution: value || this._lastCommand,
+      lastExecution: value || this._lastAction,
       library: this.getMapLibrary(),
     };
   }
   /**
-    * @typedef {Object} Command
+    * @typedef {Object} action
     * @property {String} key nombre del comando.
     * @property {string} [lib] libreria del comando.
     * @property {string} [path] Ruta de la libreria.
@@ -50,8 +50,8 @@ export class RxMap extends CommandBus {
 
   /**
    * @typedef {Object} loadOptions
-   * @property {Array<String|Command>} [commands] Comandos a utilizar. Si se la pasa un string se da pr supuesto que son de la libreria rxmap.
-   * @property {Array<String|Command>} [observers] Observadores a utilizar. Si se la pasa un string se da pr supuesto que son de la libreria rxmap.
+   * @property {Array<String|action>} [actions] Comandos a utilizar. Si se la pasa un string se da pr supuesto que son de la libreria rxmap.
+   * @property {Array<String|action>} [observers] Observadores a utilizar. Si se la pasa un string se da pr supuesto que son de la libreria rxmap.
    * @property {String} [version=latest] Version de la libreria, actualmente solo soporta latest
    * @property {String} [key] Clave de la libreria de mapas que se utiliza, para las librerias que necesiten key
    * @property {Boolean} [defer=true] Permite cargar todos los comandos al incializar si el valor es false.
@@ -74,7 +74,7 @@ export class RxMap extends CommandBus {
     this.libName = lib;
     this.libVersion = options.version || 'latest';
 
-    this._commandsSubject.pipe(take(1)).subscribe((res) => {
+    this._actionsSubject.pipe(take(1)).subscribe((res) => {
       this._sourceMap = res.value;
     });
     // First Load Map Lib

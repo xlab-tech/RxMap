@@ -86,7 +86,7 @@ export const loadCSS = href => new Promise((resolve) => {
    *  Funcion que permite añadir librerias externas para cargar dinamicamente nuevos
    *  comandos y observadores
    *  la funcion recibe como parametro la ruta del fichero a cargar siguiendo el siguiente
-   *  patron ${type}/${mapLib}@${version}/${command.key} y la funcion tiene que hacer el import
+   *  patron ${type}/${mapLib}@${version}/${action.key} y la funcion tiene que hacer el import
    *  dinamico import()
    * @example
    *

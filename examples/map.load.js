@@ -111,7 +111,7 @@ registerLib(...rxLib);
 registerLib(
   'test',
   {
-    commands: ['test']
+    actions: ['test']
   },
   (type, mapLib, version, key) => import(`./test/${type}/${mapLib}@${version}/${key}`)
 );
@@ -119,12 +119,12 @@ registerLib(
 const p = async () => {
   const Map = await RxMapFromConfig('map', config);
 
-  Map.observerCommand('.').subscribe((data) => {
+  Map.observerAction('.').subscribe((data) => {
     console.log("COMMAND Subscriber 1 got data >>>>> ", data);
   });
   
-  registerMiddleware(LoggerMiddleware);
-  registerMiddleware('addData', TimerMiddleware);
+  // registerMiddleware(LoggerMiddleware);
+  // registerMiddleware('addData', TimerMiddleware);
   Map.test('kkkkk');
   Map.marker({ lat: 51.5, lng: -0.09 })
     .popup('adios Mundo');

@@ -8,8 +8,8 @@ describe('Middlewares', () => {
     registerMiddleware();
     const func = () => 'asfas';
     const newFunc = applyMiddlewares('test', func);
-    const commandBus = new CommandBus();
-    expect(newFunc(commandBus, [])).to.eq(func(commandBus, []));
+    const actionBus = new CommandBus();
+    expect(newFunc(actionBus, [])).to.eq(func(actionBus, []));
   });
   it('apply middleware one', () => {
     const f = next => (Map, args) => {
@@ -17,12 +17,12 @@ describe('Middlewares', () => {
       return 'bb';
     };
     registerMiddleware('testRegister', f);
-    const commandBus = new CommandBus();
+    const actionBus = new CommandBus();
     const func = () => 'asfas';
     const newFunc = applyMiddlewares('test', func);
     const newFunc2 = applyMiddlewares('testRegister', func);
-    expect(newFunc(commandBus, [])).to.eq('asfas');
-    expect(newFunc2(commandBus, [])).to.eq('bb');
+    expect(newFunc(actionBus, [])).to.eq('asfas');
+    expect(newFunc2(actionBus, [])).to.eq('bb');
   });
   it('apply middleware all', () => {
     const f = next => (Map, args) => {
@@ -32,8 +32,8 @@ describe('Middlewares', () => {
     registerMiddleware(f);
     const func = () => 'asfas';
     const newFunc = applyMiddlewares('test', func);
-    const commandBus = new CommandBus();
-    expect(newFunc(commandBus, [])).to.eq('aa');
+    const actionBus = new CommandBus();
+    expect(newFunc(actionBus, [])).to.eq('aa');
   });
   it('subscribe', () => new Promise((resolve) => {
     const f = next => (Map, args) => next(Map, args);

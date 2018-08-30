@@ -20,8 +20,8 @@ const _applyCommandBus = (observer, CommandBus) => {
 
 class CommandBus {
   constructor() {
-    this._commandsSubject = new Subject();
-    this._lastCommand = {
+    this._actionsSubject = new Subject();
+    this._lastAction = {
       value: null,
       name: null,
     };
@@ -38,37 +38,37 @@ class CommandBus {
    * @private
    */
   getValue() {
-    return of(this._lastCommand);
+    return of(this._lastAction);
   }
 
   /**
    * Funcion que ejecuta la  funcion sobre
-   * @param {*} commandName
-   * @param {*} command
+   * @param {*} actionName
+   * @param {*} action
    * @param {*} args
    * @private
    */
-  execute(commandName, command, args) {
-    return this._execute(commandName, command, args).subscribe();
+  execute(actionName, action, args) {
+    return this._execute(actionName, action, args).subscribe();
   }
 
-  _saveExecution(commandName, result) {
-    this._lastCommand = {
+  _saveExecution(actionName, result) {
+    this._lastAction = {
       value: result,
-      name: commandName,
+      name: actionName,
     };
-    this._executingCommand = false;
-    return this._lastCommand;
+    this._executingAction = false;
+    return this._lastAction;
   }
 
-  _execute(commandName, command, args) {
-    this._executingCommand = commandName;
-    const ret = command(this, args);
+  _execute(actionName, action, args) {
+    this._executingAction = actionName;
+    const ret = action(this, args);
     const $let = (isPromise(ret) || ret instanceof Observable) ? from(ret) : of(ret);
     $let.setCommandBus(this.getSource());
     return $let.pipe(
-      map(data => this._saveExecution(commandName, data)),
-      tap(data => this._commandsSubject.next(data)),
+      map(data => this._saveExecution(actionName, data)),
+      tap(data => this._actionsSubject.next(data)),
     );
   }
 
@@ -77,14 +77,14 @@ class CommandBus {
    * @private
    */
   isExecuting() {
-    return !!this._executingCommand;
+    return !!this._executingAction;
   }
 
   /**
    * @private
    */
-  getCommandName() {
-    return this._executingCommand;
+  getActioname() {
+    return this._executingAction;
   }
 
   /**
@@ -143,8 +143,8 @@ class CommandBus {
    * @param {String} name Nombre o Regex a evaluar
    * @return Observer
    */
-  observerCommand(name) {
-    return this._commandsSubject.pipe(filter(lastCommand => lastCommand.name.match(name)));
+  observerAction(name) {
+    return this._actionsSubject.pipe(filter(lastAction => lastAction.name.match(name)));
   }
 
   /**

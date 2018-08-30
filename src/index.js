@@ -1,4 +1,4 @@
-import * as _register from './core/registerCommand';
+import * as _register from './core/registerAction';
 import * as _registerObserver from './core/registerObserver';
 import * as _registerMiddleware from './core/middlewares';
 import * as _RxMap from './RxMap';
@@ -7,9 +7,9 @@ import * as lazy from './core/importLazyLoad';
 import _registerLib from './core/registerLib';
 
 /**
- * @type {registerCommand}
+ * @type {registerAction}
  */
-export const { registerCommand } = _register;
+export const { registerAction } = _register;
 /**
  * @type {registerObserver}
  */
@@ -39,7 +39,7 @@ export const { addImportFunction } = lazy;
 export const registerLib = _registerLib;
 
 export default {
-  registerCommand,
+  registerAction,
   registerObserver,
   registerMiddleware,
   registerLib,

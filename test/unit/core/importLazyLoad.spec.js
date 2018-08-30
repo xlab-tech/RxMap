@@ -5,23 +5,23 @@ import {
   addImportFunction,
   loadCSS,
 } from '../../../src/core/importLazyLoad';
-import { registerCommand } from '../../../src/core/registerCommand';
+import { registerAction } from '../../../src/core/registerAction';
 
 describe('Import Lazy Load', function () {
   this.timeout(2000);
-  it('load lib command define', async () => {
+  it('load lib action define', async () => {
     addImportFunction('test', () => Promise.resolve({ default: 'ttt' }));
-    registerCommand('test', () => 'aa');
-    const res = await loadLib('test', 'leaflet', 'commands', { key: 'test', lib: 'test' });
+    registerAction('test', () => 'aa');
+    const res = await loadLib('test', 'leaflet', 'actions', { key: 'test', lib: 'test' });
     expect(res).to.eq('ttt');
   });
-  it('load lib command rxmap', async () => {
+  it('load lib action rxmap', async () => {
     addImportFunction('rxmap', () => Promise.resolve({ default: () => 'aaa' }));
-    const res = await loadLib('rxmap', 'leaflet', 'commands', 'create', 'latest');
+    const res = await loadLib('rxmap', 'leaflet', 'actions', 'create', 'latest');
     expect(res).to.be.a('function');
   });
-  it('load lib command http', () => {
-    const res = loadLib('rxmap', 'leaflet', 'commands', { key: 'test', path: 'test' });
+  it('load lib action http', () => {
+    const res = loadLib('rxmap', 'leaflet', 'actions', { key: 'test', path: 'test' });
     expect(res).to.be.a('promise');
   });
   it('load Css', async () => {

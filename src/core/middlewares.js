@@ -5,36 +5,36 @@ const _middlewares = {
 
 const _subscribers = [];
 
-const compose = (command, ...funcs) => {
+const compose = (action, ...funcs) => {
   if (funcs.length === 0) {
-    return command;
+    return action;
   }
   if (funcs.length === 1) {
-    return funcs[0](command);
+    return funcs[0](action);
   }
-  return funcs.reduce((a, b) => a(b(command)));
+  return funcs.reduce((a, b) => a(b(action)));
 };
 
-const executeCommand = command => (commandBus, args) => command(commandBus.getContext(), ...args);
+const executeAction = action => (commandBus, args) => action(commandBus.getContext(), ...args);
 
-export const applyMiddlewares = (commandName, command) => {
+export const applyMiddlewares = (actionName, action) => {
   let middlewares = _middlewares._global;
-  if (_middlewares[commandName]) {
-    middlewares = _middlewares._global.concat(_middlewares[commandName]);
+  if (_middlewares[actionName]) {
+    middlewares = _middlewares._global.concat(_middlewares[actionName]);
   }
-  return compose(executeCommand(command), ...middlewares);
+  return compose(executeAction(action), ...middlewares);
 };
 
-export const registerMiddleware = (commandName, ...middlewares) => {
-  if (!commandName) {
+export const registerMiddleware = (actionName, ...middlewares) => {
+  if (!actionName) {
     return;
   }
-  if (typeof commandName === 'string') {
-    _middlewares[commandName] = middlewares;
-    _subscribers.forEach(func => func(commandName));
+  if (typeof actionName === 'string') {
+    _middlewares[actionName] = middlewares;
+    _subscribers.forEach(func => func(actionName));
     return;
   }
-  _middlewares._global = [commandName, ...middlewares];
+  _middlewares._global = [actionName, ...middlewares];
   _subscribers.forEach(func => func());
 };
 

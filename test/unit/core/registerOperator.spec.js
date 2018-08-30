@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { from } from 'rxjs/internal/observable/from';
 import sinon from 'sinon';
 import registerOperator, { applyOperators } from '../../../src/core/registerOperator';
-import { registerCommand } from '../../../src/core/registerCommand';
+import { registerAction } from '../../../src/core/registerAction';
 import CommandBus from '../../../src/core/CommandBus';
 
 describe('Register Operator', () => {
@@ -14,11 +14,11 @@ describe('Register Operator', () => {
     expect($stream).to.respondTo('testbb');
   });
   it('getCommandBus args', () => {
-    registerCommand('test223', () => Promise.resolve('asdf'));
-    const commandB = new CommandBus();
-    // commandB._source = { getMapLibrary: () => 'ss' };
+    registerAction('test223', () => Promise.resolve('asdf'));
+    const actionB = new CommandBus();
+    // actionB._source = { getMapLibrary: () => 'ss' };
     return new Promise((resolve) => {
-      const $stream = commandB.observer(from('1'));
+      const $stream = actionB.observer(from('1'));
       $stream
         .test223(() => 'ppp')
         .subscribe((a) => {
@@ -28,11 +28,11 @@ describe('Register Operator', () => {
     });
   });
   it('getCommandBus', () => {
-    registerCommand('test222', () => Promise.resolve('asdf'));
-    const commandB = new CommandBus();
-    // commandB._source = { getMapLibrary: () => 'ss' };
+    registerAction('test222', () => Promise.resolve('asdf'));
+    const actionB = new CommandBus();
+    // actionB._source = { getMapLibrary: () => 'ss' };
     return new Promise((resolve) => {
-      const $stream = commandB.observer(from('1'));
+      const $stream = actionB.observer(from('1'));
       $stream
         .test222('aaa')
         .subscribe((a) => {
@@ -42,20 +42,20 @@ describe('Register Operator', () => {
     });
   });
   describe('getCommandBus', () => {
-    const commandB = new CommandBus();
-    const $stream = from(commandB.observer(from('1')));
+    const actionB = new CommandBus();
+    const $stream = from(actionB.observer(from('1')));
     beforeEach(() => {
       const ss = sinon.stub($stream, 'getCommandBus');
       ss.onCall(0).returns(null);
-      ss.onCall(1).returns(commandB);
+      ss.onCall(1).returns(actionB);
     });
     afterEach(() => {
       $stream.getCommandBus.restore();
     });
     it('getCommandBus 2', () => {
-      registerCommand('test222', () => Promise.resolve('asdf'));
-      $stream.source = commandB.observer(from('1'));
-      // commandB._source = { getMapLibrary: () => 'ss' };
+      registerAction('test222', () => Promise.resolve('asdf'));
+      $stream.source = actionB.observer(from('1'));
+      // actionB._source = { getMapLibrary: () => 'ss' };
       return new Promise((resolve) => {
         $stream
           .test222('aaa')
@@ -66,7 +66,7 @@ describe('Register Operator', () => {
       });
     });
     it('getCommandBus 3', () => {
-      registerCommand('test222', () => Promise.resolve('asdf'));
+      registerAction('test222', () => Promise.resolve('asdf'));
       return new Promise((resolve) => {
         $stream.source = null;
         $stream

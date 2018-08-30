@@ -15,8 +15,8 @@ class AsyncCommandBus extends CommandBus {
     this._source = source;
   }
 
-  setCommandsSubject(commandsSubject) {
-    this._commandsSubject = commandsSubject;
+  setActionsSubject(actionsSubject) {
+    this._actionsSubject = actionsSubject;
   }
 
   getSource() {
@@ -24,23 +24,23 @@ class AsyncCommandBus extends CommandBus {
   }
 
   getContext() {
-    return this._source.getContext(this._lastCommand);
+    return this._source.getContext(this._lastAction);
   }
 
-  execute(commandName, command, args) {
+  execute(actionName, action, args) {
     this.queue.push({
-      commandName,
-      command,
+      actionName,
+      action,
       args,
     });
     if (this.queue.length === 1) {
-      this._executingCommand = commandName;
+      this._executingAction = actionName;
       setTimeout(() => this._next(), 1);
     }
   }
 
-  _saveExecution(commandName, result) {
-    const res = super._saveExecution(commandName, result);
+  _saveExecution(actionName, result) {
+    const res = super._saveExecution(actionName, result);
     this.allResults.push(res.value);
     return res;
   }
@@ -51,13 +51,13 @@ class AsyncCommandBus extends CommandBus {
       return;
     }
     const params = this.queue.shift();
-    this._execute(params.commandName, params.command, params.args).subscribe((value) => {
+    this._execute(params.actionName, params.action, params.args).subscribe((value) => {
       this._next(value);
     });
   }
 
   _complete() {
-    this.subscribers.map(f => f(this._lastCommand, this.allResults));
+    this.subscribers.map(f => f(this._lastAction, this.allResults));
   }
 
   subscribe(func) {
@@ -82,21 +82,21 @@ class AsyncCommandBus extends CommandBus {
   }
 }
 
-AsyncCommandBus.lift = function (source, commandsSubject) {
+AsyncCommandBus.lift = function (source, actionsSubject) {
   const bus = new AsyncCommandBus();
   bus.setSource(source);
-  bus.setCommandsSubject(commandsSubject);
+  bus.setActionsSubject(actionsSubject);
   return bus;
 };
 
-export const createFunctionInCommandBus = (commandName, commandExecute) => {
-  CommandBus.prototype[commandName] = function (...args) {
+export const createFunctionInCommandBus = (actionName, actionExecute) => {
+  CommandBus.prototype[actionName] = function (...args) {
     let _this = this;
     if (!(_this instanceof AsyncCommandBus)
-      && (commandName !== 'create')) {
-      _this = AsyncCommandBus.lift(_this, _this._commandsSubject);
+      && (actionName !== 'create')) {
+      _this = AsyncCommandBus.lift(_this, _this._actionsSubject);
     }
-    _this.execute(commandName, commandExecute, args);
+    _this.execute(actionName, actionExecute, args);
     return _this;
   };
 };

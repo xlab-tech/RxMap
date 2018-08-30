@@ -6,15 +6,15 @@ import { loadLib } from '../../../src/core/importLazyLoad';
 describe('addImport', () => {
   it('import google', () => {
     let res;
-    res = loadLib('rxmap', 'google', 'commands', 'create');
+    res = loadLib('rxmap', 'google', 'actions', 'create');
     expect(res).to.be.a('promise');
-    res = loadLib('rxmap', 'google', 'commands', 'marker');
+    res = loadLib('rxmap', 'google', 'actions', 'marker');
     expect(res).to.be.a('promise');
-    res = loadLib('rxmap', 'google', 'commands', 'popup');
+    res = loadLib('rxmap', 'google', 'actions', 'popup');
     expect(res).to.be.a('promise');
-    res = loadLib('rxmap', 'google', 'commands', 'point');
+    res = loadLib('rxmap', 'google', 'actions', 'point');
     expect(res).to.be.a('promise');
-    res = loadLib('rxmap', 'google', 'commands', 'setCenter');
+    res = loadLib('rxmap', 'google', 'actions', 'setCenter');
     expect(res).to.be.a('promise');
     res = loadLib('rxmap', 'google', 'observers', 'gps');
     expect(res).to.be.a('promise');
@@ -25,15 +25,15 @@ describe('addImport', () => {
   });
   it('import leaflet', () => {
     let res;
-    res = loadLib('rxmap', 'leaflet', 'commands', 'create');
+    res = loadLib('rxmap', 'leaflet', 'actions', 'create');
     expect(res).to.be.a('promise');
-    res = loadLib('rxmap', 'leaflet', 'commands', 'marker');
+    res = loadLib('rxmap', 'leaflet', 'actions', 'marker');
     expect(res).to.be.a('promise');
-    res = loadLib('rxmap', 'leaflet', 'commands', 'popup');
+    res = loadLib('rxmap', 'leaflet', 'actions', 'popup');
     expect(res).to.be.a('promise');
-    res = loadLib('rxmap', 'leaflet', 'commands', 'point');
+    res = loadLib('rxmap', 'leaflet', 'actions', 'point');
     expect(res).to.be.a('promise');
-    res = loadLib('rxmap', 'leaflet', 'commands', 'setCenter');
+    res = loadLib('rxmap', 'leaflet', 'actions', 'setCenter');
     expect(res).to.be.a('promise');
     res = loadLib('rxmap', 'leaflet', 'observers', 'gps');
     expect(res).to.be.a('promise');
@@ -43,7 +43,7 @@ describe('addImport', () => {
     expect(res).to.be.a('promise');
   });
   it('import other', () => {
-    const res = loadLib('rxmap', 'leaflet', 'commands', 'test');
+    const res = loadLib('rxmap', 'leaflet', 'actions', 'test');
     expect(res).to.be.a('promise');
   });
 });

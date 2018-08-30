@@ -5,58 +5,58 @@ import CommandBus from '../../../src/core/CommandBus';
 import AsyncCommandBus from '../../../src/core/AsyncCommandBus';
 import { registerMiddleware } from '../../../src/core/middlewares';
 import {
-  registerCommand, getCommand, getCommandInfo, getAllCommandsName,
-} from '../../../src/core/registerCommand';
+  registerAction, getAction, getActionnfo, getAllCommandsName,
+} from '../../../src/core/registerAction';
 import rxMap from '../../../src/RxMap';
 import { applyOperators } from '../../../src/core/registerOperator';
 
-describe('Register Command', () => {
-  it('register command', () => {
+describe('Register Action', () => {
+  it('register action', () => {
     expect(Observable).to.not.respondTo('testRegister');
     expect(CommandBus).to.not.respondTo('testRegister');
 
-    registerCommand('testRegister', () => 'testRegister');
+    registerAction('testRegister', () => 'testRegister');
     applyOperators(Observable);
-    const f = getCommand('testRegister');
+    const f = getAction('testRegister');
     expect(f).to.be.a('function');
     expect(Observable).to.respondTo('testRegister');
     expect(CommandBus).to.respondTo('testRegister');
   });
   it('test getAllCommnadsName', () => {
-    registerCommand('one', () => 'testRegister');
+    registerAction('one', () => 'testRegister');
     const names = getAllCommandsName();
     expect(names).to.be.a('array').that.includes('one');
   });
   it('function return asyncCommandBus', () => {
-    registerCommand('testRegister', () => 'testRegister');
+    registerAction('testRegister', () => 'testRegister');
     const res = rxMap.testRegister();
     expect(res).to.instanceOf(AsyncCommandBus);
   });
   it('function create return CommandBus', () => {
-    registerCommand('create', () => 'testRegister');
+    registerAction('create', () => 'testRegister');
     const res = rxMap.create('aa', 'bb');
     expect(res).to.instanceOf(CommandBus);
   });
-  it('getCommand', () => {
+  it('getAction', () => {
     const f = () => 'test';
-    registerCommand('test', f);
-    const ff = getCommand('test');
+    registerAction('test', f);
+    const ff = getAction('test');
     expect(ff).to.eq(f);
   });
-  it('getCommandInfo', () => {
+  it('getActionnfo', () => {
     const f = () => 'test';
     const options = { test: 'test' };
-    registerCommand('test', f, options);
-    const opt = getCommandInfo('test');
+    registerAction('test', f, options);
+    const opt = getActionnfo('test');
     expect(opt).to.eq(options);
   });
-  it.skip('update all commands ', () => {
+  it.skip('update all actions ', () => {
     const f = () => 'test';
     const func = next => (Map, args) => {
       next(Map, args);
       return 'bb';
     };
-    registerCommand('aaa', f);
+    registerAction('aaa', f);
     const fBefore = rxMap.aaa;
     registerMiddleware(func);
     const fAfter = rxMap.aaa;

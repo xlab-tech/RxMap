@@ -4,56 +4,56 @@ import { Observable } from 'rxjs/internal/Observable';
 import { of } from 'rxjs/internal/observable/of';
 import CommandBus from '../../../src/core/CommandBus';
 import rxMap from '../../../src/RxMap';
-import { registerCommand } from '../../../src/core/registerCommand';
+import { registerAction } from '../../../src/core/registerAction';
 
 describe('CommandBus', () => {
-  it('create new Command Bus', () => {
-    const commandBus = new CommandBus();
-    expect(commandBus).to.be.an.instanceof(CommandBus);
-    const ret = commandBus._lastCommand;
+  it('create new ActionBus', () => {
+    const actionBus = new CommandBus();
+    expect(actionBus).to.be.an.instanceof(CommandBus);
+    const ret = actionBus._lastAction;
     expect(ret).to.deep.equal({
       value: null,
       name: null,
     });
   });
 
-  it('command Bus getSource', () => {
-    const commandBus = new CommandBus();
-    const temp = commandBus.getSource();
-    expect(temp).to.be.eq(commandBus);
+  it('action Bus getSource', () => {
+    const actionBus = new CommandBus();
+    const temp = actionBus.getSource();
+    expect(temp).to.be.eq(actionBus);
   });
 
-  it('command Bus getValue', (done) => {
-    const commandBus = new CommandBus();
-    commandBus._lastCommand = { value: 'rrr' };
-    commandBus.getValue().subscribe((res) => {
+  it('action Bus getValue', (done) => {
+    const actionBus = new CommandBus();
+    actionBus._lastAction = { value: 'rrr' };
+    actionBus.getValue().subscribe((res) => {
       expect(res.value).to.have.eq('rrr');
       done();
     });
   });
 
-  it('command Bus applyCommandBus', () => {
-    const commandBus = new CommandBus();
+  it('action Bus applyCommandBus', () => {
+    const actionBus = new CommandBus();
     const $s = of(1);
     $s.setCommandBus = null;
-    const $p = commandBus.observer($s);
+    const $p = actionBus.observer($s);
     expect($p).to.have.property('setCommandBus');
   });
 
-  it('command Bus getContext', () => {
-    const commandBus = new CommandBus();
-    const temp = commandBus.getContext();
+  it('action Bus getContext', () => {
+    const actionBus = new CommandBus();
+    const temp = actionBus.getContext();
     // eslint-disable-next-line no-unused-expressions
     expect(temp).to.be.null;
   });
   it('executing', (done) => {
-    registerCommand('test', () => new Promise(resolve => setTimeout(resolve, 500)));
+    registerAction('test', () => new Promise(resolve => setTimeout(resolve, 500)));
     const bus = rxMap.test();
 
     setTimeout(() => {
       // eslint-disable-next-line no-unused-expressions
       expect(bus.isExecuting()).to.be.true;
-      expect(bus.getCommandName()).to.eq('test');
+      expect(bus.getActioname()).to.eq('test');
       done();
     }, 10);
   });
@@ -68,18 +68,18 @@ describe('CommandBus', () => {
       expect(err).is.a.instanceOf(Error);
     }
   });
-  it('observer command', (done) => {
-    registerCommand('testObs', () => 'kk');
-    rxMap.observerCommand('testObs').subscribe((res) => {
+  it('observer action', (done) => {
+    registerAction('testObs', () => 'kk');
+    rxMap.observerAction('testObs').subscribe((res) => {
       expect(res.name).to.have.eq('testObs');
       expect(res.value).to.have.eq('kk');
       done();
     });
     rxMap.testObs();
   });
-  it('observer command 2', (done) => {
-    registerCommand('ostrr', () => 'kk');
-    rxMap.observerCommand('os.').subscribe((res) => {
+  it('observer action 2', (done) => {
+    registerAction('ostrr', () => 'kk');
+    rxMap.observerAction('os.').subscribe((res) => {
       expect(res.name).to.have.eq('ostrr');
       expect(res.value).to.have.eq('kk');
       done();

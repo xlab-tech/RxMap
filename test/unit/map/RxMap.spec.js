@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 import rxMap, { RxMap } from '../../../src/RxMap';
 import AsyncCommandBus from '../../../src/core/AsyncCommandBus';
-import { registerCommand } from '../../../src/core/registerCommand';
+import { registerAction } from '../../../src/core/registerAction';
 import * as load from '../../../src/core/importLazyLoad';
 import * as loadMap from '../../../src/core/importMapLibrary';
 
@@ -12,8 +12,8 @@ describe('RxMap', () => {
     const m = rxMap.init();
     expect(Map).to.be.not.equal(m);
   });
-  it('commands return AsyncCommand', () => {
-    registerCommand('test', () => 'test');
+  it('actions return AsyncCommand', () => {
+    registerAction('test', () => 'test');
     expect(RxMap).to.respondTo('test');
     const ret = rxMap.test();
     expect(ret).to.be.an.instanceof(AsyncCommandBus);
