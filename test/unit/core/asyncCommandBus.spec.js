@@ -13,6 +13,16 @@ describe('AsyncCommandBus', () => {
     async._complete();
     expect(pepe).to.eq('aa');
   });
+  it('action Bus getValue', (done) => {
+    const actionBus = new AsyncCommandBus();
+    actionBus._executingAction = true;
+    actionBus._lastAction = { value: 'rrr' };
+    actionBus.getValue().subscribe((res) => {
+      expect(res.value).to.have.eq('rrr');
+      done();
+    });
+    actionBus._complete();
+  });
   it('observer data ', () => {
     const async = new AsyncCommandBus();
     async.setSource({ _actionsSubject: 3 });

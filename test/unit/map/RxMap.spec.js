@@ -14,7 +14,6 @@ describe('RxMap', () => {
   });
   it('actions return AsyncCommand', () => {
     registerAction('test', () => 'test');
-    expect(RxMap).to.respondTo('test');
     const ret = rxMap.test();
     expect(ret).to.be.an.instanceof(AsyncCommandBus);
   });

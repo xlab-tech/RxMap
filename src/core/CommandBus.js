@@ -8,14 +8,11 @@ import { map } from 'rxjs/internal/operators/map';
 import { tap } from 'rxjs/internal/operators/tap';
 import isPromise from '../utils/isPromise';
 import { getObserver } from './registerObserver';
-import { applyOperators } from './registerOperator';
+import { setProxy } from './registerOperator';
 import observableStore from './observableStore';
 
 const _applyCommandBus = (observer, CommandBus) => {
-  let _observer = observer;
-  if (!observer.setCommandBus) {
-    _observer = applyOperators(observer);
-  }
+  const _observer = setProxy(observer);
   return _observer.setCommandBus(CommandBus.getSource());
 };
 
@@ -66,7 +63,7 @@ class CommandBus {
   _execute(actionName, action, args) {
     this._executingAction = actionName;
     const ret = action(this, args);
-    const $let = (isPromise(ret) || ret instanceof Observable) ? from(ret) : of(ret);
+    const $let = setProxy((isPromise(ret) || ret instanceof Observable) ? from(ret) : of(ret));
     $let.setCommandBus(this.getSource());
     return $let.pipe(
       map(data => this._saveExecution(actionName, data)),
@@ -128,7 +125,6 @@ class CommandBus {
       return _applyCommandBus(obser, this);
     }
     const observer = getObserver(observerName);
-
     if (!observer) {
       throw new Error(`Observer ${observerName} not register`);
     }

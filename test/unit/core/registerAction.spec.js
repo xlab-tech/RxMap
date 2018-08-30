@@ -8,7 +8,6 @@ import {
   registerAction, getAction, getActionnfo, getAllCommandsName,
 } from '../../../src/core/registerAction';
 import rxMap from '../../../src/RxMap';
-import { applyOperators } from '../../../src/core/registerOperator';
 
 describe('Register Action', () => {
   it('register action', () => {
@@ -16,11 +15,8 @@ describe('Register Action', () => {
     expect(CommandBus).to.not.respondTo('testRegister');
 
     registerAction('testRegister', () => 'testRegister');
-    applyOperators(Observable);
     const f = getAction('testRegister');
     expect(f).to.be.a('function');
-    expect(Observable).to.respondTo('testRegister');
-    expect(CommandBus).to.respondTo('testRegister');
   });
   it('test getAllCommnadsName', () => {
     registerAction('one', () => 'testRegister');

@@ -2,6 +2,8 @@ import { from } from 'rxjs/internal/observable/from';
 import { switchMap } from 'rxjs/internal/operators/switchMap';
 import CommandBus from './CommandBus';
 import { setAsyncCommandBus } from './registerOperator';
+import { getAction } from './registerAction';
+import { applyMiddlewares } from './middlewares';
 
 class AsyncCommandBus extends CommandBus {
   constructor() {
@@ -82,25 +84,35 @@ class AsyncCommandBus extends CommandBus {
   }
 }
 
+export const setProxy = obj => new Proxy(obj, {
+  get: (target, name, receiver) => {
+    // if (!Object.prototype.hasOwnProperty.call(target, name)) {
+    if (!(name in target)) {
+      const action = getAction(name);
+      if (!action) {
+        return Reflect.get(target, name, receiver);
+      }
+      const actionExecute = applyMiddlewares(name, action);
+      return (...args) => {
+        let _this = receiver;
+        if (!(target instanceof AsyncCommandBus)
+          && (name !== 'create')) {
+          _this = AsyncCommandBus.lift(_this, _this._actionsSubject);
+        }
+        _this.execute(name, actionExecute, args);
+        return _this;
+      };
+    }
+    return Reflect.get(target, name, receiver);
+  },
+});
+
 AsyncCommandBus.lift = function (source, actionsSubject) {
   const bus = new AsyncCommandBus();
   bus.setSource(source);
   bus.setActionsSubject(actionsSubject);
-  return bus;
+  return setProxy(bus);
 };
-
-export const createFunctionInCommandBus = (actionName, actionExecute) => {
-  CommandBus.prototype[actionName] = function (...args) {
-    let _this = this;
-    if (!(_this instanceof AsyncCommandBus)
-      && (actionName !== 'create')) {
-      _this = AsyncCommandBus.lift(_this, _this._actionsSubject);
-    }
-    _this.execute(actionName, actionExecute, args);
-    return _this;
-  };
-};
-
 
 setAsyncCommandBus(AsyncCommandBus);
 

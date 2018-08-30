@@ -35,9 +35,8 @@ describe('CommandBus', () => {
   it('action Bus applyCommandBus', () => {
     const actionBus = new CommandBus();
     const $s = of(1);
-    $s.setCommandBus = null;
     const $p = actionBus.observer($s);
-    expect($p).to.have.property('setCommandBus');
+    expect($p).to.have.property('_commandBus');
   });
 
   it('action Bus getContext', () => {

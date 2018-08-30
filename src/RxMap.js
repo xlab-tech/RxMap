@@ -1,6 +1,7 @@
 
 import { take } from 'rxjs/internal/operators/take';
 import CommandBus from './core/CommandBus';
+import { setProxy } from './core/AsyncCommandBus';
 import importMapLibrary from './core/importMapLibrary';
 
 let _Map;
@@ -109,7 +110,7 @@ export class RxMap extends CommandBus {
    * @memberof RxMap
    */
   init() {
-    return new RxMap();
+    return setProxy(new RxMap());
   }
 
   /**
@@ -152,7 +153,7 @@ export class RxMap extends CommandBus {
 
 const createMap = () => {
   if (!_Map) {
-    _Map = new RxMap();
+    _Map = setProxy(new RxMap());
   }
   return _Map;
 };
