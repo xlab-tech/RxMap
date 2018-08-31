@@ -19,8 +19,9 @@ describe('CommandBus', () => {
 
   it('action Bus getSource', () => {
     const actionBus = new CommandBus();
+    actionBus._source = 't';
     const temp = actionBus.getSource();
-    expect(temp).to.be.eq(actionBus);
+    expect(temp).to.be.eq('t');
   });
 
   it('action Bus getActionName', () => {
@@ -39,31 +40,26 @@ describe('CommandBus', () => {
     });
   });
 
-  it('action Bus applyCommandBus', () => {
-    const actionBus = new CommandBus();
-    const $s = of(1);
-    const $p = actionBus.observer($s);
-    expect($p).to.have.property('_commandBus');
-  });
-
   it('action Bus getContext', () => {
     const actionBus = new CommandBus();
+    actionBus._source = { getContext: () => ({ test: '3' }) };
     const temp = actionBus.getContext();
     // eslint-disable-next-line no-unused-expressions
-    expect(temp).to.be.null;
+    expect(temp).to.have.property('lastExecution');
+    expect(temp).to.have.property('source');
+    expect(temp).to.have.property('test');
   });
   it('executing', (done) => {
-    registerAction('test', () => new Promise(resolve => setTimeout(resolve, 500)));
-    const bus = rxMap.test();
-
-    setTimeout(() => {
-      // eslint-disable-next-line no-unused-expressions
-      expect(bus.isExecuting()).to.be.true;
-      expect(bus.getActioname()).to.eq('test');
+    const actionBus = new CommandBus();
+    actionBus._source = rxMap;
+    actionBus._actionsSubject = { next: () => '' };
+    const $res = actionBus._execute('test', () => 1, []);
+    $res.subscribe((res) => {
+      expect(res.value).to.have.eq(3);
       done();
-    }, 10);
+    });
   });
-  it('observer data ', () => {
+  it.skip('observer data ', () => {
     const $stream = rxMap.observer([5]);
     expect($stream).is.a.instanceOf(Observable);
   });
