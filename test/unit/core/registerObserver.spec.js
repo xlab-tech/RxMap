@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 import { Observable } from 'rxjs/internal/Observable';
 import { of } from 'rxjs/internal/observable/of';
-import rxMap from '../../../src/RxMap';
+import rxMap from '../../../src/map/RxMap';
 import CommandBus from '../../../src/core/CommandBus';
 import { registerObserver } from '../../../src/core/registerObserver';
 

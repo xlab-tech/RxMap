@@ -1,8 +1,8 @@
 
 import { take } from 'rxjs/internal/operators/take';
-import CommandBus from './core/CommandBus';
-import { setProxy } from './core/AsyncCommandBus';
-import importMapLibrary from './core/importMapLibrary';
+import proxyAction from '../core/proxyAction';
+import importMapLibrary from './importMapLibrary';
+import observableStore from '../core/observableStore';
 
 let _Map;
 
@@ -11,11 +11,12 @@ let _Map;
  *
  * @extends {CommandBus}
  */
-export class RxMap extends CommandBus {
+export class RxMap {
   constructor() {
-    super();
+    // super();
     this.libName = null;
     this.libVersion = null;
+    this.store = observableStore();
   }
 
   /**
@@ -33,10 +34,8 @@ export class RxMap extends CommandBus {
    * @param { object} [value] puede recibir la ultima ejecucion si se solicita desde AsyncCommand
    * @private
    */
-  getContext(value) {
+  getContext() {
     return {
-      RxMap: this,
-      lastExecution: value || this._lastAction,
       library: this.getMapLibrary(),
       store: this.store,
     };
@@ -110,7 +109,7 @@ export class RxMap extends CommandBus {
    * @memberof RxMap
    */
   init() {
-    return setProxy(new RxMap());
+    return proxyAction(new RxMap());
   }
 
   /**
@@ -149,11 +148,23 @@ export class RxMap extends CommandBus {
   getDataType(id) {
     return this.store[`type@${id}`];
   }
+
+  /**
+ * Funcion que permite observar los datos del store,
+ * Se puede pasar una propiedad o una expresion regular para poder
+ * observar mas de un comando o todos.
+ *
+ * @param {String} name Nombre o Regex a evaluar
+ * @return Observer
+*/
+  observerData(property) {
+    return this.store.observer(property);
+  }
 }
 
 const createMap = () => {
   if (!_Map) {
-    _Map = setProxy(new RxMap());
+    _Map = proxyAction(new RxMap());
   }
   return _Map;
 };

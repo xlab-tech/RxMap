@@ -7,7 +7,7 @@ import { registerMiddleware } from '../../../src/core/middlewares';
 import {
   registerAction, getAction, getActionnfo, getAllCommandsName,
 } from '../../../src/core/registerAction';
-import rxMap from '../../../src/RxMap';
+import rxMap from '../../../src/map/RxMap';
 
 describe('Register Action', () => {
   it('register action', () => {

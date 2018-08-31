@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { Observable } from 'rxjs/internal/Observable';
 import { of } from 'rxjs/internal/observable/of';
 import CommandBus from '../../../src/core/CommandBus';
-import rxMap from '../../../src/RxMap';
+import rxMap from '../../../src/map/RxMap';
 import { registerAction } from '../../../src/core/registerAction';
 
 describe('CommandBus', () => {
@@ -21,6 +21,13 @@ describe('CommandBus', () => {
     const actionBus = new CommandBus();
     const temp = actionBus.getSource();
     expect(temp).to.be.eq(actionBus);
+  });
+
+  it('action Bus getActionName', () => {
+    const actionBus = new CommandBus();
+    actionBus._executingAction = 'ppp';
+    const temp = actionBus.getActionName();
+    expect(temp).to.be.eq('ppp');
   });
 
   it('action Bus getValue', (done) => {

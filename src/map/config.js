@@ -1,6 +1,6 @@
 import { take } from 'rxjs/internal/operators/take';
 import rxMap from './RxMap';
-import isPromise from './utils/isPromise';
+import isPromise from '../utils/isPromise';
 
 /** @private */
 const mandatoryCommands = ['create'];

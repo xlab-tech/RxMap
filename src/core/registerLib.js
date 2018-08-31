@@ -30,16 +30,18 @@ const registerLib = (name, options, func) => {
   const observers = options.observers || [];
   actions.forEach((key) => {
     registerAction(key, (...args) => {
-      const lib = args[0].RxMap.libName;
-      const version = args[0].RxMap.libVersion;
+      // TODO: buscar una manera de pasar estos datos para desacoplar el mapa
+      const lib = args[0].source.libName;
+      const version = args[0].source.libVersion;
       const res = loadLib(name, lib, 'actions', key, version);
       return res.then(action => action(...args));
     });
   });
   observers.forEach((key) => {
     registerObserver(key, (...args) => {
-      const lib = args[0].RxMap.libName;
-      const version = args[0].RxMap.libVersion;
+      // TODO: buscar una manera de pasar estos datos para desacoplar el mapa
+      const lib = args[0].source.libName;
+      const version = args[0].source.libVersion;
       return from(loadLib(name, lib, 'observers', key, version))
         .pipe(switchMap(observer => observer(...args)));
     });

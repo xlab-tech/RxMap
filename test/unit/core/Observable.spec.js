@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 import { of } from 'rxjs/internal/observable/of';
 import { registerObserver } from '../../../src/core/registerObserver';
-import rxMap from '../../../src/RxMap';
+import rxMap from '../../../src/map/RxMap';
 
 describe('Observable', () => {
   it('observer', () => {

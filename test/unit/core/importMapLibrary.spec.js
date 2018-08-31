@@ -2,7 +2,7 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
 import * as GoogleMapsLoader from 'google-maps';
-import importMapLibrary from '../../../src/core/importMapLibrary';
+import importMapLibrary from '../../../src/map/importMapLibrary';
 import * as loader from '../../../src/core/importLazyLoad';
 
 describe('Import Map Library', function () {

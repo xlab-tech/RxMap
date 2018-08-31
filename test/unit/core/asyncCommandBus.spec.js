@@ -1,6 +1,7 @@
 /* global describe,it */
 import { expect } from 'chai';
 import { Observable } from 'rxjs/internal/Observable';
+import { from } from 'rxjs/internal/observable/from';
 import AsyncCommandBus from '../../../src/core/AsyncCommandBus';
 
 describe('AsyncCommandBus', () => {
@@ -23,28 +24,28 @@ describe('AsyncCommandBus', () => {
     });
     actionBus._complete();
   });
-  it('observer data ', () => {
+  it('observer data ', () => {    
     const async = new AsyncCommandBus();
-    async.setSource({ _actionsSubject: 3 });
-    async._executingAction = false;
-    const $stream = async.observer([5]);
+    async._executingAction = true;
+    async._source = { observer: () => from([1]) };
+    const $stream = async.observer([5], 4);
     expect($stream).is.a.instanceOf(Observable);
   });
   it('observer data args', () => {
     const async = new AsyncCommandBus();
-    async.setSource({ _actionsSubject: 3 });
+    async._source = { observer: () => from([1]) };
     const $stream = async.observer([5], 4);
     expect($stream).is.a.instanceOf(Observable);
   });
   it('observer executing', (done) => {
     const async = new AsyncCommandBus();
-    async.setSource({ _actionsSubject: 3 });
+    async._source = { observer: () => from([1]) };
     async._executingAction = 'test';
     const $stream = async.observer([5]);
     async._complete();
     expect($stream).is.a.instanceOf(Observable);
     $stream.subscribe((res) => {
-      expect(res).to.eq(5);
+      expect(res).to.eq(1);
       async._executingAction = false;
       done();
     });

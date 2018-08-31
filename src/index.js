@@ -2,8 +2,8 @@ import './utils/polyfill';
 import * as _register from './core/registerAction';
 import * as _registerObserver from './core/registerObserver';
 import * as _registerMiddleware from './core/middlewares';
-import * as _RxMap from './RxMap';
-import _RxMapFromConfig from './config';
+import * as _RxMap from './map/RxMap';
+import _RxMapFromConfig from './map/config';
 import * as lazy from './core/importLazyLoad';
 import _registerLib from './core/registerLib';
 
