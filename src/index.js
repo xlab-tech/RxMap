@@ -1,3 +1,4 @@
+import './utils/polyfill';
 import * as _register from './core/registerAction';
 import * as _registerObserver from './core/registerObserver';
 import * as _registerMiddleware from './core/middlewares';
