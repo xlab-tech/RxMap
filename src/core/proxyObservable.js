@@ -8,6 +8,9 @@ import { getObserver } from './registerObserver';
 
 const getArgs = (param, value) => {
   let args = param;
+  if (!args) {
+    return [];
+  }
   if (typeof param === 'function') {
     args = param(value);
   }
