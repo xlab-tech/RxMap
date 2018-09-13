@@ -6,6 +6,7 @@ import { Subject } from 'rxjs/internal/Subject';
 import CommandBus from '../../../src/core/CommandBus';
 import rxMap from '../../../src/map/RxMap';
 import { registerAction } from '../../../src/core/registerAction';
+import setProxy from '../../../src/core/proxyAction';
 
 describe('CommandBus', () => {
   it('create new ActionBus', () => {
@@ -84,4 +85,16 @@ describe('CommandBus', () => {
     rxMap.test22('a');
   });
 
+  it('observer action ', () => {
+    registerAction('test32', (context, a) => `r${a}`);
+    registerAction('test33', (context, a) => `r${a}`);
+    rxMap.test32('a').test33();
+  });
+  it('action Subject', () => {
+    const obj = setProxy({});
+    const _subject = obj._actionsSubject;
+    expect(_subject).to.have.instanceof(Subject);
+    const _subject2 = obj._actionsSubject;
+    expect(_subject2).to.have.instanceof(Subject);
+  });
 });
