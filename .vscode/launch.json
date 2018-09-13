@@ -2,6 +2,34 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Run ES6 Tests",
+            "type": "node",
+            "request": "launch",
+            "env": {
+                "BABEL_ENV": "test",
+            },
+            "cwd": "${workspaceRoot}",
+            "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+            "args": [
+                "./test/unit/**/*.spec.js",
+                "-r",
+                "@babel/polyfill",
+                "--require",
+                "@babel/register",
+                "--require",
+                "jsdom-global/register",
+                "-u",
+                "tdd",
+                "--timeout",
+                "999999",
+                "--colors"
+            ],
+            "runtimeArgs": [
+                "--nolazy"
+            ],
+            "sourceMaps": true
+        },
+        {
             "type": "node",
             "request": "attach",
             "name": "Attach",
