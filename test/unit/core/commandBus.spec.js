@@ -1,7 +1,8 @@
 /* global describe,it */
 import { expect } from 'chai';
 import { Observable } from 'rxjs/internal/Observable';
-import { of } from 'rxjs/internal/observable/of';
+import { from } from 'rxjs/internal/observable/from';
+import { Subject } from 'rxjs/internal/Subject';
 import CommandBus from '../../../src/core/CommandBus';
 import rxMap from '../../../src/map/RxMap';
 import { registerAction } from '../../../src/core/registerAction';
@@ -51,7 +52,7 @@ describe('CommandBus', () => {
   });
   it('executing', (done) => {
     const actionBus = new CommandBus();
-    actionBus._source = rxMap;
+    actionBus._source = { getContext: () => ({ test: '3' }), observer: () => from([3]) };
     actionBus._actionsSubject = { next: () => '' };
     const $res = actionBus._execute('test', () => 1, []);
     $res.subscribe((res) => {
@@ -59,7 +60,7 @@ describe('CommandBus', () => {
       done();
     });
   });
-  it.skip('observer data ', () => {
+  it('observer data ', () => {
     const $stream = rxMap.observer([5]);
     expect($stream).is.a.instanceOf(Observable);
   });
@@ -70,22 +71,17 @@ describe('CommandBus', () => {
       expect(err).is.a.instanceOf(Error);
     }
   });
-  it('observer action', (done) => {
-    registerAction('testObs', () => 'kk');
-    rxMap.observerAction('testObs').subscribe((res) => {
-      expect(res.name).to.have.eq('testObs');
-      expect(res.value).to.have.eq('kk');
-      done();
-    });
-    rxMap.testObs();
+  it(' action Subject', () => {
+    const _subject = rxMap._actionsSubject;
+    expect(_subject).to.have.instanceof(Subject);
   });
-  it('observer action 2', (done) => {
-    registerAction('ostrr', () => 'kk');
-    rxMap.observerAction('os.').subscribe((res) => {
-      expect(res.name).to.have.eq('ostrr');
-      expect(res.value).to.have.eq('kk');
-      done();
+  it('observer action ', () => {
+    registerAction('test22', (context, a) => `r${a}`);
+    // rxMap._actionsSubject = new Subject();
+    rxMap.observerAction('test22').subscribe((res) => {
+      expect(res.value).to.have.eq('ra');
     });
-    rxMap.ostrr();
+    rxMap.test22('a');
   });
+
 });

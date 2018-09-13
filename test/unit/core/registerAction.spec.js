@@ -1,19 +1,16 @@
-/* global describe,it,afterEach */
+/* global describe,it */
 import { expect } from 'chai';
 import { Observable } from 'rxjs/internal/Observable';
 import CommandBus from '../../../src/core/CommandBus';
 import AsyncCommandBus from '../../../src/core/AsyncCommandBus';
 import { registerMiddleware } from '../../../src/core/middlewares';
 import {
-  registerAction, getAction, getActionnfo, getAllCommandsName,
+  registerAction, getAction, getActionInfo, getAllCommandsName,
 } from '../../../src/core/registerAction';
 import rxMap from '../../../src/map/RxMap';
 
 describe('Register Action', () => {
   it('register action', () => {
-    expect(Observable).to.not.respondTo('testRegister');
-    expect(CommandBus).to.not.respondTo('testRegister');
-
     registerAction('testRegister', () => 'testRegister');
     const f = getAction('testRegister');
     expect(f).to.be.a('function');
@@ -39,11 +36,11 @@ describe('Register Action', () => {
     const ff = getAction('test');
     expect(ff).to.eq(f);
   });
-  it('getActionnfo', () => {
+  it('getActionInfo', () => {
     const f = () => 'test';
     const options = { test: 'test' };
     registerAction('test', f, options);
-    const opt = getActionnfo('test');
+    const opt = getActionInfo('test');
     expect(opt).to.eq(options);
   });
   it.skip('update all actions ', () => {
@@ -57,9 +54,5 @@ describe('Register Action', () => {
     registerMiddleware(func);
     const fAfter = rxMap.aaa;
     expect(fBefore).not.eq(fAfter);
-  });
-  afterEach(() => {
-    delete Observable.prototype.testRegister;
-    delete CommandBus.prototype.testRegister;
   });
 });
