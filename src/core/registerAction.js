@@ -25,7 +25,7 @@ export const registerAction = (actionName, action, options = {}) => {
  * @param {string} actionName
  * @return {object}
  */
-export const getActionnfo = actionName => (registerActions[actionName] ? registerActions[actionName].options : false);
+export const getActionInfo = actionName => (registerActions[actionName] ? registerActions[actionName].options : false);
 
 /**
  * Recupera el comando a partir de su nombre
