@@ -2,29 +2,13 @@ import { take } from 'rxjs/internal/operators/take';
 import rxMap from './RxMap';
 import isPromise from '../utils/isPromise';
 
-/** @private */
-const mandatoryCommands = ['create'];
-/** @private */
-const mandatoryObservers = [];
-
 const rxMapFromConfig = async (id, config) => {
   const {
-    type, actions, observers, map, options, dataTypes,
+    type, map, options, dataTypes,
   } = config;
   const { center, zoom, autoCenter } = map;
   const mapCenter = center || { lat: 0, lng: 0 };
 
-  if (actions) {
-    let allComands = actions.concat(mandatoryCommands);
-    allComands = allComands.filter((item, pos) => allComands.indexOf(item) === pos);
-    options.actions = allComands;
-  }
-
-  if (observers) {
-    let allObservers = observers.concat(mandatoryObservers, autoCenter ? 'gps' : []);
-    allObservers = allObservers.filter((item, pos) => allObservers.indexOf(item) === pos);
-    options.observers = allObservers;
-  }
   await rxMap.load(type, options);
 
   const create = rxMap.create(id, mapCenter.lat, mapCenter.lng, zoom);
