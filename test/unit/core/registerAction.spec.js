@@ -4,7 +4,7 @@ import CommandBus from '../../../src/core/CommandBus';
 import AsyncCommandBus from '../../../src/core/AsyncCommandBus';
 import { registerMiddleware } from '../../../src/core/middlewares';
 import {
-  registerAction, getAction, getActionInfo, getAllCommandsName,
+  registerAction, getAction, getActionInfo, getAllActionsName,
 } from '../../../src/core/registerAction';
 import rxMap from '../../../src/map/RxMap';
 
@@ -14,9 +14,9 @@ describe('Register Action', () => {
     const f = getAction('testRegister');
     expect(f).to.be.a('function');
   });
-  it('test getAllCommnadsName', () => {
+  it('test getAllActionsName', () => {
     registerAction('one', () => 'testRegister');
-    const names = getAllCommandsName();
+    const names = getAllActionsName();
     expect(names).to.be.a('array').that.includes('one');
   });
   it('function return asyncCommandBus', () => {
