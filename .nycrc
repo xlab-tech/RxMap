@@ -1,0 +1,21 @@
+{
+  "extension": [
+    ".js"
+  ],
+  "include": [
+    "src/**/*.js"
+  ],
+  "exclude": [
+    "**/*.spec.js",
+    "dist/**/*.*",
+    "docs/**/*.*",
+    "coverage/**/*.*",
+    "examples/**/*.*"
+  ],
+  "reporter": [
+    "html"
+  ],
+  "require": [],
+  "sourceMap": false,
+  "all": false
+}

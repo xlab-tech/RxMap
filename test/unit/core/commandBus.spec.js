@@ -1,10 +1,12 @@
 /* global describe,it */
 import { expect } from 'chai';
 import { Observable } from 'rxjs/internal/Observable';
-import { of } from 'rxjs/internal/observable/of';
+import { from } from 'rxjs/internal/observable/from';
+import { Subject } from 'rxjs/internal/Subject';
 import CommandBus from '../../../src/core/CommandBus';
-import rxMap from '../../../src/RxMap';
+import rxMap from '../../../src/map/RxMap';
 import { registerAction } from '../../../src/core/registerAction';
+import setProxy from '../../../src/core/proxyAction';
 
 describe('CommandBus', () => {
   it('create new ActionBus', () => {
@@ -19,8 +21,16 @@ describe('CommandBus', () => {
 
   it('action Bus getSource', () => {
     const actionBus = new CommandBus();
+    actionBus._source = 't';
     const temp = actionBus.getSource();
-    expect(temp).to.be.eq(actionBus);
+    expect(temp).to.be.eq('t');
+  });
+
+  it('action Bus getActionName', () => {
+    const actionBus = new CommandBus();
+    actionBus._executingAction = 'ppp';
+    const temp = actionBus.getActionName();
+    expect(temp).to.be.eq('ppp');
   });
 
   it('action Bus getValue', (done) => {
@@ -32,30 +42,24 @@ describe('CommandBus', () => {
     });
   });
 
-  it('action Bus applyCommandBus', () => {
-    const actionBus = new CommandBus();
-    const $s = of(1);
-    $s.setCommandBus = null;
-    const $p = actionBus.observer($s);
-    expect($p).to.have.property('setCommandBus');
-  });
-
   it('action Bus getContext', () => {
     const actionBus = new CommandBus();
+    actionBus._source = { getContext: () => ({ test: '3' }) };
     const temp = actionBus.getContext();
     // eslint-disable-next-line no-unused-expressions
-    expect(temp).to.be.null;
+    expect(temp).to.have.property('lastExecution');
+    expect(temp).to.have.property('source');
+    expect(temp).to.have.property('test');
   });
   it('executing', (done) => {
-    registerAction('test', () => new Promise(resolve => setTimeout(resolve, 500)));
-    const bus = rxMap.test();
-
-    setTimeout(() => {
-      // eslint-disable-next-line no-unused-expressions
-      expect(bus.isExecuting()).to.be.true;
-      expect(bus.getActioname()).to.eq('test');
+    const actionBus = new CommandBus();
+    actionBus._source = { getContext: () => ({ test: '3' }), observer: () => from([3]) };
+    actionBus._actionsSubject = { next: () => '' };
+    const $res = actionBus._execute('test', () => 1, []);
+    $res.subscribe((res) => {
+      expect(res.value).to.have.eq(3);
       done();
-    }, 10);
+    });
   });
   it('observer data ', () => {
     const $stream = rxMap.observer([5]);
@@ -68,22 +72,29 @@ describe('CommandBus', () => {
       expect(err).is.a.instanceOf(Error);
     }
   });
-  it('observer action', (done) => {
-    registerAction('testObs', () => 'kk');
-    rxMap.observerAction('testObs').subscribe((res) => {
-      expect(res.name).to.have.eq('testObs');
-      expect(res.value).to.have.eq('kk');
-      done();
-    });
-    rxMap.testObs();
+  it(' action Subject', () => {
+    const _subject = rxMap._actionsSubject;
+    expect(_subject).to.have.instanceof(Subject);
   });
-  it('observer action 2', (done) => {
-    registerAction('ostrr', () => 'kk');
-    rxMap.observerAction('os.').subscribe((res) => {
-      expect(res.name).to.have.eq('ostrr');
-      expect(res.value).to.have.eq('kk');
-      done();
+  it('observer action ', () => {
+    registerAction('test22', (context, a) => `r${a}`);
+    // rxMap._actionsSubject = new Subject();
+    rxMap.observerAction('test22').subscribe((res) => {
+      expect(res.value).to.have.eq('ra');
     });
-    rxMap.ostrr();
+    rxMap.test22('a');
+  });
+
+  it('observer action ', () => {
+    registerAction('test32', (context, a) => `r${a}`);
+    registerAction('test33', (context, a) => `r${a}`);
+    rxMap.test32('a').test33();
+  });
+  it('action Subject', () => {
+    const obj = setProxy({});
+    const _subject = obj._actionsSubject;
+    expect(_subject).to.have.instanceof(Subject);
+    const _subject2 = obj._actionsSubject;
+    expect(_subject2).to.have.instanceof(Subject);
   });
 });

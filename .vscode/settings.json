@@ -1,0 +1,14 @@
+{
+  "mocha.env": {
+    "BABEL_ENV": "test"
+  },
+  "mocha.files.glob": "./test/unit/**/*.spec.js",
+  "mocha.requires": [
+    "jsdom-global/register",
+    "@babel/register",
+    "@babel/polyfill"
+
+  ],
+  "mocha.options": {
+  },
+}

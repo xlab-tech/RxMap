@@ -9,6 +9,7 @@ describe('Middlewares', () => {
     const func = () => 'asfas';
     const newFunc = applyMiddlewares('test', func);
     const actionBus = new CommandBus();
+    actionBus._source = { getContext: () => ({ test: '3' }) };
     expect(newFunc(actionBus, [])).to.eq(func(actionBus, []));
   });
   it('apply middleware one', () => {
@@ -18,6 +19,7 @@ describe('Middlewares', () => {
     };
     registerMiddleware('testRegister', f);
     const actionBus = new CommandBus();
+    actionBus._source = { getContext: () => ({ test: '3' }) };
     const func = () => 'asfas';
     const newFunc = applyMiddlewares('test', func);
     const newFunc2 = applyMiddlewares('testRegister', func);
@@ -33,6 +35,7 @@ describe('Middlewares', () => {
     const func = () => 'asfas';
     const newFunc = applyMiddlewares('test', func);
     const actionBus = new CommandBus();
+    actionBus._source = { getContext: () => ({ test: '3' }) };
     expect(newFunc(actionBus, [])).to.eq('aa');
   });
   it('subscribe', () => new Promise((resolve) => {

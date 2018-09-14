@@ -1,4 +1,3 @@
-import 'url-polyfill';
 import exp from './index';
 import registerLib from './core/registerLib';
 import rxLib from '../lib/index';

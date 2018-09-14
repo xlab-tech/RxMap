@@ -1,66 +1,43 @@
-import { applyMiddlewares, subscribe } from './middlewares';
-import registerOperator from './registerOperator';
-import { createFunctionInCommandBus } from './AsyncCommandBus';
 
 const registerActions = {};
 
-const _registerAction = (actionName, action) => {
-  const actionExecute = applyMiddlewares(actionName, action);
-  createFunctionInCommandBus(actionName, actionExecute);
-  registerOperator(actionName, actionExecute);
-};
-
 /**
- * Permite registrar los comandos que luego se podra utilizar en @link {RxMap}
+ * Permite registrar las acciones que luego se podra utilizar en @link {RxMap}
  * o desde los Observadores
  *  * @example
- *  // Registrar comando
+ *  // Registrar accion
  *  registerAction'test',arg=>console.log(arg));
  *
  *  // Utilizar el comando
  *  RxMap.test('asasfasdf');
  *  RxMap.fromObserver(from(5)).test('asfadf').subscribe(console.log)
  *
- * @param {string} actionName Nombre del comando a regitrar
+ * @param {string} actionName Nombre de la accion a regitrar
  * @param {function} action Action a ejecutar
- * @param {object} [options] Opciones para el comando
+ * @param {object} [options] Opciones para la accion
  */
 export const registerAction = (actionName, action, options = {}) => {
   registerActions[actionName] = { action, options };
-  _registerAction(actionName, action);
 };
 
 /**
- * Recupera la informacion adicional del comando a partir de su nombre
+ * Recupera la informacion adicional de la acción a partir de su nombre
  * @param {string} actionName
  * @return {object}
+ * @private
  */
-export const getActionnfo = actionName => registerActions[actionName].options;
+export const getActionInfo = actionName => (registerActions[actionName] ? registerActions[actionName].options : false);
 
 /**
- * Recupera el comando a partir de su nombre
+ * Recupera la acción a partir de su nombre
  * @param {string} actionName
  * @return {Function}
+ * @private
  */
-export const getAction = actionName => registerActions[actionName].action;
+export const getAction = actionName => (registerActions[actionName] ? registerActions[actionName].action : false);
 
 /**
- * Recupera la lista de comandos registrados
+ * Recupera la lista de acciones registradas
  * @return {Array<String|action>}
  */
-export const getAllCommandsName = () => Object.keys(registerActions);
-
-const updateActionithMiddleware = (actionName) => {
-  const actionValue = registerActions[actionName];
-  if (actionValue) {
-    _registerAction(actionName, actionValue.action);
-  }
-};
-
-subscribe((actionName) => {
-  if (typeof actionName === 'string') {
-    updateActionithMiddleware(actionName);
-  } else {
-    Object.keys(registerActions).forEach(key => updateActionithMiddleware(key));
-  }
-});
+export const getAllActionsName = () => Object.keys(registerActions);

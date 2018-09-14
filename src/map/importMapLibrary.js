@@ -1,4 +1,4 @@
-import { loadCSS } from './importLazyLoad';
+import { loadCSS } from '../core/importLazyLoad';
 
 export default async (lib, options = {}) => {
   // const version = options.version || 'latest';

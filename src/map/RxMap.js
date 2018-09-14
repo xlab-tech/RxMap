@@ -1,7 +1,8 @@
 
 import { take } from 'rxjs/internal/operators/take';
-import CommandBus from './core/CommandBus';
-import importMapLibrary from './core/importMapLibrary';
+import proxyAction from '../core/proxyAction';
+import importMapLibrary from './importMapLibrary';
+import observableStore from '../core/observableStore';
 
 let _Map;
 
@@ -10,11 +11,20 @@ let _Map;
  *
  * @extends {CommandBus}
  */
-export class RxMap extends CommandBus {
+export class RxMap {
   constructor() {
-    super();
+    /**
+     * {String} nombre de la libreria de Mapas que se utiliza
+     */
     this.libName = null;
+    /**
+     * {String} version de la libreria que se utiliza
+     */
     this.libVersion = null;
+    /**
+     * {observableStore} Store observable
+     */
+    this.store = observableStore();
   }
 
   /**
@@ -30,12 +40,11 @@ export class RxMap extends CommandBus {
   /**
    * Recupera el contexto para las ejecuciones de los comandos y observadores
    * @param { object} [value] puede recibir la ultima ejecucion si se solicita desde AsyncCommand
+   * @returns {object}
    * @private
    */
-  getContext(value) {
+  getContext() {
     return {
-      RxMap: this,
-      lastExecution: value || this._lastAction,
       library: this.getMapLibrary(),
       store: this.store,
     };
@@ -50,12 +59,8 @@ export class RxMap extends CommandBus {
 
   /**
    * @typedef {Object} loadOptions
-   * @property {Array<String|action>} [actions] Comandos a utilizar. Si se la pasa un string se da pr supuesto que son de la libreria rxmap.
-   * @property {Array<String|action>} [observers] Observadores a utilizar. Si se la pasa un string se da pr supuesto que son de la libreria rxmap.
    * @property {String} [version=latest] Version de la libreria, actualmente solo soporta latest
    * @property {String} [key] Clave de la libreria de mapas que se utiliza, para las librerias que necesiten key
-   * @property {Boolean} [defer=true] Permite cargar todos los comandos al incializar si el valor es false.
-   *                                En lugar de ir cargandolos segun se necesitan, por defecto true
    * @private
    *
   */
@@ -109,7 +114,7 @@ export class RxMap extends CommandBus {
    * @memberof RxMap
    */
   init() {
-    return new RxMap();
+    return proxyAction(new RxMap());
   }
 
   /**
@@ -148,11 +153,23 @@ export class RxMap extends CommandBus {
   getDataType(id) {
     return this.store[`type@${id}`];
   }
+
+  /**
+ * Funcion que permite observar los datos del store,
+ * Se puede pasar una propiedad o una expresion regular para poder
+ * observar mas de un comando o todos.
+ *
+ * @param {String} name Nombre o Regex a evaluar
+ * @return Observer
+*/
+  observerData(property) {
+    return this.store.observer(property);
+  }
 }
 
 const createMap = () => {
   if (!_Map) {
-    _Map = new RxMap();
+    _Map = proxyAction(new RxMap());
   }
   return _Map;
 };

@@ -2,9 +2,13 @@
 import { expect } from 'chai';
 import { of } from 'rxjs/internal/observable/of';
 import { registerObserver } from '../../../src/core/registerObserver';
-import rxMap from '../../../src/RxMap';
+import rxMap from '../../../src/map/RxMap';
+import CommandBus from '../../../src/core/CommandBus';
 
 describe('Observable', () => {
+  const actionBus = new CommandBus();
+  actionBus._source = { getContext: () => ({ test: '3' }) };
+  rxMap._commandBus = actionBus;
   it('observer', () => {
     registerObserver('test', () => of(2));
     return new Promise((resolve, reject) => {

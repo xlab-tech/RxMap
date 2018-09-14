@@ -1,11 +1,11 @@
 /* global describe,it,afterEach,beforeEach */
 import { expect } from 'chai';
 import sinon from 'sinon';
-import rxMap, { RxMap } from '../../../src/RxMap';
+import rxMap, { RxMap } from '../../../src/map/RxMap';
 import AsyncCommandBus from '../../../src/core/AsyncCommandBus';
 import { registerAction } from '../../../src/core/registerAction';
 import * as load from '../../../src/core/importLazyLoad';
-import * as loadMap from '../../../src/core/importMapLibrary';
+import * as loadMap from '../../../src/map/importMapLibrary';
 
 describe('RxMap', () => {
   it('create new Map Instances', () => {
@@ -14,7 +14,6 @@ describe('RxMap', () => {
   });
   it('actions return AsyncCommand', () => {
     registerAction('test', () => 'test');
-    expect(RxMap).to.respondTo('test');
     const ret = rxMap.test();
     expect(ret).to.be.an.instanceof(AsyncCommandBus);
   });
@@ -62,6 +61,15 @@ describe('RxMap', () => {
       expect(ret._nativeLibrary).to.eq(5);
       // console.log(ret);
     });
+    it('load map ', async () => {
+      registerAction('start', () => 6);
+      const ret = await rxMap.load('leaflet');
+      ret.start();
+      setTimeout(() => {
+        expect(ret._sourceMap).to.eq(6);
+      }, 20);
+      // console.log(ret);
+    });
     it('load not', async () => {
       const ret = await rxMap.load('test');
       expect(ret._nativeLibrary).to.eq(5);
@@ -78,6 +86,15 @@ describe('RxMap', () => {
     it('new', () => {
       const m = new RxMap();
       expect(m).to.be.an.instanceof(RxMap);
+    });
+    it('observer Data', (done) => {
+      const m = new RxMap();
+      m.observerData('.').subscribe((data) => {
+        expect(data.value).to.eq(5);
+        done();
+      });
+      m.store.test = 5;
+      // console.log(ret);
     });
   });
 });

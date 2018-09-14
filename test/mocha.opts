@@ -1,5 +1,0 @@
-
-###
-### mocha.opts
-###
---require babel-register

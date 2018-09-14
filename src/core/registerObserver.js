@@ -23,5 +23,6 @@ export const registerObserver = (name, observer) => {
 /**
  * Recupera el obsservador que recibe por parametro
  * @param {string} name
+ * @private
 */
 export const getObserver = name => registerObservers[name];
