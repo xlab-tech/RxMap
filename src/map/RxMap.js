@@ -50,12 +50,8 @@ export class RxMap {
 
   /**
    * @typedef {Object} loadOptions
-   * @property {Array<String|action>} [actions] Comandos a utilizar. Si se la pasa un string se da pr supuesto que son de la libreria rxmap.
-   * @property {Array<String|action>} [observers] Observadores a utilizar. Si se la pasa un string se da pr supuesto que son de la libreria rxmap.
    * @property {String} [version=latest] Version de la libreria, actualmente solo soporta latest
    * @property {String} [key] Clave de la libreria de mapas que se utiliza, para las librerias que necesiten key
-   * @property {Boolean} [defer=true] Permite cargar todos los comandos al incializar si el valor es false.
-   *                                En lugar de ir cargandolos segun se necesitan, por defecto true
    * @private
    *
   */
