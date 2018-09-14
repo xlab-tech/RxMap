@@ -1,6 +1,6 @@
 
 export const name = 'rxmap';
-export const commands = ['addData', 'create', 'marker', 'point', 'popup', 'setCenter'];
+export const actions = ['addData', 'create', 'marker', 'point', 'popup', 'setCenter'];
 export const observers = ['gps', 'center', 'click'];
 export const func = (type, mapLib, version, key) => import(/* webpackMode: "lazy" */ `./dist/lib/${type}/${mapLib}@${version}/${key}`);
 
@@ -8,7 +8,7 @@ export default [
   name,
   {
     observers,
-    commands,
+    actions,
   },
   func,
 ];
