@@ -1,6 +1,5 @@
 /* global describe,it */
 import { expect } from 'chai';
-import { Observable } from 'rxjs/internal/Observable';
 import CommandBus from '../../../src/core/CommandBus';
 import AsyncCommandBus from '../../../src/core/AsyncCommandBus';
 import { registerMiddleware } from '../../../src/core/middlewares';

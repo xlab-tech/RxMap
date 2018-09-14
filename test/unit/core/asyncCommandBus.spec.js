@@ -24,7 +24,7 @@ describe('AsyncCommandBus', () => {
     });
     actionBus._complete();
   });
-  it('observer data ', () => {    
+  it('observer data ', () => {
     const async = new AsyncCommandBus();
     async._executingAction = true;
     async._source = { observer: () => from([1]) };

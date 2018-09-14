@@ -1,7 +1,6 @@
-/* global describe,it,afterEach,beforeEach */
+/* global describe,it */
 import { expect } from 'chai';
 import { from } from 'rxjs/internal/observable/from';
-import { map } from 'rxjs/internal/operators/map';
 import { Subject } from 'rxjs/internal/Subject';
 import CommandBus from '../../../src/core/CommandBus';
 import AsyncCommandBus from '../../../src/core/AsyncCommandBus';

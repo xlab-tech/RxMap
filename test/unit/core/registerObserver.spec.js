@@ -18,11 +18,10 @@ describe('Register Observer', () => {
     expect(rxMap).to.respondTo('observer');
     registerObserver('test', () => of(1));
     const $res = rxMap.observer('test');
-    $res.subscribe((res)=>{
+    $res.subscribe((res) => {
       console.log(res);
       expect(res).to.have.eq(1);
       done();
     });
-    
   });
 });

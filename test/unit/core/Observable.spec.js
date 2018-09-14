@@ -12,7 +12,6 @@ describe('Observable', () => {
   it('observer', () => {
     registerObserver('test', () => of(2));
     return new Promise((resolve, reject) => {
-
       const $strem = rxMap.observer(of(5));
       $strem.observer('test').subscribe((res) => {
         expect(res).to.eq(2);

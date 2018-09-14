@@ -1,7 +1,6 @@
 /* global describe,it */
 import { expect } from 'chai';
 import observableStore from '../../../src/core/observableStore';
-import { doesNotReject } from 'assert';
 
 describe('Register ObservableStore', () => {
   it('add Observable function', (done) => {
