@@ -13,9 +13,17 @@ let _Map;
  */
 export class RxMap {
   constructor() {
-    // super();
+    /**
+     * {String} nombre de la libreria de Mapas que se utiliza
+     */
     this.libName = null;
+    /**
+     * {String} version de la libreria que se utiliza
+     */
     this.libVersion = null;
+    /**
+     * {observableStore} Store observable
+     */
     this.store = observableStore();
   }
 
@@ -32,6 +40,7 @@ export class RxMap {
   /**
    * Recupera el contexto para las ejecuciones de los comandos y observadores
    * @param { object} [value] puede recibir la ultima ejecucion si se solicita desde AsyncCommand
+   * @returns {object}
    * @private
    */
   getContext() {

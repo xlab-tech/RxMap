@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../">
+  <title data-ice="title">Manual | @rxmap/rxmap</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="map command and reactive "><meta property="twitter:card" content="summary"><meta property="twitter:title" content="@rxmap/rxmap"><meta property="twitter:description" content="map command and reactive "><meta property="twitter:image" content="https://avatars0.githubusercontent.com/u/37194013?s=400&amp;u=692377e91a2dab11006abb01d0db33cdb211c9b8&amp;v=4"></head>
+<body class="layout-container manual-root" data-ice="rootContainer">
+
+<header>
+  <a href="./" style="display: flex; align-items: center;"><img src="./image/brand_logo.png" style="width:34px;"></a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/xlab-tech/RxMap.git"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div class="manual-toc-root">
+  
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/overview.html"><a href="manual/overview.html" data-ice="link">Overview</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/overview.html"><a href="manual/overview.html#ventajas" data-ice="link">Ventajas</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/install.html"><a href="manual/install.html#instalaci&#xF3;n" data-ice="link">Instalaci&#xF3;n</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/install.html"><a href="manual/install.html#npm" data-ice="link">NPM</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/install.html"><a href="manual/install.html#cdn" data-ice="link">CDN</a></li>
+<li data-ice="manualNav" class="indent-h1" data-link="manual/install.html"><a href="manual/install.html#como-utilizarla" data-ice="link">Como utilizarla</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html" data-ice="link">Como funciona</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#cargar" data-ice="link">Cargar</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#librer&#xED;as" data-ice="link">Librer&#xED;as</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#acciones" data-ice="link">Acciones</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#observadores" data-ice="link">Observadores</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#middlewares" data-ice="link">Middlewares</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#observar-acciones" data-ice="link">Observar acciones</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#store-observable" data-ice="link">Store Observable</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/make.html"><a href="manual/make.html" data-ice="link">Creaci&#xF3;n</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/make.html"><a href="manual/make.html#como-crear-acciones" data-ice="link">Como crear acciones</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/make.html"><a href="manual/make.html#como-crear-observadores" data-ice="link">Como crear observadores</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/make.html"><a href="manual/make.html#como-crear-un-middleware" data-ice="link">Como crear un middleware</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/make.html"><a href="manual/make.html#como-crear-una-libreria" data-ice="link">Como crear una libreria</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/build.html"><a href="manual/build.html" data-ice="link">Build</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/examples.html"><a href="manual/examples.html" data-ice="link">Ejemplos</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/libs.html"><a href="manual/libs.html" data-ice="link">Librerias</a></li>
+</ul>
+  </div>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="ejemplos">Ejemplos</h1><p>Lista de ejemplos disponibles en github.</p>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

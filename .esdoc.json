@@ -34,12 +34,17 @@
           "image": "https://avatars0.githubusercontent.com/u/37194013?s=400&u=692377e91a2dab11006abb01d0db33cdb211c9b8&v=4"
         },
         "manual": {
-          "index": "./manual/index.md",
+          "index": "./README.md",
           "globalIndex": true,
           "asset": "./manual/asset",
           "files": [
             "./manual/overview.md",
-            "./manual/overview2.md"
+            "./manual/install.md",
+            "./manual/howItWorks.md",
+            "./manual/make.md",
+            "./manual/build.md",
+            "./manual/examples.md",
+            "./manual/libs.md"
           ]
         },
         "accessor": {

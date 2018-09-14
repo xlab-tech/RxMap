@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../">
+  <title data-ice="title">Manual | @rxmap/rxmap</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="map command and reactive "><meta property="twitter:card" content="summary"><meta property="twitter:title" content="@rxmap/rxmap"><meta property="twitter:description" content="map command and reactive "><meta property="twitter:image" content="https://avatars0.githubusercontent.com/u/37194013?s=400&amp;u=692377e91a2dab11006abb01d0db33cdb211c9b8&amp;v=4"></head>
+<body class="layout-container manual-root" data-ice="rootContainer">
+
+<header>
+  <a href="./" style="display: flex; align-items: center;"><img src="./image/brand_logo.png" style="width:34px;"></a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  <a href="test.html" data-ice="testLink">Test</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/xlab-tech/RxMap.git"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div class="manual-toc-root">
+  
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/overview.html"><a href="manual/overview.html" data-ice="link">Overview</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/overview.html"><a href="manual/overview.html#ventajas" data-ice="link">Ventajas</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/install.html"><a href="manual/install.html#instalaci&#xF3;n" data-ice="link">Instalaci&#xF3;n</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/install.html"><a href="manual/install.html#npm" data-ice="link">NPM</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/install.html"><a href="manual/install.html#cdn" data-ice="link">CDN</a></li>
+<li data-ice="manualNav" class="indent-h1" data-link="manual/install.html"><a href="manual/install.html#como-utilizarla" data-ice="link">Como utilizarla</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html" data-ice="link">Como funciona</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#cargar" data-ice="link">Cargar</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#librer&#xED;as" data-ice="link">Librer&#xED;as</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#acciones" data-ice="link">Acciones</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#observadores" data-ice="link">Observadores</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#middlewares" data-ice="link">Middlewares</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#observar-acciones" data-ice="link">Observar acciones</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#store-observable" data-ice="link">Store Observable</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/make.html"><a href="manual/make.html" data-ice="link">Creaci&#xF3;n</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/make.html"><a href="manual/make.html#como-crear-acciones" data-ice="link">Como crear acciones</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/make.html"><a href="manual/make.html#como-crear-observadores" data-ice="link">Como crear observadores</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/make.html"><a href="manual/make.html#como-crear-un-middleware" data-ice="link">Como crear un middleware</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/make.html"><a href="manual/make.html#como-crear-una-libreria" data-ice="link">Como crear una libreria</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/build.html"><a href="manual/build.html" data-ice="link">Build</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/examples.html"><a href="manual/examples.html" data-ice="link">Ejemplos</a></li>
+</ul>
+  </div>
+<div data-ice="manual">
+    <ul class="manual-toc">
+      
+    <li data-ice="manualNav" class="indent-h1" data-link="manual/libs.html"><a href="manual/libs.html" data-ice="link">Librerias</a></li>
+</ul>
+  </div>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><div class="github-markdown" data-ice="content"><h1 id="como-funciona">Como funciona</h1><h2 id="cargar">Cargar</h2><p>Para empezar a utilizar la librer&#xED;a lo primero es cargar el mapa que se quiere utilizar para ello se puede hacer de dos maneras. Directamente con el m&#xE9;todo load o con loadConfig los dos son m&#xE9;todos as&#xED;ncronos que puedes usar con await o con formato promesa.</p>
+<pre><code><code class="source-code prettyprint">import { RxMap } from &apos;@rxmap/rxmap&apos;;
+const config = {};
+await RxMap.load(&#x2018;leaflet&#x2019;,config);</code>
+</code></pre><pre><code><code class="source-code prettyprint">import { RxMap } from &apos;@rxmap/rxmap&apos;;
+const config = {};
+RxMap.load(&#x2018;leaflet&#x2019;,config).then((map)=&gt;{
+   // execute actions
+});
+</code>
+</code></pre><p>O </p>
+<pre><code><code class="source-code prettyprint">import { RxMapFromConfig } from &apos;@rxmap/rxmap&apos;;
+
+const config = {
+  type: &apos;leaflet&apos;,
+  options: {
+    key: &apos;&apos;,
+  },
+  map: {
+    autoCenter: false,
+    center: {
+      lat: 51.505,
+      lng: -0.09,
+    },
+    zoom: 13,
+  },
+};
+
+
+const map = await RxMapFromConfig(config);
+
+</code>
+</code></pre><h2 id="librer&#xED;as">Librer&#xED;as</h2><p>Para utilizar las acciones y los observadores tienes que cargar las librer&#xED;as que quieras de acciones y observadores,  propias o de terceros. Al cargar las librer&#xED;as ya tienes disponibles todas las acciones que incorporen estas librer&#xED;as en RxMap o en los observadores, (&#x2018;una vez los recuperas desde RxMap&#x2019; &lt; <code>rxMap.observer(from(5))</code>&gt;). Pero al tener carga din&#xE1;mica no bajas el c&#xF3;digo de todas las acciones, reduciendo el tiempo de carga, sino que se cargara el c&#xF3;digo de cada acci&#xF3;n o observador cuando la utilices. ( lazy Loader) </p>
+<p>La funci&#xF3;n registerLib, espera como par&#xE1;metros el nombre de la librer&#xED;a, un objeto con los nombre de acciones y con los nombre de los observadores a cargar de esa libreria, y la funci&#xF3;n para la carga dynamica de las acciones y observadores</p>
+<pre><code><code class="source-code prettyprint">import { registerLib } from &apos;@rxmap/rxmap&apos;;
+
+registerLib(&#x2018;test&#x2019;,{
+    observers:[&#x2018;test&#x2019;],
+    actions:[&#x2018;example&#x2019;]
+},
+(type, mapLib, version, key) =&gt; import(/* webpackMode: &quot;lazy&quot; */ `./${type}/${mapLib}@${version}/${key}`);
+);
+</code>
+</code></pre><p>Idealmente las librer&#xED;as incluyen en default un array con los par&#xE1;metros ya preparados.</p>
+<pre><code><code class="source-code prettyprint">import { registerLib } from &apos;@rxmap/rxmap&apos;;
+import rxLib from &apos;@rxmap/rxmap/lib&apos;;
+
+registerLib(...rxLib);</code>
+</code></pre><p>Otra forma de tener acciones o observadores es registr&#xE1;ndolos para poder utilizarlos,pero de esta forma no tendr&#xE1;s la carga dynamica I tendr&#xE1;s que gestionar ,qual cargas seg&#xFA;n la librer&#xED;a de mapas que estes utilizando. Al contrario las librer&#xED;as gestionan esto de manera autom&#xE1;tica. 
+Consulta la librer&#xED;a que utilizas para saber que mapas soporta. </p>
+<h2 id="acciones">Acciones</h2><p>Las acciones son funciones &#x201C;puras&#x201D; que realizan acciones sobre el mapa, la idea es que solo realicen una &#xFA;nica acci&#xF3;n para que sean mucho m&#xE1;s f&#xE1;ciles de reaprovechar , probar y debugar.
+Las acciones se pueden invocar sobre RxMap o sobre un observador. Las acciones se pueden anidar entre ellas. Cada invocaci&#xF3;n de acciones es  as&#xED;ncrona pero dentro de cada secuencia en s&#xED;ncrona. Cada acci&#xF3;n recibe el valor de la acci&#xF3;n anterior para poder concatenar acciones.</p>
+<pre><code><code class="source-code prettyprint">RxMap.test();
+
+RxMap.test2().test();
+
+RxMap.observer(from(1)).test();
+</code>
+</code></pre><h2 id="observadores">Observadores</h2><p>Los observadores son funciones que devuelven un observador ( RxJs )  para por ejemplo , gestionar los eventos del mapa como puede ser el click, o para gestionar datos que se pueden recibir continuamente como la posici&#xF3;n GPS, el centro del mapa, etc...
+Con los observadores se pueden utilizar todos los operadores de RxJs para modificar, transformar , etc.. los valores del observador.</p>
+<p>Tambi&#xE9;n se pueden utilizar observadores creados con RxJs para utilizar las acciones de RxMap. 
+Cuando  se utiliza un observador, se puede pasar como par&#xE1;metro a la acci&#xF3;n una funci&#xF3;n que transforme los argumentos en un array con los argumentos que espera la acci&#xF3;n.</p>
+<pre><code><code class="source-code prettyprint">RxMap.observer(&#x2018;&lt;observer name&gt;&#x2019;).subscribe((data) =&gt; console.log);
+
+RxMap.observer(&#x2018;gps&#x2019;).pipe(take(2)).subscribe(data=&gt;console.log(data));
+
+RxMap.observer(from([{lat:1,lng:2},{lat:2,lng:3}]).marker(data=&gt;([data.lat,data.lng])).subscribe()
+
+</code>
+</code></pre><h2 id="middlewares">Middlewares</h2><p>RxMap tambi&#xE9;n te permite usar middlewares, para realizar acciones como:</p>
+<pre><code><code class="source-code prettyprint">* Logger de las funciones
+* Realizar acciones antes o despu&#xE9;s de la ejecuci&#xF3;n de las acciones.
+* Aplicar transformaciones
+* Etc...</code>
+</code></pre><p>Un middleware lo puedes aplicar sobre todas las acciones o sobre una acci&#xF3;n en concreto.
+Si al registrar el middleware el primer par&#xE1;metro es un string, s&#xF3;lo se aplicar&#xE1; a la acci&#xF3;n con ese nombre. Si el primer par&#xE1;metro es el middleware se aplicar&#xE1; a todas las acciones.</p>
+<p>Se pueden aplicar todos los middleware que se deseen.</p>
+<pre><code><code class="source-code prettyprint">
+registerMiddleware(LoggerMiddleware);
+
+O
+
+registerMiddleware(&apos;marker&apos;, TimerMiddleware);
+</code>
+</code></pre><h2 id="observar-acciones">Observar acciones</h2><p>Con RxMap  puedes observar las acciones para poder saber cuando se llama una acci&#xF3;n concreta  o un grupo de acciones con una expresi&#xF3;n RegEx y realizar otra operaci&#xF3;n.</p>
+<pre><code><code class="source-code prettyprint">
+RxMap.observerAction(&apos;marker&apos;).subscribe((data) =&gt; {
+    console.log(&quot;Action Subscriber 1 got data &gt;&gt;&gt;&gt;&gt; &quot;, data);
+  });
+
+
+RxMap.observerAction(&apos;.&apos;).subscribe((data) =&gt; {
+    console.log(&quot;Action Subscriber 2 got data &gt;&gt;&gt;&gt;&gt; &quot;, data);
+  });
+</code>
+</code></pre><h2 id="store-observable">Store Observable</h2><p>RxMap dispone de un store que  te permite guardar informaci&#xF3;n y observarla para realizar acciones cuando esta informaci&#xF3;n se modifique.</p>
+<pre><code><code class="source-code prettyprint">RxMap.observerStore(&#x2018;test&#x2019;).subscribe((data) =&gt; {
+    console.log(&quot;Store Subscriber 1 got data &gt;&gt;&gt;&gt;&gt; &quot;, data);
+  });
+
+RxMap.observerStore(&#x2018;.&#x2019;).subscribe((data) =&gt; {
+    console.log(&quot;Store Subscriber 2 got data &gt;&gt;&gt;&gt;&gt; &quot;, data);
+  });
+
+RxMap.store.test = &#x2018;example&#x2019;;
+
+RxMap.store.example = 5;
+
+const t = RxMap.store.test;
+
+</code>
+</code></pre><p>Con estas opciones te permite generar un c&#xF3;digo mucho m&#xE1;s desacoplado de la librer&#xED;a de mapas que quieras utilizar y de esas forma tu c&#xF3;digo tendr&#xE1; una vida mucho m&#xE1;s larga, pudiendo actualizar cada versi&#xF3;n de la librer&#xED;a o cambiando de ella con un esfuerzo mucho menor.</p>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
