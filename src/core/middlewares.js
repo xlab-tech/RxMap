@@ -46,7 +46,7 @@ export const applyMiddlewares = (actionName, action) => {
 
 /**
 *
-* funcion que permite registar los middlewares, para realizar acciones antes y depués de 
+* funcion que permite registar los middlewares, para realizar acciones antes y depués de
 * ejecutar una acción, se puden pasar mas de un middlleware .
 * El primer parametro es opcional y es el nombre de la acción sobre la que se va a aplicar
 * el middleware, si no se pasa ningun nombre se aplicará sobre todas las acciones.
@@ -56,9 +56,9 @@ export const applyMiddlewares = (actionName, action) => {
 * @example
 * registerMiddleware(middleware1,middleware2);
 *
-* Las funciones del midleware son funciones que revien la accion a ejecutar y devuelve una 
+* Las funciones del midleware son funciones que revien la accion a ejecutar y devuelve una
 * función async que recibe como parametro el CommandBus y un array con los argumentos
-* La función tiene que hacer lo que quiera, ejecutar la acción, volver a ejecutar el código 
+* La función tiene que hacer lo que quiera, ejecutar la acción, volver a ejecutar el código
 * que desee y devolver el resultado de la acción ejecutada.
 *
 * @example
