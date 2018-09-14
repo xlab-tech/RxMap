@@ -6,6 +6,12 @@ import { applyMiddlewares } from './middlewares';
 import AsyncCommandBus from './AsyncCommandBus';
 import { getObserver } from './registerObserver';
 
+/**
+ *
+ * @param {*} param Parametros que se envian al observador
+ * @param {*} value Valor de la ultima ejecución
+ * @private
+ */
 const getArgs = (param, value) => {
   let args = param;
   if (!args) {
@@ -20,6 +26,9 @@ const getArgs = (param, value) => {
   return args;
 };
 
+/**
+ * @private
+ */
 const getCommandBus = (observable) => {
   const commandBus = observable._commandBus;
   if (commandBus) {
@@ -31,6 +40,11 @@ const getCommandBus = (observable) => {
   return null;
 };
 
+/**
+ * Función que aplicar las funcionalidades necesarios en el observador a través de un Proxy
+ * @param {object} obj Elemento a aplicar
+ * @private
+ */
 const setProxy = obj => new Proxy(obj, {
   get: (target, name, receiver) => {
     if (!(name in target)) {
@@ -90,6 +104,12 @@ const setProxy = obj => new Proxy(obj, {
   },
 });
 
+/**
+ *
+ * @param {Observer} observer
+ * @param {CommandBus} CommandBus
+ * @private
+ */
 const _applyCommandBus = (observer, CommandBus) => {
   const _observer = setProxy(observer);
   return _observer.setCommandBus(CommandBus.getSource());
