@@ -30,7 +30,7 @@
   <ul>
     
   <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-func">func</a></span></span></li>
-<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-commands">commands</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-actions">actions</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-name">name</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-observers">observers</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#lib">lib</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-func">func</a></span></span></li>
@@ -1062,7 +1062,7 @@ registerAction&apos;test&apos;,arg=&gt;console.log(arg));</li>
       <div>
         
         
-        <div data-ice="description"><p>funcion que permite registar los middlewares, para realizar acciones antes y depu&#xE9;s de 
+        <div data-ice="description"><p>funcion que permite registar los middlewares, para realizar acciones antes y depu&#xE9;s de
 ejecutar una acci&#xF3;n, se puden pasar mas de un middlleware .</p>
 </div>
       </div>
@@ -3795,7 +3795,7 @@ import dynamico</p>
   <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {registerMiddleware} from &apos;<span><a href="file/RxMap/src/core/middlewares.js.html#lineNumber77">@rxmap/rxmap/RxMap/src/core/middlewares.js</a></span>&apos;</code></pre></div>
   
   
-  <div data-ice="description"><p>funcion que permite registar los middlewares, para realizar acciones antes y depu&#xE9;s de 
+  <div data-ice="description"><p>funcion que permite registar los middlewares, para realizar acciones antes y depu&#xE9;s de
 ejecutar una acci&#xF3;n, se puden pasar mas de un middlleware .
 El primer parametro es opcional y es el nombre de la acci&#xF3;n sobre la que se va a aplicar
 el middleware, si no se pasa ningun nombre se aplicar&#xE1; sobre todas las acciones.</p>
@@ -3849,9 +3849,9 @@ el middleware, si no se pasa ningun nombre se aplicar&#xE1; sobre todas las acci
       
       <pre class="prettyprint source-code"><code data-ice="exampleCode">registerMiddleware(middleware1,middleware2);
 
-Las funciones del midleware son funciones que revien la accion a ejecutar y devuelve una 
+Las funciones del midleware son funciones que revien la accion a ejecutar y devuelve una
 funci&#xF3;n async que recibe como parametro el CommandBus y un array con los argumentos
-La funci&#xF3;n tiene que hacer lo que quiera, ejecutar la acci&#xF3;n, volver a ejecutar el c&#xF3;digo 
+La funci&#xF3;n tiene que hacer lo que quiera, ejecutar la acci&#xF3;n, volver a ejecutar el c&#xF3;digo
 que desee y devolver el resultado de la acci&#xF3;n ejecutada.</code></pre>
     </div>
 <div class="example-doc" data-ice="exampleDoc">

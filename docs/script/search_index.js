@@ -48,6 +48,12 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "@rxmap/rxmap/rxmap/lib.js~actions",
+    "variable/index.html#static-variable-actions",
+    "<span>actions</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib.js</span>",
+    "variable"
+  ],
+  [
     "@rxmap/rxmap/rxmap/lib/index.js~actions",
     "variable/index.html#static-variable-actions",
     "<span>actions</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/index.js</span>",
@@ -88,12 +94,6 @@ window.esdocSearchIndex = [
     "function/index.html#static-function-click",
     "<span>click</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/observers/leaflet@latest/click.js</span>",
     "function"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib.js~commands",
-    "variable/index.html#static-variable-commands",
-    "<span>commands</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib.js</span>",
-    "variable"
   ],
   [
     "@rxmap/rxmap/rxmap/lib/actions/google@latest/create.js~create",
@@ -343,13 +343,13 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/core/asyncCommandBus.spec.js.html#lineNumber64",
+    "test-file/test/unit/core/asyncCommandBus.spec.js.html#lineNumber17",
     "AsyncCommandBus action Bus getValue",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/core/asyncCommandBus.spec.js.html#lineNumber17",
+    "test-file/test/unit/core/asyncCommandBus.spec.js.html#lineNumber64",
     "AsyncCommandBus action Bus getValue",
     "test"
   ],
