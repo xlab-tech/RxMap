@@ -30,7 +30,7 @@
     "lint": "eslint \"./**/*.js\" --fix",
     "doc": "./node_modules/.bin/esdoc",
     "start": "webpack-dev-server --open",
-    "build": "webpack --config webpack.pro.config.js && babel src -d dist/esm",
+    "build": "webpack --config webpack.pro.config.js && babel src -d dist/esm --ignore './src/index.umd.js'",
     "prepare": "npm run doc && npm run build",
     "build:es": "babel lib -d dist/lib2015"
   },
