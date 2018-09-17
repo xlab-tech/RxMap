@@ -1,4 +1,4 @@
-# [<img src="https://avatars0.githubusercontent.com/u/37194013?s=400&u=692377e91a2dab11006abb01d0db33cdb211c9b8&v=4" alt="xlab"  height="24">](https://xlab.tech) RxMap
+# [<img src="https://avatars0.githubusercontent.com/u/37194013?s=400&u=692377e91a2dab11006abb01d0db33cdb211c9b8&v=4" alt="xlab"  height="24">](https://xlab.tech) RxMap 
 
 [![Build Status](https://travis-ci.org/xlab-tech/RxMap.svg?branch=master)](https://travis-ci.org/xlab-tech/RxMap)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/fe06b87e1b6b4e279c8507c82d8ba73f)](https://www.codacy.com/project/xlab/RxMap/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=xlab-tech/RxMap&amp;utm_campaign=Badge_Grade_Dashboard)
@@ -8,9 +8,9 @@
 [![Code style: airbnb](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square)](https://github.com/airbnb/javascript)
 [![AUR](https://img.shields.io/aur/license/yaourt.svg)](https://github.com/xlab-tech/RxMap/blob/master/LICENSE)
 
-[<img src="https://avatars0.githubusercontent.com/u/37194013?s=400&u=692377e91a2dab11006abb01d0db33cdb211c9b8&v=4" alt="xlab"  height="56">](https://xlab.tech)
+[<img src="https://avatars0.githubusercontent.com/u/37194013?s=400&u=692377e91a2dab11006abb01d0db33cdb211c9b8&v=4" alt="xlab"  height="64">](https://xlab.tech)
 &nbsp;&nbsp;
-[<img src="https://p9.zdassets.com/hc/theme_assets/138842/200037786/logo.png" alt="Join Slack"  height="32">](https://join.slack.com/t/xlab-tech/shared_invite/enQtNDIwMzg1MTA2NjA5LTljZWNkZjliNjhhNTc4MTQ0OWVkNTAwMTE0NmU2YTllYTE5YzllZjM2NTQ1ZmNkMDRmMGI0NWE0NGRiZGIxNmE)
+[<img src="https://cdn.icon-icons.com/icons2/923/PNG/512/slack_alt_icon-icons.com_72013.png" alt="Join Slack"  height="64">](https://join.slack.com/t/xlab-tech/shared_invite/enQtNDIwMzg1MTA2NjA5LTljZWNkZjliNjhhNTc4MTQ0OWVkNTAwMTE0NmU2YTllYTE5YzllZjM2NTQ1ZmNkMDRmMGI0NWE0NGRiZGIxNmE)
 
 
 RxMap es una librería de mapas para programación funcional y reactiva usando observables([RxJs](https://github.com/ReactiveX/rxjs)) Y que permite fácilmente anidar llamadas asyncronas.
