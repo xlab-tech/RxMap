@@ -12,9 +12,9 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
-    "@rxmap/rxmap/rxmap/lib/middlewares/logger.js~loggermiddleware",
+    "@rxmap/rxmap/rxmap/src/map/middlewares/logger.js~loggermiddleware",
     "function/index.html#static-function-LoggerMiddleware",
-    "<span>LoggerMiddleware</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/middlewares/logger.js</span>",
+    "<span>LoggerMiddleware</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/map/middlewares/logger.js</span>",
     "function"
   ],
   [
@@ -42,9 +42,9 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
-    "@rxmap/rxmap/rxmap/lib/middlewares/logger.js~timermiddleware",
+    "@rxmap/rxmap/rxmap/src/map/middlewares/logger.js~timermiddleware",
     "function/index.html#static-function-TimerMiddleware",
-    "<span>TimerMiddleware</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/middlewares/logger.js</span>",
+    "<span>TimerMiddleware</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/map/middlewares/logger.js</span>",
     "function"
   ],
   [
@@ -54,99 +54,15 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
-    "@rxmap/rxmap/rxmap/lib/index.js~actions",
-    "variable/index.html#static-variable-actions",
-    "<span>actions</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/index.js</span>",
-    "variable"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/actions/common/adddata.js~adddata",
-    "function/index.html#static-function-addData",
-    "<span>addData</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/actions/common/addData.js</span>",
-    "function"
-  ],
-  [
     "@rxmap/rxmap/rxmap/src/core/importlazyload.js~addimportfunction",
     "function/index.html#static-function-addImportFunction",
     "<span>addImportFunction</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/core/importLazyLoad.js</span>",
     "function"
   ],
   [
-    "@rxmap/rxmap/rxmap/lib/observers/google@latest/center.js~center",
-    "function/index.html#static-function-center",
-    "<span>center</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/observers/google@latest/center.js</span>",
-    "function"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/observers/leaflet@latest/center.js~center",
-    "function/index.html#static-function-center",
-    "<span>center</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/observers/leaflet@latest/center.js</span>",
-    "function"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/observers/google@latest/click.js~click",
-    "function/index.html#static-function-click",
-    "<span>click</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/observers/google@latest/click.js</span>",
-    "function"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/observers/leaflet@latest/click.js~click",
-    "function/index.html#static-function-click",
-    "<span>click</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/observers/leaflet@latest/click.js</span>",
-    "function"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/actions/google@latest/create.js~create",
-    "function/index.html#static-function-create",
-    "<span>create</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/actions/google@latest/create.js</span>",
-    "function"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/actions/leaflet@latest/create.js~create",
-    "function/index.html#static-function-create",
-    "<span>create</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/actions/leaflet@latest/create.js</span>",
-    "function"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/actions/google@latest/marker.js~drawmarker",
-    "function/index.html#static-function-drawMarker",
-    "<span>drawMarker</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/actions/google@latest/marker.js</span>",
-    "function"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/actions/leaflet@latest/marker.js~drawmarker",
-    "function/index.html#static-function-drawMarker",
-    "<span>drawMarker</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/actions/leaflet@latest/marker.js</span>",
-    "function"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/actions/google@latest/point.js~drawpoint",
-    "function/index.html#static-function-drawPoint",
-    "<span>drawPoint</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/actions/google@latest/point.js</span>",
-    "function"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/actions/leaflet@latest/point.js~drawpoint",
-    "function/index.html#static-function-drawPoint",
-    "<span>drawPoint</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/actions/leaflet@latest/point.js</span>",
-    "function"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/utils/extractproperties.js~extractproperties",
-    "function/index.html#static-function-extractProperties",
-    "<span>extractProperties</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/utils/extractProperties.js</span>",
-    "function"
-  ],
-  [
     "@rxmap/rxmap/rxmap/lib.js~func",
     "function/index.html#static-function-func",
     "<span>func</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib.js</span>",
-    "function"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/index.js~func",
-    "function/index.html#static-function-func",
-    "<span>func</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/index.js</span>",
     "function"
   ],
   [
@@ -162,18 +78,6 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
-    "@rxmap/rxmap/rxmap/lib/utils/transformpointgoogle.js~googlepoint",
-    "function/index.html#static-function-googlePoint",
-    "<span>googlePoint</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/utils/transformPointGoogle.js</span>",
-    "function"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/observers/common/gps.js~gps",
-    "function/index.html#static-function-gps",
-    "<span>gps</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/observers/common/gps.js</span>",
-    "function"
-  ],
-  [
     "@rxmap/rxmap/rxmap/src/map/importmaplibrary.js~importmaplibrary",
     "function/index.html#static-function-importMapLibrary",
     "<span>importMapLibrary</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/map/importMapLibrary.js</span>",
@@ -183,12 +87,6 @@ window.esdocSearchIndex = [
     "@rxmap/rxmap/rxmap/src/utils/ispromise.js~ispromise",
     "function/index.html#static-function-isPromise",
     "<span>isPromise</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/utils/isPromise.js</span>",
-    "function"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/utils/transformpointleaflet.js~leafletpoint",
-    "function/index.html#static-function-leafletPoint",
-    "<span>leafletPoint</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/utils/transformPointLeaflet.js</span>",
     "function"
   ],
   [
@@ -210,15 +108,15 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
-    "@rxmap/rxmap/rxmap/lib.js~name",
-    "variable/index.html#static-variable-name",
-    "<span>name</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib.js</span>",
+    "@rxmap/rxmap/rxmap/src/index.js~middlewares",
+    "variable/index.html#static-variable-middlewares",
+    "<span>middlewares</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/index.js</span>",
     "variable"
   ],
   [
-    "@rxmap/rxmap/rxmap/lib/index.js~name",
+    "@rxmap/rxmap/rxmap/lib.js~name",
     "variable/index.html#static-variable-name",
-    "<span>name</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/index.js</span>",
+    "<span>name</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib.js</span>",
     "variable"
   ],
   [
@@ -238,24 +136,6 @@ window.esdocSearchIndex = [
     "variable/index.html#static-variable-observers",
     "<span>observers</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib.js</span>",
     "variable"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/index.js~observers",
-    "variable/index.html#static-variable-observers",
-    "<span>observers</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/index.js</span>",
-    "variable"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/actions/google@latest/popup.js~popup",
-    "function/index.html#static-function-popup",
-    "<span>popup</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/actions/google@latest/popup.js</span>",
-    "function"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/actions/leaflet@latest/popup.js~popup",
-    "function/index.html#static-function-popup",
-    "<span>popup</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/actions/leaflet@latest/popup.js</span>",
-    "function"
   ],
   [
     "@rxmap/rxmap/rxmap/src/core/registeraction.js~registeraction",
@@ -312,18 +192,6 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
-    "@rxmap/rxmap/rxmap/lib/actions/google@latest/setcenter.js~setcenter",
-    "function/index.html#static-function-setCenter",
-    "<span>setCenter</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/actions/google@latest/setCenter.js</span>",
-    "function"
-  ],
-  [
-    "@rxmap/rxmap/rxmap/lib/actions/leaflet@latest/setcenter.js~setcenter",
-    "function/index.html#static-function-setCenter",
-    "<span>setCenter</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib/actions/leaflet@latest/setCenter.js</span>",
-    "function"
-  ],
-  [
     "@rxmap/rxmap/rxmap/src/core/proxyaction.js~setproxy",
     "function/index.html#static-function-setProxy",
     "<span>setProxy</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/core/proxyAction.js</span>",
@@ -343,13 +211,13 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/core/asyncCommandBus.spec.js.html#lineNumber17",
+    "test-file/test/unit/core/asyncCommandBus.spec.js.html#lineNumber64",
     "AsyncCommandBus action Bus getValue",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/core/asyncCommandBus.spec.js.html#lineNumber64",
+    "test-file/test/unit/core/asyncCommandBus.spec.js.html#lineNumber17",
     "AsyncCommandBus action Bus getValue",
     "test"
   ],
@@ -445,13 +313,13 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/core/commandBus.spec.js.html#lineNumber79",
+    "test-file/test/unit/core/commandBus.spec.js.html#lineNumber88",
     "CommandBus observer action ",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/core/commandBus.spec.js.html#lineNumber88",
+    "test-file/test/unit/core/commandBus.spec.js.html#lineNumber79",
     "CommandBus observer action ",
     "test"
   ],
@@ -738,180 +606,6 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "rxmap/lib/actions/common/adddata.js",
-    "file/RxMap/lib/actions/common/addData.js.html",
-    "RxMap/lib/actions/common/addData.js",
-    "file"
-  ],
-  [
-    "rxmap/lib/actions/google@latest/adddata.js",
-    "file/RxMap/lib/actions/google@latest/addData.js.html",
-    "RxMap/lib/actions/google@latest/addData.js",
-    "file"
-  ],
-  [
-    "rxmap/lib/actions/google@latest/adddata.js~adddata",
-    "function/index.html#static-function-addData",
-    "RxMap/lib/actions/google@latest/addData.js~addData",
-    "external"
-  ],
-  [
-    "rxmap/lib/actions/google@latest/create.js",
-    "file/RxMap/lib/actions/google@latest/create.js.html",
-    "RxMap/lib/actions/google@latest/create.js",
-    "file"
-  ],
-  [
-    "rxmap/lib/actions/google@latest/marker.js",
-    "file/RxMap/lib/actions/google@latest/marker.js.html",
-    "RxMap/lib/actions/google@latest/marker.js",
-    "file"
-  ],
-  [
-    "rxmap/lib/actions/google@latest/point.js",
-    "file/RxMap/lib/actions/google@latest/point.js.html",
-    "RxMap/lib/actions/google@latest/point.js",
-    "file"
-  ],
-  [
-    "rxmap/lib/actions/google@latest/popup.js",
-    "file/RxMap/lib/actions/google@latest/popup.js.html",
-    "RxMap/lib/actions/google@latest/popup.js",
-    "file"
-  ],
-  [
-    "rxmap/lib/actions/google@latest/setcenter.js",
-    "file/RxMap/lib/actions/google@latest/setCenter.js.html",
-    "RxMap/lib/actions/google@latest/setCenter.js",
-    "file"
-  ],
-  [
-    "rxmap/lib/actions/leaflet@latest/adddata.js",
-    "file/RxMap/lib/actions/leaflet@latest/addData.js.html",
-    "RxMap/lib/actions/leaflet@latest/addData.js",
-    "file"
-  ],
-  [
-    "rxmap/lib/actions/leaflet@latest/adddata.js~adddata",
-    "function/index.html#static-function-addData",
-    "RxMap/lib/actions/leaflet@latest/addData.js~addData",
-    "external"
-  ],
-  [
-    "rxmap/lib/actions/leaflet@latest/create.js",
-    "file/RxMap/lib/actions/leaflet@latest/create.js.html",
-    "RxMap/lib/actions/leaflet@latest/create.js",
-    "file"
-  ],
-  [
-    "rxmap/lib/actions/leaflet@latest/marker.js",
-    "file/RxMap/lib/actions/leaflet@latest/marker.js.html",
-    "RxMap/lib/actions/leaflet@latest/marker.js",
-    "file"
-  ],
-  [
-    "rxmap/lib/actions/leaflet@latest/point.js",
-    "file/RxMap/lib/actions/leaflet@latest/point.js.html",
-    "RxMap/lib/actions/leaflet@latest/point.js",
-    "file"
-  ],
-  [
-    "rxmap/lib/actions/leaflet@latest/popup.js",
-    "file/RxMap/lib/actions/leaflet@latest/popup.js.html",
-    "RxMap/lib/actions/leaflet@latest/popup.js",
-    "file"
-  ],
-  [
-    "rxmap/lib/actions/leaflet@latest/setcenter.js",
-    "file/RxMap/lib/actions/leaflet@latest/setCenter.js.html",
-    "RxMap/lib/actions/leaflet@latest/setCenter.js",
-    "file"
-  ],
-  [
-    "rxmap/lib/index.js",
-    "file/RxMap/lib/index.js.html",
-    "RxMap/lib/index.js",
-    "file"
-  ],
-  [
-    "rxmap/lib/middlewares/logger.js",
-    "file/RxMap/lib/middlewares/logger.js.html",
-    "RxMap/lib/middlewares/logger.js",
-    "file"
-  ],
-  [
-    "rxmap/lib/observers/common/gps.js",
-    "file/RxMap/lib/observers/common/gps.js.html",
-    "RxMap/lib/observers/common/gps.js",
-    "file"
-  ],
-  [
-    "rxmap/lib/observers/google@latest/center.js",
-    "file/RxMap/lib/observers/google@latest/center.js.html",
-    "RxMap/lib/observers/google@latest/center.js",
-    "file"
-  ],
-  [
-    "rxmap/lib/observers/google@latest/click.js",
-    "file/RxMap/lib/observers/google@latest/click.js.html",
-    "RxMap/lib/observers/google@latest/click.js",
-    "file"
-  ],
-  [
-    "rxmap/lib/observers/google@latest/gps.js",
-    "file/RxMap/lib/observers/google@latest/gps.js.html",
-    "RxMap/lib/observers/google@latest/gps.js",
-    "file"
-  ],
-  [
-    "rxmap/lib/observers/google@latest/gps.js~gps",
-    "function/index.html#static-function-gps",
-    "RxMap/lib/observers/google@latest/gps.js~gps",
-    "external"
-  ],
-  [
-    "rxmap/lib/observers/leaflet@latest/center.js",
-    "file/RxMap/lib/observers/leaflet@latest/center.js.html",
-    "RxMap/lib/observers/leaflet@latest/center.js",
-    "file"
-  ],
-  [
-    "rxmap/lib/observers/leaflet@latest/click.js",
-    "file/RxMap/lib/observers/leaflet@latest/click.js.html",
-    "RxMap/lib/observers/leaflet@latest/click.js",
-    "file"
-  ],
-  [
-    "rxmap/lib/observers/leaflet@latest/gps.js",
-    "file/RxMap/lib/observers/leaflet@latest/gps.js.html",
-    "RxMap/lib/observers/leaflet@latest/gps.js",
-    "file"
-  ],
-  [
-    "rxmap/lib/observers/leaflet@latest/gps.js~gps",
-    "function/index.html#static-function-gps",
-    "RxMap/lib/observers/leaflet@latest/gps.js~gps",
-    "external"
-  ],
-  [
-    "rxmap/lib/utils/extractproperties.js",
-    "file/RxMap/lib/utils/extractProperties.js.html",
-    "RxMap/lib/utils/extractProperties.js",
-    "file"
-  ],
-  [
-    "rxmap/lib/utils/transformpointgoogle.js",
-    "file/RxMap/lib/utils/transformPointGoogle.js.html",
-    "RxMap/lib/utils/transformPointGoogle.js",
-    "file"
-  ],
-  [
-    "rxmap/lib/utils/transformpointleaflet.js",
-    "file/RxMap/lib/utils/transformPointLeaflet.js.html",
-    "RxMap/lib/utils/transformPointLeaflet.js",
-    "file"
-  ],
-  [
     "rxmap/src/core/asynccommandbus.js",
     "file/RxMap/src/core/AsyncCommandBus.js.html",
     "RxMap/src/core/AsyncCommandBus.js",
@@ -1134,6 +828,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "rxmap/src/map/middlewares/logger.js",
+    "file/RxMap/src/map/middlewares/logger.js.html",
+    "RxMap/src/map/middlewares/logger.js",
+    "file"
+  ],
+  [
     "rxmap/src/utils/google.js",
     "file/RxMap/src/utils/google.js.html",
     "RxMap/src/utils/google.js",
@@ -1150,36 +850,6 @@ window.esdocSearchIndex = [
     "file/RxMap/src/utils/polyfill.js.html",
     "RxMap/src/utils/polyfill.js",
     "file"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/extractProperties.spec.js.html#lineNumber5",
-    "extractProperties",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/extractProperties.spec.js.html#lineNumber14",
-    "extractProperties attributes",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/extractProperties.spec.js.html#lineNumber22",
-    "extractProperties fields",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/extractProperties.spec.js.html#lineNumber30",
-    "extractProperties no data",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/extractProperties.spec.js.html#lineNumber6",
-    "extractProperties properties",
-    "test"
   ],
   [
     "",
@@ -1296,171 +966,9 @@ window.esdocSearchIndex = [
     "testFile"
   ],
   [
-    "test/unit/utils/extractproperties.spec.js",
-    "test-file/test/unit/utils/extractProperties.spec.js.html",
-    "test/unit/utils/extractProperties.spec.js",
-    "testFile"
-  ],
-  [
     "test/unit/utils/google.spec.js",
     "test-file/test/unit/utils/google.spec.js.html",
     "test/unit/utils/google.spec.js",
     "testFile"
-  ],
-  [
-    "test/unit/utils/transformpoint.spec.js",
-    "test-file/test/unit/utils/transformPoint.spec.js.html",
-    "test/unit/utils/transformPoint.spec.js",
-    "testFile"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber6",
-    "transformPoint",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber7",
-    "transformPoint transformPoint Google",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber23",
-    "transformPoint transformPoint Google array",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber51",
-    "transformPoint transformPoint Google center",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber8",
-    "transformPoint transformPoint Google err",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber11",
-    "transformPoint transformPoint Google err mandatory",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber39",
-    "transformPoint transformPoint Google latitudelongitude",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber35",
-    "transformPoint transformPoint Google latitudlongitud",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber27",
-    "transformPoint transformPoint Google latlng",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber31",
-    "transformPoint transformPoint Google latlon",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber47",
-    "transformPoint transformPoint Google location",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber18",
-    "transformPoint transformPoint Google no mandatory",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber43",
-    "transformPoint transformPoint Google position",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber56",
-    "transformPoint transformPoint Leaflet",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber67",
-    "transformPoint transformPoint Leaflet array",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber95",
-    "transformPoint transformPoint Leaflet center",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber57",
-    "transformPoint transformPoint Leaflet err",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber60",
-    "transformPoint transformPoint Leaflet err mandatory",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber83",
-    "transformPoint transformPoint Leaflet latitudelongitude",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber79",
-    "transformPoint transformPoint Leaflet latitudlongitud",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber71",
-    "transformPoint transformPoint Leaflet latlng",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber75",
-    "transformPoint transformPoint Leaflet latlon",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber91",
-    "transformPoint transformPoint Leaflet location",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber99",
-    "transformPoint transformPoint Leaflet no mandatory",
-    "test"
-  ],
-  [
-    "",
-    "test-file/test/unit/utils/transformPoint.spec.js.html#lineNumber87",
-    "transformPoint transformPoint Leaflet position",
-    "test"
   ]
 ]

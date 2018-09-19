@@ -89,15 +89,16 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="github-markdown">
-  <div class="manual-user-index" data-ice="manualUserIndex"><h1 id="rxmap">RxMap</h1><p><img src="https://avatars0.githubusercontent.com/u/37194013?s=400&amp;u=692377e91a2dab11006abb01d0db33cdb211c9b8&amp;v=4|width=64" alt=""> 
-<a href="https://travis-ci.org/xlab-tech/RxMap"><img src="https://travis-ci.org/xlab-tech/RxMap.svg?branch=master" alt="Build Status"></a>
+  <div class="manual-user-index" data-ice="manualUserIndex"><h1 id="-a-href--https---xlab-tech---img-src--https---avatars0-githubusercontent-com-u-37194013-s-400-u-692377e91a2dab11006abb01d0db33cdb211c9b8-v-4----height--24----a--rxmap"><a href="https://xlab.tech"><img src="https://avatars0.githubusercontent.com/u/37194013?s=400&amp;u=692377e91a2dab11006abb01d0db33cdb211c9b8&amp;v=4" height="24"></a> RxMap</h1><p><a href="https://travis-ci.org/xlab-tech/RxMap"><img src="https://travis-ci.org/xlab-tech/RxMap.svg?branch=master" alt="Build Status"></a>
 <a href="https://www.codacy.com/project/xlab/RxMap/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=xlab-tech/RxMap&amp;utm_campaign=Badge_Grade_Dashboard"><img src="https://api.codacy.com/project/badge/Grade/fe06b87e1b6b4e279c8507c82d8ba73f" alt="Codacy Badge"></a>
 <a href="https://coveralls.io/github/xlab-tech/RxMap?branch=master"><img src="https://coveralls.io/repos/github/xlab-tech/RxMap/badge.svg?branch=master" alt="Coverage Status"></a>
 <a href="https://david-dm.org/xlab-tech/RxMap"><img src="https://david-dm.org/xlab-tech/RxMap/status.svg" alt="dependencies Status"></a>
 <a href="https://david-dm.org/xlab-tech/RxMap?type=dev"><img src="https://david-dm.org/xlab-tech/RxMap/dev-status.svg" alt="devDependencies Status"></a>
 <a href="https://github.com/airbnb/javascript"><img src="https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square" alt="Code style: airbnb"></a>
 <a href="https://github.com/xlab-tech/RxMap/blob/master/LICENSE"><img src="https://img.shields.io/aur/license/yaourt.svg" alt="AUR"></a></p>
-<p><a href="https://join.slack.com/t/xlab-tech/shared_invite/enQtNDIwMzg1MTA2NjA5LTljZWNkZjliNjhhNTc4MTQ0OWVkNTAwMTE0NmU2YTllYTE5YzllZjM2NTQ1ZmNkMDRmMGI0NWE0NGRiZGIxNmE"><img src="https://xlab-tech.slack.com/badge.svg" alt="Slack Status"></a></p>
+<p><a href="https://xlab.tech"><img src="https://avatars0.githubusercontent.com/u/37194013?s=400&amp;u=692377e91a2dab11006abb01d0db33cdb211c9b8&amp;v=4" height="64"></a>
+&#xA0;&#xA0;
+<a href="https://join.slack.com/t/xlab-tech/shared_invite/enQtNDIwMzg1MTA2NjA5LTljZWNkZjliNjhhNTc4MTQ0OWVkNTAwMTE0NmU2YTllYTE5YzllZjM2NTQ1ZmNkMDRmMGI0NWE0NGRiZGIxNmE"><img src="https://cdn.icon-icons.com/icons2/923/PNG/512/slack_alt_icon-icons.com_72013.png" height="64"></a></p>
 <p>RxMap es una librer&#xED;a de mapas para programaci&#xF3;n funcional y reactiva usando observables(<a href="https://github.com/ReactiveX/rxjs">RxJs</a>) Y que permite f&#xE1;cilmente anidar llamadas asyncronas.</p>
 <p>RxMap se basa en dos conceptos acciones y observadores para organizar tu c&#xF3;digo en peque&#xF1;os bloques. Y tambi&#xE9;n te permite escribir middlewares para desacoplar mejor tu c&#xF3;digo.</p>
 <p>De facto incluye observables sobre las acciones y un store obsevable, para poder observar  los cambios sobre datos que guardes.</p>
@@ -115,11 +116,11 @@ centrarte en desarrollar tus funcionalidades.</p>
 </ul>
 <h2 id="instalaci&#xF3;n">Instalaci&#xF3;n</h2><h3 id="npm">NPM</h3><pre><code><code class="source-code prettyprint">Npm install @rxmap\rxmap &#x2014;save</code>
 </code></pre><h3 id="cdn">CDN</h3><pre><code><code class="source-code prettyprint">&lt;head&gt;
-&lt;script type=&#x2018;application/javascript&#x2019; src=&#x2018;https://unpkg.com/@rxmap/rxmap@0.0.2&#x2019; defer/&gt;
+&lt;script type=&#x2018;application/javascript&#x2019; src=&#x2018;https://unpkg.com/@rxmap/rxmap@0.1.0&#x2019; defer/&gt;
 &lt;/head&gt;
 </code>
 </code></pre><h2 id="como-utilizarla">Como utilizarla</h2><p>Lo ideal es tener las acciones y los observadores en librer&#xED;as externas, lo primero seria registrar estas librer&#xED;as para poder utilizarlas</p>
-<pre><code><code class="source-code prettyprint">import rxLib from &apos;@rxmap/rxmap/lib&apos;;
+<pre><code><code class="source-code prettyprint">import rxLib from &apos;@rxmap/basiclib&apos;;
 registerLib(...rxLib);
 </code>
 </code></pre><p> Una vez registradas las librer&#xED;as o las acciones a utilizar. Lo primero es cargar el mapa que se quiera utilizar 
@@ -159,19 +160,15 @@ R.RxMap.marker(2.45,41.56).popup(&#x2018;hello&#x2019;);
 </ul>
 <h1 id="examples">Examples</h1><h1 id="librerias">Librerias</h1><p>Librer&#xED;as para a&#xF1;adir acciones y observadores:</p>
 <ul>
-<li>RxMapLib<ul>
+<li><a href="https://github.com/xlab-tech/RxMapBasicLib">RxMapBasicLib</a></li>
 <li>.. </li>
 </ul>
-</li>
-</ul>
-<p>Para a&#xF1;adir una nueva librer&#xED;a enviar un mail a <a href="mailto:rxmap@xlab-tech.com">rxmap@xlab-tech.com</a>  o realiza un pullRequest de la documentaci&#xF3;n con la libreria a&#xF1;adida.
+<p>Para a&#xF1;adir una nueva librer&#xED;a enviar un mail a <a href="mailto:rxmap@xlab.tech">rxmap@xlab.tech</a>  o realiza un pullRequest de la documentaci&#xF3;n con la libreria a&#xF1;adida.
 Para hacer un PullRequest:</p>
 <ul>
-<li>Haz un fork del repositorio.<ul>
+<li>Haz un fork del repositorio.</li>
 <li>Haz commit y push de los cambios en tu reposition.</li>
 <li>Crear un PullRequest . </li>
-</ul>
-</li>
 </ul>
 </div>
 
@@ -437,11 +434,11 @@ export default [
 <div class="manual-card-wrap" data-ice="cards">
       <div class="manual-card">
         <div data-ice="card"><h1>Librerias</h1><p>Librer&#xED;as para a&#xF1;adir acciones y observadores:</p><ul>
-<li>RxMapLib<ul>
+<li><a href="https://github.com/xlab-tech/RxMapBasicLib">RxMapBasicLib</a><ul>
 <li>.. </li>
 </ul>
 </li>
-</ul><p>Para a&#xF1;adir una nueva librer&#xED;a enviar un mail a <a href="./manual/mailto:rxmap@xlab-tech.com">rxmap@xlab-tech.com</a>  o realiza un pullRequest de la documentaci&#xF3;n con la libreria a&#xF1;adida.
+</ul><p>Para a&#xF1;adir una nueva librer&#xED;a enviar un mail a <a href="./manual/mailto:rxmap@xlab.tech">rxmap@xlab.tech</a>  o realiza un pullRequest de la documentaci&#xF3;n con la libreria a&#xF1;adida.
 Para hacer un PullRequest:</p><ul>
 <li>Haz un fork del repositorio.<ul>
 <li>Haz commit y push de los cambios en tu reposition.</li>

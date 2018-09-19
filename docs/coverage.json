@@ -1,181 +1,8 @@
 {
-  "coverage": "47.18%",
-  "expectCount": 142,
-  "actualCount": 67,
+  "coverage": "49%",
+  "expectCount": 100,
+  "actualCount": 49,
   "files": {
-    "RxMap/lib/actions/common/addData.js": {
-      "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        2
-      ]
-    },
-    "RxMap/lib/actions/google@latest/addData.js": {
-      "expectCount": 1,
-      "actualCount": 1,
-      "undocumentLines": []
-    },
-    "RxMap/lib/actions/google@latest/create.js": {
-      "expectCount": 2,
-      "actualCount": 1,
-      "undocumentLines": [
-        2
-      ]
-    },
-    "RxMap/lib/actions/google@latest/marker.js": {
-      "expectCount": 2,
-      "actualCount": 1,
-      "undocumentLines": [
-        5
-      ]
-    },
-    "RxMap/lib/actions/google@latest/point.js": {
-      "expectCount": 2,
-      "actualCount": 1,
-      "undocumentLines": [
-        5
-      ]
-    },
-    "RxMap/lib/actions/google@latest/popup.js": {
-      "expectCount": 3,
-      "actualCount": 1,
-      "undocumentLines": [
-        3,
-        14
-      ]
-    },
-    "RxMap/lib/actions/google@latest/setCenter.js": {
-      "expectCount": 2,
-      "actualCount": 1,
-      "undocumentLines": [
-        4
-      ]
-    },
-    "RxMap/lib/actions/leaflet@latest/addData.js": {
-      "expectCount": 1,
-      "actualCount": 1,
-      "undocumentLines": []
-    },
-    "RxMap/lib/actions/leaflet@latest/create.js": {
-      "expectCount": 2,
-      "actualCount": 1,
-      "undocumentLines": [
-        2
-      ]
-    },
-    "RxMap/lib/actions/leaflet@latest/marker.js": {
-      "expectCount": 2,
-      "actualCount": 1,
-      "undocumentLines": [
-        5
-      ]
-    },
-    "RxMap/lib/actions/leaflet@latest/point.js": {
-      "expectCount": 2,
-      "actualCount": 1,
-      "undocumentLines": [
-        5
-      ]
-    },
-    "RxMap/lib/actions/leaflet@latest/popup.js": {
-      "expectCount": 3,
-      "actualCount": 1,
-      "undocumentLines": [
-        2,
-        11
-      ]
-    },
-    "RxMap/lib/actions/leaflet@latest/setCenter.js": {
-      "expectCount": 2,
-      "actualCount": 1,
-      "undocumentLines": [
-        4
-      ]
-    },
-    "RxMap/lib/index.js": {
-      "expectCount": 4,
-      "actualCount": 0,
-      "undocumentLines": [
-        2,
-        3,
-        4,
-        5
-      ]
-    },
-    "RxMap/lib/middlewares/logger.js": {
-      "expectCount": 2,
-      "actualCount": 0,
-      "undocumentLines": [
-        2,
-        12
-      ]
-    },
-    "RxMap/lib/observers/common/gps.js": {
-      "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        4
-      ]
-    },
-    "RxMap/lib/observers/google@latest/center.js": {
-      "expectCount": 2,
-      "actualCount": 1,
-      "undocumentLines": [
-        4
-      ]
-    },
-    "RxMap/lib/observers/google@latest/click.js": {
-      "expectCount": 2,
-      "actualCount": 1,
-      "undocumentLines": [
-        4
-      ]
-    },
-    "RxMap/lib/observers/google@latest/gps.js": {
-      "expectCount": 1,
-      "actualCount": 1,
-      "undocumentLines": []
-    },
-    "RxMap/lib/observers/leaflet@latest/center.js": {
-      "expectCount": 2,
-      "actualCount": 1,
-      "undocumentLines": [
-        4
-      ]
-    },
-    "RxMap/lib/observers/leaflet@latest/click.js": {
-      "expectCount": 2,
-      "actualCount": 1,
-      "undocumentLines": [
-        4
-      ]
-    },
-    "RxMap/lib/observers/leaflet@latest/gps.js": {
-      "expectCount": 1,
-      "actualCount": 1,
-      "undocumentLines": []
-    },
-    "RxMap/lib/utils/extractProperties.js": {
-      "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        2
-      ]
-    },
-    "RxMap/lib/utils/transformPointGoogle.js": {
-      "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        1
-      ]
-    },
-    "RxMap/lib/utils/transformPointLeaflet.js": {
-      "expectCount": 1,
-      "actualCount": 0,
-      "undocumentLines": [
-        1
-      ]
-    },
     "RxMap/lib.js": {
       "expectCount": 4,
       "actualCount": 0,
@@ -280,9 +107,11 @@
       ]
     },
     "RxMap/src/index.js": {
-      "expectCount": 7,
+      "expectCount": 8,
       "actualCount": 7,
-      "undocumentLines": []
+      "undocumentLines": [
+        39
+      ]
     },
     "RxMap/src/index.umd.js": {
       "expectCount": 2,
@@ -311,6 +140,14 @@
       "actualCount": 0,
       "undocumentLines": [
         3
+      ]
+    },
+    "RxMap/src/map/middlewares/logger.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        2,
+        12
       ]
     },
     "RxMap/src/utils/google.js": {

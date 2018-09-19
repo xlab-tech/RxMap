@@ -1,4 +1,4 @@
-# [<img src="https://avatars0.githubusercontent.com/u/37194013?s=400&u=692377e91a2dab11006abb01d0db33cdb211c9b8&v=4" alt="xlab"  height="24">](https://xlab.tech) RxMap 
+# [<img src="https://avatars0.githubusercontent.com/u/37194013?s=400&u=692377e91a2dab11006abb01d0db33cdb211c9b8&v=4" alt="xlab"  height="24">](https://xlab.tech) RxMap
 
 [![Build Status](https://travis-ci.org/xlab-tech/RxMap.svg?branch=master)](https://travis-ci.org/xlab-tech/RxMap)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/fe06b87e1b6b4e279c8507c82d8ba73f)](https://www.codacy.com/project/xlab/RxMap/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=xlab-tech/RxMap&amp;utm_campaign=Badge_Grade_Dashboard)
@@ -43,7 +43,7 @@ Npm install @rxmap\rxmap —save
 ### CDN
 ```
 <head>
-<script type=‘application/javascript’ src=‘https://unpkg.com/@rxmap/rxmap@0.0.2’ defer/>
+<script type=‘application/javascript’ src=‘https://unpkg.com/@rxmap/rxmap@0.1.0’ defer/>
 </head>
 
 ```
@@ -52,7 +52,7 @@ Npm install @rxmap\rxmap —save
 Lo ideal es tener las acciones y los observadores en librerías externas, lo primero seria registrar estas librerías para poder utilizarlas
 
 ```
-import rxLib from '@rxmap/rxmap/lib';
+import rxLib from '@rxmap/basiclib';
 registerLib(...rxLib);
 
 ```
@@ -103,11 +103,11 @@ Puedes encontrar más Documentación aquí:
 
 # Librerias
 Librerías para añadir acciones y observadores:
-  * RxMapBasicLib
-	* .. 
+  * [RxMapBasicLib](https://github.com/xlab-tech/RxMapBasicLib)
+  * .. 
 
 Para añadir una nueva librería enviar un mail a rxmap@xlab.tech  o realiza un pullRequest de la documentación con la libreria añadida.
 Para hacer un PullRequest:
   * Haz un fork del repositorio.
-	* Haz commit y push de los cambios en tu reposition.
-	* Crear un PullRequest . 
+  * Haz commit y push de los cambios en tu reposition.
+  * Crear un PullRequest . 

@@ -5,7 +5,7 @@ import * as _registerMiddleware from './core/middlewares';
 import * as _RxMap from './map/RxMap';
 import _RxMapFromConfig from './map/config';
 import _registerLib from './core/registerLib';
-
+import * as _middlewares from './map/middlewares/logger';
 /**
  * @type {registerAction}
  */
@@ -26,7 +26,7 @@ export const RxMap = _RxMap.default;
 /**
  * @type {RxMap} Clase
  */
-export const { RxMapClass } = _RxMap.RxMap;
+export const RxMapClass = _RxMap.RxMap;
 /**
  * @type {RxMapFromConfig}
  */
@@ -36,6 +36,8 @@ export const RxMapFromConfig = _RxMapFromConfig;
  */
 export const registerLib = _registerLib;
 
+export const middlewares = _middlewares;
+
 export default {
   registerAction,
   registerObserver,
@@ -44,4 +46,5 @@ export default {
   RxMap,
   RxMapClass,
   RxMapFromConfig,
+  middlewares,
 };
