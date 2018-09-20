@@ -111,3 +111,9 @@ Para hacer un PullRequest:
   * Haz un fork del repositorio.
   * Haz commit y push de los cambios en tu reposition.
   * Crear un PullRequest . 
+
+# Mapas Soportados
+ * [google](https://cloud.google.com/maps-platform/)
+ * [leaflet](https://leafletjs.com/)
+ * [mapbox](https://www.mapbox.com/)
+ 

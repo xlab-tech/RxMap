@@ -14,7 +14,7 @@ import rxLib from '@rxmap/basiclib';
 const config = {
   type: 'leaflet',
   options: {
-    key: 'AIzaSyCjj-I0sYedbWCAmAoW2LgAr4T2bkPa09Y',
+    key: process.env.GOOGLE_TOKEN,
   },
   map: {
     autoCenter: false,

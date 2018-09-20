@@ -25,6 +25,11 @@ describe('Import Map Library', function () {
     const lib = await importMapLibrary('leaflet');
     expect(lib).to.be.a('object');
   });
+  it('Import Mapbox', async () => {
+    window.URL.createObjectURL = () => { };
+    const lib = await importMapLibrary('mapbox');
+    expect(lib).to.be.a('object');
+  });
   it('Import Error', (done) => {
     importMapLibrary('aa').catch(() => done());
   });
