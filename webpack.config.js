@@ -9,7 +9,8 @@ module.exports = {
   entry: {
     RxMap: './src/index.js',
     // example: './examples/map.load.js',
-    mapbox: './examples/mapbox.js',
+    // mapbox: './examples/mapbox.js',
+    ol: './examples/ol.js',
   },
   output: {
     filename: '[name].js',

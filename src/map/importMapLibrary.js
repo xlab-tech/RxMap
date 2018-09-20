@@ -11,10 +11,15 @@ export default async (lib, options = {}) => {
     const { loadGoogle } = await import(/* webpackChunkName: "google" */'../utils/google');
     return loadGoogle(options.key);
   }
+
   if (lib === 'mapbox') {
     const mapbox = await import(/* webpackChunkName: "mapboxGl" */'mapbox-gl');
     mapbox.default.accessToken = options.key;
     return mapbox;
+  }
+
+  if (lib === 'ol') {
+    return import(/* webpackChunkName: "ol" */'ol');
   }
   throw new Error(`Library ${lib} not supported`);
 };
