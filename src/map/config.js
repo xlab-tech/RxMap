@@ -1,12 +1,12 @@
-import { take } from 'rxjs/internal/operators/take';
+
 import rxMap from './RxMap';
 import isPromise from '../utils/isPromise';
 
 const rxMapFromConfig = async (id, config) => {
   const {
-    type, map, options, dataTypes,
+    type, map, options, dataTypes, actions,
   } = config;
-  const { center, zoom, autoCenter } = map;
+  const { center, zoom } = map;
   const mapCenter = center || { lat: 0, lng: 0 };
 
   await rxMap.load(type, options);
@@ -17,12 +17,16 @@ const rxMapFromConfig = async (id, config) => {
     await new Promise(resolve => create.subscribe(data => resolve(data)));
   }
 
-  if (autoCenter) {
-    rxMap.observer('gps')
-      .pipe(take(1))
-      .setCenter(res => ({ lat: res.latitude, lng: res.longitude }))
-      .subscribe();
+  if (actions) {
+    actions.forEach((action) => {
+      if (Array.isArray(action)) {
+        action.reduce((item, data) => item[data.name](...data.params), rxMap);
+      } else {
+        rxMap[action.name](...action.params);
+      }
+    });
   }
+
   if (dataTypes) {
     dataTypes.forEach(element => rxMap.setDataType(element.id, element.geomType, element.style));
   }

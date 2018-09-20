@@ -2,10 +2,8 @@
 {
     "type": "leaflet|google|mapbox",
     "key": "",
-    "commands": [],
-    "observers": [],
+    "action":[],
     "map": {
-        "auto":true,
         "center": [
             12,
             23

@@ -24,6 +24,20 @@ const config = {
     },
     zoom: 13,
   },
+  actions: [
+    {
+      name: 'marker',
+      params: [{ lat: 41.390205, lng: 2.154007 }]
+    },
+    [{
+      name: 'marker',
+      params: [{ lat: 48.864716, lng: 2.349014 }]
+    }, {
+      name: 'popup',
+      params: ['config']
+    },
+    ]
+  ],
   dataTypes: [
     {
       id: 'test',

@@ -68,15 +68,15 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">RxMap/src/map/config.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { take } from &apos;rxjs/internal/operators/take&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
 import rxMap from &apos;./RxMap&apos;;
 import isPromise from &apos;../utils/isPromise&apos;;
 
 const rxMapFromConfig = async (id, config) =&gt; {
   const {
-    type, map, options, dataTypes,
+    type, map, options, dataTypes, actions,
   } = config;
-  const { center, zoom, autoCenter } = map;
+  const { center, zoom } = map;
   const mapCenter = center || { lat: 0, lng: 0 };
 
   await rxMap.load(type, options);
@@ -87,12 +87,16 @@ const rxMapFromConfig = async (id, config) =&gt; {
     await new Promise(resolve =&gt; create.subscribe(data =&gt; resolve(data)));
   }
 
-  if (autoCenter) {
-    rxMap.observer(&apos;gps&apos;)
-      .pipe(take(1))
-      .setCenter(res =&gt; ({ lat: res.latitude, lng: res.longitude }))
-      .subscribe();
+  if (actions) {
+    actions.forEach((action) =&gt; {
+      if (Array.isArray(action)) {
+        action.reduce((item, data) =&gt; item[data.name](...data.params), rxMap);
+      } else {
+        rxMap[action.name](...action.params);
+      }
+    });
   }
+
   if (dataTypes) {
     dataTypes.forEach(element =&gt; rxMap.setDataType(element.id, element.geomType, element.style));
   }
