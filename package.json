@@ -94,6 +94,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "@babel/runtime": "^7.0.0",
+    "@carto/carto.js": "^4.1.6",
     "core-js": "^2.5.7",
     "esri-loader": "^2.4.0",
     "google-maps": "^3.3.0",

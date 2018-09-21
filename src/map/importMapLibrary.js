@@ -13,7 +13,7 @@ export default async (lib, options = {}) => {
   }
 
   if (lib === 'mapbox') {
-    const mapbox = await import(/* webpackChunkName: "mapboxGl" */'mapbox-gl');
+    const mapbox = await import(/* webpackChunkName: "mapbox" */'mapbox-gl');
     mapbox.default.accessToken = options.key;
     return mapbox;
   }
@@ -23,9 +23,21 @@ export default async (lib, options = {}) => {
   }
 
   if (lib === 'esri') {
-    const esriLoader = await import(/* webpackChunkName: "esriLoader" */'esri-loader');
+    const esriLoader = await import(/* webpackChunkName: "esri" */'esri-loader');
     const loadScriptPromise = esriLoader.loadScript();
     return loadScriptPromise.then(() => esriLoader);
+  }
+  if (lib === 'carto') {
+    await loadCSS('https://unpkg.com/leaflet@1.3.4/dist/leaflet.css');
+    const leaflet = await import(/* webpackChunkName: "leaflet" */'leaflet');
+    const carto = await import(/* webpackChunkName: "carto" */'@carto/carto.js');
+    const client = new carto.Client({
+      apiKey: options.key,
+      username: options.user,
+    });
+    return {
+      leaflet, carto, client,
+    };
   }
   throw new Error(`Library ${lib} not supported`);
 };

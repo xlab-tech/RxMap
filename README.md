@@ -15,6 +15,8 @@
 
 RxMap es una librería de mapas para programación funcional y reactiva usando observables([RxJs](https://github.com/ReactiveX/rxjs)) Y que permite fácilmente anidar llamadas asyncronas.
 
+RxMap no sustituye al visor sino que añade a los visores actuales una capa adicional para poder mejorar el mantenimiento de tus proyectos. Y añade funcionalidades adicionales para mejorar la performance y la escalabilidad de tu código. 
+
 RxMap se basa en dos conceptos acciones y observadores para organizar tu código en pequeños bloques. Y también te permite escribir middlewares para desacoplar mejor tu código.
 
 De facto incluye observables sobre las acciones y un store obsevable, para poder observar  los cambios sobre datos que guardes.
@@ -117,3 +119,5 @@ Para hacer un PullRequest:
  * [leaflet](https://leafletjs.com/)
  * [mapbox](https://www.mapbox.com/)
  * [ol](https://openlayers.org/)
+ * [esri](https://developers.arcgis.com/javascript/)
+ * [carto](https://carto.com/)
