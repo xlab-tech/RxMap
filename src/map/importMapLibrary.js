@@ -21,5 +21,11 @@ export default async (lib, options = {}) => {
   if (lib === 'ol') {
     return import(/* webpackChunkName: "ol" */'ol');
   }
+
+  if (lib === 'esri') {
+    const esriLoader = await import(/* webpackChunkName: "esriLoader" */'esri-loader');
+    const loadScriptPromise = esriLoader.loadScript();
+    return loadScriptPromise.then(() => esriLoader);
+  }
   throw new Error(`Library ${lib} not supported`);
 };

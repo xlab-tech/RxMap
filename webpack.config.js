@@ -10,7 +10,8 @@ module.exports = {
     RxMap: './src/index.js',
     // example: './examples/map.load.js',
     // mapbox: './examples/mapbox.js',
-    ol: './examples/ol.js',
+    // ol: './examples/ol.js',
+    esri: './examples/esri.js',
   },
   output: {
     filename: '[name].js',
