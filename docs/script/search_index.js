@@ -313,13 +313,13 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/core/commandBus.spec.js.html#lineNumber88",
+    "test-file/test/unit/core/commandBus.spec.js.html#lineNumber79",
     "CommandBus observer action ",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/core/commandBus.spec.js.html#lineNumber79",
+    "test-file/test/unit/core/commandBus.spec.js.html#lineNumber88",
     "CommandBus observer action ",
     "test"
   ],
@@ -373,7 +373,7 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/core/importMapLibrary.spec.js.html#lineNumber28",
+    "test-file/test/unit/core/importMapLibrary.spec.js.html#lineNumber33",
     "Import Map Library Import Error",
     "test"
   ],
@@ -387,6 +387,12 @@ window.esdocSearchIndex = [
     "",
     "test-file/test/unit/core/importMapLibrary.spec.js.html#lineNumber24",
     "Import Map Library Import Leaflet",
+    "test"
+  ],
+  [
+    "",
+    "test-file/test/unit/core/importMapLibrary.spec.js.html#lineNumber28",
+    "Import Map Library Import Mapbox",
     "test"
   ],
   [

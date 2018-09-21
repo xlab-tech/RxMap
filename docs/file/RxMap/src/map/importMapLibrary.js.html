@@ -81,6 +81,34 @@ export default async (lib, options = {}) =&gt; {
     const { loadGoogle } = await import(/* webpackChunkName: &quot;google&quot; */&apos;../utils/google&apos;);
     return loadGoogle(options.key);
   }
+
+  if (lib === &apos;mapbox&apos;) {
+    const mapbox = await import(/* webpackChunkName: &quot;mapbox&quot; */&apos;mapbox-gl&apos;);
+    mapbox.default.accessToken = options.key;
+    return mapbox;
+  }
+
+  if (lib === &apos;ol&apos;) {
+    return import(/* webpackChunkName: &quot;ol&quot; */&apos;ol&apos;);
+  }
+
+  if (lib === &apos;esri&apos;) {
+    const esriLoader = await import(/* webpackChunkName: &quot;esri&quot; */&apos;esri-loader&apos;);
+    const loadScriptPromise = esriLoader.loadScript();
+    return loadScriptPromise.then(() =&gt; esriLoader);
+  }
+  if (lib === &apos;carto&apos;) {
+    await loadCSS(&apos;https://unpkg.com/leaflet@1.3.4/dist/leaflet.css&apos;);
+    const leaflet = await import(/* webpackChunkName: &quot;leaflet&quot; */&apos;leaflet&apos;);
+    const carto = await import(/* webpackChunkName: &quot;carto&quot; */&apos;@carto/carto.js&apos;);
+    const client = new carto.Client({
+      apiKey: options.key,
+      username: options.user,
+    });
+    return {
+      leaflet, carto, client,
+    };
+  }
   throw new Error(`Library ${lib} not supported`);
 };
 </code></pre>

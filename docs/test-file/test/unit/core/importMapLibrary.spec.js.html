@@ -95,6 +95,11 @@ describe(&apos;Import Map Library&apos;, function () {
     const lib = await importMapLibrary(&apos;leaflet&apos;);
     expect(lib).to.be.a(&apos;object&apos;);
   });
+  it(&apos;Import Mapbox&apos;, async () =&gt; {
+    window.URL.createObjectURL = () =&gt; { };
+    const lib = await importMapLibrary(&apos;mapbox&apos;);
+    expect(lib).to.be.a(&apos;object&apos;);
+  });
   it(&apos;Import Error&apos;, (done) =&gt; {
     importMapLibrary(&apos;aa&apos;).catch(() =&gt; done());
   });

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Examples</title>
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
+  <style>
+    /* Optional: Makes the sample page fill the window. */
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .card {
+      -webkit-flex: 1 1 auto;
+      flex: 1 1 auto;
+      width: 100px;
+      height: 100px;
+      margin: 40px;
+    }
+
+    .list {
+      display: -webkit-flex;
+      flex-wrap:wrap;
+      -webkit-flex-direction: row;
+
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+    }
+
+    .img {
+      width: 50px;
+      height: 50px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class='list'>
+    <a href="test.html">
+      <div class='card'>
+        <p>test</p>
+        <img src='https://cdn.zeemaps.com/images/base/create-free-map.png' class="img" />
+      </div>
+    </a>
+    <a href="google.html">
+      <div class='card'>
+        <p>Google</p>
+        <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/GoogleMaps_logo.svg/245px-GoogleMaps_logo.svg.png'
+          class="img" />
+      </div>
+    </a>
+    <a href="leaflet.html">
+      <div class='card'>
+        <p>Leaflet</p>
+        <img src='https://geohelm.org/img/geohelm-leafletjs.gif' class="img" />
+      </div>
+    </a>
+    <a href="mapbox.html">
+      <div class='card'>
+        <p>MapBox</p>
+        <img src='https://raw.githubusercontent.com/mapbox/mapbox-gl-js/HEAD/docs/pages/assets/logo.png' class="img" />
+      </div>
+    </a>
+    <a href="ol.html">
+      <div class='card'>
+        <p>OpenLayers</p>
+        <img src='https://data.europa.eu/euodp/sites/default/files/openlayers_logo.png' class="img" />
+      </div>
+    </a>
+    <a href="esri.html">
+      <div class='card'>
+        <p>Esri</p>
+        <img src='https://s3.amazonaws.com/awsmp-logos/10-24-Esri.gif' class="img" />
+      </div>
+    </a>
+    <a href="carto.html">
+      <div class='card'>
+        <p>Carto</p>
+        <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/CARTO-logo.svg/1200px-CARTO-logo.svg.png'
+          class="img" />
+      </div>
+    </a>
+  </div>
+</body>
+
+</html>
