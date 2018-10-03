@@ -1,6 +1,6 @@
 import { RxMap, registerAction } from '../src/index';
 
-registerAction('create', (context) => {
+registerAction('create', context => () => {
 
   const L = context.library;
   const map = L.map('map').setView([0, 0], 5);

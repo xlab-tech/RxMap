@@ -2,7 +2,7 @@
 # Creación
 
 ## Como crear acciones
-Una acción es una función que recibe unos parámetros y devuelve el resultado o una promesa, puede ser una función async. Los objetivos de las acciones son interaccionar con el mapa. 
+Una acción es una función que recibe el contexto y devuelve una funcion con 0 o n parámetros que es la que ejecutara los cambios sobre el mapa y devuelve el resultado o una promesa, puede ser una función async. Los objetivos de las acciones son interaccionar con el mapa.
 Es recomendable que sólo utilicen un método o propiedad  sobre el mapa para que sea más fácil el desacoplarse.
 Se pueden crear acciones que llamen a otras acciones.
 
@@ -18,7 +18,7 @@ A todas las acciones se les inyecta como primer parámetro el contexto que es un
 
 Un ejemplo de acción sería.
 ```
- const setCenter = (context, paramA, paramB) => {
+ const setCenter = context => (paramA, paramB) => {
        const map = context.source.getMap();
 	     const oldCenter = map.getCenter();
 		 map.setCenter(paramA,paramB);
@@ -49,7 +49,7 @@ RxMap.setCenter(2.35,42.112);
 Si registramos las acciones no estaremos utilizando la capacidad de cargar el código de manera dynamica. Sino que se incluirán en el bundle principal de la aplicación.
 
 ## Como crear observadores
-Un observador es una función que puede o no recibir parámetros y que devuelve siempre un observador [RxJS]( 	https://rxjs-dev.firebaseapp.com)
+Un observador es una función que recibe el contexto y devuelve una funciona que puede o no recibir parámetros y que devuelve siempre un observador [RxJS]( 	https://rxjs-dev.firebaseapp.com)
 
 La idea de los observadores es reemplazar los eventos para poder tener más control sobre las cosas que pasan sobre el mapa. Y poder encadenar de manera mucho más simple acciones a partir de cosas que pasen.
 Con los observadores se pueden utilizar todos los transformadores y operadores de RxJS.
@@ -58,7 +58,8 @@ Los observadores deben tener el mínimo posible de dependencias.
 Es recomendable que cada observador se ubicaque en un fichero.
 Los observadores se tienen que exportar como default  y se tiene que exportar la propiedad “name” con el nombre del observador. Este nombre será el nombre con en el que se registre y será el nombre con el que se recuperar el observador.
 
-A todos los observadores se les inyecta como primer parámetro el contexto que es un objeto que incluye:
+A todos los observadores se les llama primero con el contexto que incluye:
+
 	*  RxMap
 	* La librería Nativa del Mapa
 	* El valor de la anterior acción
@@ -70,7 +71,7 @@ Un ejemplo de observador podría ser:
 import { fromEventPattern } from 'rxjs/internal/observable/fromEventPattern';
 import { map } from 'rxjs/internal/operators/map';
 
-const event = (context) => {
+const event = context => () => {
   const googleMaps = context.library.maps;
   const map_ = context.source.getMap();
 

@@ -1,6 +1,6 @@
 import { RxMap, registerAction } from '../src/index';
 
-registerAction('create', (context) => {
+registerAction('create', context => () => {
     const mapboxgl = context.library;
     const map = new mapboxgl.Map({
         container: 'map',

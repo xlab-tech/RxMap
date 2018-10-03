@@ -77,7 +77,7 @@ describe('CommandBus', () => {
     expect(_subject).to.have.instanceof(Subject);
   });
   it('observer action ', () => {
-    registerAction('test22', (context, a) => `r${a}`);
+    registerAction('test22', () => a => `r${a}`);
     // rxMap._actionsSubject = new Subject();
     rxMap.observerAction('test22').subscribe((res) => {
       expect(res.value).to.have.eq('ra');
@@ -85,9 +85,9 @@ describe('CommandBus', () => {
     rxMap.test22('a');
   });
 
-  it('observer action ', () => {
-    registerAction('test32', (context, a) => `r${a}`);
-    registerAction('test33', (context, a) => `r${a}`);
+  it('observer action 2', () => {
+    registerAction('test32', () => a => `r${a}`);
+    registerAction('test33', () => a => `r${a}`);
     rxMap.test32('a').test33();
   });
   it('action Subject', () => {

@@ -75,7 +75,7 @@ Otra forma de tener acciones o observadores es registrándolos para poder utiliz
 Consulta la librería que utilizas para saber que mapas soporta. 
 
 ## Acciones
-Las acciones son funciones “puras” que realizan acciones sobre el mapa, la idea es que solo realicen una única acción para que sean mucho más fáciles de reaprovechar , probar y debugar.
+Las acciones son funciones “puras” que realizan acciones sobre el mapa, la idea es que solo realicen una única acción para que sean mucho más fáciles de reaprovechar , probar y debugar. Ponemos "puras" entrecomilladas porque realmente la mayoria no pueden ser puras al realizar manipulaciones del Dom inderectamente al crear objetos del mapa.
 Las acciones se pueden invocar sobre RxMap o sobre un observador. Las acciones se pueden anidar entre ellas. Cada invocación de acciones es  asíncrona pero dentro de cada secuencia en síncrona. Cada acción recibe el valor de la acción anterior para poder concatenar acciones.
 
 ```

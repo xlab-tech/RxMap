@@ -28,7 +28,7 @@ const compose = (action, ...funcs) => {
  * @param {*} action
  * @private
  */
-const executeAction = action => (commandBus, args) => action(commandBus.getContext(), ...args);
+const executeAction = action => (commandBus, args) => action(commandBus.getContext())(...args);
 
 /**
  *

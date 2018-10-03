@@ -7454,9 +7454,9 @@
                                 }
                               },
                               "callee": {
-                                "type": "Identifier",
+                                "type": "CallExpression",
                                 "start": 4723,
-                                "end": 4731,
+                                "end": 4756,
                                 "loc": {
                                   "start": {
                                     "line": 160,
@@ -7464,31 +7464,31 @@
                                   },
                                   "end": {
                                     "line": 160,
-                                    "column": 24
-                                  },
-                                  "identifierName": "observer"
+                                    "column": 49
+                                  }
                                 },
-                                "name": "observer"
-                              },
-                              "arguments": [
-                                {
-                                  "type": "CallExpression",
-                                  "start": 4732,
-                                  "end": 4755,
+                                "callee": {
+                                  "type": "Identifier",
+                                  "start": 4723,
+                                  "end": 4731,
                                   "loc": {
                                     "start": {
                                       "line": 160,
-                                      "column": 25
+                                      "column": 16
                                     },
                                     "end": {
                                       "line": 160,
-                                      "column": 48
-                                    }
+                                      "column": 24
+                                    },
+                                    "identifierName": "observer"
                                   },
-                                  "callee": {
-                                    "type": "MemberExpression",
+                                  "name": "observer"
+                                },
+                                "arguments": [
+                                  {
+                                    "type": "CallExpression",
                                     "start": 4732,
-                                    "end": 4753,
+                                    "end": 4755,
                                     "loc": {
                                       "start": {
                                         "line": 160,
@@ -7496,13 +7496,13 @@
                                       },
                                       "end": {
                                         "line": 160,
-                                        "column": 46
+                                        "column": 48
                                       }
                                     },
-                                    "object": {
-                                      "type": "Identifier",
+                                    "callee": {
+                                      "type": "MemberExpression",
                                       "start": 4732,
-                                      "end": 4742,
+                                      "end": 4753,
                                       "loc": {
                                         "start": {
                                           "line": 160,
@@ -7510,33 +7510,50 @@
                                         },
                                         "end": {
                                           "line": 160,
-                                          "column": 35
-                                        },
-                                        "identifierName": "commandBus"
-                                      },
-                                      "name": "commandBus"
-                                    },
-                                    "property": {
-                                      "type": "Identifier",
-                                      "start": 4743,
-                                      "end": 4753,
-                                      "loc": {
-                                        "start": {
-                                          "line": 160,
-                                          "column": 36
-                                        },
-                                        "end": {
-                                          "line": 160,
                                           "column": 46
-                                        },
-                                        "identifierName": "getContext"
+                                        }
                                       },
-                                      "name": "getContext"
+                                      "object": {
+                                        "type": "Identifier",
+                                        "start": 4732,
+                                        "end": 4742,
+                                        "loc": {
+                                          "start": {
+                                            "line": 160,
+                                            "column": 25
+                                          },
+                                          "end": {
+                                            "line": 160,
+                                            "column": 35
+                                          },
+                                          "identifierName": "commandBus"
+                                        },
+                                        "name": "commandBus"
+                                      },
+                                      "property": {
+                                        "type": "Identifier",
+                                        "start": 4743,
+                                        "end": 4753,
+                                        "loc": {
+                                          "start": {
+                                            "line": 160,
+                                            "column": 36
+                                          },
+                                          "end": {
+                                            "line": 160,
+                                            "column": 46
+                                          },
+                                          "identifierName": "getContext"
+                                        },
+                                        "name": "getContext"
+                                      },
+                                      "computed": false
                                     },
-                                    "computed": false
-                                  },
-                                  "arguments": []
-                                },
+                                    "arguments": []
+                                  }
+                                ]
+                              },
+                              "arguments": [
                                 {
                                   "type": "SpreadElement",
                                   "start": 4757,
@@ -28411,16 +28428,15 @@
     },
     {
       "type": {
-        "label": ",",
-        "beforeExpr": true,
+        "label": ")",
+        "beforeExpr": false,
         "startsExpr": false,
         "rightAssociative": false,
         "isLoop": false,
         "isAssign": false,
         "prefix": false,
         "postfix": false,
-        "binop": null,
-        "updateContext": null
+        "binop": null
       },
       "start": 4755,
       "end": 4756,
@@ -28432,6 +28448,31 @@
         "end": {
           "line": 160,
           "column": 49
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 4756,
+      "end": 4757,
+      "loc": {
+        "start": {
+          "line": 160,
+          "column": 49
+        },
+        "end": {
+          "line": 160,
+          "column": 50
         }
       }
     },

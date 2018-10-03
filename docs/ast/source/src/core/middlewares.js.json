@@ -1247,9 +1247,9 @@
                     }
                   },
                   "callee": {
-                    "type": "Identifier",
+                    "type": "CallExpression",
                     "start": 429,
-                    "end": 435,
+                    "end": 460,
                     "loc": {
                       "start": {
                         "line": 31,
@@ -1257,31 +1257,31 @@
                       },
                       "end": {
                         "line": 31,
-                        "column": 60
-                      },
-                      "identifierName": "action"
+                        "column": 85
+                      }
                     },
-                    "name": "action"
-                  },
-                  "arguments": [
-                    {
-                      "type": "CallExpression",
-                      "start": 436,
-                      "end": 459,
+                    "callee": {
+                      "type": "Identifier",
+                      "start": 429,
+                      "end": 435,
                       "loc": {
                         "start": {
                           "line": 31,
-                          "column": 61
+                          "column": 54
                         },
                         "end": {
                           "line": 31,
-                          "column": 84
-                        }
+                          "column": 60
+                        },
+                        "identifierName": "action"
                       },
-                      "callee": {
-                        "type": "MemberExpression",
+                      "name": "action"
+                    },
+                    "arguments": [
+                      {
+                        "type": "CallExpression",
                         "start": 436,
-                        "end": 457,
+                        "end": 459,
                         "loc": {
                           "start": {
                             "line": 31,
@@ -1289,13 +1289,13 @@
                           },
                           "end": {
                             "line": 31,
-                            "column": 82
+                            "column": 84
                           }
                         },
-                        "object": {
-                          "type": "Identifier",
+                        "callee": {
+                          "type": "MemberExpression",
                           "start": 436,
-                          "end": 446,
+                          "end": 457,
                           "loc": {
                             "start": {
                               "line": 31,
@@ -1303,33 +1303,50 @@
                             },
                             "end": {
                               "line": 31,
-                              "column": 71
-                            },
-                            "identifierName": "commandBus"
-                          },
-                          "name": "commandBus"
-                        },
-                        "property": {
-                          "type": "Identifier",
-                          "start": 447,
-                          "end": 457,
-                          "loc": {
-                            "start": {
-                              "line": 31,
-                              "column": 72
-                            },
-                            "end": {
-                              "line": 31,
                               "column": 82
-                            },
-                            "identifierName": "getContext"
+                            }
                           },
-                          "name": "getContext"
+                          "object": {
+                            "type": "Identifier",
+                            "start": 436,
+                            "end": 446,
+                            "loc": {
+                              "start": {
+                                "line": 31,
+                                "column": 61
+                              },
+                              "end": {
+                                "line": 31,
+                                "column": 71
+                              },
+                              "identifierName": "commandBus"
+                            },
+                            "name": "commandBus"
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "start": 447,
+                            "end": 457,
+                            "loc": {
+                              "start": {
+                                "line": 31,
+                                "column": 72
+                              },
+                              "end": {
+                                "line": 31,
+                                "column": 82
+                              },
+                              "identifierName": "getContext"
+                            },
+                            "name": "getContext"
+                          },
+                          "computed": false
                         },
-                        "computed": false
-                      },
-                      "arguments": []
-                    },
+                        "arguments": []
+                      }
+                    ]
+                  },
+                  "arguments": [
                     {
                       "type": "SpreadElement",
                       "start": 461,
@@ -6115,16 +6132,15 @@
     },
     {
       "type": {
-        "label": ",",
-        "beforeExpr": true,
+        "label": ")",
+        "beforeExpr": false,
         "startsExpr": false,
         "rightAssociative": false,
         "isLoop": false,
         "isAssign": false,
         "prefix": false,
         "postfix": false,
-        "binop": null,
-        "updateContext": null
+        "binop": null
       },
       "start": 459,
       "end": 460,
@@ -6136,6 +6152,31 @@
         "end": {
           "line": 31,
           "column": 85
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 460,
+      "end": 461,
+      "loc": {
+        "start": {
+          "line": 31,
+          "column": 85
+        },
+        "end": {
+          "line": 31,
+          "column": 86
         }
       }
     },

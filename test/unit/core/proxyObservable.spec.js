@@ -21,24 +21,24 @@ describe('proxy Observable', () => {
     expect(aux).to.have.instanceof(AsyncCommandBus);
   });
   it('observer execute action', () => {
-    registerAction('test', () => 'r');
-    registerObserver('test', () => from([2]));
+    registerAction('test', () => () => 'r');
+    registerObserver('test', () => () => from([2]));
     const $$stream = observerFrom(commandBus)('test');
     $$stream.test().subscribe((res) => {
       expect(res.value).to.have.eq('r');
     });
   });
   it('observer execute action args', () => {
-    registerAction('test', (context, a) => `r${a}`);
-    registerObserver('test', () => from([2]));
+    registerAction('test', () => a => `r${a}`);
+    registerObserver('test', () => () => from([2]));
     const $$stream = observerFrom(commandBus)('test');
     $$stream.test('bb').subscribe((res) => {
       expect(res.value).to.have.eq('rbb');
     });
   });
   it('observer execute action args function', () => {
-    registerAction('test', (context, a) => `r${a}`);
-    registerObserver('test', () => from([2]));
+    registerAction('test', () => a => `r${a}`);
+    registerObserver('test', () => () => from([2]));
     const $$stream = observerFrom(commandBus)('test');
     $$stream.test(data => data).subscribe((res) => {
       expect(res.value).to.have.eq('r2');

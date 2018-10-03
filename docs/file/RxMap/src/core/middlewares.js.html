@@ -98,7 +98,7 @@ const compose = (action, ...funcs) =&gt; {
  * @param {*} action
  * @private
  */
-const executeAction = action =&gt; (commandBus, args) =&gt; action(commandBus.getContext(), ...args);
+const executeAction = action =&gt; (commandBus, args) =&gt; action(commandBus.getContext())(...args);
 
 /**
  *

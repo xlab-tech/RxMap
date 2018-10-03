@@ -1,9 +1,8 @@
 import { RxMap, registerAction } from '../src/index';
 
 
-registerAction('create', (context) => {
+registerAction('create', context => () => {
   const esriLoader = context.library;
-  console.log(esriLoader);
   return esriLoader.loadModules(['esri/views/MapView', 'esri/Map'])
     .then(([MapView, Map]) => {
       const map = new Map({

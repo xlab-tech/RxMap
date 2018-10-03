@@ -138,7 +138,7 @@ import rxLib from &apos;@rxmap/rxmap/lib&apos;;
 registerLib(...rxLib);</code>
 </code></pre><p>Otra forma de tener acciones o observadores es registr&#xE1;ndolos para poder utilizarlos,pero de esta forma no tendr&#xE1;s la carga dynamica I tendr&#xE1;s que gestionar ,qual cargas seg&#xFA;n la librer&#xED;a de mapas que estes utilizando. Al contrario las librer&#xED;as gestionan esto de manera autom&#xE1;tica. 
 Consulta la librer&#xED;a que utilizas para saber que mapas soporta. </p>
-<h2 id="acciones">Acciones</h2><p>Las acciones son funciones &#x201C;puras&#x201D; que realizan acciones sobre el mapa, la idea es que solo realicen una &#xFA;nica acci&#xF3;n para que sean mucho m&#xE1;s f&#xE1;ciles de reaprovechar , probar y debugar.
+<h2 id="acciones">Acciones</h2><p>Las acciones son funciones &#x201C;puras&#x201D; que realizan acciones sobre el mapa, la idea es que solo realicen una &#xFA;nica acci&#xF3;n para que sean mucho m&#xE1;s f&#xE1;ciles de reaprovechar , probar y debugar. Ponemos &quot;puras&quot; entrecomilladas porque realmente la mayoria no pueden ser puras al realizar manipulaciones del Dom inderectamente al crear objetos del mapa.
 Las acciones se pueden invocar sobre RxMap o sobre un observador. Las acciones se pueden anidar entre ellas. Cada invocaci&#xF3;n de acciones es  as&#xED;ncrona pero dentro de cada secuencia en s&#xED;ncrona. Cada acci&#xF3;n recibe el valor de la acci&#xF3;n anterior para poder concatenar acciones.</p>
 <pre><code><code class="source-code prettyprint">RxMap.test();
 

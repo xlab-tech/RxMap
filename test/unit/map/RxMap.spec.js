@@ -13,7 +13,7 @@ describe('RxMap', () => {
     expect(Map).to.be.not.equal(m);
   });
   it('actions return AsyncCommand', () => {
-    registerAction('test', () => 'test');
+    registerAction('test', () => () => 'test');
     const ret = rxMap.test();
     expect(ret).to.be.an.instanceof(AsyncCommandBus);
   });
@@ -62,7 +62,7 @@ describe('RxMap', () => {
       // console.log(ret);
     });
     it('load map ', async () => {
-      registerAction('start', () => 6);
+      registerAction('start', () => () => 6);
       const ret = await rxMap.load('leaflet');
       ret.start();
       setTimeout(() => {

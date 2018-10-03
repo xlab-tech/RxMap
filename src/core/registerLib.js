@@ -29,21 +29,21 @@ const registerLib = (name, options, func) => {
   const actions = options.actions || [];
   const observers = options.observers || [];
   actions.forEach((key) => {
-    registerAction(key, (...args) => {
+    registerAction(key, (context) => {
       // TODO: buscar una manera de pasar estos datos para desacoplar el mapa
-      const lib = args[0].source.libName;
-      const version = args[0].source.libVersion;
+      const lib = context.source.libName;
+      const version = context.source.libVersion;
       const res = loadLib(name, lib, 'actions', key, version);
-      return res.then(action => action(...args));
+      return (...args) => res.then(action => action(context)(...args));
     });
   });
   observers.forEach((key) => {
-    registerObserver(key, (...args) => {
+    registerObserver(key, (context) => {
       // TODO: buscar una manera de pasar estos datos para desacoplar el mapa
-      const lib = args[0].source.libName;
-      const version = args[0].source.libVersion;
-      return from(loadLib(name, lib, 'observers', key, version))
-        .pipe(switchMap(observer => observer(...args)));
+      const lib = context.source.libName;
+      const version = context.source.libVersion;
+      return (...args) => from(loadLib(name, lib, 'observers', key, version))
+        .pipe(switchMap(observer => observer(context)(...args)));
     });
   });
 };

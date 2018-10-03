@@ -1,6 +1,6 @@
 {
   "name": "@rxmap/rxmap",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "map command and reactive ",
   "keywords": [
     "map",
@@ -62,7 +62,7 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-stage-1": "^7.0.0",
     "@babel/register": "^7.0.0",
-    "@rxmap/basiclib": "^1.0.0",
+    "@rxmap/basiclib": "^1.1.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "babel-plugin-dynamic-import-node": "^2.1.0",

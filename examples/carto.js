@@ -1,6 +1,6 @@
 import { RxMap, registerAction } from '../src/index';
 
-registerAction('create', (context) => {
+registerAction('create', context => () => {
 
   const L = context.library.leaflet;
   const carto = context.library.carto;

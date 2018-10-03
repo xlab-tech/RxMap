@@ -6,11 +6,11 @@ import { applyMiddlewares, registerMiddleware, subscribe } from '../../../src/co
 describe('Middlewares', () => {
   it('apply middleware No paramas', () => {
     registerMiddleware();
-    const func = () => 'asfas';
+    const func = () => () => 'asfas';
     const newFunc = applyMiddlewares('test', func);
     const actionBus = new CommandBus();
     actionBus._source = { getContext: () => ({ test: '3' }) };
-    expect(newFunc(actionBus, [])).to.eq(func(actionBus, []));
+    expect(newFunc(actionBus, [])).to.eq(func()());
   });
   it('apply middleware one', () => {
     const f = next => (Map, args) => {
@@ -20,7 +20,7 @@ describe('Middlewares', () => {
     registerMiddleware('testRegister', f);
     const actionBus = new CommandBus();
     actionBus._source = { getContext: () => ({ test: '3' }) };
-    const func = () => 'asfas';
+    const func = () => () => 'asfas';
     const newFunc = applyMiddlewares('test', func);
     const newFunc2 = applyMiddlewares('testRegister', func);
     expect(newFunc(actionBus, [])).to.eq('asfas');
@@ -32,7 +32,7 @@ describe('Middlewares', () => {
       return 'aa';
     };
     registerMiddleware(f);
-    const func = () => 'asfas';
+    const func = () => () => 'asfas';
     const newFunc = applyMiddlewares('test', func);
     const actionBus = new CommandBus();
     actionBus._source = { getContext: () => ({ test: '3' }) };

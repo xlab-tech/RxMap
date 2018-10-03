@@ -261,7 +261,7 @@ import rxLib from &apos;@rxmap/rxmap/lib&apos;;
 
 registerLib(...rxLib);</code>
 </code></pre><p>Otra forma de tener acciones o observadores es registr&#xE1;ndolos para poder utilizarlos,pero de esta forma no tendr&#xE1;s la carga dynamica I tendr&#xE1;s que gestionar ,qual cargas seg&#xFA;n la librer&#xED;a de mapas que estes utilizando. Al contrario las librer&#xED;as gestionan esto de manera autom&#xE1;tica. 
-Consulta la librer&#xED;a que utilizas para saber que mapas soporta. </p><h2>Acciones</h2><p>Las acciones son funciones &#x201C;puras&#x201D; que realizan acciones sobre el mapa, la idea es que solo realicen una &#xFA;nica acci&#xF3;n para que sean mucho m&#xE1;s f&#xE1;ciles de reaprovechar , probar y debugar.
+Consulta la librer&#xED;a que utilizas para saber que mapas soporta. </p><h2>Acciones</h2><p>Las acciones son funciones &#x201C;puras&#x201D; que realizan acciones sobre el mapa, la idea es que solo realicen una &#xFA;nica acci&#xF3;n para que sean mucho m&#xE1;s f&#xE1;ciles de reaprovechar , probar y debugar. Ponemos &quot;puras&quot; entrecomilladas porque realmente la mayoria no pueden ser puras al realizar manipulaciones del Dom inderectamente al crear objetos del mapa.
 Las acciones se pueden invocar sobre RxMap o sobre un observador. Las acciones se pueden anidar entre ellas. Cada invocaci&#xF3;n de acciones es  as&#xED;ncrona pero dentro de cada secuencia en s&#xED;ncrona. Cada acci&#xF3;n recibe el valor de la acci&#xF3;n anterior para poder concatenar acciones.</p><pre><code><code class="source-code prettyprint">RxMap.test();
 
 RxMap.test2().test();
@@ -320,7 +320,7 @@ const t = RxMap.store.test;
     </div>
 <div class="manual-card-wrap" data-ice="cards">
       <div class="manual-card">
-        <div data-ice="card"><h1>Creaci&#xF3;n</h1><h2>Como crear acciones</h2><p>Una acci&#xF3;n es una funci&#xF3;n que recibe unos par&#xE1;metros y devuelve el resultado o una promesa, puede ser una funci&#xF3;n async. Los objetivos de las acciones son interaccionar con el mapa. 
+        <div data-ice="card"><h1>Creaci&#xF3;n</h1><h2>Como crear acciones</h2><p>Una acci&#xF3;n es una funci&#xF3;n que recibe el contexto y devuelve una funcion con 0 o n par&#xE1;metros que es la que ejecutara los cambios sobre el mapa y devuelve el resultado o una promesa, puede ser una funci&#xF3;n async. Los objetivos de las acciones son interaccionar con el mapa.
 Es recomendable que s&#xF3;lo utilicen un m&#xE9;todo o propiedad  sobre el mapa para que sea m&#xE1;s f&#xE1;cil el desacoplarse.
 Se pueden crear acciones que llamen a otras acciones.</p><p>Las acciones deben tener el m&#xED;nimo posible de dependencias.
 Es recomendable que cada acci&#xF3;n se ubicaque en un fichero.
@@ -328,7 +328,7 @@ Las acciones se tienen que exportar como default  y se tiene que exportar la pro
 * La librer&#xED;a Nativa del Mapa
 * El valor de la anterior acci&#xF3;n
 * El store</code>
-</code></pre><p>Un ejemplo de acci&#xF3;n ser&#xED;a.</p><pre><code><code class="source-code prettyprint"> const setCenter = (context, paramA, paramB) =&gt; {
+</code></pre><p>Un ejemplo de acci&#xF3;n ser&#xED;a.</p><pre><code><code class="source-code prettyprint"> const setCenter = context =&gt; (paramA, paramB) =&gt; {
        const map = context.source.getMap();
          const oldCenter = map.getCenter();
          map.setCenter(paramA,paramB);
@@ -347,17 +347,17 @@ RxMap.create(&#x2018;mapId&#x2019;,0,0,8);
 // aqu&#xED; ya podr&#xED;amos utilizar la acci&#xF3;n 
 RxMap.setCenter(2.35,42.112);
 </code>
-</code></pre><p>Si registramos las acciones no estaremos utilizando la capacidad de cargar el c&#xF3;digo de manera dynamica. Sino que se incluir&#xE1;n en el bundle principal de la aplicaci&#xF3;n.</p><h2>Como crear observadores</h2><p>Un observador es una funci&#xF3;n que puede o no recibir par&#xE1;metros y que devuelve siempre un observador <a href="https://rxjs-dev.firebaseapp.com">RxJS</a></p><p>La idea de los observadores es reemplazar los eventos para poder tener m&#xE1;s control sobre las cosas que pasan sobre el mapa. Y poder encadenar de manera mucho m&#xE1;s simple acciones a partir de cosas que pasen.
+</code></pre><p>Si registramos las acciones no estaremos utilizando la capacidad de cargar el c&#xF3;digo de manera dynamica. Sino que se incluir&#xE1;n en el bundle principal de la aplicaci&#xF3;n.</p><h2>Como crear observadores</h2><p>Un observador es una funci&#xF3;n que recibe el contexto y devuelve una funciona que puede o no recibir par&#xE1;metros y que devuelve siempre un observador <a href="https://rxjs-dev.firebaseapp.com">RxJS</a></p><p>La idea de los observadores es reemplazar los eventos para poder tener m&#xE1;s control sobre las cosas que pasan sobre el mapa. Y poder encadenar de manera mucho m&#xE1;s simple acciones a partir de cosas que pasen.
 Con los observadores se pueden utilizar todos los transformadores y operadores de RxJS.</p><p>Los observadores deben tener el m&#xED;nimo posible de dependencias.
 Es recomendable que cada observador se ubicaque en un fichero.
-Los observadores se tienen que exportar como default  y se tiene que exportar la propiedad &#x201C;name&#x201D; con el nombre del observador. Este nombre ser&#xE1; el nombre con en el que se registre y ser&#xE1; el nombre con el que se recuperar el observador.</p><p>A todos los observadores se les inyecta como primer par&#xE1;metro el contexto que es un objeto que incluye:</p><pre><code><code class="source-code prettyprint">*  RxMap
+Los observadores se tienen que exportar como default  y se tiene que exportar la propiedad &#x201C;name&#x201D; con el nombre del observador. Este nombre ser&#xE1; el nombre con en el que se registre y ser&#xE1; el nombre con el que se recuperar el observador.</p><p>A todos los observadores se les llama primero con el contexto que incluye:</p><pre><code><code class="source-code prettyprint">*  RxMap
 * La librer&#xED;a Nativa del Mapa
 * El valor de la anterior acci&#xF3;n
 * El store</code>
 </code></pre><p>Un ejemplo de observador podr&#xED;a ser:</p><pre><code><code class="source-code prettyprint">import { fromEventPattern } from &apos;rxjs/internal/observable/fromEventPattern&apos;;
 import { map } from &apos;rxjs/internal/operators/map&apos;;
 
-const event = (context) =&gt; {
+const event = context =&gt; () =&gt; {
   const googleMaps = context.library.maps;
   const map_ = context.source.getMap();
 

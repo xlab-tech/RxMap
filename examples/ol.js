@@ -2,7 +2,7 @@ import { RxMap, registerAction } from '../src/index';
 import XYZ from 'ol/source/XYZ';
 import TileLayer from 'ol/layer/Tile';
 
-registerAction('create', (context) => {
+registerAction('create', context => () => {
   const ol = context.library;
   const map = new ol.Map({
     target: 'map',

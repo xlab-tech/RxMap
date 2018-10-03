@@ -157,7 +157,7 @@ export const observerFrom = commandBus => (observerName, ...args) => {
   if (!observer) {
     throw new Error(`Observer ${observerName} not register`);
   }
-  const obser = observer(commandBus.getContext(), ...args);
+  const obser = observer(commandBus.getContext())(...args);
   return _applyCommandBus(obser, commandBus);
 };
 

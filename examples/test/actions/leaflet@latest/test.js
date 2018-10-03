@@ -1,6 +1,6 @@
 
 
-const test = (context, text) => {
+const test = context => text => {
     alert(text);
 };
 
