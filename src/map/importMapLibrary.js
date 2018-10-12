@@ -1,5 +1,11 @@
 import { loadCSS } from '../core/importLazyLoad';
 
+const externMapLibrary = {};
+
+export const addMapLibrary = (name, func) => {
+  externMapLibrary[name] = func;
+};
+
 export default async (lib, options = {}) => {
   // const version = options.version || 'latest';
   if (lib === 'leaflet') {
@@ -38,6 +44,9 @@ export default async (lib, options = {}) => {
     return {
       leaflet, carto, client,
     };
+  }
+  if (externMapLibrary[lib]) {
+    return externMapLibrary[lib]();
   }
   throw new Error(`Library ${lib} not supported`);
 };
