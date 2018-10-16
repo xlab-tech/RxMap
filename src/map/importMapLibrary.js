@@ -31,6 +31,7 @@ export default async (lib, options = {}) => {
   if (lib === 'esri') {
     const esriLoader = await import(/* webpackChunkName: "esri" */'esri-loader');
     const loadScriptPromise = esriLoader.loadScript();
+    await loadCSS('https://js.arcgis.com/4.9/esri/css/main.css');
     return loadScriptPromise.then(() => esriLoader);
   }
   if (lib === 'carto') {
@@ -46,7 +47,7 @@ export default async (lib, options = {}) => {
     };
   }
   if (externMapLibrary[lib]) {
-    return externMapLibrary[lib]();
+    return externMapLibrary[lib](options);
   }
   throw new Error(`Library ${lib} not supported`);
 };
