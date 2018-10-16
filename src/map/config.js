@@ -1,6 +1,5 @@
 
 import rxMap from './RxMap';
-import isPromise from '../utils/isPromise';
 
 const rxMapFromConfig = async (id, config) => {
   const {
@@ -11,11 +10,7 @@ const rxMapFromConfig = async (id, config) => {
 
   await rxMap.load(type, options);
 
-  const create = rxMap.create(id, mapCenter.lat, mapCenter.lng, zoom);
-
-  if (isPromise(create)) {
-    await new Promise(resolve => create.subscribe(data => resolve(data)));
-  }
+  await rxMap.create(id, mapCenter.lat, mapCenter.lng, zoom).wait();
 
   if (actions) {
     actions.forEach((action) => {
