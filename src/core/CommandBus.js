@@ -5,6 +5,7 @@ import { from } from 'rxjs/internal/observable/from';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/internal/operators/map';
 import { tap } from 'rxjs/internal/operators/tap';
+import { take } from 'rxjs/internal/operators/take';
 import isPromise from '../utils/isPromise';
 
 class CommandBus {
@@ -39,6 +40,14 @@ class CommandBus {
    */
   getValue() {
     return of(this._lastAction);
+  }
+
+  wait() {
+    return new Promise((resolve) => {
+      this._actionsSubject.pipe(take(1)).subscribe(() => {
+        resolve(this._lastAction);
+      });
+    });
   }
 
   /**
