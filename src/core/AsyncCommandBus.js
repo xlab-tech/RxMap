@@ -1,6 +1,7 @@
 import { from } from 'rxjs/internal/observable/from';
 import { switchMap } from 'rxjs/internal/operators/switchMap';
 import CommandBus from './CommandBus';
+import { observerFrom } from './proxyObservable';
 
 class AsyncCommandBus extends CommandBus {
   constructor() {
@@ -59,9 +60,9 @@ class AsyncCommandBus extends CommandBus {
   observer(observerName, ...args) {
     if (this.isExecuting()) {
       return from(new Promise(resolve => this.subscribe(resolve)))
-        .pipe(switchMap(() => this._source.observer(observerName, ...args)));
+        .pipe(switchMap(() => observerFrom(this)(observerName, ...args)));
     }
-    return this._source.observer(observerName, ...args);
+    return observerFrom(this)(observerName, ...args);
   }
 }
 

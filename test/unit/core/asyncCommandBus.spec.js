@@ -39,13 +39,13 @@ describe('AsyncCommandBus', () => {
   });
   it('observer executing', (done) => {
     const async = new AsyncCommandBus();
-    async._source = { observer: () => from([1]) };
+    async._source = {};
     async._executingAction = 'test';
     const $stream = async.observer([5]);
     async._complete();
     expect($stream).is.a.instanceOf(Observable);
     $stream.subscribe((res) => {
-      expect(res).to.eq(1);
+      expect(res).to.eq(5);
       async._executingAction = false;
       done();
     });
