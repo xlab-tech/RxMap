@@ -1,5 +1,6 @@
 import './utils/polyfill';
 import * as _register from './core/registerAction';
+import * as _registerFunction from './core/resgisterFunction';
 import * as _registerObserver from './core/registerObserver';
 import * as _registerMiddleware from './core/middlewares';
 import * as _RxMap from './map/RxMap';
@@ -7,6 +8,11 @@ import _RxMapFromConfig from './map/config';
 import _registerLib from './core/registerLib';
 import * as _middlewares from './map/middlewares/logger';
 import * as _mapLibray from './map/importMapLibrary';
+/**
+ * @type {registerAction}
+ */
+export const { registerFunction } = _registerFunction;
+
 /**
  * @type {registerAction}
  */
@@ -42,6 +48,7 @@ export const middlewares = _middlewares;
 export const { addMapLibrary } = _mapLibray;
 
 export default {
+  registerFunction,
   registerAction,
   registerObserver,
   registerMiddleware,

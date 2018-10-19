@@ -1,7 +1,7 @@
 import { map } from 'rxjs/internal/operators/map';
 import { take } from 'rxjs/internal/operators/take';
 import { delay } from 'rxjs/internal/operators/delay';
-import { RxMapFromConfig, registerMiddleware, registerLib, RxMap } from '../src/index';
+import { RxMapFromConfig, registerMiddleware, registerLib, RxMap, registerFunction } from '../src/index';
 import { LoggerMiddleware, TimerMiddleware } from '../src/map/middlewares/logger';
 import observableStore from '../src/core/observableStore';
 
@@ -10,6 +10,12 @@ import observableStore from '../src/core/observableStore';
 import { from } from 'rxjs/internal/observable/from';
 
 import rxLib from '@rxmap/basiclib';
+
+registerFunction('prueba', context => (param) => {
+  console.log('Funcion Prueba', param);
+  console.log(this, context);
+  return 'pepe';
+});
 
 const config = {
   type: 'leaflet',
@@ -137,6 +143,7 @@ registerLib(
 const p = async () => {
   const Map = await RxMapFromConfig('map', config);
 
+  Map.prueba('asfdasfdasfdasf');
   Map.observerAction('.').subscribe((data) => {
     console.log("ACTION Subscriber 1 got data >>>>> ", data);
   });

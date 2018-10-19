@@ -2,6 +2,7 @@
 import { Subject } from 'rxjs/internal/Subject';
 import { filter } from 'rxjs/internal/operators/filter';
 import { getAction } from './registerAction';
+import { getFunction } from './resgisterFunction';
 import { applyMiddlewares } from './middlewares';
 import AsyncCommandBus from './AsyncCommandBus';
 import CommandBus from './CommandBus';
@@ -65,6 +66,7 @@ const setProxy = obj => new Proxy(obj, {
   get: (target, name, receiver) => {
     if (!(name in target)) {
       let action;
+      let func;
       switch (name) {
         case '_actionsSubject':
           return _actionsSubject(target);
@@ -75,7 +77,11 @@ const setProxy = obj => new Proxy(obj, {
         default:
           action = getAction(name);
           if (!action) {
-            return Reflect.get(target, name, receiver);
+            func = getFunction(name);
+            if (!func) {
+              return Reflect.get(target, name, receiver);
+            }
+            return func(target);
           }
           return _executeAction(action, target, name, receiver);
       }

@@ -48,6 +48,47 @@ RxMap.setCenter(2.35,42.112);
 
 Si registramos las acciones no estaremos utilizando la capacidad de cargar el código de manera dynamica. Sino que se incluirán en el bundle principal de la aplicación.
 
+## Como crear funciones
+Una funcion es una función que recibe el contexto y devuelve una funcion con 0 o n parámetros que es la que ejecutara los cambios sobre el mapa y devuelve el resultado o una promesa, puede ser una función async.
+Se pueden crear funciones que llamen a otras funciones o a acciones.
+
+Las funciones deben tener el mínimo posible de dependencias.
+Es recomendable que cada funcion se ubicaque en un fichero.
+Las funciones se tienen que exportar como default  y se tiene que exportar la propiedad “name” con el nombre de la funcion. Este nombre será el nombre con en el que se registre y se utilizará para invocarla desde RxMap.
+
+A todas las funciones se les inyecta como primer parámetro el RxMap.
+
+Un ejemplo de acción sería.
+
+```
+ const test = context => (paramA, paramB) => {
+    console.log(paramA);
+    return 'test'
+};
+
+export default test;
+
+```
+
+Para poder utilizar esta funcion hay dos formas. La puedes registrar manualmente o tenerla en una libreria y registrar la libreria.
+
+Para registrar manualmente una acción se tendría que hacer lo siguiente.
+
+```
+import { registerFunction, RxMap } from ‘@rxmap/rxmap’;
+import { name }, action from ‘./actionExample’;
+
+registerFunction(name,action);
+
+RxMap.load(‘leaflet’);
+RxMap.create(‘mapId’,0,0,8);
+// aquí ya podríamos utilizar la funcion 
+RxMap.test(2.35,42.112);
+
+```
+
+Si registramos las funciones no estaremos utilizando la capacidad de cargar el código de manera dynamica. Sino que se incluirán en el bundle principal de la aplicación.
+
 ## Como crear observadores
 Un observador es una función que recibe el contexto y devuelve una funciona que puede o no recibir parámetros y que devuelve siempre un observador [RxJS]( 	https://rxjs-dev.firebaseapp.com)
 

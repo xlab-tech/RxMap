@@ -86,6 +86,14 @@ RxMap.test2().test();
 RxMap.observer(from(1)).test();
 
 ```
+## Funciones
+Las funciones deberian ser funciones “puras” que pueden apliar la funcionalidad de RxMap, la idea es que solo realicen una única acción para que sean mucho más fáciles de reaprovechar , probar y debugar.
+Las funciones se pueden invocar sobre RxMap. Las funciones cuando se cargan desde una libreria son siempre asincronas.
+
+```
+RxMap.test();
+
+```
 
 ## Observadores
 Los observadores son funciones que devuelven un observador ( RxJs )  para por ejemplo , gestionar los eventos del mapa como puede ser el click, o para gestionar datos que se pueden recibir continuamente como la posición GPS, el centro del mapa, etc...

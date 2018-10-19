@@ -17,7 +17,7 @@ RxMap es una "Wrapper" para las librerías de mapas que añade programación fun
 
 RxMap no sustituye al visor sino que añade a los visores actuales una capa adicional para poder mejorar el mantenimiento de tus proyectos. Y añade funcionalidades adicionales para mejorar la performance y la escalabilidad de tu código.
 
-RxMap se basa en dos conceptos acciones y observadores para organizar tu código en pequeños bloques. Y también te permite escribir middlewares para desacoplar mejor tu código.
+RxMap se basa en tres conceptos acciones , observadores y funciones para organizar tu código en pequeños bloques. Y también te permite escribir middlewares para desacoplar mejor tu código.
 
 De facto incluye observables sobre las acciones y un store obsevable, para poder observar  los cambios sobre datos que guardes.
 
@@ -87,6 +87,7 @@ Puedes encontrar más Documentación aquí:
 * [Instalar](https://xlab-tech.github.io/RxMap/manual/install.html)
 * [Como Utilizar](https://xlab-tech.github.io/RxMap/manual/howItWorks.html)
 	* [Acciones](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#acciones)
+	* [Funciones](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#funciones)
 	* [Observadores](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#observadores)
 	* [Librerías](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#librerías)
 	* [Middlewares](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#middlewares)
@@ -94,6 +95,7 @@ Puedes encontrar más Documentación aquí:
 	* [Store](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#store-observable)
 * [Como crear](https://xlab-tech.github.io/RxMap/manual/make.html)
 	* [Acciones](https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-acciones)
+	* [Funciones](https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-funciones)
 	* [Observadores](https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-observadores)
 	* [Middlewares](https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-un-middleware)
 	* [Librería](https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-una-libreria)

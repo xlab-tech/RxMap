@@ -3,6 +3,7 @@ import { switchMap } from 'rxjs/internal/operators/switchMap';
 import { addImportFunction, loadLib } from './importLazyLoad';
 import { registerObserver } from './registerObserver';
 import { registerAction } from './registerAction';
+import { registerFunction } from './resgisterFunction';
 
 /**
  * Funcion que permite registrar librerias de Comandos y Observadores
@@ -28,6 +29,15 @@ const registerLib = (name, options, func) => {
   addImportFunction(name, func);
   const actions = options.actions || [];
   const observers = options.observers || [];
+  const functions = options.functions || [];
+
+  functions.forEach((key) => {
+    registerFunction(key, (context) => {
+      const res = loadLib(name, null, 'functions', key, null);
+      return (...args) => res.then(_func => _func(context)(...args));
+    });
+  });
+
   actions.forEach((key) => {
     registerAction(key, (context) => {
       // TODO: buscar una manera de pasar estos datos para desacoplar el mapa
@@ -37,6 +47,7 @@ const registerLib = (name, options, func) => {
       return (...args) => res.then(action => action(context)(...args));
     });
   });
+
   observers.forEach((key) => {
     registerObserver(key, (context) => {
       // TODO: buscar una manera de pasar estos datos para desacoplar el mapa
