@@ -34,12 +34,16 @@ class CommandBus {
     return this._source;
   }
 
-
   /**
    * @private
    */
   getValue() {
     return of(this._lastAction);
+  }
+
+  subscribe(func) {
+    func(this._lastAction);
+    return this;
   }
 
   wait() {

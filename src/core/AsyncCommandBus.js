@@ -46,6 +46,7 @@ class AsyncCommandBus extends CommandBus {
 
   subscribe(func) {
     this.subscribers.push(func);
+    return this;
   }
 
   getValue() {
