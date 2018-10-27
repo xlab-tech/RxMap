@@ -6,6 +6,7 @@ const Dotenv = require('dotenv-webpack');
 module.exports = {
   mode: 'development',
   entry: {
+    '@rxmap-sw': './src/@rxmap-sw.js',
     test: ['./src/index.js', './examples/map.load.js'],
     leafletExample: ['./src/index.js', './examples/leaflet.js'],
     googleExample: ['./src/index.js', './examples/google.js'],

@@ -5,12 +5,15 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = [
   {
     mode: 'development',
-    entry: './src/index.umd.js',
+    entry: {
+      '@rxmap-sw': './src/@rxmap-sw.js',
+      main: './src/index.umd.js',
+    },
     output: {
       library: 'R',
       libraryTarget: 'umd',
       libraryExport: 'default',
-      filename: 'umd/RxMap.src.js',
+      filename: chunkData => (chunkData.chunk.name !== 'main' ? 'umd/[name].js' : 'umd/RxMap.src.js'),
       chunkFilename: 'umd/chunk/[name].src.js',
       path: path.resolve(__dirname, 'dist'),
     },
@@ -21,12 +24,15 @@ module.exports = [
   },
   {
     mode: 'production',
-    entry: './src/index.umd.js',
+    entry: {
+      '@rxmap-sw': './src/@rxmap-sw.js',
+      main: './src/index.umd.js',
+    },
     output: {
       library: 'R',
       libraryTarget: 'umd',
       libraryExport: 'default',
-      filename: 'umd/RxMap.min.js',
+      filename: chunkData => (chunkData.chunk.name === 'main' ? 'umd/[name].js' : 'umd/RxMap.min.js'),
       chunkFilename: 'umd/chunk/[name].min.js',
       path: path.resolve(__dirname, 'dist'),
     },
