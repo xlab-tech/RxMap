@@ -8,6 +8,7 @@ import _RxMapFromConfig from './map/config';
 import _registerLib from './core/registerLib';
 import * as _middlewares from './map/middlewares/logger';
 import * as _mapLibray from './map/importMapLibrary';
+import { getSrc } from './utils/getPath';
 /**
  * @type {registerAction}
  */
@@ -59,10 +60,16 @@ export default {
   middlewares,
   addMapLibrary,
 };
+const fileSrc = getSrc();
 
 if ('serviceWorker' in navigator) {
   // Use the window load event to keep the page load performant
   window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/@rxmap-sw.js');
+    navigator.serviceWorker.register('/@rxmap-sw.js').then((reg) => {
+      reg.active.postMessage('send Message from Client');
+      const msg = { type: 'static', reg: fileSrc };
+      reg.active.postMessage(msg);
+      reg.active.postMessage([1, 2, 3, 4, 5]);
+    });
   });
 }

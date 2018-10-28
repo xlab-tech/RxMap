@@ -18,7 +18,7 @@ registerFunction('prueba', context => (param) => {
 });
 
 const config = {
-  type: 'leaflet',
+  type: 'esri',
   options: {
     key: process.env.GOOGLE_TOKEN,
   },
@@ -191,17 +191,16 @@ const p = async () => {
       .subscribe(data => console.log('subscribe CLICK DATA PRE', data));
   });
 
-  Map.observer('gps')
+  /*Map.observer('gps')
     .pipe(take(1))
     .setCenter(res => ({ lat: res.latitude, lng: res.longitude }))
-    .subscribe(data => console.log('GPS', data));
+    .subscribe(data => console.log('GPS', data));*/
 
 
 };
 p();
 
 
-debugger;
 const t = from([1, 2, 3]);
 //const $p = RxMap.observer(t);
 
@@ -231,7 +230,6 @@ var bb = new Proxy(a, {
     return Reflect.get(target, name, receiver);
   },
   apply: (target, receiver, args) => {
-    debugger;
     console.log('methodName: ', 'I need methodName here. how do I get  -withdraw- here?');
     //TODO do some before-method call task here
     return Reflect.apply(target, receiver, args);

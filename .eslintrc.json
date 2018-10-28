@@ -18,6 +18,8 @@
     "babel"
   ],
   "globals": {
+    "importScripts":true,
+    "workbox":true,
     "import": true,
     "__webpack_public_path__": true
   }
