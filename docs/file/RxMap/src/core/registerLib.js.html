@@ -36,8 +36,10 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src">src</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RxMap">RxMap</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RxMapClass">RxMapClass</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RxMapFromConfig">RxMapFromConfig</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-addMapLibrary">addMapLibrary</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-middlewares">middlewares</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-registerAction">registerAction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-registerFunction">registerFunction</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-registerLib">registerLib</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-registerMiddleware">registerMiddleware</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-registerObserver">registerObserver</a></span></span></li>
@@ -55,12 +57,16 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-registerAction">registerAction</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-registerLib">registerLib</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-registerObserver">registerObserver</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getAllFuctionsName">getAllFuctionsName</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-registerFunction">registerFunction</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-map">src/map</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/RxMap/src/map/RxMap.js~RxMap.html">RxMap</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rxMapFromConfig">rxMapFromConfig</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addMapLibrary">addMapLibrary</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-importMapLibrary">importMapLibrary</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-map-middlewares">src/map/middlewares</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-LoggerMiddleware">LoggerMiddleware</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-TimerMiddleware">TimerMiddleware</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-utils">src/utils</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getGoogleMap">getGoogleMap</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-utils">src/utils</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getSrc">getSrc</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getGoogleMap">getGoogleMap</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadGoogle">loadGoogle</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isPromise">isPromise</a></span></span></li>
 </ul>
@@ -73,6 +79,7 @@ import { switchMap } from &apos;rxjs/internal/operators/switchMap&apos;;
 import { addImportFunction, loadLib } from &apos;./importLazyLoad&apos;;
 import { registerObserver } from &apos;./registerObserver&apos;;
 import { registerAction } from &apos;./registerAction&apos;;
+import { registerFunction } from &apos;./resgisterFunction&apos;;
 
 /**
  * Funcion que permite registrar librerias de Comandos y Observadores
@@ -98,22 +105,32 @@ const registerLib = (name, options, func) =&gt; {
   addImportFunction(name, func);
   const actions = options.actions || [];
   const observers = options.observers || [];
-  actions.forEach((key) =&gt; {
-    registerAction(key, (...args) =&gt; {
-      // TODO: buscar una manera de pasar estos datos para desacoplar el mapa
-      const lib = args[0].source.libName;
-      const version = args[0].source.libVersion;
-      const res = loadLib(name, lib, &apos;actions&apos;, key, version);
-      return res.then(action =&gt; action(...args));
+  const functions = options.functions || [];
+
+  functions.forEach((key) =&gt; {
+    registerFunction(key, (context) =&gt; {
+      const res = loadLib(name, null, &apos;functions&apos;, key, null);
+      return (...args) =&gt; res.then(_func =&gt; _func(context)(...args));
     });
   });
-  observers.forEach((key) =&gt; {
-    registerObserver(key, (...args) =&gt; {
+
+  actions.forEach((key) =&gt; {
+    registerAction(key, (context) =&gt; {
       // TODO: buscar una manera de pasar estos datos para desacoplar el mapa
-      const lib = args[0].source.libName;
-      const version = args[0].source.libVersion;
-      return from(loadLib(name, lib, &apos;observers&apos;, key, version))
-        .pipe(switchMap(observer =&gt; observer(...args)));
+      const lib = context.source.libName;
+      const version = context.source.libVersion;
+      const res = loadLib(name, lib, &apos;actions&apos;, key, version);
+      return (...args) =&gt; res.then(action =&gt; action(context)(...args));
+    });
+  });
+
+  observers.forEach((key) =&gt; {
+    registerObserver(key, (context) =&gt; {
+      // TODO: buscar una manera de pasar estos datos para desacoplar el mapa
+      const lib = context.source.libName;
+      const version = context.source.libVersion;
+      return (...args) =&gt; from(loadLib(name, lib, &apos;observers&apos;, key, version))
+        .pipe(switchMap(observer =&gt; observer(context)(...args)));
     });
   });
 };

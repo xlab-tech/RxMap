@@ -1,7 +1,7 @@
 {
-  "coverage": "49%",
-  "expectCount": 100,
-  "actualCount": 49,
+  "coverage": "47.78%",
+  "expectCount": 113,
+  "actualCount": 54,
   "files": {
     "RxMap/lib.js": {
       "expectCount": 4,
@@ -17,36 +17,38 @@
       "expectCount": 14,
       "actualCount": 0,
       "undocumentLines": [
-        68,
-        5,
+        70,
         6,
-        8,
+        7,
         9,
         10,
-        13,
-        20,
-        25,
-        31,
-        42,
-        46,
-        50,
-        59
+        11,
+        14,
+        21,
+        26,
+        32,
+        43,
+        47,
+        52,
+        61
       ]
     },
     "RxMap/src/core/CommandBus.js": {
-      "expectCount": 16,
+      "expectCount": 18,
       "actualCount": 6,
       "undocumentLines": [
-        10,
         11,
         12,
         13,
         14,
         15,
-        21,
-        25,
-        55,
-        64
+        16,
+        22,
+        26,
+        44,
+        49,
+        68,
+        77
       ]
     },
     "RxMap/src/core/importLazyLoad.js": {
@@ -79,7 +81,7 @@
       "expectCount": 4,
       "actualCount": 3,
       "undocumentLines": [
-        64
+        65
       ]
     },
     "RxMap/src/core/proxyObservable.js": {
@@ -106,17 +108,21 @@
         2
       ]
     },
-    "RxMap/src/index.js": {
-      "expectCount": 8,
-      "actualCount": 7,
+    "RxMap/src/core/resgisterFunction.js": {
+      "expectCount": 5,
+      "actualCount": 4,
       "undocumentLines": [
-        39
+        2
       ]
     },
-    "RxMap/src/index.umd.js": {
-      "expectCount": 2,
-      "actualCount": 2,
-      "undocumentLines": []
+    "RxMap/src/index.js": {
+      "expectCount": 11,
+      "actualCount": 8,
+      "undocumentLines": [
+        49,
+        51,
+        65
+      ]
     },
     "RxMap/src/map/RxMap.js": {
       "expectCount": 16,
@@ -132,14 +138,16 @@
       "expectCount": 1,
       "actualCount": 0,
       "undocumentLines": [
-        5
+        4
       ]
     },
     "RxMap/src/map/importMapLibrary.js": {
-      "expectCount": 1,
+      "expectCount": 3,
       "actualCount": 0,
       "undocumentLines": [
-        3
+        3,
+        5,
+        9
       ]
     },
     "RxMap/src/map/middlewares/logger.js": {
@@ -148,6 +156,13 @@
       "undocumentLines": [
         2,
         12
+      ]
+    },
+    "RxMap/src/utils/getPath.js": {
+      "expectCount": 3,
+      "actualCount": 2,
+      "undocumentLines": [
+        13
       ]
     },
     "RxMap/src/utils/google.js": {

@@ -1,12 +1,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   mode: 'development',
   entry: {
-    '@rxmap-sw': './src/@rxmap-sw.js',
     test: ['./src/index.js', './examples/map.load.js'],
     leafletExample: ['./src/index.js', './examples/leaflet.js'],
     googleExample: ['./src/index.js', './examples/google.js'],
@@ -26,6 +26,9 @@ module.exports = {
   },
   plugins: [
     new Dotenv(),
+    new CopyWebpackPlugin([{
+      from: 'examples/sw.js', to: 'sw.js',
+    }]),
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       title: 'Index',

@@ -36,8 +36,10 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src">src</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RxMap">RxMap</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RxMapClass">RxMapClass</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RxMapFromConfig">RxMapFromConfig</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-addMapLibrary">addMapLibrary</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-middlewares">middlewares</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-registerAction">registerAction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-registerFunction">registerFunction</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-registerLib">registerLib</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-registerMiddleware">registerMiddleware</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-registerObserver">registerObserver</a></span></span></li>
@@ -55,12 +57,16 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-registerAction">registerAction</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-registerLib">registerLib</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-registerObserver">registerObserver</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getAllFuctionsName">getAllFuctionsName</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-registerFunction">registerFunction</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-map">src/map</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/RxMap/src/map/RxMap.js~RxMap.html">RxMap</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rxMapFromConfig">rxMapFromConfig</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addMapLibrary">addMapLibrary</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-importMapLibrary">importMapLibrary</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-map-middlewares">src/map/middlewares</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-LoggerMiddleware">LoggerMiddleware</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-TimerMiddleware">TimerMiddleware</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-utils">src/utils</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getGoogleMap">getGoogleMap</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-utils">src/utils</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getSrc">getSrc</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getGoogleMap">getGoogleMap</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadGoogle">loadGoogle</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isPromise">isPromise</a></span></span></li>
 </ul>
@@ -68,13 +74,13 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import AsyncCommandBus from &apos;<span><a href="file/RxMap/src/core/AsyncCommandBus.js.html#lineNumber5">@rxmap/rxmap/RxMap/src/core/AsyncCommandBus.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import AsyncCommandBus from &apos;<span><a href="file/RxMap/src/core/AsyncCommandBus.js.html#lineNumber6">@rxmap/rxmap/RxMap/src/core/AsyncCommandBus.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/RxMap/src/core/AsyncCommandBus.js.html#lineNumber5">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/RxMap/src/core/AsyncCommandBus.js.html#lineNumber6">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -336,7 +342,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/RxMap/src/core/AsyncCommandBus.js~AsyncCommandBus.html#instance-method-subscribe">subscribe</a></span></span><span class="code" data-ice="signature">(func: <span>*</span>)</span>
+          <span class="code" data-ice="name"><span><a href="class/RxMap/src/core/AsyncCommandBus.js~AsyncCommandBus.html#instance-method-subscribe">subscribe</a></span></span><span class="code" data-ice="signature">(func: <span>*</span>): <span>*</span></span>
         </p>
       </div>
       <div>
@@ -414,6 +420,62 @@
       
     </td>
   </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/RxMap/src/core/CommandBus.js~CommandBus.html#instance-method-subscribe">subscribe</a></span></span><span class="code" data-ice="signature">(func: <span>*</span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/RxMap/src/core/CommandBus.js~CommandBus.html#instance-method-wait">wait</a></span></span><span class="code" data-ice="signature">(): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
 </tbody>
 </table>
 </div>
@@ -434,7 +496,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/RxMap/src/core/AsyncCommandBus.js.html#lineNumber6">source</a></span></span>
+      <span data-ice="source"><span><a href="file/RxMap/src/core/AsyncCommandBus.js.html#lineNumber7">source</a></span></span>
     </span>
   </h3>
 
@@ -480,7 +542,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/RxMap/src/core/AsyncCommandBus.js.html#lineNumber10">source</a></span></span>
+      <span data-ice="source"><span><a href="file/RxMap/src/core/AsyncCommandBus.js.html#lineNumber11">source</a></span></span>
     </span>
   </h3>
 
@@ -523,7 +585,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/RxMap/src/core/AsyncCommandBus.js.html#lineNumber8">source</a></span></span>
+      <span data-ice="source"><span><a href="file/RxMap/src/core/AsyncCommandBus.js.html#lineNumber9">source</a></span></span>
     </span>
   </h3>
 
@@ -566,7 +628,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/RxMap/src/core/AsyncCommandBus.js.html#lineNumber9">source</a></span></span>
+      <span data-ice="source"><span><a href="file/RxMap/src/core/AsyncCommandBus.js.html#lineNumber10">source</a></span></span>
     </span>
   </h3>
 
@@ -612,7 +674,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/RxMap/src/core/AsyncCommandBus.js.html#lineNumber13">source</a></span></span>
+      <span data-ice="source"><span><a href="file/RxMap/src/core/AsyncCommandBus.js.html#lineNumber14">source</a></span></span>
     </span>
   </h3>
 
@@ -683,7 +745,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/RxMap/src/core/AsyncCommandBus.js.html#lineNumber50">source</a></span></span>
+      <span data-ice="source"><span><a href="file/RxMap/src/core/AsyncCommandBus.js.html#lineNumber52">source</a></span></span>
     </span>
   </h3>
 
@@ -738,7 +800,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/RxMap/src/core/AsyncCommandBus.js.html#lineNumber59">source</a></span></span>
+      <span data-ice="source"><span><a href="file/RxMap/src/core/AsyncCommandBus.js.html#lineNumber61">source</a></span></span>
     </span>
   </h3>
 
@@ -811,11 +873,11 @@
     
     
     
-    <span class="code" data-ice="name">subscribe</span><span class="code" data-ice="signature">(func: <span>*</span>)</span>
+    <span class="code" data-ice="name">subscribe</span><span class="code" data-ice="signature">(func: <span>*</span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/RxMap/src/core/AsyncCommandBus.js.html#lineNumber46">source</a></span></span>
+      <span data-ice="source"><span><a href="file/RxMap/src/core/AsyncCommandBus.js.html#lineNumber47">source</a></span></span>
     </span>
   </h3>
 
@@ -824,7 +886,7 @@
   
   
 
-  
+  <div data-ice="override"><h4>Override:</h4><span><a href="class/RxMap/src/core/CommandBus.js~CommandBus.html#instance-method-subscribe">CommandBus#subscribe</a></span></div>
 
   <div data-ice="properties"><div data-ice="properties">
   <h4 data-ice="title">Params:</h4>
@@ -845,7 +907,19 @@
 </div>
 </div>
 
-  
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tbody>
+        <tr>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
+        </tr>
+      </tbody>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
 
   
 

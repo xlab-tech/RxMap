@@ -13,7 +13,7 @@
 [<img src="https://cdn.icon-icons.com/icons2/923/PNG/512/slack_alt_icon-icons.com_72013.png" alt="Join Slack"  height="64">](https://join.slack.com/t/xlab-tech/shared_invite/enQtNDIwMzg1MTA2NjA5LTljZWNkZjliNjhhNTc4MTQ0OWVkNTAwMTE0NmU2YTllYTE5YzllZjM2NTQ1ZmNkMDRmMGI0NWE0NGRiZGIxNmE)
 
 
-RxMap es una "Wrapper" para las librerías de mapas que añade programación funcional y reactiva usando observables([RxJs](https://github.com/ReactiveX/rxjs)) , que permite fácilmente anidar llamadas asyncronas y que permite disponer de diferentes libreras de mapas con la misma interfaz.
+RxMap es una "Wrapper" para las librerías de mapas que añade programación funcional y reactiva usando observables([RxJs](https://github.com/ReactiveX/rxjs)) , permite fácilmente anidar llamadas asyncronas , permite disponer de diferentes libreras de mapas con la misma interfaz y incluye la opcion de trabajar offline.
 
 RxMap no sustituye al visor sino que añade a los visores actuales una capa adicional para poder mejorar el mantenimiento de tus proyectos. Y añade funcionalidades adicionales para mejorar la performance y la escalabilidad de tu código.
 
@@ -33,6 +33,7 @@ RxMap te permite cargar el código en diferido cuando la utilizas para mejorar l
 * Store Observable.
 * Trabaja con multiples mapas, sin cambiar tu código.
 * Reutilización de código entre diferentes proyectos.
+* Offline
 
 ## Instalación
 
@@ -44,7 +45,7 @@ Npm install @rxmap\rxmap —save
 ### CDN
 ```
 <head>
-<script type=‘application/javascript’ src=‘https://unpkg.com/@rxmap/rxmap@0.1.0’ defer/>
+<script type=‘application/javascript’ src=‘https://unpkg.com/@rxmap/rxmap@0.5.0’ defer/>
 </head>
 
 ```
@@ -122,3 +123,16 @@ Para hacer un PullRequest:
  * [ol](https://openlayers.org/)
  * [esri](https://developers.arcgis.com/javascript/)
  * [carto](https://carto.com/)
+
+# Offline
+
+El offline funciona a través de un serviceWorker que se encarga de cachear todas las peticiones para que posteriormente puedas acceder a ellas sin cobertura.
+
+Para poder trabajar offline hay que incluir el fichero sw.js en la misma ruta donde
+esta RxMap.
+El fichero sw.js debe incluir esta linea
+
+```
+importScripts('https://unpkg.com/@rxmap/offlinestorage@0.4.0/dist/esm/offline-sw.js')
+````
+para poder activar al serviceWorker que se encargara de cachear las peticiones.

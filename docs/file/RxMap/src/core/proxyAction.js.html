@@ -36,8 +36,10 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src">src</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RxMap">RxMap</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RxMapClass">RxMapClass</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RxMapFromConfig">RxMapFromConfig</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-addMapLibrary">addMapLibrary</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-middlewares">middlewares</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-registerAction">registerAction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-registerFunction">registerFunction</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-registerLib">registerLib</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-registerMiddleware">registerMiddleware</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-registerObserver">registerObserver</a></span></span></li>
@@ -55,12 +57,16 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-registerAction">registerAction</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-registerLib">registerLib</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-registerObserver">registerObserver</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getAllFuctionsName">getAllFuctionsName</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-registerFunction">registerFunction</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-map">src/map</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/RxMap/src/map/RxMap.js~RxMap.html">RxMap</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rxMapFromConfig">rxMapFromConfig</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addMapLibrary">addMapLibrary</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-importMapLibrary">importMapLibrary</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-map-middlewares">src/map/middlewares</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-LoggerMiddleware">LoggerMiddleware</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-TimerMiddleware">TimerMiddleware</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-utils">src/utils</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getGoogleMap">getGoogleMap</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-utils">src/utils</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getSrc">getSrc</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getGoogleMap">getGoogleMap</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadGoogle">loadGoogle</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isPromise">isPromise</a></span></span></li>
 </ul>
@@ -72,6 +78,7 @@
 import { Subject } from &apos;rxjs/internal/Subject&apos;;
 import { filter } from &apos;rxjs/internal/operators/filter&apos;;
 import { getAction } from &apos;./registerAction&apos;;
+import { getFunction } from &apos;./resgisterFunction&apos;;
 import { applyMiddlewares } from &apos;./middlewares&apos;;
 import AsyncCommandBus from &apos;./AsyncCommandBus&apos;;
 import CommandBus from &apos;./CommandBus&apos;;
@@ -135,6 +142,7 @@ const setProxy = obj =&gt; new Proxy(obj, {
   get: (target, name, receiver) =&gt; {
     if (!(name in target)) {
       let action;
+      let func;
       switch (name) {
         case &apos;_actionsSubject&apos;:
           return _actionsSubject(target);
@@ -145,7 +153,11 @@ const setProxy = obj =&gt; new Proxy(obj, {
         default:
           action = getAction(name);
           if (!action) {
-            return Reflect.get(target, name, receiver);
+            func = getFunction(name);
+            if (!func) {
+              return Reflect.get(target, name, receiver);
+            }
+            return func(target);
           }
           return _executeAction(action, target, name, receiver);
       }

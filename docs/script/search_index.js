@@ -60,6 +60,18 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "@rxmap/rxmap/rxmap/src/index.js~addmaplibrary",
+    "variable/index.html#static-variable-addMapLibrary",
+    "<span>addMapLibrary</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/index.js</span>",
+    "variable"
+  ],
+  [
+    "@rxmap/rxmap/rxmap/src/map/importmaplibrary.js~addmaplibrary",
+    "function/index.html#static-function-addMapLibrary",
+    "<span>addMapLibrary</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/map/importMapLibrary.js</span>",
+    "function"
+  ],
+  [
     "@rxmap/rxmap/rxmap/lib.js~func",
     "function/index.html#static-function-func",
     "<span>func</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/lib.js</span>",
@@ -72,9 +84,21 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "@rxmap/rxmap/rxmap/src/core/resgisterfunction.js~getallfuctionsname",
+    "function/index.html#static-function-getAllFuctionsName",
+    "<span>getAllFuctionsName</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/core/resgisterFunction.js</span>",
+    "function"
+  ],
+  [
     "@rxmap/rxmap/rxmap/src/utils/google.js~getgooglemap",
     "function/index.html#static-function-getGoogleMap",
     "<span>getGoogleMap</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/utils/google.js</span>",
+    "function"
+  ],
+  [
+    "@rxmap/rxmap/rxmap/src/utils/getpath.js~getsrc",
+    "function/index.html#static-function-getSrc",
+    "<span>getSrc</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/utils/getPath.js</span>",
     "function"
   ],
   [
@@ -147,6 +171,18 @@ window.esdocSearchIndex = [
     "@rxmap/rxmap/rxmap/src/index.js~registeraction",
     "variable/index.html#static-variable-registerAction",
     "<span>registerAction</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/index.js</span>",
+    "variable"
+  ],
+  [
+    "@rxmap/rxmap/rxmap/src/core/resgisterfunction.js~registerfunction",
+    "function/index.html#static-function-registerFunction",
+    "<span>registerFunction</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/core/resgisterFunction.js</span>",
+    "function"
+  ],
+  [
+    "@rxmap/rxmap/rxmap/src/index.js~registerfunction",
+    "variable/index.html#static-variable-registerFunction",
+    "<span>registerFunction</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/index.js</span>",
     "variable"
   ],
   [
@@ -320,7 +356,7 @@ window.esdocSearchIndex = [
   [
     "",
     "test-file/test/unit/core/commandBus.spec.js.html#lineNumber88",
-    "CommandBus observer action ",
+    "CommandBus observer action 2",
     "test"
   ],
   [
@@ -690,6 +726,18 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "rxmap/src/core/commandbus.js~commandbus#subscribe",
+    "class/RxMap/src/core/CommandBus.js~CommandBus.html#instance-method-subscribe",
+    "RxMap/src/core/CommandBus.js~CommandBus#subscribe",
+    "method"
+  ],
+  [
+    "rxmap/src/core/commandbus.js~commandbus#wait",
+    "class/RxMap/src/core/CommandBus.js~CommandBus.html#instance-method-wait",
+    "RxMap/src/core/CommandBus.js~CommandBus#wait",
+    "method"
+  ],
+  [
     "rxmap/src/core/importlazyload.js",
     "file/RxMap/src/core/importLazyLoad.js.html",
     "RxMap/src/core/importLazyLoad.js",
@@ -735,6 +783,12 @@ window.esdocSearchIndex = [
     "rxmap/src/core/registerobserver.js",
     "file/RxMap/src/core/registerObserver.js.html",
     "RxMap/src/core/registerObserver.js",
+    "file"
+  ],
+  [
+    "rxmap/src/core/resgisterfunction.js",
+    "file/RxMap/src/core/resgisterFunction.js.html",
+    "RxMap/src/core/resgisterFunction.js",
     "file"
   ],
   [
@@ -837,6 +891,12 @@ window.esdocSearchIndex = [
     "rxmap/src/map/middlewares/logger.js",
     "file/RxMap/src/map/middlewares/logger.js.html",
     "RxMap/src/map/middlewares/logger.js",
+    "file"
+  ],
+  [
+    "rxmap/src/utils/getpath.js",
+    "file/RxMap/src/utils/getPath.js.html",
+    "RxMap/src/utils/getPath.js",
     "file"
   ],
   [

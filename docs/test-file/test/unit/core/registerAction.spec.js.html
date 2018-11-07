@@ -36,8 +36,10 @@
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src">src</a><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RxMap">RxMap</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RxMapClass">RxMapClass</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RxMapFromConfig">RxMapFromConfig</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-addMapLibrary">addMapLibrary</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-middlewares">middlewares</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-registerAction">registerAction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-registerFunction">registerFunction</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-registerLib">registerLib</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-registerMiddleware">registerMiddleware</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-registerObserver">registerObserver</a></span></span></li>
@@ -55,12 +57,16 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-registerAction">registerAction</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-registerLib">registerLib</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-registerObserver">registerObserver</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getAllFuctionsName">getAllFuctionsName</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-registerFunction">registerFunction</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-map">src/map</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/RxMap/src/map/RxMap.js~RxMap.html">RxMap</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-rxMapFromConfig">rxMapFromConfig</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-addMapLibrary">addMapLibrary</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-importMapLibrary">importMapLibrary</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-map-middlewares">src/map/middlewares</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-LoggerMiddleware">LoggerMiddleware</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-TimerMiddleware">TimerMiddleware</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-utils">src/utils</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getGoogleMap">getGoogleMap</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#src-utils">src/utils</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getSrc">getSrc</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-getGoogleMap">getGoogleMap</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-loadGoogle">loadGoogle</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isPromise">isPromise</a></span></span></li>
 </ul>
@@ -80,40 +86,40 @@ import rxMap from &apos;../../../src/map/RxMap&apos;;
 
 describe(&apos;Register Action&apos;, () =&gt; {
   it(&apos;register action&apos;, () =&gt; {
-    registerAction(&apos;testRegister&apos;, () =&gt; &apos;testRegister&apos;);
+    registerAction(&apos;testRegister&apos;, () =&gt; () =&gt; &apos;testRegister&apos;);
     const f = getAction(&apos;testRegister&apos;);
     expect(f).to.be.a(&apos;function&apos;);
   });
   it(&apos;test getAllActionsName&apos;, () =&gt; {
-    registerAction(&apos;one&apos;, () =&gt; &apos;testRegister&apos;);
+    registerAction(&apos;one&apos;, () =&gt; () =&gt; &apos;testRegister&apos;);
     const names = getAllActionsName();
     expect(names).to.be.a(&apos;array&apos;).that.includes(&apos;one&apos;);
   });
   it(&apos;function return asyncCommandBus&apos;, () =&gt; {
-    registerAction(&apos;testRegister&apos;, () =&gt; &apos;testRegister&apos;);
+    registerAction(&apos;testRegister&apos;, () =&gt; () =&gt; &apos;testRegister&apos;);
     const res = rxMap.testRegister();
     expect(res).to.instanceOf(AsyncCommandBus);
   });
   it(&apos;function create return CommandBus&apos;, () =&gt; {
-    registerAction(&apos;create&apos;, () =&gt; &apos;testRegister&apos;);
+    registerAction(&apos;create&apos;, () =&gt; () =&gt; &apos;testRegister&apos;);
     const res = rxMap.create(&apos;aa&apos;, &apos;bb&apos;);
     expect(res).to.instanceOf(CommandBus);
   });
   it(&apos;getAction&apos;, () =&gt; {
-    const f = () =&gt; &apos;test&apos;;
+    const f = () =&gt; () =&gt; &apos;test&apos;;
     registerAction(&apos;test&apos;, f);
     const ff = getAction(&apos;test&apos;);
     expect(ff).to.eq(f);
   });
   it(&apos;getActionInfo&apos;, () =&gt; {
-    const f = () =&gt; &apos;test&apos;;
+    const f = () =&gt; () =&gt; &apos;test&apos;;
     const options = { test: &apos;test&apos; };
     registerAction(&apos;test&apos;, f, options);
     const opt = getActionInfo(&apos;test&apos;);
     expect(opt).to.eq(options);
   });
   it.skip(&apos;update all actions &apos;, () =&gt; {
-    const f = () =&gt; &apos;test&apos;;
+    const f = () =&gt; () =&gt; &apos;test&apos;;
     const func = next =&gt; (Map, args) =&gt; {
       next(Map, args);
       return &apos;bb&apos;;

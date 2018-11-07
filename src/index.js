@@ -1,3 +1,4 @@
+import { start, addStatic, addLayer } from '@rxmap/offlinestorage';
 import './utils/polyfill';
 import * as _register from './core/registerAction';
 import * as _registerFunction from './core/resgisterFunction';
@@ -8,7 +9,8 @@ import _RxMapFromConfig from './map/config';
 import _registerLib from './core/registerLib';
 import * as _middlewares from './map/middlewares/logger';
 import * as _mapLibray from './map/importMapLibrary';
-import { getSrc } from './utils/getPath';
+import { getSrc, getPath } from './utils/getPath';
+
 /**
  * @type {registerAction}
  */
@@ -48,6 +50,8 @@ export const middlewares = _middlewares;
 
 export const { addMapLibrary } = _mapLibray;
 
+export const offiline = { addStatic, addLayer };
+
 export default {
   registerFunction,
   registerAction,
@@ -59,17 +63,10 @@ export default {
   RxMapFromConfig,
   middlewares,
   addMapLibrary,
+  offiline,
 };
 const fileSrc = getSrc();
 
-if ('serviceWorker' in navigator) {
-  // Use the window load event to keep the page load performant
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/@rxmap-sw.js').then((reg) => {
-      reg.active.postMessage('send Message from Client');
-      const msg = { type: 'static', reg: fileSrc };
-      reg.active.postMessage(msg);
-      reg.active.postMessage([1, 2, 3, 4, 5]);
-    });
-  });
-}
+addStatic(/(.+|)chunk.+.(js|css)$/);
+addStatic(fileSrc);
+start(getPath());

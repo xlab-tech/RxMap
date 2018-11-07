@@ -1,6 +1,6 @@
 {
   "name": "@rxmap/rxmap",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "map command and reactive ",
   "keywords": [
     "map",
@@ -69,6 +69,7 @@
     "babel-plugin-dynamic-import-node": "^2.2.0",
     "chai": "^4.2.0",
     "clean-webpack-plugin": "^0.1.19",
+    "copy-webpack-plugin": "^4.6.0",
     "cross-env": "^5.2.0",
     "dotenv-webpack": "^1.5.7",
     "esdoc": "^1.1.0",
@@ -96,6 +97,7 @@
     "@babel/polyfill": "^7.0.0",
     "@babel/runtime": "^7.1.2",
     "@carto/carto.js": "^4.1.7",
+    "@rxmap/offlinestorage": "^0.4.0",
     "core-js": "^2.5.7",
     "esri-loader": "^2.5.0",
     "google-maps": "^3.3.0",

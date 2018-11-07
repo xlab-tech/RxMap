@@ -51,6 +51,7 @@
 <li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#cargar" data-ice="link">Cargar</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#librer&#xED;as" data-ice="link">Librer&#xED;as</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#acciones" data-ice="link">Acciones</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#funciones" data-ice="link">Funciones</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#observadores" data-ice="link">Observadores</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#middlewares" data-ice="link">Middlewares</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#observar-acciones" data-ice="link">Observar acciones</a></li>
@@ -62,6 +63,7 @@
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/make.html"><a href="manual/make.html" data-ice="link">Creaci&#xF3;n</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/make.html"><a href="manual/make.html#como-crear-acciones" data-ice="link">Como crear acciones</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/make.html"><a href="manual/make.html#como-crear-funciones" data-ice="link">Como crear funciones</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/make.html"><a href="manual/make.html#como-crear-observadores" data-ice="link">Como crear observadores</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/make.html"><a href="manual/make.html#como-crear-un-middleware" data-ice="link">Como crear un middleware</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/make.html"><a href="manual/make.html#como-crear-una-libreria" data-ice="link">Como crear una libreria</a></li>
@@ -145,6 +147,10 @@ Las acciones se pueden invocar sobre RxMap o sobre un observador. Las acciones s
 RxMap.test2().test();
 
 RxMap.observer(from(1)).test();
+</code>
+</code></pre><h2 id="funciones">Funciones</h2><p>Las funciones deberian ser funciones &#x201C;puras&#x201D; que pueden apliar la funcionalidad de RxMap, la idea es que solo realicen una &#xFA;nica acci&#xF3;n para que sean mucho m&#xE1;s f&#xE1;ciles de reaprovechar , probar y debugar.
+Las funciones se pueden invocar sobre RxMap. Las funciones cuando se cargan desde una libreria son siempre asincronas.</p>
+<pre><code><code class="source-code prettyprint">RxMap.test();
 </code>
 </code></pre><h2 id="observadores">Observadores</h2><p>Los observadores son funciones que devuelven un observador ( RxJs )  para por ejemplo , gestionar los eventos del mapa como puede ser el click, o para gestionar datos que se pueden recibir continuamente como la posici&#xF3;n GPS, el centro del mapa, etc...
 Con los observadores se pueden utilizar todos los operadores de RxJs para modificar, transformar , etc.. los valores del observador.</p>

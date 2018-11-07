@@ -51,6 +51,7 @@
 <li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#cargar" data-ice="link">Cargar</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#librer&#xED;as" data-ice="link">Librer&#xED;as</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#acciones" data-ice="link">Acciones</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#funciones" data-ice="link">Funciones</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#observadores" data-ice="link">Observadores</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#middlewares" data-ice="link">Middlewares</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#observar-acciones" data-ice="link">Observar acciones</a></li>
@@ -62,6 +63,7 @@
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/make.html"><a href="manual/make.html" data-ice="link">Creaci&#xF3;n</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/make.html"><a href="manual/make.html#como-crear-acciones" data-ice="link">Como crear acciones</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/make.html"><a href="manual/make.html#como-crear-funciones" data-ice="link">Como crear funciones</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/make.html"><a href="manual/make.html#como-crear-observadores" data-ice="link">Como crear observadores</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/make.html"><a href="manual/make.html#como-crear-un-middleware" data-ice="link">Como crear un middleware</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/make.html"><a href="manual/make.html#como-crear-una-libreria" data-ice="link">Como crear una libreria</a></li>
@@ -99,12 +101,11 @@
 <p><a href="https://xlab.tech"><img src="https://avatars0.githubusercontent.com/u/37194013?s=400&amp;u=692377e91a2dab11006abb01d0db33cdb211c9b8&amp;v=4" height="64"></a>
 &#xA0;&#xA0;
 <a href="https://join.slack.com/t/xlab-tech/shared_invite/enQtNDIwMzg1MTA2NjA5LTljZWNkZjliNjhhNTc4MTQ0OWVkNTAwMTE0NmU2YTllYTE5YzllZjM2NTQ1ZmNkMDRmMGI0NWE0NGRiZGIxNmE"><img src="https://cdn.icon-icons.com/icons2/923/PNG/512/slack_alt_icon-icons.com_72013.png" height="64"></a></p>
-<p>RxMap es una librer&#xED;a de mapas para programaci&#xF3;n funcional y reactiva usando observables(<a href="https://github.com/ReactiveX/rxjs">RxJs</a>) Y que permite f&#xE1;cilmente anidar llamadas asyncronas.</p>
-<p>RxMap no sustituye al visor sino que a&#xF1;ade a los visores actuales una capa adicional para poder mejorar el mantenimiento de tus proyectos. Y a&#xF1;ade funcionalidades adicionales para mejorar la performance y la escalabilidad de tu c&#xF3;digo. </p>
-<p>RxMap se basa en dos conceptos acciones y observadores para organizar tu c&#xF3;digo en peque&#xF1;os bloques. Y tambi&#xE9;n te permite escribir middlewares para desacoplar mejor tu c&#xF3;digo.</p>
+<p>RxMap es una &quot;Wrapper&quot; para las librer&#xED;as de mapas que a&#xF1;ade programaci&#xF3;n funcional y reactiva usando observables(<a href="https://github.com/ReactiveX/rxjs">RxJs</a>) , que permite f&#xE1;cilmente anidar llamadas asyncronas y que permite disponer de diferentes libreras de mapas con la misma interfaz.</p>
+<p>RxMap no sustituye al visor sino que a&#xF1;ade a los visores actuales una capa adicional para poder mejorar el mantenimiento de tus proyectos. Y a&#xF1;ade funcionalidades adicionales para mejorar la performance y la escalabilidad de tu c&#xF3;digo.</p>
+<p>RxMap se basa en tres conceptos acciones , observadores y funciones para organizar tu c&#xF3;digo en peque&#xF1;os bloques. Y tambi&#xE9;n te permite escribir middlewares para desacoplar mejor tu c&#xF3;digo.</p>
 <p>De facto incluye observables sobre las acciones y un store obsevable, para poder observar  los cambios sobre datos que guardes.</p>
-<p>RxMap a&#xF1;ade una capa de abstracci&#xF3;n sobre las librer&#xED;as de mapas, esta dise&#xF1;ada para desacoplarte i evitarte tener que actualizar tu c&#xF3;digo con cada cambio de librer&#xED;as o utilizar una mapa diferente seg&#xFA;n el entorno. Podr&#xE1;s 
-centrarte en desarrollar tus funcionalidades.</p>
+<p>RxMap a&#xF1;ade una capa de abstracci&#xF3;n sobre las librer&#xED;as de mapas, esta dise&#xF1;ada para desacoplarte y evitarte tener que actualizar tu c&#xF3;digo con cada cambio de librer&#xED;as o utilizar una mapa diferente seg&#xFA;n el entorno. Podr&#xE1;s centrarte en desarrollar tus funcionalidades.</p>
 <p>RxMap te permite cargar el c&#xF3;digo en diferido cuando la utilizas para mejorar los tiempos de carga, es recomendable desplegarlo en http2.</p>
 <h2 id="ventajas">Ventajas</h2><ul>
 <li>Cargar en diferido de las acciones y los observadores (Lazy Loader).</li>
@@ -143,6 +144,7 @@ R.RxMap.marker(2.45,41.56).popup(&#x2018;hello&#x2019;);
 <li><a href="https://xlab-tech.github.io/RxMap/manual/install.html">Instalar</a></li>
 <li><a href="https://xlab-tech.github.io/RxMap/manual/howItWorks.html">Como Utilizar</a><ul>
 <li><a href="https://xlab-tech.github.io/RxMap/manual/howItWorks.html#acciones">Acciones</a></li>
+<li><a href="https://xlab-tech.github.io/RxMap/manual/howItWorks.html#funciones">Funciones</a></li>
 <li><a href="https://xlab-tech.github.io/RxMap/manual/howItWorks.html#observadores">Observadores</a></li>
 <li><a href="https://xlab-tech.github.io/RxMap/manual/howItWorks.html#librer&#xED;as">Librer&#xED;as</a></li>
 <li><a href="https://xlab-tech.github.io/RxMap/manual/howItWorks.html#middlewares">Middlewares</a></li>
@@ -152,6 +154,7 @@ R.RxMap.marker(2.45,41.56).popup(&#x2018;hello&#x2019;);
 </li>
 <li><a href="https://xlab-tech.github.io/RxMap/manual/make.html">Como crear</a><ul>
 <li><a href="https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-acciones">Acciones</a></li>
+<li><a href="https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-funciones">Funciones</a></li>
 <li><a href="https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-observadores">Observadores</a></li>
 <li><a href="https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-un-middleware">Middlewares</a></li>
 <li><a href="https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-una-libreria">Librer&#xED;a</a></li>
@@ -268,6 +271,9 @@ RxMap.test2().test();
 
 RxMap.observer(from(1)).test();
 </code>
+</code></pre><h2>Funciones</h2><p>Las funciones deberian ser funciones &#x201C;puras&#x201D; que pueden apliar la funcionalidad de RxMap, la idea es que solo realicen una &#xFA;nica acci&#xF3;n para que sean mucho m&#xE1;s f&#xE1;ciles de reaprovechar , probar y debugar.
+Las funciones se pueden invocar sobre RxMap. Las funciones cuando se cargan desde una libreria son siempre asincronas.</p><pre><code><code class="source-code prettyprint">RxMap.test();
+</code>
 </code></pre><h2>Observadores</h2><p>Los observadores son funciones que devuelven un observador ( RxJs )  para por ejemplo , gestionar los eventos del mapa como puede ser el click, o para gestionar datos que se pueden recibir continuamente como la posici&#xF3;n GPS, el centro del mapa, etc...
 Con los observadores se pueden utilizar todos los operadores de RxJs para modificar, transformar , etc.. los valores del observador.</p><p>Tambi&#xE9;n se pueden utilizar observadores creados con RxJs para utilizar las acciones de RxMap. 
 Cuando  se utiliza un observador, se puede pasar como par&#xE1;metro a la acci&#xF3;n una funci&#xF3;n que transforme los argumentos en un array con los argumentos que espera la acci&#xF3;n.</p><pre><code><code class="source-code prettyprint">RxMap.observer(&#x2018;&lt;observer name&gt;&#x2019;).subscribe((data) =&gt; console.log);
@@ -347,7 +353,27 @@ RxMap.create(&#x2018;mapId&#x2019;,0,0,8);
 // aqu&#xED; ya podr&#xED;amos utilizar la acci&#xF3;n 
 RxMap.setCenter(2.35,42.112);
 </code>
-</code></pre><p>Si registramos las acciones no estaremos utilizando la capacidad de cargar el c&#xF3;digo de manera dynamica. Sino que se incluir&#xE1;n en el bundle principal de la aplicaci&#xF3;n.</p><h2>Como crear observadores</h2><p>Un observador es una funci&#xF3;n que recibe el contexto y devuelve una funciona que puede o no recibir par&#xE1;metros y que devuelve siempre un observador <a href="https://rxjs-dev.firebaseapp.com">RxJS</a></p><p>La idea de los observadores es reemplazar los eventos para poder tener m&#xE1;s control sobre las cosas que pasan sobre el mapa. Y poder encadenar de manera mucho m&#xE1;s simple acciones a partir de cosas que pasen.
+</code></pre><p>Si registramos las acciones no estaremos utilizando la capacidad de cargar el c&#xF3;digo de manera dynamica. Sino que se incluir&#xE1;n en el bundle principal de la aplicaci&#xF3;n.</p><h2>Como crear funciones</h2><p>Una funcion es una funci&#xF3;n que recibe el contexto y devuelve una funcion con 0 o n par&#xE1;metros que es la que ejecutara los cambios sobre el mapa y devuelve el resultado o una promesa, puede ser una funci&#xF3;n async.
+Se pueden crear funciones que llamen a otras funciones o a acciones.</p><p>Las funciones deben tener el m&#xED;nimo posible de dependencias.
+Es recomendable que cada funcion se ubicaque en un fichero.
+Las funciones se tienen que exportar como default  y se tiene que exportar la propiedad &#x201C;name&#x201D; con el nombre de la funcion. Este nombre ser&#xE1; el nombre con en el que se registre y se utilizar&#xE1; para invocarla desde RxMap.</p><p>A todas las funciones se les inyecta como primer par&#xE1;metro el RxMap.</p><p>Un ejemplo de acci&#xF3;n ser&#xED;a.</p><pre><code><code class="source-code prettyprint"> const test = context =&gt; (paramA, paramB) =&gt; {
+    console.log(paramA);
+    return &apos;test&apos;
+};
+
+export default test;
+</code>
+</code></pre><p>Para poder utilizar esta funcion hay dos formas. La puedes registrar manualmente o tenerla en una libreria y registrar la libreria.</p><p>Para registrar manualmente una acci&#xF3;n se tendr&#xED;a que hacer lo siguiente.</p><pre><code><code class="source-code prettyprint">import { registerFunction, RxMap } from &#x2018;@rxmap/rxmap&#x2019;;
+import { name }, action from &#x2018;./actionExample&#x2019;;
+
+registerFunction(name,action);
+
+RxMap.load(&#x2018;leaflet&#x2019;);
+RxMap.create(&#x2018;mapId&#x2019;,0,0,8);
+// aqu&#xED; ya podr&#xED;amos utilizar la funcion 
+RxMap.test(2.35,42.112);
+</code>
+</code></pre><p>Si registramos las funciones no estaremos utilizando la capacidad de cargar el c&#xF3;digo de manera dynamica. Sino que se incluir&#xE1;n en el bundle principal de la aplicaci&#xF3;n.</p><h2>Como crear observadores</h2><p>Un observador es una funci&#xF3;n que recibe el contexto y devuelve una funciona que puede o no recibir par&#xE1;metros y que devuelve siempre un observador <a href="https://rxjs-dev.firebaseapp.com">RxJS</a></p><p>La idea de los observadores es reemplazar los eventos para poder tener m&#xE1;s control sobre las cosas que pasan sobre el mapa. Y poder encadenar de manera mucho m&#xE1;s simple acciones a partir de cosas que pasen.
 Con los observadores se pueden utilizar todos los transformadores y operadores de RxJS.</p><p>Los observadores deben tener el m&#xED;nimo posible de dependencias.
 Es recomendable que cada observador se ubicaque en un fichero.
 Los observadores se tienen que exportar como default  y se tiene que exportar la propiedad &#x201C;name&#x201D; con el nombre del observador. Este nombre ser&#xE1; el nombre con en el que se registre y ser&#xE1; el nombre con el que se recuperar el observador.</p><p>A todos los observadores se les llama primero con el contexto que incluye:</p><pre><code><code class="source-code prettyprint">*  RxMap

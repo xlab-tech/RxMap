@@ -51,6 +51,7 @@
 <li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#cargar" data-ice="link">Cargar</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#librer&#xED;as" data-ice="link">Librer&#xED;as</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#acciones" data-ice="link">Acciones</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#funciones" data-ice="link">Funciones</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#observadores" data-ice="link">Observadores</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#middlewares" data-ice="link">Middlewares</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/howItWorks.html"><a href="manual/howItWorks.html#observar-acciones" data-ice="link">Observar acciones</a></li>
@@ -62,6 +63,7 @@
       
     <li data-ice="manualNav" class="indent-h1" data-link="manual/make.html"><a href="manual/make.html" data-ice="link">Creaci&#xF3;n</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/make.html"><a href="manual/make.html#como-crear-acciones" data-ice="link">Como crear acciones</a></li>
+<li data-ice="manualNav" class="indent-h2" data-link="manual/make.html"><a href="manual/make.html#como-crear-funciones" data-ice="link">Como crear funciones</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/make.html"><a href="manual/make.html#como-crear-observadores" data-ice="link">Como crear observadores</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/make.html"><a href="manual/make.html#como-crear-un-middleware" data-ice="link">Como crear un middleware</a></li>
 <li data-ice="manualNav" class="indent-h2" data-link="manual/make.html"><a href="manual/make.html#como-crear-una-libreria" data-ice="link">Como crear una libreria</a></li>
@@ -122,6 +124,33 @@ RxMap.create(&#x2018;mapId&#x2019;,0,0,8);
 RxMap.setCenter(2.35,42.112);
 </code>
 </code></pre><p>Si registramos las acciones no estaremos utilizando la capacidad de cargar el c&#xF3;digo de manera dynamica. Sino que se incluir&#xE1;n en el bundle principal de la aplicaci&#xF3;n.</p>
+<h2 id="como-crear-funciones">Como crear funciones</h2><p>Una funcion es una funci&#xF3;n que recibe el contexto y devuelve una funcion con 0 o n par&#xE1;metros que es la que ejecutara los cambios sobre el mapa y devuelve el resultado o una promesa, puede ser una funci&#xF3;n async.
+Se pueden crear funciones que llamen a otras funciones o a acciones.</p>
+<p>Las funciones deben tener el m&#xED;nimo posible de dependencias.
+Es recomendable que cada funcion se ubicaque en un fichero.
+Las funciones se tienen que exportar como default  y se tiene que exportar la propiedad &#x201C;name&#x201D; con el nombre de la funcion. Este nombre ser&#xE1; el nombre con en el que se registre y se utilizar&#xE1; para invocarla desde RxMap.</p>
+<p>A todas las funciones se les inyecta como primer par&#xE1;metro el RxMap.</p>
+<p>Un ejemplo de acci&#xF3;n ser&#xED;a.</p>
+<pre><code><code class="source-code prettyprint"> const test = context =&gt; (paramA, paramB) =&gt; {
+    console.log(paramA);
+    return &apos;test&apos;
+};
+
+export default test;
+</code>
+</code></pre><p>Para poder utilizar esta funcion hay dos formas. La puedes registrar manualmente o tenerla en una libreria y registrar la libreria.</p>
+<p>Para registrar manualmente una acci&#xF3;n se tendr&#xED;a que hacer lo siguiente.</p>
+<pre><code><code class="source-code prettyprint">import { registerFunction, RxMap } from &#x2018;@rxmap/rxmap&#x2019;;
+import { name }, action from &#x2018;./actionExample&#x2019;;
+
+registerFunction(name,action);
+
+RxMap.load(&#x2018;leaflet&#x2019;);
+RxMap.create(&#x2018;mapId&#x2019;,0,0,8);
+// aqu&#xED; ya podr&#xED;amos utilizar la funcion 
+RxMap.test(2.35,42.112);
+</code>
+</code></pre><p>Si registramos las funciones no estaremos utilizando la capacidad de cargar el c&#xF3;digo de manera dynamica. Sino que se incluir&#xE1;n en el bundle principal de la aplicaci&#xF3;n.</p>
 <h2 id="como-crear-observadores">Como crear observadores</h2><p>Un observador es una funci&#xF3;n que recibe el contexto y devuelve una funciona que puede o no recibir par&#xE1;metros y que devuelve siempre un observador <a href="https://rxjs-dev.firebaseapp.com">RxJS</a></p>
 <p>La idea de los observadores es reemplazar los eventos para poder tener m&#xE1;s control sobre las cosas que pasan sobre el mapa. Y poder encadenar de manera mucho m&#xE1;s simple acciones a partir de cosas que pasen.
 Con los observadores se pueden utilizar todos los transformadores y operadores de RxJS.</p>

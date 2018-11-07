@@ -6,7 +6,6 @@ module.exports = [
   {
     mode: 'development',
     entry: {
-      '@rxmap-sw': './src/@rxmap-sw.js',
       main: './src/index.umd.js',
     },
     output: {
@@ -25,7 +24,6 @@ module.exports = [
   {
     mode: 'production',
     entry: {
-      '@rxmap-sw': './src/@rxmap-sw.js',
       main: './src/index.umd.js',
     },
     output: {

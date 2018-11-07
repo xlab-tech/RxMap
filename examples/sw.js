@@ -1,0 +1,1 @@
+importScripts('https://unpkg.com/@rxmap/offlinestorage@0.4.0/dist/esm/offline-sw.js')

@@ -4,43 +4,43 @@
     "filePath": "RxMap/src/core/proxyAction.js",
     "lines": [
       {
-        "lineNumber": 8,
+        "lineNumber": 9,
         "line": "/**"
       },
       {
-        "lineNumber": 9,
+        "lineNumber": 10,
         "line": " * Funcion que permite observar la execucion de cualquir"
       },
       {
-        "lineNumber": 10,
+        "lineNumber": 11,
         "line": " * comando y obtener su respuesta,"
       },
       {
-        "lineNumber": 11,
+        "lineNumber": 12,
         "line": " * Se puede pasar un nombre o una expresion regular para poder"
       },
       {
-        "lineNumber": 12,
+        "lineNumber": 13,
         "line": " * observar mas de un comando o todos."
       },
       {
-        "lineNumber": 13,
+        "lineNumber": 14,
         "line": " *"
       },
       {
-        "lineNumber": 14,
+        "lineNumber": 15,
         "line": " * @param {String} actionName Nombre o Regex a evaluar"
       },
       {
-        "lineNumber": 15,
+        "lineNumber": 16,
         "line": " * @return Observer"
       },
       {
-        "lineNumber": 16,
+        "lineNumber": 17,
         "line": " */"
       },
       {
-        "lineNumber": 17,
+        "lineNumber": 18,
         "line": "const observerAction = target => actionName => target._actionsSubject.pipe(filter(lastAction => lastAction.name.match(actionName)));"
       }
     ],
