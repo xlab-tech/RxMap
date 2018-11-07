@@ -50,7 +50,7 @@ export const middlewares = _middlewares;
 
 export const { addMapLibrary } = _mapLibray;
 
-export const offiline = { addStatic, addLayer };
+export const offline = { addStatic, addLayer };
 
 export default {
   registerFunction,
@@ -63,7 +63,7 @@ export default {
   RxMapFromConfig,
   middlewares,
   addMapLibrary,
-  offiline,
+  offline,
 };
 const fileSrc = getSrc();
 
