@@ -1,8 +1,8 @@
 
 import { take } from 'rxjs/internal/operators/take';
+import { createObjectObservable } from '@xlab-tech/rxcollection';
 import proxyAction from '../core/proxyAction';
 import importMapLibrary from './importMapLibrary';
-import observableStore from '../core/observableStore';
 
 let _Map;
 
@@ -24,7 +24,7 @@ export class RxMap {
     /**
      * {observableStore} Store observable
      */
-    this.store = observableStore();
+    this.store = createObjectObservable();
   }
 
   /**

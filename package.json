@@ -1,6 +1,6 @@
 {
   "name": "@rxmap/rxmap",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "map command and reactive ",
   "keywords": [
     "map",
@@ -98,6 +98,7 @@
     "@babel/runtime": "^7.1.5",
     "@carto/carto.js": "^4.1.8",
     "@rxmap/offlinestorage": "^0.5.0",
+    "@xlab-tech/rxcollection": "^0.1.1",
     "core-js": "^2.5.7",
     "esri-loader": "^2.5.0",
     "google-maps": "^3.3.0",

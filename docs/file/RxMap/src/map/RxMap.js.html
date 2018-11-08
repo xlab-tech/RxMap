@@ -77,9 +77,11 @@
 <div class="content" data-ice="content"><h1 data-ice="title">RxMap/src/map/RxMap.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">
 import { take } from &apos;rxjs/internal/operators/take&apos;;
+import { createObjectObservable } from &apos;@xlab-tech/rxcollection&apos;;
 import proxyAction from &apos;../core/proxyAction&apos;;
 import importMapLibrary from &apos;./importMapLibrary&apos;;
 import observableStore from &apos;../core/observableStore&apos;;
+
 
 let _Map;
 
@@ -101,7 +103,7 @@ export class RxMap {
     /**
      * {observableStore} Store observable
      */
-    this.store = observableStore();
+    this.store = createObjectObservable();
   }
 
   /**

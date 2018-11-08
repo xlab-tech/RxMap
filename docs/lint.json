@@ -205,31 +205,31 @@
     "filePath": "RxMap/src/map/RxMap.js",
     "lines": [
       {
-        "lineNumber": 39,
+        "lineNumber": 41,
         "line": "  /**"
       },
       {
-        "lineNumber": 40,
+        "lineNumber": 42,
         "line": "   * Recupera el contexto para las ejecuciones de los comandos y observadores"
       },
       {
-        "lineNumber": 41,
+        "lineNumber": 43,
         "line": "   * @param { object} [value] puede recibir la ultima ejecucion si se solicita desde AsyncCommand"
       },
       {
-        "lineNumber": 42,
+        "lineNumber": 44,
         "line": "   * @returns {object}"
       },
       {
-        "lineNumber": 43,
+        "lineNumber": 45,
         "line": "   * @private"
       },
       {
-        "lineNumber": 44,
+        "lineNumber": 46,
         "line": "   */"
       },
       {
-        "lineNumber": 45,
+        "lineNumber": 47,
         "line": "  getContext() {"
       }
     ],
@@ -243,39 +243,39 @@
     "filePath": "RxMap/src/map/RxMap.js",
     "lines": [
       {
-        "lineNumber": 156,
+        "lineNumber": 158,
         "line": "  /**"
       },
       {
-        "lineNumber": 157,
+        "lineNumber": 159,
         "line": " * Funcion que permite observar los datos del store,"
       },
       {
-        "lineNumber": 158,
+        "lineNumber": 160,
         "line": " * Se puede pasar una propiedad o una expresion regular para poder"
       },
       {
-        "lineNumber": 159,
+        "lineNumber": 161,
         "line": " * observar mas de un comando o todos."
       },
       {
-        "lineNumber": 160,
+        "lineNumber": 162,
         "line": " *"
       },
       {
-        "lineNumber": 161,
+        "lineNumber": 163,
         "line": " * @param {String} name Nombre o Regex a evaluar"
       },
       {
-        "lineNumber": 162,
+        "lineNumber": 164,
         "line": " * @return Observer"
       },
       {
-        "lineNumber": 163,
+        "lineNumber": 165,
         "line": "*/"
       },
       {
-        "lineNumber": 164,
+        "lineNumber": 166,
         "line": "  observerData(property) {"
       }
     ],

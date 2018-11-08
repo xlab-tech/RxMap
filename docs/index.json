@@ -2569,7 +2569,7 @@
     "__docId__": 105,
     "kind": "file",
     "name": "RxMap/src/map/RxMap.js",
-    "content": "\nimport { take } from 'rxjs/internal/operators/take';\nimport proxyAction from '../core/proxyAction';\nimport importMapLibrary from './importMapLibrary';\nimport observableStore from '../core/observableStore';\n\nlet _Map;\n\n/**\n * Clase que permite interactiar con los mapas a partir de comandos y observadores\n *\n * @extends {CommandBus}\n */\nexport class RxMap {\n  constructor() {\n    /**\n     * {String} nombre de la libreria de Mapas que se utiliza\n     */\n    this.libName = null;\n    /**\n     * {String} version de la libreria que se utiliza\n     */\n    this.libVersion = null;\n    /**\n     * {observableStore} Store observable\n     */\n    this.store = observableStore();\n  }\n\n  /**\n   * Debuelve la instancia del mapa nativo que se esta utilizando\n   *\n   * @returns {object}\n   * @memberof RxMap\n   */\n  getMap() {\n    return this._sourceMap;\n  }\n\n  /**\n   * Recupera el contexto para las ejecuciones de los comandos y observadores\n   * @param { object} [value] puede recibir la ultima ejecucion si se solicita desde AsyncCommand\n   * @returns {object}\n   * @private\n   */\n  getContext() {\n    return {\n      library: this.getMapLibrary(),\n      store: this.store,\n    };\n  }\n  /**\n    * @typedef {Object} action\n    * @property {String} key nombre del comando.\n    * @property {string} [lib] libreria del comando.\n    * @property {string} [path] Ruta de la libreria.\n    * @private\n  */\n\n  /**\n   * @typedef {Object} loadOptions\n   * @property {String} [version=latest] Version de la libreria, actualmente solo soporta latest\n   * @property {String} [key] Clave de la libreria de mapas que se utiliza, para las librerias que necesiten key\n   * @private\n   *\n  */\n\n  /**\n   * Metodo asyncrono que permite cargar la libreria de mapas que se le pasa por\n   * parametros\n   *\n   * @param {String} lib Nombre de la libreria de mapas\n   * @param {loadOptions} [options={}]\n   *\n   * @returns {Promise}\n   * @memberof RxMap\n   */\n  async load(lib, options = {}) {\n    this.libName = lib;\n    this.libVersion = options.version || 'latest';\n\n    this._actionsSubject.pipe(take(1)).subscribe((res) => {\n      this._sourceMap = res.value;\n    });\n    // First Load Map Lib\n    this._nativeLibrary = await importMapLibrary(lib, options);\n\n    return this;\n  }\n\n  /**\n   *  Devuelve la libreria nativa que se esta utilizando\n   *\n   * @returns {Object}\n   * @memberof RxMap\n   */\n  getMapLibrary() {\n    if (this._nativeLibrary) {\n      return this._nativeLibrary;\n    }\n    if (window.L) {\n      return window.L;\n    }\n    if (window.google && window.google.maps) {\n      return window.google;\n    }\n    return null;\n  }\n\n  /**\n   *  Crear un nuevo objeto RxMap\n   *\n   * @returns RxMap\n   * @memberof RxMap\n   */\n  init() {\n    return proxyAction(new RxMap());\n  }\n\n  /**\n  * @typedef {Object} Style\n  * @property {String} [icon] url del icono.\n  * @property {object} [size] tamaño del icono con {width:0,height:0}\n  * @property {string} [color] Color del contorno\n  * @property {string} [fillColor] Color del relleno\n  * @property {number} [opacity] opacidad del contorno\n  * @property {number} [fillOpacity] opacidad del contorno\n  * @property {number} [weight] ancho de la linea\n  * @property {number} [radius] Radio del elemento\n  * @private\n*/\n\n  /**\n   * Funcion que añade un estilo para dibujar posteriormenrte los diferentes\n   * objetos que se inserten\n   *\n   * @param {string} id Id unico del tipo de dato\n   * @param {string} geomType tipos de geometría valores posibles (marker / point)\n   * @param {Style} style estilo del tipo de dato a pintar.\n   * @memberof RxMap\n   */\n  setDataType(id, geomType, style) {\n    this.store[`type@${id}`] = { geomType, style };\n  }\n\n  /**\n   * Recupera un tipo de dato\n   *\n   * @param {String} id Nombre del tipo de dato a recuperar\n   * @returns {Object{geomType:string,style:Style}}\n   * @memberof RxMap\n   */\n  getDataType(id) {\n    return this.store[`type@${id}`];\n  }\n\n  /**\n * Funcion que permite observar los datos del store,\n * Se puede pasar una propiedad o una expresion regular para poder\n * observar mas de un comando o todos.\n *\n * @param {String} name Nombre o Regex a evaluar\n * @return Observer\n*/\n  observerData(property) {\n    return this.store.observer(property);\n  }\n}\n\nconst createMap = () => {\n  if (!_Map) {\n    _Map = proxyAction(new RxMap());\n  }\n  return _Map;\n};\n\n/**\n * Instancia de RxMap\n */\nexport default createMap();\n",
+    "content": "\nimport { take } from 'rxjs/internal/operators/take';\nimport { createObjectObservable } from '@xlab-tech/rxcollection';\nimport proxyAction from '../core/proxyAction';\nimport importMapLibrary from './importMapLibrary';\nimport observableStore from '../core/observableStore';\n\n\nlet _Map;\n\n/**\n * Clase que permite interactiar con los mapas a partir de comandos y observadores\n *\n * @extends {CommandBus}\n */\nexport class RxMap {\n  constructor() {\n    /**\n     * {String} nombre de la libreria de Mapas que se utiliza\n     */\n    this.libName = null;\n    /**\n     * {String} version de la libreria que se utiliza\n     */\n    this.libVersion = null;\n    /**\n     * {observableStore} Store observable\n     */\n    this.store = createObjectObservable();\n  }\n\n  /**\n   * Debuelve la instancia del mapa nativo que se esta utilizando\n   *\n   * @returns {object}\n   * @memberof RxMap\n   */\n  getMap() {\n    return this._sourceMap;\n  }\n\n  /**\n   * Recupera el contexto para las ejecuciones de los comandos y observadores\n   * @param { object} [value] puede recibir la ultima ejecucion si se solicita desde AsyncCommand\n   * @returns {object}\n   * @private\n   */\n  getContext() {\n    return {\n      library: this.getMapLibrary(),\n      store: this.store,\n    };\n  }\n  /**\n    * @typedef {Object} action\n    * @property {String} key nombre del comando.\n    * @property {string} [lib] libreria del comando.\n    * @property {string} [path] Ruta de la libreria.\n    * @private\n  */\n\n  /**\n   * @typedef {Object} loadOptions\n   * @property {String} [version=latest] Version de la libreria, actualmente solo soporta latest\n   * @property {String} [key] Clave de la libreria de mapas que se utiliza, para las librerias que necesiten key\n   * @private\n   *\n  */\n\n  /**\n   * Metodo asyncrono que permite cargar la libreria de mapas que se le pasa por\n   * parametros\n   *\n   * @param {String} lib Nombre de la libreria de mapas\n   * @param {loadOptions} [options={}]\n   *\n   * @returns {Promise}\n   * @memberof RxMap\n   */\n  async load(lib, options = {}) {\n    this.libName = lib;\n    this.libVersion = options.version || 'latest';\n\n    this._actionsSubject.pipe(take(1)).subscribe((res) => {\n      this._sourceMap = res.value;\n    });\n    // First Load Map Lib\n    this._nativeLibrary = await importMapLibrary(lib, options);\n\n    return this;\n  }\n\n  /**\n   *  Devuelve la libreria nativa que se esta utilizando\n   *\n   * @returns {Object}\n   * @memberof RxMap\n   */\n  getMapLibrary() {\n    if (this._nativeLibrary) {\n      return this._nativeLibrary;\n    }\n    if (window.L) {\n      return window.L;\n    }\n    if (window.google && window.google.maps) {\n      return window.google;\n    }\n    return null;\n  }\n\n  /**\n   *  Crear un nuevo objeto RxMap\n   *\n   * @returns RxMap\n   * @memberof RxMap\n   */\n  init() {\n    return proxyAction(new RxMap());\n  }\n\n  /**\n  * @typedef {Object} Style\n  * @property {String} [icon] url del icono.\n  * @property {object} [size] tamaño del icono con {width:0,height:0}\n  * @property {string} [color] Color del contorno\n  * @property {string} [fillColor] Color del relleno\n  * @property {number} [opacity] opacidad del contorno\n  * @property {number} [fillOpacity] opacidad del contorno\n  * @property {number} [weight] ancho de la linea\n  * @property {number} [radius] Radio del elemento\n  * @private\n*/\n\n  /**\n   * Funcion que añade un estilo para dibujar posteriormenrte los diferentes\n   * objetos que se inserten\n   *\n   * @param {string} id Id unico del tipo de dato\n   * @param {string} geomType tipos de geometría valores posibles (marker / point)\n   * @param {Style} style estilo del tipo de dato a pintar.\n   * @memberof RxMap\n   */\n  setDataType(id, geomType, style) {\n    this.store[`type@${id}`] = { geomType, style };\n  }\n\n  /**\n   * Recupera un tipo de dato\n   *\n   * @param {String} id Nombre del tipo de dato a recuperar\n   * @returns {Object{geomType:string,style:Style}}\n   * @memberof RxMap\n   */\n  getDataType(id) {\n    return this.store[`type@${id}`];\n  }\n\n  /**\n * Funcion que permite observar los datos del store,\n * Se puede pasar una propiedad o una expresion regular para poder\n * observar mas de un comando o todos.\n *\n * @param {String} name Nombre o Regex a evaluar\n * @return Observer\n*/\n  observerData(property) {\n    return this.store.observer(property);\n  }\n}\n\nconst createMap = () => {\n  if (!_Map) {\n    _Map = proxyAction(new RxMap());\n  }\n  return _Map;\n};\n\n/**\n * Instancia de RxMap\n */\nexport default createMap();\n",
     "static": true,
     "longname": "/Users/vrubinat/Documents/xlab.tech/RxMap/src/map/RxMap.js",
     "access": "public",
@@ -2588,7 +2588,7 @@
     "importPath": "@rxmap/rxmap/RxMap/src/map/RxMap.js",
     "importStyle": "{RxMap}",
     "description": "Clase que permite interactiar con los mapas a partir de comandos y observadores",
-    "lineNumber": 14,
+    "lineNumber": 16,
     "interface": false,
     "extends": [
       "CommandBus"
@@ -2605,7 +2605,7 @@
     "longname": "RxMap/src/map/RxMap.js~RxMap#constructor",
     "access": "public",
     "description": null,
-    "lineNumber": 15,
+    "lineNumber": 17,
     "undocument": true
   },
   {
@@ -2617,7 +2617,7 @@
     "longname": "RxMap/src/map/RxMap.js~RxMap#libName",
     "access": "public",
     "description": "{String} nombre de la libreria de Mapas que se utiliza",
-    "lineNumber": 19,
+    "lineNumber": 21,
     "type": {
       "types": [
         "*"
@@ -2633,7 +2633,7 @@
     "longname": "RxMap/src/map/RxMap.js~RxMap#libVersion",
     "access": "public",
     "description": "{String} version de la libreria que se utiliza",
-    "lineNumber": 23,
+    "lineNumber": 25,
     "type": {
       "types": [
         "*"
@@ -2649,7 +2649,7 @@
     "longname": "RxMap/src/map/RxMap.js~RxMap#store",
     "access": "public",
     "description": "{observableStore} Store observable",
-    "lineNumber": 27,
+    "lineNumber": 29,
     "type": {
       "types": [
         "*"
@@ -2667,7 +2667,7 @@
     "longname": "RxMap/src/map/RxMap.js~RxMap#getMap",
     "access": "public",
     "description": "Debuelve la instancia del mapa nativo que se esta utilizando",
-    "lineNumber": 36,
+    "lineNumber": 38,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2695,7 +2695,7 @@
     "longname": "RxMap/src/map/RxMap.js~RxMap#getContext",
     "access": "private",
     "description": "Recupera el contexto para las ejecuciones de los comandos y observadores",
-    "lineNumber": 46,
+    "lineNumber": 48,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2827,7 +2827,7 @@
     "longname": "RxMap/src/map/RxMap.js~RxMap#load",
     "access": "public",
     "description": "Metodo asyncrono que permite cargar la libreria de mapas que se le pasa por\nparametros",
-    "lineNumber": 78,
+    "lineNumber": 80,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2876,7 +2876,7 @@
     "longname": "RxMap/src/map/RxMap.js~RxMap#_sourceMap",
     "access": "private",
     "description": null,
-    "lineNumber": 83,
+    "lineNumber": 85,
     "undocument": true,
     "ignore": true,
     "type": {
@@ -2894,7 +2894,7 @@
     "longname": "RxMap/src/map/RxMap.js~RxMap#_nativeLibrary",
     "access": "private",
     "description": null,
-    "lineNumber": 86,
+    "lineNumber": 88,
     "undocument": true,
     "ignore": true,
     "type": {
@@ -2914,7 +2914,7 @@
     "longname": "RxMap/src/map/RxMap.js~RxMap#getMapLibrary",
     "access": "public",
     "description": " Devuelve la libreria nativa que se esta utilizando",
-    "lineNumber": 97,
+    "lineNumber": 99,
     "unknown": [
       {
         "tagName": "@returns",
@@ -2942,7 +2942,7 @@
     "longname": "RxMap/src/map/RxMap.js~RxMap#init",
     "access": "public",
     "description": " Crear un nuevo objeto RxMap",
-    "lineNumber": 116,
+    "lineNumber": 118,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3070,7 +3070,7 @@
     "longname": "RxMap/src/map/RxMap.js~RxMap#setDataType",
     "access": "public",
     "description": "Funcion que añade un estilo para dibujar posteriormenrte los diferentes\nobjetos que se inserten",
-    "lineNumber": 142,
+    "lineNumber": 144,
     "params": [
       {
         "nullable": null,
@@ -3116,7 +3116,7 @@
     "longname": "RxMap/src/map/RxMap.js~RxMap#getDataType",
     "access": "public",
     "description": "Recupera un tipo de dato",
-    "lineNumber": 153,
+    "lineNumber": 155,
     "unknown": [
       {
         "tagName": "@returns",
@@ -3155,7 +3155,7 @@
     "longname": "RxMap/src/map/RxMap.js~RxMap#observerData",
     "access": "public",
     "description": "Funcion que permite observar los datos del store,\nSe puede pasar una propiedad o una expresion regular para poder\nobservar mas de un comando o todos.",
-    "lineNumber": 165,
+    "lineNumber": 167,
     "params": [
       {
         "nullable": null,
@@ -3191,7 +3191,7 @@
     "importPath": "@rxmap/rxmap/RxMap/src/map/RxMap.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 170,
+    "lineNumber": 172,
     "undocument": true,
     "params": [],
     "return": {

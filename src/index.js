@@ -1,4 +1,5 @@
 import { start, addStatic, addLayer } from '@rxmap/offlinestorage';
+import * as _RxC from '@xlab-tech/rxcollection';
 import './utils/polyfill';
 import * as _register from './core/registerAction';
 import * as _registerFunction from './core/resgisterFunction';
@@ -52,6 +53,8 @@ export const { addMapLibrary } = _mapLibray;
 
 export const offline = { addStatic, addLayer };
 
+export const RxC = _RxC;
+
 export default {
   registerFunction,
   registerAction,
@@ -64,6 +67,7 @@ export default {
   middlewares,
   addMapLibrary,
   offline,
+  RxC,
 };
 const fileSrc = getSrc();
 

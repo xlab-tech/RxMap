@@ -90,7 +90,7 @@ describe('RxMap', () => {
     it('observer Data', (done) => {
       const m = new RxMap();
       m.observerData('.').subscribe((data) => {
-        expect(data.value).to.eq(5);
+        expect(data.newValue).to.eq(5);
         done();
       });
       m.store.test = 5;

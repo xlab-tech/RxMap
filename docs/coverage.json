@@ -129,10 +129,10 @@
       "expectCount": 16,
       "actualCount": 12,
       "undocumentLines": [
-        15,
-        83,
-        86,
-        170
+        17,
+        85,
+        88,
+        172
       ]
     },
     "RxMap/src/map/config.js": {
