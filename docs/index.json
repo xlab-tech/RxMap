@@ -2290,7 +2290,7 @@
     "__docId__": 91,
     "kind": "file",
     "name": "RxMap/src/index.js",
-    "content": "import { start, addStatic } from '@rxmap/offlinestorage';\nimport './utils/polyfill';\nimport * as _register from './core/registerAction';\nimport * as _registerFunction from './core/resgisterFunction';\nimport * as _registerObserver from './core/registerObserver';\nimport * as _registerMiddleware from './core/middlewares';\nimport * as _RxMap from './map/RxMap';\nimport _RxMapFromConfig from './map/config';\nimport _registerLib from './core/registerLib';\nimport * as _middlewares from './map/middlewares/logger';\nimport * as _mapLibray from './map/importMapLibrary';\nimport { getSrc, getPath } from './utils/getPath';\n\n/**\n * @type {registerAction}\n */\nexport const { registerFunction } = _registerFunction;\n\n/**\n * @type {registerAction}\n */\nexport const { registerAction } = _register;\n/**\n * @type {registerObserver}\n */\nexport const { registerObserver } = _registerObserver;\n/**\n * @type {registerMiddleware}\n */\nexport const { registerMiddleware } = _registerMiddleware;\n/**\n * @type {RxMap} Instancia\n * objeto instanciado\n */\nexport const RxMap = _RxMap.default;\n/**\n * @type {RxMap} Clase\n */\nexport const RxMapClass = _RxMap.RxMap;\n/**\n * @type {RxMapFromConfig}\n */\nexport const RxMapFromConfig = _RxMapFromConfig;\n/**\n * @type {registerLib}\n */\nexport const registerLib = _registerLib;\n\nexport const middlewares = _middlewares;\n\nexport const { addMapLibrary } = _mapLibray;\n\nexport default {\n  registerFunction,\n  registerAction,\n  registerObserver,\n  registerMiddleware,\n  registerLib,\n  RxMap,\n  RxMapClass,\n  RxMapFromConfig,\n  middlewares,\n  addMapLibrary,\n};\nconst fileSrc = getSrc();\n\naddStatic(/(.+|)chunk.+.(js|css)$/);\naddStatic(fileSrc);\nstart(getPath());\n",
+    "content": "import { start, addStatic, addLayer } from '@rxmap/offlinestorage';\nimport './utils/polyfill';\nimport * as _register from './core/registerAction';\nimport * as _registerFunction from './core/resgisterFunction';\nimport * as _registerObserver from './core/registerObserver';\nimport * as _registerMiddleware from './core/middlewares';\nimport * as _RxMap from './map/RxMap';\nimport _RxMapFromConfig from './map/config';\nimport _registerLib from './core/registerLib';\nimport * as _middlewares from './map/middlewares/logger';\nimport * as _mapLibray from './map/importMapLibrary';\nimport { getSrc, getPath } from './utils/getPath';\n\n/**\n * @type {registerAction}\n */\nexport const { registerFunction } = _registerFunction;\n\n/**\n * @type {registerAction}\n */\nexport const { registerAction } = _register;\n/**\n * @type {registerObserver}\n */\nexport const { registerObserver } = _registerObserver;\n/**\n * @type {registerMiddleware}\n */\nexport const { registerMiddleware } = _registerMiddleware;\n/**\n * @type {RxMap} Instancia\n * objeto instanciado\n */\nexport const RxMap = _RxMap.default;\n/**\n * @type {RxMap} Clase\n */\nexport const RxMapClass = _RxMap.RxMap;\n/**\n * @type {RxMapFromConfig}\n */\nexport const RxMapFromConfig = _RxMapFromConfig;\n/**\n * @type {registerLib}\n */\nexport const registerLib = _registerLib;\n\nexport const middlewares = _middlewares;\n\nexport const { addMapLibrary } = _mapLibray;\n\nexport const offline = { addStatic, addLayer };\n\nexport default {\n  registerFunction,\n  registerAction,\n  registerObserver,\n  registerMiddleware,\n  registerLib,\n  RxMap,\n  RxMapClass,\n  RxMapFromConfig,\n  middlewares,\n  addMapLibrary,\n  offline,\n};\nconst fileSrc = getSrc();\n\naddStatic(/(.+|)chunk.+.(js|css)$/);\naddStatic(fileSrc);\nstart(getPath());\n",
     "static": true,
     "longname": "/Users/vrubinat/Documents/xlab.tech/RxMap/src/index.js",
     "access": "public",
@@ -2516,6 +2516,26 @@
   {
     "__docId__": 102,
     "kind": "variable",
+    "name": "offline",
+    "memberof": "RxMap/src/index.js",
+    "static": true,
+    "longname": "RxMap/src/index.js~offline",
+    "access": "public",
+    "export": true,
+    "importPath": "@rxmap/rxmap/RxMap/src/index.js",
+    "importStyle": "{offline}",
+    "description": null,
+    "lineNumber": 53,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"addStatic\": *, \"addLayer\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 103,
+    "kind": "variable",
     "name": "fileSrc",
     "memberof": "RxMap/src/index.js",
     "static": true,
@@ -2525,7 +2545,7 @@
     "importPath": "@rxmap/rxmap/RxMap/src/index.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 65,
+    "lineNumber": 68,
     "undocument": true,
     "type": {
       "types": [
@@ -2535,7 +2555,7 @@
     "ignore": true
   },
   {
-    "__docId__": 103,
+    "__docId__": 104,
     "kind": "file",
     "name": "RxMap/src/index.umd.js",
     "content": "import exp from './index';\nimport { getPath } from './utils/getPath';\n\n// eslint-disable-next-line\n__webpack_public_path__ = getPath();\n\n/** @private */\nexport default exp;\n",
@@ -2546,7 +2566,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 104,
+    "__docId__": 105,
     "kind": "file",
     "name": "RxMap/src/map/RxMap.js",
     "content": "\nimport { take } from 'rxjs/internal/operators/take';\nimport proxyAction from '../core/proxyAction';\nimport importMapLibrary from './importMapLibrary';\nimport observableStore from '../core/observableStore';\n\nlet _Map;\n\n/**\n * Clase que permite interactiar con los mapas a partir de comandos y observadores\n *\n * @extends {CommandBus}\n */\nexport class RxMap {\n  constructor() {\n    /**\n     * {String} nombre de la libreria de Mapas que se utiliza\n     */\n    this.libName = null;\n    /**\n     * {String} version de la libreria que se utiliza\n     */\n    this.libVersion = null;\n    /**\n     * {observableStore} Store observable\n     */\n    this.store = observableStore();\n  }\n\n  /**\n   * Debuelve la instancia del mapa nativo que se esta utilizando\n   *\n   * @returns {object}\n   * @memberof RxMap\n   */\n  getMap() {\n    return this._sourceMap;\n  }\n\n  /**\n   * Recupera el contexto para las ejecuciones de los comandos y observadores\n   * @param { object} [value] puede recibir la ultima ejecucion si se solicita desde AsyncCommand\n   * @returns {object}\n   * @private\n   */\n  getContext() {\n    return {\n      library: this.getMapLibrary(),\n      store: this.store,\n    };\n  }\n  /**\n    * @typedef {Object} action\n    * @property {String} key nombre del comando.\n    * @property {string} [lib] libreria del comando.\n    * @property {string} [path] Ruta de la libreria.\n    * @private\n  */\n\n  /**\n   * @typedef {Object} loadOptions\n   * @property {String} [version=latest] Version de la libreria, actualmente solo soporta latest\n   * @property {String} [key] Clave de la libreria de mapas que se utiliza, para las librerias que necesiten key\n   * @private\n   *\n  */\n\n  /**\n   * Metodo asyncrono que permite cargar la libreria de mapas que se le pasa por\n   * parametros\n   *\n   * @param {String} lib Nombre de la libreria de mapas\n   * @param {loadOptions} [options={}]\n   *\n   * @returns {Promise}\n   * @memberof RxMap\n   */\n  async load(lib, options = {}) {\n    this.libName = lib;\n    this.libVersion = options.version || 'latest';\n\n    this._actionsSubject.pipe(take(1)).subscribe((res) => {\n      this._sourceMap = res.value;\n    });\n    // First Load Map Lib\n    this._nativeLibrary = await importMapLibrary(lib, options);\n\n    return this;\n  }\n\n  /**\n   *  Devuelve la libreria nativa que se esta utilizando\n   *\n   * @returns {Object}\n   * @memberof RxMap\n   */\n  getMapLibrary() {\n    if (this._nativeLibrary) {\n      return this._nativeLibrary;\n    }\n    if (window.L) {\n      return window.L;\n    }\n    if (window.google && window.google.maps) {\n      return window.google;\n    }\n    return null;\n  }\n\n  /**\n   *  Crear un nuevo objeto RxMap\n   *\n   * @returns RxMap\n   * @memberof RxMap\n   */\n  init() {\n    return proxyAction(new RxMap());\n  }\n\n  /**\n  * @typedef {Object} Style\n  * @property {String} [icon] url del icono.\n  * @property {object} [size] tamaño del icono con {width:0,height:0}\n  * @property {string} [color] Color del contorno\n  * @property {string} [fillColor] Color del relleno\n  * @property {number} [opacity] opacidad del contorno\n  * @property {number} [fillOpacity] opacidad del contorno\n  * @property {number} [weight] ancho de la linea\n  * @property {number} [radius] Radio del elemento\n  * @private\n*/\n\n  /**\n   * Funcion que añade un estilo para dibujar posteriormenrte los diferentes\n   * objetos que se inserten\n   *\n   * @param {string} id Id unico del tipo de dato\n   * @param {string} geomType tipos de geometría valores posibles (marker / point)\n   * @param {Style} style estilo del tipo de dato a pintar.\n   * @memberof RxMap\n   */\n  setDataType(id, geomType, style) {\n    this.store[`type@${id}`] = { geomType, style };\n  }\n\n  /**\n   * Recupera un tipo de dato\n   *\n   * @param {String} id Nombre del tipo de dato a recuperar\n   * @returns {Object{geomType:string,style:Style}}\n   * @memberof RxMap\n   */\n  getDataType(id) {\n    return this.store[`type@${id}`];\n  }\n\n  /**\n * Funcion que permite observar los datos del store,\n * Se puede pasar una propiedad o una expresion regular para poder\n * observar mas de un comando o todos.\n *\n * @param {String} name Nombre o Regex a evaluar\n * @return Observer\n*/\n  observerData(property) {\n    return this.store.observer(property);\n  }\n}\n\nconst createMap = () => {\n  if (!_Map) {\n    _Map = proxyAction(new RxMap());\n  }\n  return _Map;\n};\n\n/**\n * Instancia de RxMap\n */\nexport default createMap();\n",
@@ -2557,7 +2577,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 105,
+    "__docId__": 106,
     "kind": "class",
     "name": "RxMap",
     "memberof": "RxMap/src/map/RxMap.js",
@@ -2575,7 +2595,7 @@
     ]
   },
   {
-    "__docId__": 106,
+    "__docId__": 107,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "RxMap/src/map/RxMap.js~RxMap",
@@ -2589,7 +2609,7 @@
     "undocument": true
   },
   {
-    "__docId__": 107,
+    "__docId__": 108,
     "kind": "member",
     "name": "libName",
     "memberof": "RxMap/src/map/RxMap.js~RxMap",
@@ -2605,7 +2625,7 @@
     }
   },
   {
-    "__docId__": 108,
+    "__docId__": 109,
     "kind": "member",
     "name": "libVersion",
     "memberof": "RxMap/src/map/RxMap.js~RxMap",
@@ -2621,7 +2641,7 @@
     }
   },
   {
-    "__docId__": 109,
+    "__docId__": 110,
     "kind": "member",
     "name": "store",
     "memberof": "RxMap/src/map/RxMap.js~RxMap",
@@ -2637,7 +2657,7 @@
     }
   },
   {
-    "__docId__": 110,
+    "__docId__": 111,
     "kind": "method",
     "name": "getMap",
     "memberof": "RxMap/src/map/RxMap.js~RxMap",
@@ -2665,7 +2685,7 @@
     "params": []
   },
   {
-    "__docId__": 111,
+    "__docId__": 112,
     "kind": "method",
     "name": "getContext",
     "memberof": "RxMap/src/map/RxMap.js~RxMap",
@@ -2705,7 +2725,7 @@
     "ignore": true
   },
   {
-    "__docId__": 112,
+    "__docId__": 113,
     "kind": "typedef",
     "name": "action",
     "memberof": "RxMap/src/map/RxMap.js~RxMap",
@@ -2755,7 +2775,7 @@
     "ignore": true
   },
   {
-    "__docId__": 113,
+    "__docId__": 114,
     "kind": "typedef",
     "name": "loadOptions",
     "memberof": "RxMap/src/map/RxMap.js~RxMap",
@@ -2797,7 +2817,7 @@
     "ignore": true
   },
   {
-    "__docId__": 114,
+    "__docId__": 115,
     "kind": "method",
     "name": "load",
     "memberof": "RxMap/src/map/RxMap.js~RxMap",
@@ -2848,7 +2868,7 @@
     }
   },
   {
-    "__docId__": 117,
+    "__docId__": 118,
     "kind": "member",
     "name": "_sourceMap",
     "memberof": "RxMap/src/map/RxMap.js~RxMap",
@@ -2866,7 +2886,7 @@
     }
   },
   {
-    "__docId__": 118,
+    "__docId__": 119,
     "kind": "member",
     "name": "_nativeLibrary",
     "memberof": "RxMap/src/map/RxMap.js~RxMap",
@@ -2884,7 +2904,7 @@
     }
   },
   {
-    "__docId__": 119,
+    "__docId__": 120,
     "kind": "method",
     "name": "getMapLibrary",
     "memberof": "RxMap/src/map/RxMap.js~RxMap",
@@ -2912,7 +2932,7 @@
     "params": []
   },
   {
-    "__docId__": 120,
+    "__docId__": 121,
     "kind": "method",
     "name": "init",
     "memberof": "RxMap/src/map/RxMap.js~RxMap",
@@ -2940,7 +2960,7 @@
     "params": []
   },
   {
-    "__docId__": 121,
+    "__docId__": 122,
     "kind": "typedef",
     "name": "Style",
     "memberof": "RxMap/src/map/RxMap.js~RxMap",
@@ -3040,7 +3060,7 @@
     "ignore": true
   },
   {
-    "__docId__": 122,
+    "__docId__": 123,
     "kind": "method",
     "name": "setDataType",
     "memberof": "RxMap/src/map/RxMap.js~RxMap",
@@ -3086,7 +3106,7 @@
     "return": null
   },
   {
-    "__docId__": 123,
+    "__docId__": 124,
     "kind": "method",
     "name": "getDataType",
     "memberof": "RxMap/src/map/RxMap.js~RxMap",
@@ -3125,7 +3145,7 @@
     }
   },
   {
-    "__docId__": 124,
+    "__docId__": 125,
     "kind": "method",
     "name": "observerData",
     "memberof": "RxMap/src/map/RxMap.js~RxMap",
@@ -3158,7 +3178,7 @@
     }
   },
   {
-    "__docId__": 125,
+    "__docId__": 126,
     "kind": "function",
     "name": "createMap",
     "memberof": "RxMap/src/map/RxMap.js",
@@ -3182,7 +3202,7 @@
     "ignore": true
   },
   {
-    "__docId__": 126,
+    "__docId__": 127,
     "kind": "file",
     "name": "RxMap/src/map/config.js",
     "content": "\nimport rxMap from './RxMap';\n\nconst rxMapFromConfig = async (id, config) => {\n  const {\n    type, map, options, dataTypes, actions,\n  } = config;\n  const { center, zoom } = map;\n  const mapCenter = center || { lat: 0, lng: 0 };\n\n  await rxMap.load(type, options);\n\n  await rxMap.create(id, mapCenter.lat, mapCenter.lng, zoom).wait();\n\n  if (actions) {\n    actions.forEach((action) => {\n      if (Array.isArray(action)) {\n        action.reduce((item, data) => item[data.name](...data.params), rxMap);\n      } else {\n        rxMap[action.name](...action.params);\n      }\n    });\n  }\n\n  if (dataTypes) {\n    dataTypes.forEach(element => rxMap.setDataType(element.id, element.geomType, element.style));\n  }\n\n  return rxMap;\n};\n\nexport default rxMapFromConfig;\n",
@@ -3193,7 +3213,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 127,
+    "__docId__": 128,
     "kind": "function",
     "name": "rxMapFromConfig",
     "memberof": "RxMap/src/map/config.js",
@@ -3229,7 +3249,7 @@
     }
   },
   {
-    "__docId__": 128,
+    "__docId__": 129,
     "kind": "file",
     "name": "RxMap/src/map/importMapLibrary.js",
     "content": "import { loadCSS } from '../core/importLazyLoad';\n\nconst externMapLibrary = {};\n\nexport const addMapLibrary = (name, func) => {\n  externMapLibrary[name] = func;\n};\n\nexport default async (lib, options = {}) => {\n  // const version = options.version || 'latest';\n  if (lib === 'leaflet') {\n    await loadCSS('https://unpkg.com/leaflet@1.3.4/dist/leaflet.css');\n    return import(/* webpackChunkName: \"leaflet\" */'leaflet');\n  }\n\n  if (lib === 'google') {\n    const { loadGoogle } = await import(/* webpackChunkName: \"google\" */'../utils/google');\n    return loadGoogle(options.key);\n  }\n\n  if (lib === 'mapbox') {\n    const mapbox = await import(/* webpackChunkName: \"mapbox\" */'mapbox-gl');\n    mapbox.default.accessToken = options.key;\n    return mapbox;\n  }\n\n  if (lib === 'ol') {\n    return import(/* webpackChunkName: \"ol\" */'ol');\n  }\n\n  if (lib === 'esri') {\n    const esriLoader = await import(/* webpackChunkName: \"esri\" */'esri-loader');\n    const loadScriptPromise = esriLoader.loadScript();\n    await loadCSS('https://js.arcgis.com/4.9/esri/css/main.css');\n    return loadScriptPromise.then(() => esriLoader);\n  }\n  if (lib === 'carto') {\n    await loadCSS('https://unpkg.com/leaflet@1.3.4/dist/leaflet.css');\n    const leaflet = await import(/* webpackChunkName: \"leaflet\" */'leaflet');\n    const carto = await import(/* webpackChunkName: \"carto\" */'@carto/carto.js');\n    const client = new carto.Client({\n      apiKey: options.key,\n      username: options.user,\n    });\n    return {\n      leaflet, carto, client,\n    };\n  }\n  if (externMapLibrary[lib]) {\n    return externMapLibrary[lib](options);\n  }\n  throw new Error(`Library ${lib} not supported`);\n};\n",
@@ -3240,7 +3260,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 129,
+    "__docId__": 130,
     "kind": "variable",
     "name": "externMapLibrary",
     "memberof": "RxMap/src/map/importMapLibrary.js",
@@ -3261,7 +3281,7 @@
     "ignore": true
   },
   {
-    "__docId__": 130,
+    "__docId__": 131,
     "kind": "function",
     "name": "addMapLibrary",
     "memberof": "RxMap/src/map/importMapLibrary.js",
@@ -3293,7 +3313,7 @@
     "return": null
   },
   {
-    "__docId__": 131,
+    "__docId__": 132,
     "kind": "function",
     "name": "importMapLibrary",
     "memberof": "RxMap/src/map/importMapLibrary.js",
@@ -3332,7 +3352,7 @@
     }
   },
   {
-    "__docId__": 132,
+    "__docId__": 133,
     "kind": "file",
     "name": "RxMap/src/map/middlewares/logger.js",
     "content": "\nexport const LoggerMiddleware = next => async (Map, args) => {\n  const actionName = Map.getActionName();\n  const now = new Date().getTime();\n  const name = `Command ${actionName} [${now}]: `;\n  console.log(`Pre ${name}`, args);\n  const res = await next(Map, args);\n  console.log(`Post ${name}`, res);\n  return res;\n};\n\nexport const TimerMiddleware = next => async (Map, args) => {\n  const actionName = Map.getActionName();\n  const now = new Date().getTime();\n  const name = `${actionName}_${now}`;\n  console.time(name);\n  const res = await next(Map, args);\n  console.timeEnd(name);\n  return res;\n};\n",
@@ -3343,7 +3363,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 133,
+    "__docId__": 134,
     "kind": "function",
     "name": "LoggerMiddleware",
     "memberof": "RxMap/src/map/middlewares/logger.js",
@@ -3373,7 +3393,7 @@
     }
   },
   {
-    "__docId__": 134,
+    "__docId__": 135,
     "kind": "function",
     "name": "TimerMiddleware",
     "memberof": "RxMap/src/map/middlewares/logger.js",
@@ -3403,7 +3423,7 @@
     }
   },
   {
-    "__docId__": 135,
+    "__docId__": 136,
     "kind": "file",
     "name": "RxMap/src/utils/getPath.js",
     "content": "/**\n * Recupera el path de una url\n * @param {String} src\n * @private\n */\nconst getOrigin = (src) => {\n  const url = new URL(src);\n  const path = url.pathname.split('/');\n  path.pop();\n  return `${url.origin}${path.join('/')}/`;\n};\n\nexport const getSrc = () => {\n  if (document.currentScript) {\n    return document.currentScript.src;\n  }\n  const scripts = document.getElementsByTagName('script');\n  return scripts[scripts.length - 1];\n};\n\n/**\n * Recupera el Path del script actual\n * @private\n */\nexport const getPath = () => getOrigin(getSrc());\n",
@@ -3414,7 +3434,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 136,
+    "__docId__": 137,
     "kind": "function",
     "name": "getOrigin",
     "memberof": "RxMap/src/utils/getPath.js",
@@ -3448,7 +3468,7 @@
     }
   },
   {
-    "__docId__": 137,
+    "__docId__": 138,
     "kind": "function",
     "name": "getSrc",
     "memberof": "RxMap/src/utils/getPath.js",
@@ -3471,7 +3491,7 @@
     }
   },
   {
-    "__docId__": 138,
+    "__docId__": 139,
     "kind": "function",
     "name": "getPath",
     "memberof": "RxMap/src/utils/getPath.js",
@@ -3490,7 +3510,7 @@
     "return": null
   },
   {
-    "__docId__": 139,
+    "__docId__": 140,
     "kind": "file",
     "name": "RxMap/src/utils/google.js",
     "content": "import GoogleMapsLoader from 'google-maps';\n\nlet _google;\n\nexport const loadGoogle = key => new Promise((resolve) => {\n  GoogleMapsLoader.KEY = key;\n  GoogleMapsLoader.VERSION = '3.34';\n  GoogleMapsLoader.load((google) => {\n    _google = google;\n    resolve(google);\n  });\n});\nconst getGoogleMap = () => _google.maps;\n\nexport default getGoogleMap;\n",
@@ -3501,7 +3521,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 140,
+    "__docId__": 141,
     "kind": "function",
     "name": "loadGoogle",
     "memberof": "RxMap/src/utils/google.js",
@@ -3527,7 +3547,7 @@
     "return": null
   },
   {
-    "__docId__": 141,
+    "__docId__": 142,
     "kind": "function",
     "name": "getGoogleMap",
     "memberof": "RxMap/src/utils/google.js",
@@ -3546,7 +3566,7 @@
     "return": null
   },
   {
-    "__docId__": 142,
+    "__docId__": 143,
     "kind": "file",
     "name": "RxMap/src/utils/isPromise.js",
     "content": "const isPromise = function (value) {\n  return value && typeof value.subscribe !== 'function' && typeof value.then === 'function';\n};\n\nexport default isPromise;\n",
@@ -3557,7 +3577,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 143,
+    "__docId__": 144,
     "kind": "function",
     "name": "isPromise",
     "memberof": "RxMap/src/utils/isPromise.js",
@@ -3587,7 +3607,7 @@
     }
   },
   {
-    "__docId__": 144,
+    "__docId__": 145,
     "kind": "file",
     "name": "RxMap/src/utils/polyfill.js",
     "content": "import 'proxy-polyfill';\nimport 'url-polyfill';\n",
@@ -3599,7 +3619,7 @@
   },
   {
     "kind": "index",
-    "content": "# [<img src=\"https://avatars0.githubusercontent.com/u/37194013?s=400&u=692377e91a2dab11006abb01d0db33cdb211c9b8&v=4\" alt=\"xlab\"  height=\"24\">](https://xlab.tech) RxMap\n\n[![Build Status](https://travis-ci.org/xlab-tech/RxMap.svg?branch=master)](https://travis-ci.org/xlab-tech/RxMap)\n[![Codacy Badge](https://api.codacy.com/project/badge/Grade/fe06b87e1b6b4e279c8507c82d8ba73f)](https://www.codacy.com/project/xlab/RxMap/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=xlab-tech/RxMap&amp;utm_campaign=Badge_Grade_Dashboard)\n[![Coverage Status](https://coveralls.io/repos/github/xlab-tech/RxMap/badge.svg?branch=master)](https://coveralls.io/github/xlab-tech/RxMap?branch=master)\n[![dependencies Status](https://david-dm.org/xlab-tech/RxMap/status.svg)](https://david-dm.org/xlab-tech/RxMap)\n[![devDependencies Status](https://david-dm.org/xlab-tech/RxMap/dev-status.svg)](https://david-dm.org/xlab-tech/RxMap?type=dev)\n[![Code style: airbnb](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square)](https://github.com/airbnb/javascript)\n[![AUR](https://img.shields.io/aur/license/yaourt.svg)](https://github.com/xlab-tech/RxMap/blob/master/LICENSE)\n\n[<img src=\"https://avatars0.githubusercontent.com/u/37194013?s=400&u=692377e91a2dab11006abb01d0db33cdb211c9b8&v=4\" alt=\"xlab\"  height=\"64\">](https://xlab.tech)\n&nbsp;&nbsp;\n[<img src=\"https://cdn.icon-icons.com/icons2/923/PNG/512/slack_alt_icon-icons.com_72013.png\" alt=\"Join Slack\"  height=\"64\">](https://join.slack.com/t/xlab-tech/shared_invite/enQtNDIwMzg1MTA2NjA5LTljZWNkZjliNjhhNTc4MTQ0OWVkNTAwMTE0NmU2YTllYTE5YzllZjM2NTQ1ZmNkMDRmMGI0NWE0NGRiZGIxNmE)\n\n\nRxMap es una \"Wrapper\" para las librerías de mapas que añade programación funcional y reactiva usando observables([RxJs](https://github.com/ReactiveX/rxjs)) , que permite fácilmente anidar llamadas asyncronas y que permite disponer de diferentes libreras de mapas con la misma interfaz.\n\nRxMap no sustituye al visor sino que añade a los visores actuales una capa adicional para poder mejorar el mantenimiento de tus proyectos. Y añade funcionalidades adicionales para mejorar la performance y la escalabilidad de tu código.\n\nRxMap se basa en tres conceptos acciones , observadores y funciones para organizar tu código en pequeños bloques. Y también te permite escribir middlewares para desacoplar mejor tu código.\n\nDe facto incluye observables sobre las acciones y un store obsevable, para poder observar  los cambios sobre datos que guardes.\n\nRxMap añade una capa de abstracción sobre las librerías de mapas, esta diseñada para desacoplarte y evitarte tener que actualizar tu código con cada cambio de librerías o utilizar una mapa diferente según el entorno. Podrás centrarte en desarrollar tus funcionalidades.\n\nRxMap te permite cargar el código en diferido cuando la utilizas para mejorar los tiempos de carga, es recomendable desplegarlo en http2.\n\n## Ventajas\n* Cargar en diferido de las acciones y los observadores (Lazy Loader).\n* Trabajar con observadores. (RxJs).\n* Trabajar de manara asyncrona.\n* Programación funcional.\n* Store Observable.\n* Trabaja con multiples mapas, sin cambiar tu código.\n* Reutilización de código entre diferentes proyectos.\n\n## Instalación\n\n### NPM\n```\nNpm install @rxmap\\rxmap —save\n```\n\n### CDN\n```\n<head>\n<script type=‘application/javascript’ src=‘https://unpkg.com/@rxmap/rxmap@0.1.0’ defer/>\n</head>\n\n```\n\n## Como utilizarla\nLo ideal es tener las acciones y los observadores en librerías externas, lo primero seria registrar estas librerías para poder utilizarlas\n\n```\nimport rxLib from '@rxmap/basiclib';\nregisterLib(...rxLib);\n\n```\n\n Una vez registradas las librerías o las acciones a utilizar. Lo primero es cargar el mapa que se quiera utilizar \nY después ya se pueden invocar las acciones o observadores a utilizar.\n\n```\nimport { RxMap } from ‘@rxmap/rxmap’;\nawait RxMap.load(‘leaflet’);\nRxMap.create(‘mapId’,2.45,41.56,10);\nRxMap.marker(2.45,41.56).popup(‘hello’);\n\n```\n\nO  para versión de CDN.\n\n```\nR.RxMap.load(‘leaflet’);\nR.RxMap.create(‘mapId’,2.45,41.56,10);\nR.RxMap.marker(2.45,41.56).popup(‘hello’);\n\n```\n\nLa primera acción que se tiene que invocar debe devolver el mapa inicial inicializado, normalmente esta acción se llama ‘create’ y debe ser sincrona, es decir no devolver una promesa. Es recomendable no anidar las llamadas a create, sino volver a hacer llamadas sobre RxMap, como se observa en los ejemplos anteriores.\n\n## Documentación\n\nPuedes encontrar más Documentación aquí:\n* [Overview](https://xlab-tech.github.io/RxMap/manual/overview.html)\n* [Instalar](https://xlab-tech.github.io/RxMap/manual/install.html)\n* [Como Utilizar](https://xlab-tech.github.io/RxMap/manual/howItWorks.html)\n\t* [Acciones](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#acciones)\n\t* [Funciones](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#funciones)\n\t* [Observadores](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#observadores)\n\t* [Librerías](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#librerías)\n\t* [Middlewares](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#middlewares)\n\t* [Observar acciones](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#observar-acciones)\n\t* [Store](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#store-observable)\n* [Como crear](https://xlab-tech.github.io/RxMap/manual/make.html)\n\t* [Acciones](https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-acciones)\n\t* [Funciones](https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-funciones)\n\t* [Observadores](https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-observadores)\n\t* [Middlewares](https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-un-middleware)\n\t* [Librería](https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-una-libreria)\n* [Build](https://xlab-tech.github.io/RxMap/manual/build.html)\n\n\n# Examples\n\n# Librerias\nLibrerías para añadir acciones y observadores:\n  * [RxMapBasicLib](https://github.com/xlab-tech/RxMapBasicLib)\n  * ..\n\nPara añadir una nueva librería enviar un mail a rxmap@xlab.tech  o realiza un pullRequest de la documentación con la libreria añadida.\nPara hacer un PullRequest:\n  * Haz un fork del repositorio.\n  * Haz commit y push de los cambios en tu reposition.\n  * Crear un PullRequest .\n\n# Mapas Soportados\n * [google](https://cloud.google.com/maps-platform/)\n * [leaflet](https://leafletjs.com/)\n * [mapbox](https://www.mapbox.com/)\n * [ol](https://openlayers.org/)\n * [esri](https://developers.arcgis.com/javascript/)\n * [carto](https://carto.com/)\n",
+    "content": "# [<img src=\"https://avatars0.githubusercontent.com/u/37194013?s=400&u=692377e91a2dab11006abb01d0db33cdb211c9b8&v=4\" alt=\"xlab\"  height=\"24\">](https://xlab.tech) RxMap\n\n[![Build Status](https://travis-ci.org/xlab-tech/RxMap.svg?branch=master)](https://travis-ci.org/xlab-tech/RxMap)\n[![Codacy Badge](https://api.codacy.com/project/badge/Grade/fe06b87e1b6b4e279c8507c82d8ba73f)](https://www.codacy.com/project/xlab/RxMap/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=xlab-tech/RxMap&amp;utm_campaign=Badge_Grade_Dashboard)\n[![Coverage Status](https://coveralls.io/repos/github/xlab-tech/RxMap/badge.svg?branch=master)](https://coveralls.io/github/xlab-tech/RxMap?branch=master)\n[![dependencies Status](https://david-dm.org/xlab-tech/RxMap/status.svg)](https://david-dm.org/xlab-tech/RxMap)\n[![devDependencies Status](https://david-dm.org/xlab-tech/RxMap/dev-status.svg)](https://david-dm.org/xlab-tech/RxMap?type=dev)\n[![Code style: airbnb](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square)](https://github.com/airbnb/javascript)\n[![AUR](https://img.shields.io/aur/license/yaourt.svg)](https://github.com/xlab-tech/RxMap/blob/master/LICENSE)\n\n[<img src=\"https://avatars0.githubusercontent.com/u/37194013?s=400&u=692377e91a2dab11006abb01d0db33cdb211c9b8&v=4\" alt=\"xlab\"  height=\"64\">](https://xlab.tech)\n&nbsp;&nbsp;\n[<img src=\"https://cdn.icon-icons.com/icons2/923/PNG/512/slack_alt_icon-icons.com_72013.png\" alt=\"Join Slack\"  height=\"64\">](https://join.slack.com/t/xlab-tech/shared_invite/enQtNDIwMzg1MTA2NjA5LTljZWNkZjliNjhhNTc4MTQ0OWVkNTAwMTE0NmU2YTllYTE5YzllZjM2NTQ1ZmNkMDRmMGI0NWE0NGRiZGIxNmE)\n\n\nRxMap es una \"Wrapper\" para las librerías de mapas que añade programación funcional y reactiva usando observables([RxJs](https://github.com/ReactiveX/rxjs)) , permite fácilmente anidar llamadas asyncronas , permite disponer de diferentes libreras de mapas con la misma interfaz y incluye la opcion de trabajar offline.\n\nRxMap no sustituye al visor sino que añade a los visores actuales una capa adicional para poder mejorar el mantenimiento de tus proyectos. Y añade funcionalidades adicionales para mejorar la performance y la escalabilidad de tu código.\n\nRxMap se basa en tres conceptos acciones , observadores y funciones para organizar tu código en pequeños bloques. Y también te permite escribir middlewares para desacoplar mejor tu código.\n\nDe facto incluye observables sobre las acciones y un store obsevable, para poder observar  los cambios sobre datos que guardes.\n\nRxMap añade una capa de abstracción sobre las librerías de mapas, esta diseñada para desacoplarte y evitarte tener que actualizar tu código con cada cambio de librerías o utilizar una mapa diferente según el entorno. Podrás centrarte en desarrollar tus funcionalidades.\n\nRxMap te permite cargar el código en diferido cuando la utilizas para mejorar los tiempos de carga, es recomendable desplegarlo en http2.\n\n## Ventajas\n* Cargar en diferido de las acciones y los observadores (Lazy Loader).\n* Trabajar con observadores. (RxJs).\n* Trabajar de manara asyncrona.\n* Programación funcional.\n* Store Observable.\n* Trabaja con multiples mapas, sin cambiar tu código.\n* Reutilización de código entre diferentes proyectos.\n* Offline\n\n## Instalación\n\n### NPM\n```\nNpm install @rxmap\\rxmap —save\n```\n\n### CDN\n```\n<head>\n<script type=‘application/javascript’ src=‘https://unpkg.com/@rxmap/rxmap@0.5.0’ defer/>\n</head>\n\n```\n\n## Como utilizarla\nLo ideal es tener las acciones y los observadores en librerías externas, lo primero seria registrar estas librerías para poder utilizarlas\n\n```\nimport rxLib from '@rxmap/basiclib';\nregisterLib(...rxLib);\n\n```\n\n Una vez registradas las librerías o las acciones a utilizar. Lo primero es cargar el mapa que se quiera utilizar \nY después ya se pueden invocar las acciones o observadores a utilizar.\n\n```\nimport { RxMap } from ‘@rxmap/rxmap’;\nawait RxMap.load(‘leaflet’);\nRxMap.create(‘mapId’,2.45,41.56,10);\nRxMap.marker(2.45,41.56).popup(‘hello’);\n\n```\n\nO  para versión de CDN.\n\n```\nR.RxMap.load(‘leaflet’);\nR.RxMap.create(‘mapId’,2.45,41.56,10);\nR.RxMap.marker(2.45,41.56).popup(‘hello’);\n\n```\n\nLa primera acción que se tiene que invocar debe devolver el mapa inicial inicializado, normalmente esta acción se llama ‘create’ y debe ser sincrona, es decir no devolver una promesa. Es recomendable no anidar las llamadas a create, sino volver a hacer llamadas sobre RxMap, como se observa en los ejemplos anteriores.\n\n## Documentación\n\nPuedes encontrar más Documentación aquí:\n* [Overview](https://xlab-tech.github.io/RxMap/manual/overview.html)\n* [Instalar](https://xlab-tech.github.io/RxMap/manual/install.html)\n* [Como Utilizar](https://xlab-tech.github.io/RxMap/manual/howItWorks.html)\n\t* [Acciones](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#acciones)\n\t* [Funciones](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#funciones)\n\t* [Observadores](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#observadores)\n\t* [Librerías](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#librerías)\n\t* [Middlewares](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#middlewares)\n\t* [Observar acciones](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#observar-acciones)\n\t* [Store](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#store-observable)\n* [Como crear](https://xlab-tech.github.io/RxMap/manual/make.html)\n\t* [Acciones](https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-acciones)\n\t* [Funciones](https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-funciones)\n\t* [Observadores](https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-observadores)\n\t* [Middlewares](https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-un-middleware)\n\t* [Librería](https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-una-libreria)\n* [Build](https://xlab-tech.github.io/RxMap/manual/build.html)\n\n\n# Examples\n\n# Librerias\nLibrerías para añadir acciones y observadores:\n  * [RxMapBasicLib](https://github.com/xlab-tech/RxMapBasicLib)\n  * ..\n\nPara añadir una nueva librería enviar un mail a rxmap@xlab.tech  o realiza un pullRequest de la documentación con la libreria añadida.\nPara hacer un PullRequest:\n  * Haz un fork del repositorio.\n  * Haz commit y push de los cambios en tu reposition.\n  * Crear un PullRequest .\n\n# Mapas Soportados\n * [google](https://cloud.google.com/maps-platform/)\n * [leaflet](https://leafletjs.com/)\n * [mapbox](https://www.mapbox.com/)\n * [ol](https://openlayers.org/)\n * [esri](https://developers.arcgis.com/javascript/)\n * [carto](https://carto.com/)\n\n# Offline\n\nEl offline funciona a través de un serviceWorker que se encarga de cachear todas las peticiones para que posteriormente puedas acceder a ellas sin cobertura.\n\nPara poder trabajar offline hay que incluir el fichero sw.js en la misma ruta donde\nesta RxMap.\nEl fichero sw.js debe incluir esta linea\n\n```\nimportScripts('https://unpkg.com/@rxmap/offlinestorage@0.4.0/dist/esm/offline-sw.js')\n````\npara poder activar al serviceWorker que se encargara de cachear las peticiones.\n",
     "longname": "/Users/vrubinat/Documents/xlab.tech/RxMap/README.md",
     "name": "./README.md",
     "static": true,
@@ -3608,7 +3628,7 @@
   {
     "kind": "manualIndex",
     "globalIndex": true,
-    "content": "# [<img src=\"https://avatars0.githubusercontent.com/u/37194013?s=400&u=692377e91a2dab11006abb01d0db33cdb211c9b8&v=4\" alt=\"xlab\"  height=\"24\">](https://xlab.tech) RxMap\n\n[![Build Status](https://travis-ci.org/xlab-tech/RxMap.svg?branch=master)](https://travis-ci.org/xlab-tech/RxMap)\n[![Codacy Badge](https://api.codacy.com/project/badge/Grade/fe06b87e1b6b4e279c8507c82d8ba73f)](https://www.codacy.com/project/xlab/RxMap/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=xlab-tech/RxMap&amp;utm_campaign=Badge_Grade_Dashboard)\n[![Coverage Status](https://coveralls.io/repos/github/xlab-tech/RxMap/badge.svg?branch=master)](https://coveralls.io/github/xlab-tech/RxMap?branch=master)\n[![dependencies Status](https://david-dm.org/xlab-tech/RxMap/status.svg)](https://david-dm.org/xlab-tech/RxMap)\n[![devDependencies Status](https://david-dm.org/xlab-tech/RxMap/dev-status.svg)](https://david-dm.org/xlab-tech/RxMap?type=dev)\n[![Code style: airbnb](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square)](https://github.com/airbnb/javascript)\n[![AUR](https://img.shields.io/aur/license/yaourt.svg)](https://github.com/xlab-tech/RxMap/blob/master/LICENSE)\n\n[<img src=\"https://avatars0.githubusercontent.com/u/37194013?s=400&u=692377e91a2dab11006abb01d0db33cdb211c9b8&v=4\" alt=\"xlab\"  height=\"64\">](https://xlab.tech)\n&nbsp;&nbsp;\n[<img src=\"https://cdn.icon-icons.com/icons2/923/PNG/512/slack_alt_icon-icons.com_72013.png\" alt=\"Join Slack\"  height=\"64\">](https://join.slack.com/t/xlab-tech/shared_invite/enQtNDIwMzg1MTA2NjA5LTljZWNkZjliNjhhNTc4MTQ0OWVkNTAwMTE0NmU2YTllYTE5YzllZjM2NTQ1ZmNkMDRmMGI0NWE0NGRiZGIxNmE)\n\n\nRxMap es una \"Wrapper\" para las librerías de mapas que añade programación funcional y reactiva usando observables([RxJs](https://github.com/ReactiveX/rxjs)) , que permite fácilmente anidar llamadas asyncronas y que permite disponer de diferentes libreras de mapas con la misma interfaz.\n\nRxMap no sustituye al visor sino que añade a los visores actuales una capa adicional para poder mejorar el mantenimiento de tus proyectos. Y añade funcionalidades adicionales para mejorar la performance y la escalabilidad de tu código.\n\nRxMap se basa en tres conceptos acciones , observadores y funciones para organizar tu código en pequeños bloques. Y también te permite escribir middlewares para desacoplar mejor tu código.\n\nDe facto incluye observables sobre las acciones y un store obsevable, para poder observar  los cambios sobre datos que guardes.\n\nRxMap añade una capa de abstracción sobre las librerías de mapas, esta diseñada para desacoplarte y evitarte tener que actualizar tu código con cada cambio de librerías o utilizar una mapa diferente según el entorno. Podrás centrarte en desarrollar tus funcionalidades.\n\nRxMap te permite cargar el código en diferido cuando la utilizas para mejorar los tiempos de carga, es recomendable desplegarlo en http2.\n\n## Ventajas\n* Cargar en diferido de las acciones y los observadores (Lazy Loader).\n* Trabajar con observadores. (RxJs).\n* Trabajar de manara asyncrona.\n* Programación funcional.\n* Store Observable.\n* Trabaja con multiples mapas, sin cambiar tu código.\n* Reutilización de código entre diferentes proyectos.\n\n## Instalación\n\n### NPM\n```\nNpm install @rxmap\\rxmap —save\n```\n\n### CDN\n```\n<head>\n<script type=‘application/javascript’ src=‘https://unpkg.com/@rxmap/rxmap@0.1.0’ defer/>\n</head>\n\n```\n\n## Como utilizarla\nLo ideal es tener las acciones y los observadores en librerías externas, lo primero seria registrar estas librerías para poder utilizarlas\n\n```\nimport rxLib from '@rxmap/basiclib';\nregisterLib(...rxLib);\n\n```\n\n Una vez registradas las librerías o las acciones a utilizar. Lo primero es cargar el mapa que se quiera utilizar \nY después ya se pueden invocar las acciones o observadores a utilizar.\n\n```\nimport { RxMap } from ‘@rxmap/rxmap’;\nawait RxMap.load(‘leaflet’);\nRxMap.create(‘mapId’,2.45,41.56,10);\nRxMap.marker(2.45,41.56).popup(‘hello’);\n\n```\n\nO  para versión de CDN.\n\n```\nR.RxMap.load(‘leaflet’);\nR.RxMap.create(‘mapId’,2.45,41.56,10);\nR.RxMap.marker(2.45,41.56).popup(‘hello’);\n\n```\n\nLa primera acción que se tiene que invocar debe devolver el mapa inicial inicializado, normalmente esta acción se llama ‘create’ y debe ser sincrona, es decir no devolver una promesa. Es recomendable no anidar las llamadas a create, sino volver a hacer llamadas sobre RxMap, como se observa en los ejemplos anteriores.\n\n## Documentación\n\nPuedes encontrar más Documentación aquí:\n* [Overview](https://xlab-tech.github.io/RxMap/manual/overview.html)\n* [Instalar](https://xlab-tech.github.io/RxMap/manual/install.html)\n* [Como Utilizar](https://xlab-tech.github.io/RxMap/manual/howItWorks.html)\n\t* [Acciones](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#acciones)\n\t* [Funciones](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#funciones)\n\t* [Observadores](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#observadores)\n\t* [Librerías](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#librerías)\n\t* [Middlewares](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#middlewares)\n\t* [Observar acciones](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#observar-acciones)\n\t* [Store](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#store-observable)\n* [Como crear](https://xlab-tech.github.io/RxMap/manual/make.html)\n\t* [Acciones](https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-acciones)\n\t* [Funciones](https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-funciones)\n\t* [Observadores](https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-observadores)\n\t* [Middlewares](https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-un-middleware)\n\t* [Librería](https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-una-libreria)\n* [Build](https://xlab-tech.github.io/RxMap/manual/build.html)\n\n\n# Examples\n\n# Librerias\nLibrerías para añadir acciones y observadores:\n  * [RxMapBasicLib](https://github.com/xlab-tech/RxMapBasicLib)\n  * ..\n\nPara añadir una nueva librería enviar un mail a rxmap@xlab.tech  o realiza un pullRequest de la documentación con la libreria añadida.\nPara hacer un PullRequest:\n  * Haz un fork del repositorio.\n  * Haz commit y push de los cambios en tu reposition.\n  * Crear un PullRequest .\n\n# Mapas Soportados\n * [google](https://cloud.google.com/maps-platform/)\n * [leaflet](https://leafletjs.com/)\n * [mapbox](https://www.mapbox.com/)\n * [ol](https://openlayers.org/)\n * [esri](https://developers.arcgis.com/javascript/)\n * [carto](https://carto.com/)\n",
+    "content": "# [<img src=\"https://avatars0.githubusercontent.com/u/37194013?s=400&u=692377e91a2dab11006abb01d0db33cdb211c9b8&v=4\" alt=\"xlab\"  height=\"24\">](https://xlab.tech) RxMap\n\n[![Build Status](https://travis-ci.org/xlab-tech/RxMap.svg?branch=master)](https://travis-ci.org/xlab-tech/RxMap)\n[![Codacy Badge](https://api.codacy.com/project/badge/Grade/fe06b87e1b6b4e279c8507c82d8ba73f)](https://www.codacy.com/project/xlab/RxMap/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=xlab-tech/RxMap&amp;utm_campaign=Badge_Grade_Dashboard)\n[![Coverage Status](https://coveralls.io/repos/github/xlab-tech/RxMap/badge.svg?branch=master)](https://coveralls.io/github/xlab-tech/RxMap?branch=master)\n[![dependencies Status](https://david-dm.org/xlab-tech/RxMap/status.svg)](https://david-dm.org/xlab-tech/RxMap)\n[![devDependencies Status](https://david-dm.org/xlab-tech/RxMap/dev-status.svg)](https://david-dm.org/xlab-tech/RxMap?type=dev)\n[![Code style: airbnb](https://img.shields.io/badge/code%20style-airbnb-blue.svg?style=flat-square)](https://github.com/airbnb/javascript)\n[![AUR](https://img.shields.io/aur/license/yaourt.svg)](https://github.com/xlab-tech/RxMap/blob/master/LICENSE)\n\n[<img src=\"https://avatars0.githubusercontent.com/u/37194013?s=400&u=692377e91a2dab11006abb01d0db33cdb211c9b8&v=4\" alt=\"xlab\"  height=\"64\">](https://xlab.tech)\n&nbsp;&nbsp;\n[<img src=\"https://cdn.icon-icons.com/icons2/923/PNG/512/slack_alt_icon-icons.com_72013.png\" alt=\"Join Slack\"  height=\"64\">](https://join.slack.com/t/xlab-tech/shared_invite/enQtNDIwMzg1MTA2NjA5LTljZWNkZjliNjhhNTc4MTQ0OWVkNTAwMTE0NmU2YTllYTE5YzllZjM2NTQ1ZmNkMDRmMGI0NWE0NGRiZGIxNmE)\n\n\nRxMap es una \"Wrapper\" para las librerías de mapas que añade programación funcional y reactiva usando observables([RxJs](https://github.com/ReactiveX/rxjs)) , permite fácilmente anidar llamadas asyncronas , permite disponer de diferentes libreras de mapas con la misma interfaz y incluye la opcion de trabajar offline.\n\nRxMap no sustituye al visor sino que añade a los visores actuales una capa adicional para poder mejorar el mantenimiento de tus proyectos. Y añade funcionalidades adicionales para mejorar la performance y la escalabilidad de tu código.\n\nRxMap se basa en tres conceptos acciones , observadores y funciones para organizar tu código en pequeños bloques. Y también te permite escribir middlewares para desacoplar mejor tu código.\n\nDe facto incluye observables sobre las acciones y un store obsevable, para poder observar  los cambios sobre datos que guardes.\n\nRxMap añade una capa de abstracción sobre las librerías de mapas, esta diseñada para desacoplarte y evitarte tener que actualizar tu código con cada cambio de librerías o utilizar una mapa diferente según el entorno. Podrás centrarte en desarrollar tus funcionalidades.\n\nRxMap te permite cargar el código en diferido cuando la utilizas para mejorar los tiempos de carga, es recomendable desplegarlo en http2.\n\n## Ventajas\n* Cargar en diferido de las acciones y los observadores (Lazy Loader).\n* Trabajar con observadores. (RxJs).\n* Trabajar de manara asyncrona.\n* Programación funcional.\n* Store Observable.\n* Trabaja con multiples mapas, sin cambiar tu código.\n* Reutilización de código entre diferentes proyectos.\n* Offline\n\n## Instalación\n\n### NPM\n```\nNpm install @rxmap\\rxmap —save\n```\n\n### CDN\n```\n<head>\n<script type=‘application/javascript’ src=‘https://unpkg.com/@rxmap/rxmap@0.5.0’ defer/>\n</head>\n\n```\n\n## Como utilizarla\nLo ideal es tener las acciones y los observadores en librerías externas, lo primero seria registrar estas librerías para poder utilizarlas\n\n```\nimport rxLib from '@rxmap/basiclib';\nregisterLib(...rxLib);\n\n```\n\n Una vez registradas las librerías o las acciones a utilizar. Lo primero es cargar el mapa que se quiera utilizar \nY después ya se pueden invocar las acciones o observadores a utilizar.\n\n```\nimport { RxMap } from ‘@rxmap/rxmap’;\nawait RxMap.load(‘leaflet’);\nRxMap.create(‘mapId’,2.45,41.56,10);\nRxMap.marker(2.45,41.56).popup(‘hello’);\n\n```\n\nO  para versión de CDN.\n\n```\nR.RxMap.load(‘leaflet’);\nR.RxMap.create(‘mapId’,2.45,41.56,10);\nR.RxMap.marker(2.45,41.56).popup(‘hello’);\n\n```\n\nLa primera acción que se tiene que invocar debe devolver el mapa inicial inicializado, normalmente esta acción se llama ‘create’ y debe ser sincrona, es decir no devolver una promesa. Es recomendable no anidar las llamadas a create, sino volver a hacer llamadas sobre RxMap, como se observa en los ejemplos anteriores.\n\n## Documentación\n\nPuedes encontrar más Documentación aquí:\n* [Overview](https://xlab-tech.github.io/RxMap/manual/overview.html)\n* [Instalar](https://xlab-tech.github.io/RxMap/manual/install.html)\n* [Como Utilizar](https://xlab-tech.github.io/RxMap/manual/howItWorks.html)\n\t* [Acciones](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#acciones)\n\t* [Funciones](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#funciones)\n\t* [Observadores](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#observadores)\n\t* [Librerías](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#librerías)\n\t* [Middlewares](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#middlewares)\n\t* [Observar acciones](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#observar-acciones)\n\t* [Store](https://xlab-tech.github.io/RxMap/manual/howItWorks.html#store-observable)\n* [Como crear](https://xlab-tech.github.io/RxMap/manual/make.html)\n\t* [Acciones](https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-acciones)\n\t* [Funciones](https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-funciones)\n\t* [Observadores](https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-observadores)\n\t* [Middlewares](https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-un-middleware)\n\t* [Librería](https://xlab-tech.github.io/RxMap/manual/make.html#como-crear-una-libreria)\n* [Build](https://xlab-tech.github.io/RxMap/manual/build.html)\n\n\n# Examples\n\n# Librerias\nLibrerías para añadir acciones y observadores:\n  * [RxMapBasicLib](https://github.com/xlab-tech/RxMapBasicLib)\n  * ..\n\nPara añadir una nueva librería enviar un mail a rxmap@xlab.tech  o realiza un pullRequest de la documentación con la libreria añadida.\nPara hacer un PullRequest:\n  * Haz un fork del repositorio.\n  * Haz commit y push de los cambios en tu reposition.\n  * Crear un PullRequest .\n\n# Mapas Soportados\n * [google](https://cloud.google.com/maps-platform/)\n * [leaflet](https://leafletjs.com/)\n * [mapbox](https://www.mapbox.com/)\n * [ol](https://openlayers.org/)\n * [esri](https://developers.arcgis.com/javascript/)\n * [carto](https://carto.com/)\n\n# Offline\n\nEl offline funciona a través de un serviceWorker que se encarga de cachear todas las peticiones para que posteriormente puedas acceder a ellas sin cobertura.\n\nPara poder trabajar offline hay que incluir el fichero sw.js en la misma ruta donde\nesta RxMap.\nEl fichero sw.js debe incluir esta linea\n\n```\nimportScripts('https://unpkg.com/@rxmap/offlinestorage@0.4.0/dist/esm/offline-sw.js')\n````\npara poder activar al serviceWorker que se encargara de cachear las peticiones.\n",
     "longname": "/Users/vrubinat/Documents/xlab.tech/RxMap/README.md",
     "name": "./README.md",
     "static": true,
@@ -3678,7 +3698,7 @@
     "access": "public"
   },
   {
-    "__docId__": 145,
+    "__docId__": 146,
     "kind": "testFile",
     "name": "test/unit/core/Observable.spec.js",
     "content": "/* global describe,it */\nimport { expect } from 'chai';\nimport { of } from 'rxjs/internal/observable/of';\nimport { registerObserver } from '../../../src/core/registerObserver';\nimport rxMap from '../../../src/map/RxMap';\nimport CommandBus from '../../../src/core/CommandBus';\n\ndescribe('Observable', () => {\n  const actionBus = new CommandBus();\n  actionBus._source = { getContext: () => ({ test: '3' }) };\n  rxMap._commandBus = actionBus;\n  it('observer', () => {\n    registerObserver('test', () => () => of(2));\n    return new Promise((resolve, reject) => {\n      const $strem = rxMap.observer(of(5));\n      $strem.observer('test').subscribe((res) => {\n        expect(res).to.eq(2);\n      }, reject, resolve);\n    });\n  });\n\n  it('observer params', () => {\n    registerObserver('test', () => param => of(param));\n    return new Promise((resolve, reject) => {\n      const $strem = rxMap.observer(of(5));\n      $strem.observer('test', 3).subscribe((res) => {\n        expect(res).to.eq(3);\n      }, reject, resolve);\n    });\n  });\n});\n",
@@ -3689,7 +3709,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 146,
+    "__docId__": 147,
     "kind": "test",
     "name": "describe0",
     "testId": 0,
@@ -3702,7 +3722,7 @@
     "lineNumber": 8
   },
   {
-    "__docId__": 147,
+    "__docId__": 148,
     "kind": "test",
     "name": "it1",
     "testId": 1,
@@ -3715,7 +3735,7 @@
     "lineNumber": 12
   },
   {
-    "__docId__": 148,
+    "__docId__": 149,
     "kind": "test",
     "name": "it2",
     "testId": 2,
@@ -3728,7 +3748,7 @@
     "lineNumber": 22
   },
   {
-    "__docId__": 149,
+    "__docId__": 150,
     "kind": "testFile",
     "name": "test/unit/core/asyncCommandBus.spec.js",
     "content": "/* global describe,it */\nimport { expect } from 'chai';\nimport { Observable } from 'rxjs/internal/Observable';\nimport { from } from 'rxjs/internal/observable/from';\nimport AsyncCommandBus from '../../../src/core/AsyncCommandBus';\n\ndescribe('AsyncCommandBus', () => {\n  it('subscribe', () => {\n    const async = new AsyncCommandBus();\n    let pepe;\n    async.subscribe(() => {\n      pepe = 'aa';\n    });\n    async._complete();\n    expect(pepe).to.eq('aa');\n  });\n  it('action Bus getValue', (done) => {\n    const actionBus = new AsyncCommandBus();\n    actionBus._executingAction = true;\n    actionBus._lastAction = { value: 'rrr' };\n    actionBus.getValue().subscribe((res) => {\n      expect(res.value).to.have.eq('rrr');\n      done();\n    });\n    actionBus._complete();\n  });\n  it('observer data ', () => {\n    const async = new AsyncCommandBus();\n    async._executingAction = true;\n    async._source = { observer: () => from([1]) };\n    const $stream = async.observer([5], 4);\n    expect($stream).is.a.instanceOf(Observable);\n  });\n  it('observer data args', () => {\n    const async = new AsyncCommandBus();\n    async._source = { observer: () => from([1]) };\n    const $stream = async.observer([5], 4);\n    expect($stream).is.a.instanceOf(Observable);\n  });\n  it('observer executing', (done) => {\n    const async = new AsyncCommandBus();\n    async._source = {};\n    async._executingAction = 'test';\n    const $stream = async.observer([5]);\n    async._complete();\n    expect($stream).is.a.instanceOf(Observable);\n    $stream.subscribe((res) => {\n      expect(res).to.eq(5);\n      async._executingAction = false;\n      done();\n    });\n  });\n  it('save data', () => {\n    const async = new AsyncCommandBus();\n    async._saveExecution('test', 5);\n    expect(async._lastAction.value).to.eq(5);\n  });\n  it('save data', () => {\n    const async = new AsyncCommandBus();\n    async.setSource(5);\n    const temp = async.getSource();\n    expect(temp).to.eq(5);\n  });\n  it('action Bus getValue', (done) => {\n    const async = new AsyncCommandBus();\n    async._executingAction = false;\n    async._lastAction = { value: 'rrr' };\n    async.getValue().subscribe((res) => {\n      expect(res.value).to.have.eq('rrr');\n      done();\n    });\n  });\n});\n",
@@ -3739,7 +3759,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 150,
+    "__docId__": 151,
     "kind": "test",
     "name": "describe3",
     "testId": 3,
@@ -3752,7 +3772,7 @@
     "lineNumber": 7
   },
   {
-    "__docId__": 151,
+    "__docId__": 152,
     "kind": "test",
     "name": "it4",
     "testId": 4,
@@ -3765,7 +3785,7 @@
     "lineNumber": 8
   },
   {
-    "__docId__": 152,
+    "__docId__": 153,
     "kind": "test",
     "name": "it5",
     "testId": 5,
@@ -3778,7 +3798,7 @@
     "lineNumber": 17
   },
   {
-    "__docId__": 153,
+    "__docId__": 154,
     "kind": "test",
     "name": "it6",
     "testId": 6,
@@ -3791,7 +3811,7 @@
     "lineNumber": 27
   },
   {
-    "__docId__": 154,
+    "__docId__": 155,
     "kind": "test",
     "name": "it7",
     "testId": 7,
@@ -3804,7 +3824,7 @@
     "lineNumber": 34
   },
   {
-    "__docId__": 155,
+    "__docId__": 156,
     "kind": "test",
     "name": "it8",
     "testId": 8,
@@ -3817,7 +3837,7 @@
     "lineNumber": 40
   },
   {
-    "__docId__": 156,
+    "__docId__": 157,
     "kind": "test",
     "name": "it9",
     "testId": 9,
@@ -3830,7 +3850,7 @@
     "lineNumber": 53
   },
   {
-    "__docId__": 157,
+    "__docId__": 158,
     "kind": "test",
     "name": "it10",
     "testId": 10,
@@ -3843,7 +3863,7 @@
     "lineNumber": 58
   },
   {
-    "__docId__": 158,
+    "__docId__": 159,
     "kind": "test",
     "name": "it11",
     "testId": 11,
@@ -3856,7 +3876,7 @@
     "lineNumber": 64
   },
   {
-    "__docId__": 159,
+    "__docId__": 160,
     "kind": "testFile",
     "name": "test/unit/core/commandBus.spec.js",
     "content": "/* global describe,it */\nimport { expect } from 'chai';\nimport { Observable } from 'rxjs/internal/Observable';\nimport { from } from 'rxjs/internal/observable/from';\nimport { Subject } from 'rxjs/internal/Subject';\nimport CommandBus from '../../../src/core/CommandBus';\nimport rxMap from '../../../src/map/RxMap';\nimport { registerAction } from '../../../src/core/registerAction';\nimport setProxy from '../../../src/core/proxyAction';\n\ndescribe('CommandBus', () => {\n  it('create new ActionBus', () => {\n    const actionBus = new CommandBus();\n    expect(actionBus).to.be.an.instanceof(CommandBus);\n    const ret = actionBus._lastAction;\n    expect(ret).to.deep.equal({\n      value: null,\n      name: null,\n    });\n  });\n\n  it('action Bus getSource', () => {\n    const actionBus = new CommandBus();\n    actionBus._source = 't';\n    const temp = actionBus.getSource();\n    expect(temp).to.be.eq('t');\n  });\n\n  it('action Bus getActionName', () => {\n    const actionBus = new CommandBus();\n    actionBus._executingAction = 'ppp';\n    const temp = actionBus.getActionName();\n    expect(temp).to.be.eq('ppp');\n  });\n\n  it('action Bus getValue', (done) => {\n    const actionBus = new CommandBus();\n    actionBus._lastAction = { value: 'rrr' };\n    actionBus.getValue().subscribe((res) => {\n      expect(res.value).to.have.eq('rrr');\n      done();\n    });\n  });\n\n  it('action Bus getContext', () => {\n    const actionBus = new CommandBus();\n    actionBus._source = { getContext: () => ({ test: '3' }) };\n    const temp = actionBus.getContext();\n    // eslint-disable-next-line no-unused-expressions\n    expect(temp).to.have.property('lastExecution');\n    expect(temp).to.have.property('source');\n    expect(temp).to.have.property('test');\n  });\n  it('executing', (done) => {\n    const actionBus = new CommandBus();\n    actionBus._source = { getContext: () => ({ test: '3' }), observer: () => from([3]) };\n    actionBus._actionsSubject = { next: () => '' };\n    const $res = actionBus._execute('test', () => 1, []);\n    $res.subscribe((res) => {\n      expect(res.value).to.have.eq(3);\n      done();\n    });\n  });\n  it('observer data ', () => {\n    const $stream = rxMap.observer([5]);\n    expect($stream).is.a.instanceOf(Observable);\n  });\n  it('observer error ', () => {\n    try {\n      rxMap.observer('kk');\n    } catch (err) {\n      expect(err).is.a.instanceOf(Error);\n    }\n  });\n  it(' action Subject', () => {\n    const _subject = rxMap._actionsSubject;\n    expect(_subject).to.have.instanceof(Subject);\n  });\n  it('observer action ', () => {\n    registerAction('test22', () => a => `r${a}`);\n    // rxMap._actionsSubject = new Subject();\n    rxMap.observerAction('test22').subscribe((res) => {\n      expect(res.value).to.have.eq('ra');\n    });\n    rxMap.test22('a');\n  });\n\n  it('observer action 2', () => {\n    registerAction('test32', () => a => `r${a}`);\n    registerAction('test33', () => a => `r${a}`);\n    rxMap.test32('a').test33();\n  });\n  it('action Subject', () => {\n    const obj = setProxy({});\n    const _subject = obj._actionsSubject;\n    expect(_subject).to.have.instanceof(Subject);\n    const _subject2 = obj._actionsSubject;\n    expect(_subject2).to.have.instanceof(Subject);\n  });\n});\n",
@@ -3867,7 +3887,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 160,
+    "__docId__": 161,
     "kind": "test",
     "name": "describe12",
     "testId": 12,
@@ -3880,7 +3900,7 @@
     "lineNumber": 11
   },
   {
-    "__docId__": 161,
+    "__docId__": 162,
     "kind": "test",
     "name": "it13",
     "testId": 13,
@@ -3893,7 +3913,7 @@
     "lineNumber": 12
   },
   {
-    "__docId__": 162,
+    "__docId__": 163,
     "kind": "test",
     "name": "it14",
     "testId": 14,
@@ -3906,7 +3926,7 @@
     "lineNumber": 22
   },
   {
-    "__docId__": 163,
+    "__docId__": 164,
     "kind": "test",
     "name": "it15",
     "testId": 15,
@@ -3919,7 +3939,7 @@
     "lineNumber": 29
   },
   {
-    "__docId__": 164,
+    "__docId__": 165,
     "kind": "test",
     "name": "it16",
     "testId": 16,
@@ -3932,7 +3952,7 @@
     "lineNumber": 36
   },
   {
-    "__docId__": 165,
+    "__docId__": 166,
     "kind": "test",
     "name": "it17",
     "testId": 17,
@@ -3945,7 +3965,7 @@
     "lineNumber": 45
   },
   {
-    "__docId__": 166,
+    "__docId__": 167,
     "kind": "test",
     "name": "it18",
     "testId": 18,
@@ -3958,7 +3978,7 @@
     "lineNumber": 54
   },
   {
-    "__docId__": 167,
+    "__docId__": 168,
     "kind": "test",
     "name": "it19",
     "testId": 19,
@@ -3971,7 +3991,7 @@
     "lineNumber": 64
   },
   {
-    "__docId__": 168,
+    "__docId__": 169,
     "kind": "test",
     "name": "it20",
     "testId": 20,
@@ -3984,7 +4004,7 @@
     "lineNumber": 68
   },
   {
-    "__docId__": 169,
+    "__docId__": 170,
     "kind": "test",
     "name": "it21",
     "testId": 21,
@@ -3997,7 +4017,7 @@
     "lineNumber": 75
   },
   {
-    "__docId__": 170,
+    "__docId__": 171,
     "kind": "test",
     "name": "it22",
     "testId": 22,
@@ -4010,7 +4030,7 @@
     "lineNumber": 79
   },
   {
-    "__docId__": 171,
+    "__docId__": 172,
     "kind": "test",
     "name": "it23",
     "testId": 23,
@@ -4023,7 +4043,7 @@
     "lineNumber": 88
   },
   {
-    "__docId__": 172,
+    "__docId__": 173,
     "kind": "test",
     "name": "it24",
     "testId": 24,
@@ -4036,7 +4056,7 @@
     "lineNumber": 93
   },
   {
-    "__docId__": 173,
+    "__docId__": 174,
     "kind": "testFile",
     "name": "test/unit/core/importLazyLoad.spec.js",
     "content": "/* global describe,it */\nimport { expect } from 'chai';\nimport {\n  loadLib,\n  addImportFunction,\n  loadCSS,\n} from '../../../src/core/importLazyLoad';\nimport { registerAction } from '../../../src/core/registerAction';\n\ndescribe('Import Lazy Load', function () {\n  this.timeout(2000);\n  it('load lib action define', async () => {\n    addImportFunction('test', () => Promise.resolve({ default: 'ttt' }));\n    registerAction('test', () => 'aa');\n    const res = await loadLib('test', 'leaflet', 'actions', { key: 'test', lib: 'test' });\n    expect(res).to.eq('ttt');\n  });\n  it('load lib action rxmap', async () => {\n    addImportFunction('rxmap', () => Promise.resolve({ default: () => 'aaa' }));\n    const res = await loadLib('rxmap', 'leaflet', 'actions', 'create', 'latest');\n    expect(res).to.be.a('function');\n  });\n  it('load lib action http', () => {\n    const res = loadLib('rxmap', 'leaflet', 'actions', { key: 'test', path: 'test' });\n    expect(res).to.be.a('promise');\n  });\n  it('load Css', async () => {\n    document.styleSheets[-1] = { href: 'https://unpkg.com/leaflet@1.3.3/dist/leaflet.css' };\n    const res = await loadCSS('https://unpkg.com/leaflet@1.3.3/dist/leaflet.css');\n    expect(res).to.be.a('HTMLLinkElement');\n  });\n});\n",
@@ -4047,7 +4067,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 174,
+    "__docId__": 175,
     "kind": "test",
     "name": "describe25",
     "testId": 25,
@@ -4060,7 +4080,7 @@
     "lineNumber": 10
   },
   {
-    "__docId__": 175,
+    "__docId__": 176,
     "kind": "test",
     "name": "it26",
     "testId": 26,
@@ -4073,7 +4093,7 @@
     "lineNumber": 12
   },
   {
-    "__docId__": 176,
+    "__docId__": 177,
     "kind": "test",
     "name": "it27",
     "testId": 27,
@@ -4086,7 +4106,7 @@
     "lineNumber": 18
   },
   {
-    "__docId__": 177,
+    "__docId__": 178,
     "kind": "test",
     "name": "it28",
     "testId": 28,
@@ -4099,7 +4119,7 @@
     "lineNumber": 23
   },
   {
-    "__docId__": 178,
+    "__docId__": 179,
     "kind": "test",
     "name": "it29",
     "testId": 29,
@@ -4112,7 +4132,7 @@
     "lineNumber": 27
   },
   {
-    "__docId__": 179,
+    "__docId__": 180,
     "kind": "testFile",
     "name": "test/unit/core/importMapLibrary.spec.js",
     "content": "/* global describe,it,before,after */\nimport { expect } from 'chai';\nimport sinon from 'sinon';\nimport * as GoogleMapsLoader from 'google-maps';\nimport importMapLibrary from '../../../src/map/importMapLibrary';\nimport * as loader from '../../../src/core/importLazyLoad';\n\ndescribe('Import Map Library', function () {\n  before(() => {\n    sinon.stub(GoogleMapsLoader, 'load').callsFake(func => func({ maps: 5 }));\n    sinon.stub(loader, 'loadCSS').callsFake(() => Promise.resolve());\n  });\n  after(() => {\n    GoogleMapsLoader.load.restore();\n    loader.loadCSS.restore();\n    // stub.loadGoogle.restore();\n    // stub.default.restore();\n  });\n  this.timeout(2000);\n  it('Import Google', async () => {\n    const lib = importMapLibrary('google', { key: 'ddd' });\n    expect(lib).to.be.a('promise');\n  });\n  it('Import Leaflet', async () => {\n    const lib = await importMapLibrary('leaflet');\n    expect(lib).to.be.a('object');\n  });\n  it('Import Mapbox', async () => {\n    window.URL.createObjectURL = () => { };\n    const lib = await importMapLibrary('mapbox');\n    expect(lib).to.be.a('object');\n  });\n  it('Import Error', (done) => {\n    importMapLibrary('aa').catch(() => done());\n  });\n});\n",
@@ -4123,7 +4143,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 180,
+    "__docId__": 181,
     "kind": "test",
     "name": "describe30",
     "testId": 30,
@@ -4136,7 +4156,7 @@
     "lineNumber": 8
   },
   {
-    "__docId__": 181,
+    "__docId__": 182,
     "kind": "test",
     "name": "it31",
     "testId": 31,
@@ -4149,7 +4169,7 @@
     "lineNumber": 20
   },
   {
-    "__docId__": 182,
+    "__docId__": 183,
     "kind": "test",
     "name": "it32",
     "testId": 32,
@@ -4162,7 +4182,7 @@
     "lineNumber": 24
   },
   {
-    "__docId__": 183,
+    "__docId__": 184,
     "kind": "test",
     "name": "it33",
     "testId": 33,
@@ -4175,7 +4195,7 @@
     "lineNumber": 28
   },
   {
-    "__docId__": 184,
+    "__docId__": 185,
     "kind": "test",
     "name": "it34",
     "testId": 34,
@@ -4188,7 +4208,7 @@
     "lineNumber": 33
   },
   {
-    "__docId__": 185,
+    "__docId__": 186,
     "kind": "testFile",
     "name": "test/unit/core/middleware.spec.js",
     "content": "/* global describe,it */\nimport { expect } from 'chai';\nimport CommandBus from '../../../src/core/CommandBus';\nimport { applyMiddlewares, registerMiddleware, subscribe } from '../../../src/core/middlewares';\n\ndescribe('Middlewares', () => {\n  it('apply middleware No paramas', () => {\n    registerMiddleware();\n    const func = () => () => 'asfas';\n    const newFunc = applyMiddlewares('test', func);\n    const actionBus = new CommandBus();\n    actionBus._source = { getContext: () => ({ test: '3' }) };\n    expect(newFunc(actionBus, [])).to.eq(func()());\n  });\n  it('apply middleware one', () => {\n    const f = next => (Map, args) => {\n      next(Map, args);\n      return 'bb';\n    };\n    registerMiddleware('testRegister', f);\n    const actionBus = new CommandBus();\n    actionBus._source = { getContext: () => ({ test: '3' }) };\n    const func = () => () => 'asfas';\n    const newFunc = applyMiddlewares('test', func);\n    const newFunc2 = applyMiddlewares('testRegister', func);\n    expect(newFunc(actionBus, [])).to.eq('asfas');\n    expect(newFunc2(actionBus, [])).to.eq('bb');\n  });\n  it('apply middleware all', () => {\n    const f = next => (Map, args) => {\n      next(Map, args);\n      return 'aa';\n    };\n    registerMiddleware(f);\n    const func = () => () => 'asfas';\n    const newFunc = applyMiddlewares('test', func);\n    const actionBus = new CommandBus();\n    actionBus._source = { getContext: () => ({ test: '3' }) };\n    expect(newFunc(actionBus, [])).to.eq('aa');\n  });\n  it('subscribe', () => new Promise((resolve) => {\n    const f = next => (Map, args) => next(Map, args);\n    subscribe(() => resolve());\n    registerMiddleware('f', f);\n  }));\n  it('subscribe all', () => new Promise((resolve) => {\n    const f = next => (Map, args) => next(Map, args);\n    subscribe(() => resolve());\n    registerMiddleware(f);\n  }));\n});\n",
@@ -4199,7 +4219,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 186,
+    "__docId__": 187,
     "kind": "test",
     "name": "describe35",
     "testId": 35,
@@ -4212,7 +4232,7 @@
     "lineNumber": 6
   },
   {
-    "__docId__": 187,
+    "__docId__": 188,
     "kind": "test",
     "name": "it36",
     "testId": 36,
@@ -4225,7 +4245,7 @@
     "lineNumber": 7
   },
   {
-    "__docId__": 188,
+    "__docId__": 189,
     "kind": "test",
     "name": "it37",
     "testId": 37,
@@ -4238,7 +4258,7 @@
     "lineNumber": 15
   },
   {
-    "__docId__": 189,
+    "__docId__": 190,
     "kind": "test",
     "name": "it38",
     "testId": 38,
@@ -4251,7 +4271,7 @@
     "lineNumber": 29
   },
   {
-    "__docId__": 190,
+    "__docId__": 191,
     "kind": "test",
     "name": "it39",
     "testId": 39,
@@ -4264,7 +4284,7 @@
     "lineNumber": 41
   },
   {
-    "__docId__": 191,
+    "__docId__": 192,
     "kind": "test",
     "name": "it40",
     "testId": 40,
@@ -4277,7 +4297,7 @@
     "lineNumber": 46
   },
   {
-    "__docId__": 192,
+    "__docId__": 193,
     "kind": "testFile",
     "name": "test/unit/core/observableStore.spec.js",
     "content": "/* global describe,it */\nimport { expect } from 'chai';\nimport observableStore from '../../../src/core/observableStore';\n\ndescribe('Register ObservableStore', () => {\n  it('add Observable function', (done) => {\n    const store = observableStore();\n    try {\n      store.observer = 5;\n    } catch (err) {\n      expect(err).to.have.instanceof(Error);\n      done();\n    }\n  });\n});\n",
@@ -4288,7 +4308,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 193,
+    "__docId__": 194,
     "kind": "test",
     "name": "describe41",
     "testId": 41,
@@ -4301,7 +4321,7 @@
     "lineNumber": 5
   },
   {
-    "__docId__": 194,
+    "__docId__": 195,
     "kind": "test",
     "name": "it42",
     "testId": 42,
@@ -4314,7 +4334,7 @@
     "lineNumber": 6
   },
   {
-    "__docId__": 195,
+    "__docId__": 196,
     "kind": "testFile",
     "name": "test/unit/core/proxyObservable.spec.js",
     "content": "/* global describe,it */\nimport { expect } from 'chai';\nimport { from } from 'rxjs/internal/observable/from';\nimport { Subject } from 'rxjs/internal/Subject';\nimport CommandBus from '../../../src/core/CommandBus';\nimport AsyncCommandBus from '../../../src/core/AsyncCommandBus';\nimport { observerFrom } from '../../../src/core/proxyObservable';\nimport { registerAction } from '../../../src/core/registerAction';\nimport { registerObserver } from '../../../src/core/registerObserver';\nimport rxMap from '../../../src/map/RxMap';\n\ndescribe('proxy Observable', () => {\n  const commandBus = new CommandBus();\n  commandBus._actionsSubject = new Subject();\n  commandBus._source = rxMap;\n\n  it('add Observable function', () => {\n    const $stream = from([1]);\n    const $$stream = observerFrom(commandBus)($stream);\n    const aux = $$stream.getCommandBus();\n    expect(aux).to.have.instanceof(AsyncCommandBus);\n  });\n  it('observer execute action', () => {\n    registerAction('test', () => () => 'r');\n    registerObserver('test', () => () => from([2]));\n    const $$stream = observerFrom(commandBus)('test');\n    $$stream.test().subscribe((res) => {\n      expect(res.value).to.have.eq('r');\n    });\n  });\n  it('observer execute action args', () => {\n    registerAction('test', () => a => `r${a}`);\n    registerObserver('test', () => () => from([2]));\n    const $$stream = observerFrom(commandBus)('test');\n    $$stream.test('bb').subscribe((res) => {\n      expect(res.value).to.have.eq('rbb');\n    });\n  });\n  it('observer execute action args function', () => {\n    registerAction('test', () => a => `r${a}`);\n    registerObserver('test', () => () => from([2]));\n    const $$stream = observerFrom(commandBus)('test');\n    $$stream.test(data => data).subscribe((res) => {\n      expect(res.value).to.have.eq('r2');\n    });\n  });\n});\n",
@@ -4325,7 +4345,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 196,
+    "__docId__": 197,
     "kind": "test",
     "name": "describe43",
     "testId": 43,
@@ -4338,7 +4358,7 @@
     "lineNumber": 12
   },
   {
-    "__docId__": 197,
+    "__docId__": 198,
     "kind": "test",
     "name": "it44",
     "testId": 44,
@@ -4351,7 +4371,7 @@
     "lineNumber": 17
   },
   {
-    "__docId__": 198,
+    "__docId__": 199,
     "kind": "test",
     "name": "it45",
     "testId": 45,
@@ -4364,7 +4384,7 @@
     "lineNumber": 23
   },
   {
-    "__docId__": 199,
+    "__docId__": 200,
     "kind": "test",
     "name": "it46",
     "testId": 46,
@@ -4377,7 +4397,7 @@
     "lineNumber": 31
   },
   {
-    "__docId__": 200,
+    "__docId__": 201,
     "kind": "test",
     "name": "it47",
     "testId": 47,
@@ -4390,7 +4410,7 @@
     "lineNumber": 39
   },
   {
-    "__docId__": 201,
+    "__docId__": 202,
     "kind": "testFile",
     "name": "test/unit/core/registerAction.spec.js",
     "content": "/* global describe,it */\nimport { expect } from 'chai';\nimport CommandBus from '../../../src/core/CommandBus';\nimport AsyncCommandBus from '../../../src/core/AsyncCommandBus';\nimport { registerMiddleware } from '../../../src/core/middlewares';\nimport {\n  registerAction, getAction, getActionInfo, getAllActionsName,\n} from '../../../src/core/registerAction';\nimport rxMap from '../../../src/map/RxMap';\n\ndescribe('Register Action', () => {\n  it('register action', () => {\n    registerAction('testRegister', () => () => 'testRegister');\n    const f = getAction('testRegister');\n    expect(f).to.be.a('function');\n  });\n  it('test getAllActionsName', () => {\n    registerAction('one', () => () => 'testRegister');\n    const names = getAllActionsName();\n    expect(names).to.be.a('array').that.includes('one');\n  });\n  it('function return asyncCommandBus', () => {\n    registerAction('testRegister', () => () => 'testRegister');\n    const res = rxMap.testRegister();\n    expect(res).to.instanceOf(AsyncCommandBus);\n  });\n  it('function create return CommandBus', () => {\n    registerAction('create', () => () => 'testRegister');\n    const res = rxMap.create('aa', 'bb');\n    expect(res).to.instanceOf(CommandBus);\n  });\n  it('getAction', () => {\n    const f = () => () => 'test';\n    registerAction('test', f);\n    const ff = getAction('test');\n    expect(ff).to.eq(f);\n  });\n  it('getActionInfo', () => {\n    const f = () => () => 'test';\n    const options = { test: 'test' };\n    registerAction('test', f, options);\n    const opt = getActionInfo('test');\n    expect(opt).to.eq(options);\n  });\n  it.skip('update all actions ', () => {\n    const f = () => () => 'test';\n    const func = next => (Map, args) => {\n      next(Map, args);\n      return 'bb';\n    };\n    registerAction('aaa', f);\n    const fBefore = rxMap.aaa;\n    registerMiddleware(func);\n    const fAfter = rxMap.aaa;\n    expect(fBefore).not.eq(fAfter);\n  });\n});\n",
@@ -4401,7 +4421,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 202,
+    "__docId__": 203,
     "kind": "test",
     "name": "describe48",
     "testId": 48,
@@ -4414,7 +4434,7 @@
     "lineNumber": 11
   },
   {
-    "__docId__": 203,
+    "__docId__": 204,
     "kind": "test",
     "name": "it49",
     "testId": 49,
@@ -4427,7 +4447,7 @@
     "lineNumber": 12
   },
   {
-    "__docId__": 204,
+    "__docId__": 205,
     "kind": "test",
     "name": "it50",
     "testId": 50,
@@ -4440,7 +4460,7 @@
     "lineNumber": 17
   },
   {
-    "__docId__": 205,
+    "__docId__": 206,
     "kind": "test",
     "name": "it51",
     "testId": 51,
@@ -4453,7 +4473,7 @@
     "lineNumber": 22
   },
   {
-    "__docId__": 206,
+    "__docId__": 207,
     "kind": "test",
     "name": "it52",
     "testId": 52,
@@ -4466,7 +4486,7 @@
     "lineNumber": 27
   },
   {
-    "__docId__": 207,
+    "__docId__": 208,
     "kind": "test",
     "name": "it53",
     "testId": 53,
@@ -4479,7 +4499,7 @@
     "lineNumber": 32
   },
   {
-    "__docId__": 208,
+    "__docId__": 209,
     "kind": "test",
     "name": "it54",
     "testId": 54,
@@ -4492,7 +4512,7 @@
     "lineNumber": 38
   },
   {
-    "__docId__": 209,
+    "__docId__": 210,
     "kind": "testFile",
     "name": "test/unit/core/registerObserver.spec.js",
     "content": "/* global describe,it */\nimport { expect } from 'chai';\nimport { Observable } from 'rxjs/internal/Observable';\nimport { of } from 'rxjs/internal/observable/of';\nimport rxMap from '../../../src/map/RxMap';\nimport { registerObserver } from '../../../src/core/registerObserver';\n\ndescribe('Register Observer', () => {\n  it('register Observable', () => {\n    expect(rxMap).to.respondTo('observer');\n    registerObserver('test', () => () => of(1));\n    const res = rxMap.observer('test');\n    const res2 = rxMap.observer(of(1)).observer('test');\n    expect(res).to.instanceOf(Observable);\n    expect(res2).to.instanceOf(Observable);\n  });\n  it('register and execute Observable', (done) => {\n    expect(rxMap).to.respondTo('observer');\n    registerObserver('test', () => () => of(1));\n    const $res = rxMap.observer('test');\n    $res.subscribe((res) => {\n      expect(res).to.have.eq(1);\n      done();\n    });\n  });\n});\n",
@@ -4503,7 +4523,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 210,
+    "__docId__": 211,
     "kind": "test",
     "name": "describe55",
     "testId": 55,
@@ -4516,7 +4536,7 @@
     "lineNumber": 8
   },
   {
-    "__docId__": 211,
+    "__docId__": 212,
     "kind": "test",
     "name": "it56",
     "testId": 56,
@@ -4529,7 +4549,7 @@
     "lineNumber": 9
   },
   {
-    "__docId__": 212,
+    "__docId__": 213,
     "kind": "test",
     "name": "it57",
     "testId": 57,
@@ -4542,7 +4562,7 @@
     "lineNumber": 17
   },
   {
-    "__docId__": 213,
+    "__docId__": 214,
     "kind": "testFile",
     "name": "test/unit/map/RxMap.spec.js",
     "content": "/* global describe,it,afterEach,beforeEach */\nimport { expect } from 'chai';\nimport sinon from 'sinon';\nimport rxMap, { RxMap } from '../../../src/map/RxMap';\nimport AsyncCommandBus from '../../../src/core/AsyncCommandBus';\nimport { registerAction } from '../../../src/core/registerAction';\nimport * as load from '../../../src/core/importLazyLoad';\nimport * as loadMap from '../../../src/map/importMapLibrary';\n\ndescribe('RxMap', () => {\n  it('create new Map Instances', () => {\n    const m = rxMap.init();\n    expect(Map).to.be.not.equal(m);\n  });\n  it('actions return AsyncCommand', () => {\n    registerAction('test', () => () => 'test');\n    const ret = rxMap.test();\n    expect(ret).to.be.an.instanceof(AsyncCommandBus);\n  });\n  it('getMap', () => {\n    rxMap._sourceMap = 5;\n    const res = rxMap.getMap();\n    expect(res).to.eq(5);\n  });\n  it('dataType', () => {\n    rxMap.setDataType('test', 'line', { a: 'aa' });\n    expect(rxMap.getDataType('test').style).to.have.property('a');\n  });\n  it('getMapLibrary', () => {\n    rxMap._nativeLibrary = 5;\n    expect(rxMap.getMapLibrary()).to.eq(5);\n    rxMap._nativeLibrary = null;\n    window.L = 5;\n    expect(rxMap.getMapLibrary()).to.eq(5);\n    window.L = null;\n    window.google = { maps: 5 };\n    expect(rxMap.getMapLibrary().maps).to.eq(5);\n  });\n  it('load', async () => {\n    try {\n      await rxMap.load('tt');\n    } catch (err) {\n      expect(err).is.a.instanceOf(Error);\n    }\n  });\n  describe('loads', () => {\n    let load_;\n    let loadMap_;\n    afterEach(() => {\n      loadMap_.restore();\n      load_.restore();\n    });\n    beforeEach(() => {\n      loadMap_ = sinon.stub(loadMap, 'default');\n      loadMap_.callsFake(() => Promise.resolve(5));\n      load_ = sinon.stub(load, 'loadLib');\n      load_.callsFake(() => Promise.resolve(() => 'aaaa'));\n    });\n    it('load', async () => {\n      const ret = await rxMap.load('leaflet');\n      expect(ret._nativeLibrary).to.eq(5);\n      // console.log(ret);\n    });\n    it('load map ', async () => {\n      registerAction('start', () => () => 6);\n      const ret = await rxMap.load('leaflet');\n      ret.start();\n      setTimeout(() => {\n        expect(ret._sourceMap).to.eq(6);\n      }, 20);\n      // console.log(ret);\n    });\n    it('load not', async () => {\n      const ret = await rxMap.load('test');\n      expect(ret._nativeLibrary).to.eq(5);\n      // console.log(ret);\n    });\n    it('get getMapLibrary null', () => {\n      rxMap._nativeLibrary = false;\n      window.L = false;\n      window.google = false;\n      const m = rxMap.getMapLibrary();\n      // eslint-disable-next-line no-unused-expressions\n      expect(m).to.have.null;\n    });\n    it('new', () => {\n      const m = new RxMap();\n      expect(m).to.be.an.instanceof(RxMap);\n    });\n    it('observer Data', (done) => {\n      const m = new RxMap();\n      m.observerData('.').subscribe((data) => {\n        expect(data.value).to.eq(5);\n        done();\n      });\n      m.store.test = 5;\n      // console.log(ret);\n    });\n  });\n});\n",
@@ -4553,7 +4573,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 214,
+    "__docId__": 215,
     "kind": "test",
     "name": "describe58",
     "testId": 58,
@@ -4566,7 +4586,7 @@
     "lineNumber": 10
   },
   {
-    "__docId__": 215,
+    "__docId__": 216,
     "kind": "test",
     "name": "it59",
     "testId": 59,
@@ -4579,7 +4599,7 @@
     "lineNumber": 11
   },
   {
-    "__docId__": 216,
+    "__docId__": 217,
     "kind": "test",
     "name": "it60",
     "testId": 60,
@@ -4592,7 +4612,7 @@
     "lineNumber": 15
   },
   {
-    "__docId__": 217,
+    "__docId__": 218,
     "kind": "test",
     "name": "it61",
     "testId": 61,
@@ -4605,7 +4625,7 @@
     "lineNumber": 20
   },
   {
-    "__docId__": 218,
+    "__docId__": 219,
     "kind": "test",
     "name": "it62",
     "testId": 62,
@@ -4618,7 +4638,7 @@
     "lineNumber": 25
   },
   {
-    "__docId__": 219,
+    "__docId__": 220,
     "kind": "test",
     "name": "it63",
     "testId": 63,
@@ -4631,7 +4651,7 @@
     "lineNumber": 29
   },
   {
-    "__docId__": 220,
+    "__docId__": 221,
     "kind": "test",
     "name": "it64",
     "testId": 64,
@@ -4644,7 +4664,7 @@
     "lineNumber": 39
   },
   {
-    "__docId__": 221,
+    "__docId__": 222,
     "kind": "test",
     "name": "describe65",
     "testId": 65,
@@ -4657,7 +4677,7 @@
     "lineNumber": 46
   },
   {
-    "__docId__": 222,
+    "__docId__": 223,
     "kind": "test",
     "name": "it66",
     "testId": 66,
@@ -4670,7 +4690,7 @@
     "lineNumber": 59
   },
   {
-    "__docId__": 223,
+    "__docId__": 224,
     "kind": "test",
     "name": "it67",
     "testId": 67,
@@ -4683,7 +4703,7 @@
     "lineNumber": 64
   },
   {
-    "__docId__": 224,
+    "__docId__": 225,
     "kind": "test",
     "name": "it68",
     "testId": 68,
@@ -4696,7 +4716,7 @@
     "lineNumber": 73
   },
   {
-    "__docId__": 225,
+    "__docId__": 226,
     "kind": "test",
     "name": "it69",
     "testId": 69,
@@ -4709,7 +4729,7 @@
     "lineNumber": 78
   },
   {
-    "__docId__": 226,
+    "__docId__": 227,
     "kind": "test",
     "name": "it70",
     "testId": 70,
@@ -4722,7 +4742,7 @@
     "lineNumber": 86
   },
   {
-    "__docId__": 227,
+    "__docId__": 228,
     "kind": "test",
     "name": "it71",
     "testId": 71,
@@ -4735,7 +4755,7 @@
     "lineNumber": 90
   },
   {
-    "__docId__": 228,
+    "__docId__": 229,
     "kind": "testFile",
     "name": "test/unit/utils/google.spec.js",
     "content": "/* global describe,it,after,before */\nimport { expect } from 'chai';\nimport * as GoogleMapsLoader from 'google-maps';\nimport * as google from '../../../src/utils/google';\n\ndescribe('google', () => {\n  before(async () => {\n    GoogleMapsLoader.isLoaded = false;\n    GoogleMapsLoader.default.load = f => f({ maps: 5 });\n  });\n\n  after(() => {\n    // stub.restore();\n    // google.default.restore();\n    // GoogleMapsLoader.load.restore();\n  });\n\n  it('load Google', () => {\n    const g = google.loadGoogle('444');\n    return g.then((res) => {\n      expect(res.maps).to.eq(5);\n    });\n  });\n\n  it('get google', () => {\n    const g = google.default();\n    expect(g).to.eq(5);\n  });\n});\n",
@@ -4746,7 +4766,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 229,
+    "__docId__": 230,
     "kind": "test",
     "name": "describe72",
     "testId": 72,
@@ -4759,7 +4779,7 @@
     "lineNumber": 6
   },
   {
-    "__docId__": 230,
+    "__docId__": 231,
     "kind": "test",
     "name": "it73",
     "testId": 73,
@@ -4772,7 +4792,7 @@
     "lineNumber": 18
   },
   {
-    "__docId__": 231,
+    "__docId__": 232,
     "kind": "test",
     "name": "it74",
     "testId": 74,

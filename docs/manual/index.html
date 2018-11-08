@@ -101,7 +101,7 @@
 <p><a href="https://xlab.tech"><img src="https://avatars0.githubusercontent.com/u/37194013?s=400&amp;u=692377e91a2dab11006abb01d0db33cdb211c9b8&amp;v=4" height="64"></a>
 &#xA0;&#xA0;
 <a href="https://join.slack.com/t/xlab-tech/shared_invite/enQtNDIwMzg1MTA2NjA5LTljZWNkZjliNjhhNTc4MTQ0OWVkNTAwMTE0NmU2YTllYTE5YzllZjM2NTQ1ZmNkMDRmMGI0NWE0NGRiZGIxNmE"><img src="https://cdn.icon-icons.com/icons2/923/PNG/512/slack_alt_icon-icons.com_72013.png" height="64"></a></p>
-<p>RxMap es una &quot;Wrapper&quot; para las librer&#xED;as de mapas que a&#xF1;ade programaci&#xF3;n funcional y reactiva usando observables(<a href="https://github.com/ReactiveX/rxjs">RxJs</a>) , que permite f&#xE1;cilmente anidar llamadas asyncronas y que permite disponer de diferentes libreras de mapas con la misma interfaz.</p>
+<p>RxMap es una &quot;Wrapper&quot; para las librer&#xED;as de mapas que a&#xF1;ade programaci&#xF3;n funcional y reactiva usando observables(<a href="https://github.com/ReactiveX/rxjs">RxJs</a>) , permite f&#xE1;cilmente anidar llamadas asyncronas , permite disponer de diferentes libreras de mapas con la misma interfaz y incluye la opcion de trabajar offline.</p>
 <p>RxMap no sustituye al visor sino que a&#xF1;ade a los visores actuales una capa adicional para poder mejorar el mantenimiento de tus proyectos. Y a&#xF1;ade funcionalidades adicionales para mejorar la performance y la escalabilidad de tu c&#xF3;digo.</p>
 <p>RxMap se basa en tres conceptos acciones , observadores y funciones para organizar tu c&#xF3;digo en peque&#xF1;os bloques. Y tambi&#xE9;n te permite escribir middlewares para desacoplar mejor tu c&#xF3;digo.</p>
 <p>De facto incluye observables sobre las acciones y un store obsevable, para poder observar  los cambios sobre datos que guardes.</p>
@@ -115,10 +115,11 @@
 <li>Store Observable.</li>
 <li>Trabaja con multiples mapas, sin cambiar tu c&#xF3;digo.</li>
 <li>Reutilizaci&#xF3;n de c&#xF3;digo entre diferentes proyectos.</li>
+<li>Offline</li>
 </ul>
 <h2 id="instalaci&#xF3;n">Instalaci&#xF3;n</h2><h3 id="npm">NPM</h3><pre><code><code class="source-code prettyprint">Npm install @rxmap\rxmap &#x2014;save</code>
 </code></pre><h3 id="cdn">CDN</h3><pre><code><code class="source-code prettyprint">&lt;head&gt;
-&lt;script type=&#x2018;application/javascript&#x2019; src=&#x2018;https://unpkg.com/@rxmap/rxmap@0.1.0&#x2019; defer/&gt;
+&lt;script type=&#x2018;application/javascript&#x2019; src=&#x2018;https://unpkg.com/@rxmap/rxmap@0.5.0&#x2019; defer/&gt;
 &lt;/head&gt;
 </code>
 </code></pre><h2 id="como-utilizarla">Como utilizarla</h2><p>Lo ideal es tener las acciones y los observadores en librer&#xED;as externas, lo primero seria registrar estas librer&#xED;as para poder utilizarlas</p>
@@ -182,6 +183,13 @@ Para hacer un PullRequest:</p>
 <li><a href="https://developers.arcgis.com/javascript/">esri</a></li>
 <li><a href="https://carto.com/">carto</a></li>
 </ul>
+<h1 id="offline">Offline</h1><p>El offline funciona a trav&#xE9;s de un serviceWorker que se encarga de cachear todas las peticiones para que posteriormente puedas acceder a ellas sin cobertura.</p>
+<p>Para poder trabajar offline hay que incluir el fichero sw.js en la misma ruta donde
+esta RxMap.
+El fichero sw.js debe incluir esta linea</p>
+<pre><code><code class="source-code prettyprint">importScripts(&apos;https://unpkg.com/@rxmap/offlinestorage@0.4.0/dist/esm/offline-sw.js&apos;)
+`</code>
+</code></pre><p>para poder activar al serviceWorker que se encargara de cachear las peticiones.</p>
 </div>
 
   

@@ -162,6 +162,12 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
+    "@rxmap/rxmap/rxmap/src/index.js~offline",
+    "variable/index.html#static-variable-offline",
+    "<span>offline</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/index.js</span>",
+    "variable"
+  ],
+  [
     "@rxmap/rxmap/rxmap/src/core/registeraction.js~registeraction",
     "function/index.html#static-function-registerAction",
     "<span>registerAction</span> <span class=\"search-result-import-path\">@rxmap/rxmap/RxMap/src/core/registerAction.js</span>",
@@ -247,13 +253,13 @@ window.esdocSearchIndex = [
   ],
   [
     "",
-    "test-file/test/unit/core/asyncCommandBus.spec.js.html#lineNumber64",
+    "test-file/test/unit/core/asyncCommandBus.spec.js.html#lineNumber17",
     "AsyncCommandBus action Bus getValue",
     "test"
   ],
   [
     "",
-    "test-file/test/unit/core/asyncCommandBus.spec.js.html#lineNumber17",
+    "test-file/test/unit/core/asyncCommandBus.spec.js.html#lineNumber64",
     "AsyncCommandBus action Bus getValue",
     "test"
   ],

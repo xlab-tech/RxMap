@@ -38,6 +38,7 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-RxMapFromConfig">RxMapFromConfig</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-addMapLibrary">addMapLibrary</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-middlewares">middlewares</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-offline">offline</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-registerAction">registerAction</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-registerFunction">registerFunction</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-registerLib">registerLib</a></span></span></li>
@@ -74,7 +75,7 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">RxMap/src/index.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { start, addStatic } from &apos;@rxmap/offlinestorage&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { start, addStatic, addLayer } from &apos;@rxmap/offlinestorage&apos;;
 import &apos;./utils/polyfill&apos;;
 import * as _register from &apos;./core/registerAction&apos;;
 import * as _registerFunction from &apos;./core/resgisterFunction&apos;;
@@ -126,6 +127,8 @@ export const middlewares = _middlewares;
 
 export const { addMapLibrary } = _mapLibray;
 
+export const offline = { addStatic, addLayer };
+
 export default {
   registerFunction,
   registerAction,
@@ -137,6 +140,7 @@ export default {
   RxMapFromConfig,
   middlewares,
   addMapLibrary,
+  offline,
 };
 const fileSrc = getSrc();
 

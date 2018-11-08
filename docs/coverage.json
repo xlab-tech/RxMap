@@ -1,6 +1,6 @@
 {
-  "coverage": "47.78%",
-  "expectCount": 113,
+  "coverage": "47.36%",
+  "expectCount": 114,
   "actualCount": 54,
   "files": {
     "RxMap/lib.js": {
@@ -116,12 +116,13 @@
       ]
     },
     "RxMap/src/index.js": {
-      "expectCount": 11,
+      "expectCount": 12,
       "actualCount": 8,
       "undocumentLines": [
         49,
         51,
-        65
+        53,
+        68
       ]
     },
     "RxMap/src/map/RxMap.js": {
